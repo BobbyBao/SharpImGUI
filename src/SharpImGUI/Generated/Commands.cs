@@ -1664,10 +1664,10 @@ namespace SharpImGUI
 			SetTabItemClosed_ptr(tab_or_docked_window_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, ImGuiDockNodeFlags, ImGuiWindowClass*, void> DockSpace_ptr;
-		public static void DockSpace(ImGuiID id, ImVec2 size, ImGuiDockNodeFlags flags, ImGuiWindowClass* window_class)
+		static delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, ImGuiDockNodeFlags, ImGuiWindowClass*, ImGuiID> DockSpace_ptr;
+		public static ImGuiID DockSpace(ImGuiID id, ImVec2 size, ImGuiDockNodeFlags flags, ImGuiWindowClass* window_class)
 		{
-			DockSpace_ptr(id, size, flags, window_class);
+			return DockSpace_ptr(id, size, flags, window_class);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiViewport*, ImGuiDockNodeFlags, ImGuiWindowClass*, ImGuiID> DockSpaceOverViewport_ptr;
@@ -2196,6 +2196,12 @@ namespace SharpImGUI
 		public static void SetAllocatorFunctions(IntPtr alloc_func, IntPtr free_func, void* user_data)
 		{
 			SetAllocatorFunctions_ptr(alloc_func, free_func, user_data);
+		}
+
+		static delegate* unmanaged[Stdcall]<IntPtr*, IntPtr*, void*, void> GetAllocatorFunctions_ptr;
+		public static void GetAllocatorFunctions(IntPtr* p_alloc_func, IntPtr* p_free_func, void* p_user_data)
+		{
+			GetAllocatorFunctions_ptr(p_alloc_func, p_free_func, p_user_data);
 		}
 
 		static delegate* unmanaged[Stdcall]<IntPtr, void*> MemAlloc_ptr;
@@ -2864,16 +2870,16 @@ namespace SharpImGUI
 			ImDrawList_AddLine_ptr(self, p1, p2, col, thickness);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawCornerFlags, float, void> ImDrawList_AddRect_ptr;
-		public static void ImDrawList_AddRect(ImDrawList* self, ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawCornerFlags rounding_corners, float thickness)
+		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, float, void> ImDrawList_AddRect_ptr;
+		public static void ImDrawList_AddRect(ImDrawList* self, ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags, float thickness)
 		{
-			ImDrawList_AddRect_ptr(self, p_min, p_max, col, rounding, rounding_corners, thickness);
+			ImDrawList_AddRect_ptr(self, p_min, p_max, col, rounding, flags, thickness);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawCornerFlags, void> ImDrawList_AddRectFilled_ptr;
-		public static void ImDrawList_AddRectFilled(ImDrawList* self, ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawCornerFlags rounding_corners)
+		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, void> ImDrawList_AddRectFilled_ptr;
+		public static void ImDrawList_AddRectFilled(ImDrawList* self, ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags)
 		{
-			ImDrawList_AddRectFilled_ptr(self, p_min, p_max, col, rounding, rounding_corners);
+			ImDrawList_AddRectFilled_ptr(self, p_min, p_max, col, rounding, flags);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, uint, uint, uint, void> ImDrawList_AddRectFilledMultiColor_ptr;
@@ -2942,10 +2948,10 @@ namespace SharpImGUI
 			ImDrawList_AddTextFontPtr_ptr(self, font, font_size, pos, col, text_begin, text_end, wrap_width, cpu_fine_clip_rect);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2*, int, uint, bool, float, void> ImDrawList_AddPolyline_ptr;
-		public static void ImDrawList_AddPolyline(ImDrawList* self, ImVec2* points, int num_points, uint col, bool closed, float thickness)
+		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2*, int, uint, ImDrawFlags, float, void> ImDrawList_AddPolyline_ptr;
+		public static void ImDrawList_AddPolyline(ImDrawList* self, ImVec2* points, int num_points, uint col, ImDrawFlags flags, float thickness)
 		{
-			ImDrawList_AddPolyline_ptr(self, points, num_points, col, closed, thickness);
+			ImDrawList_AddPolyline_ptr(self, points, num_points, col, flags, thickness);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2*, int, uint, void> ImDrawList_AddConvexPolyFilled_ptr;
@@ -2978,10 +2984,10 @@ namespace SharpImGUI
 			ImDrawList_AddImageQuad_ptr(self, user_texture_id, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, ImDrawCornerFlags, void> ImDrawList_AddImageRounded_ptr;
-		public static void ImDrawList_AddImageRounded(ImDrawList* self, ImTextureID user_texture_id, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col, float rounding, ImDrawCornerFlags rounding_corners)
+		static delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, ImDrawFlags, void> ImDrawList_AddImageRounded_ptr;
+		public static void ImDrawList_AddImageRounded(ImDrawList* self, ImTextureID user_texture_id, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col, float rounding, ImDrawFlags flags)
 		{
-			ImDrawList_AddImageRounded_ptr(self, user_texture_id, p_min, p_max, uv_min, uv_max, col, rounding, rounding_corners);
+			ImDrawList_AddImageRounded_ptr(self, user_texture_id, p_min, p_max, uv_min, uv_max, col, rounding, flags);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_PathClear_ptr;
@@ -3008,10 +3014,10 @@ namespace SharpImGUI
 			ImDrawList_PathFillConvex_ptr(self, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, uint, bool, float, void> ImDrawList_PathStroke_ptr;
-		public static void ImDrawList_PathStroke(ImDrawList* self, uint col, bool closed, float thickness)
+		static delegate* unmanaged[Stdcall]<ImDrawList*, uint, ImDrawFlags, float, void> ImDrawList_PathStroke_ptr;
+		public static void ImDrawList_PathStroke(ImDrawList* self, uint col, ImDrawFlags flags, float thickness)
 		{
-			ImDrawList_PathStroke_ptr(self, col, closed, thickness);
+			ImDrawList_PathStroke_ptr(self, col, flags, thickness);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, float, float, int, void> ImDrawList_PathArcTo_ptr;
@@ -3038,10 +3044,10 @@ namespace SharpImGUI
 			ImDrawList_PathBezierQuadraticCurveTo_ptr(self, p2, p3, num_segments);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, float, ImDrawCornerFlags, void> ImDrawList_PathRect_ptr;
-		public static void ImDrawList_PathRect(ImDrawList* self, ImVec2 rect_min, ImVec2 rect_max, float rounding, ImDrawCornerFlags rounding_corners)
+		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, float, ImDrawFlags, void> ImDrawList_PathRect_ptr;
+		public static void ImDrawList_PathRect(ImDrawList* self, ImVec2 rect_min, ImVec2 rect_max, float rounding, ImDrawFlags flags)
 		{
-			ImDrawList_PathRect_ptr(self, rect_min, rect_max, rounding, rounding_corners);
+			ImDrawList_PathRect_ptr(self, rect_min, rect_max, rounding, flags);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, IntPtr, void*, void> ImDrawList_AddCallback_ptr;
@@ -3168,6 +3174,18 @@ namespace SharpImGUI
 		public static int ImDrawList__CalcCircleAutoSegmentCount(ImDrawList* self, float radius)
 		{
 			return ImDrawList__CalcCircleAutoSegmentCount_ptr(self, radius);
+		}
+
+		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, int, int, int, void> ImDrawList__PathArcToFastEx_ptr;
+		public static void ImDrawList__PathArcToFastEx(ImDrawList* self, ImVec2 center, float radius, int a_min_sample, int a_max_sample, int a_step)
+		{
+			ImDrawList__PathArcToFastEx_ptr(self, center, radius, a_min_sample, a_max_sample, a_step);
+		}
+
+		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, float, float, int, void> ImDrawList__PathArcToN_ptr;
+		public static void ImDrawList__PathArcToN(ImDrawList* self, ImVec2 center, float radius, float a_min, float a_max, int num_segments)
+		{
+			ImDrawList__PathArcToN_ptr(self, center, radius, a_min, a_max, num_segments);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawData*> ImDrawData_ImDrawData_ptr;
@@ -4128,6 +4146,12 @@ namespace SharpImGUI
 		public static float ImRect_GetHeight(ImRect* self)
 		{
 			return ImRect_GetHeight_ptr(self);
+		}
+
+		static delegate* unmanaged[Stdcall]<ImRect*, float> ImRect_GetArea_ptr;
+		public static float ImRect_GetArea(ImRect* self)
+		{
+			return ImRect_GetArea_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetTL_ptr;
@@ -5204,6 +5228,12 @@ namespace SharpImGUI
 			DestroyPlatformWindow_ptr(viewport);
 		}
 
+		static delegate* unmanaged[Stdcall]<ImGuiViewport*, ImGuiPlatformMonitor*> GetViewportPlatformMonitor_ptr;
+		public static ImGuiPlatformMonitor* GetViewportPlatformMonitor(ImGuiViewport* viewport)
+		{
+			return GetViewportPlatformMonitor_ptr(viewport);
+		}
+
 		static delegate* unmanaged[Stdcall]<void> MarkIniSettingsDirtyNil_ptr;
 		public static void MarkIniSettingsDirtyNil()
 		{
@@ -5600,16 +5630,10 @@ namespace SharpImGUI
 			ActivateItem_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, int, ImGuiID, void> SetNavID_ptr;
-		public static void SetNavID(ImGuiID id, int nav_layer, ImGuiID focus_scope_id)
+		static delegate* unmanaged[Stdcall]<ImGuiID, int, ImGuiID, ImRect, void> SetNavID_ptr;
+		public static void SetNavID(ImGuiID id, int nav_layer, ImGuiID focus_scope_id, ImRect rect_rel)
 		{
-			SetNavID_ptr(id, nav_layer, focus_scope_id);
-		}
-
-		static delegate* unmanaged[Stdcall]<ImGuiID, int, ImGuiID, ImRect, void> SetNavIDWithRectRel_ptr;
-		public static void SetNavIDWithRectRel(ImGuiID id, int nav_layer, ImGuiID focus_scope_id, ImRect rect_rel)
-		{
-			SetNavIDWithRectRel_ptr(id, nav_layer, focus_scope_id, rect_rel);
+			SetNavID_ptr(id, nav_layer, focus_scope_id, rect_rel);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiID, void> PushFocusScope_ptr;
@@ -6362,10 +6386,10 @@ namespace SharpImGUI
 			RenderFrameBorder_ptr(p_min, p_max, rounding);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImVec2, float, int, void> RenderColorRectWithAlphaCheckerboard_ptr;
-		public static void RenderColorRectWithAlphaCheckerboard(ImDrawList* draw_list, ImVec2 p_min, ImVec2 p_max, uint fill_col, float grid_step, ImVec2 grid_off, float rounding, int rounding_corners_flags)
+		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImVec2, float, ImDrawFlags, void> RenderColorRectWithAlphaCheckerboard_ptr;
+		public static void RenderColorRectWithAlphaCheckerboard(ImDrawList* draw_list, ImVec2 p_min, ImVec2 p_max, uint fill_col, float grid_step, ImVec2 grid_off, float rounding, ImDrawFlags flags)
 		{
-			RenderColorRectWithAlphaCheckerboard_ptr(draw_list, p_min, p_max, fill_col, grid_step, grid_off, rounding, rounding_corners_flags);
+			RenderColorRectWithAlphaCheckerboard_ptr(draw_list, p_min, p_max, fill_col, grid_step, grid_off, rounding, flags);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiNavHighlightFlags, void> RenderNavHighlight_ptr;
@@ -6464,10 +6488,10 @@ namespace SharpImGUI
 			Scrollbar_ptr(axis);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiAxis, float*, float, float, ImDrawCornerFlags, bool> ScrollbarEx_ptr;
-		public static bool ScrollbarEx(ImRect bb, ImGuiID id, ImGuiAxis axis, float* p_scroll_v, float avail_v, float contents_v, ImDrawCornerFlags rounding_corners)
+		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiAxis, float*, float, float, ImDrawFlags, bool> ScrollbarEx_ptr;
+		public static bool ScrollbarEx(ImRect bb, ImGuiID id, ImGuiAxis axis, float* p_scroll_v, float avail_v, float contents_v, ImDrawFlags flags)
 		{
-			return ScrollbarEx_ptr(bb, id, axis, p_scroll_v, avail_v, contents_v, rounding_corners);
+			return ScrollbarEx_ptr(bb, id, axis, p_scroll_v, avail_v, contents_v, flags);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiID, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, ImVec4, ImVec4, bool> ImageButtonEx_ptr;
@@ -7148,7 +7172,7 @@ namespace SharpImGUI
 			EndTabItem_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndTabItem");
 			TabItemButton_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiTabItemFlags, bool>)load(context, "igTabItemButton");
 			SetTabItemClosed_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igSetTabItemClosed");
-			DockSpace_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, ImGuiDockNodeFlags, ImGuiWindowClass*, void>)load(context, "igDockSpace");
+			DockSpace_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, ImGuiDockNodeFlags, ImGuiWindowClass*, ImGuiID>)load(context, "igDockSpace");
 			DockSpaceOverViewport_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewport*, ImGuiDockNodeFlags, ImGuiWindowClass*, ImGuiID>)load(context, "igDockSpaceOverViewport");
 			SetNextWindowDockID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiCond, void>)load(context, "igSetNextWindowDockID");
 			SetNextWindowClass_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindowClass*, void>)load(context, "igSetNextWindowClass");
@@ -7237,6 +7261,7 @@ namespace SharpImGUI
 			SaveIniSettingsToMemory_ptr = (delegate* unmanaged[Stdcall]<IntPtr*, byte*>)load(context, "igSaveIniSettingsToMemory");
 			DebugCheckVersionAndDataLayout_ptr = (delegate* unmanaged[Stdcall]<byte*, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, bool>)load(context, "igDebugCheckVersionAndDataLayout");
 			SetAllocatorFunctions_ptr = (delegate* unmanaged[Stdcall]<IntPtr, IntPtr, void*, void>)load(context, "igSetAllocatorFunctions");
+			GetAllocatorFunctions_ptr = (delegate* unmanaged[Stdcall]<IntPtr*, IntPtr*, void*, void>)load(context, "igGetAllocatorFunctions");
 			MemAlloc_ptr = (delegate* unmanaged[Stdcall]<IntPtr, void*>)load(context, "igMemAlloc");
 			MemFree_ptr = (delegate* unmanaged[Stdcall]<void*, void>)load(context, "igMemFree");
 			GetPlatformIO_ptr = (delegate* unmanaged[Stdcall]<ImGuiPlatformIO*>)load(context, "igGetPlatformIO");
@@ -7348,8 +7373,8 @@ namespace SharpImGUI
 			ImDrawList_GetClipRectMin_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImDrawList*, void>)load(context, "ImDrawList_GetClipRectMin");
 			ImDrawList_GetClipRectMax_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImDrawList*, void>)load(context, "ImDrawList_GetClipRectMax");
 			ImDrawList_AddLine_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, void>)load(context, "ImDrawList_AddLine");
-			ImDrawList_AddRect_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawCornerFlags, float, void>)load(context, "ImDrawList_AddRect");
-			ImDrawList_AddRectFilled_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawCornerFlags, void>)load(context, "ImDrawList_AddRectFilled");
+			ImDrawList_AddRect_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, float, void>)load(context, "ImDrawList_AddRect");
+			ImDrawList_AddRectFilled_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, void>)load(context, "ImDrawList_AddRectFilled");
 			ImDrawList_AddRectFilledMultiColor_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, uint, uint, uint, void>)load(context, "ImDrawList_AddRectFilledMultiColor");
 			ImDrawList_AddQuad_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, void>)load(context, "ImDrawList_AddQuad");
 			ImDrawList_AddQuadFilled_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_AddQuadFilled");
@@ -7361,23 +7386,23 @@ namespace SharpImGUI
 			ImDrawList_AddNgonFilled_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, void>)load(context, "ImDrawList_AddNgonFilled");
 			ImDrawList_AddTextVec2_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, byte*, byte*, void>)load(context, "ImDrawList_AddTextVec2");
 			ImDrawList_AddTextFontPtr_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImFont*, float, ImVec2, uint, byte*, byte*, float, ImVec4*, void>)load(context, "ImDrawList_AddTextFontPtr");
-			ImDrawList_AddPolyline_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2*, int, uint, bool, float, void>)load(context, "ImDrawList_AddPolyline");
+			ImDrawList_AddPolyline_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2*, int, uint, ImDrawFlags, float, void>)load(context, "ImDrawList_AddPolyline");
 			ImDrawList_AddConvexPolyFilled_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2*, int, uint, void>)load(context, "ImDrawList_AddConvexPolyFilled");
 			ImDrawList_AddBezierCubic_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, int, void>)load(context, "ImDrawList_AddBezierCubic");
 			ImDrawList_AddBezierQuadratic_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, float, int, void>)load(context, "ImDrawList_AddBezierQuadratic");
 			ImDrawList_AddImage_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_AddImage");
 			ImDrawList_AddImageQuad_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_AddImageQuad");
-			ImDrawList_AddImageRounded_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, ImDrawCornerFlags, void>)load(context, "ImDrawList_AddImageRounded");
+			ImDrawList_AddImageRounded_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, ImDrawFlags, void>)load(context, "ImDrawList_AddImageRounded");
 			ImDrawList_PathClear_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList_PathClear");
 			ImDrawList_PathLineTo_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, void>)load(context, "ImDrawList_PathLineTo");
 			ImDrawList_PathLineToMergeDuplicate_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, void>)load(context, "ImDrawList_PathLineToMergeDuplicate");
 			ImDrawList_PathFillConvex_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, uint, void>)load(context, "ImDrawList_PathFillConvex");
-			ImDrawList_PathStroke_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, uint, bool, float, void>)load(context, "ImDrawList_PathStroke");
+			ImDrawList_PathStroke_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, uint, ImDrawFlags, float, void>)load(context, "ImDrawList_PathStroke");
 			ImDrawList_PathArcTo_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, float, float, int, void>)load(context, "ImDrawList_PathArcTo");
 			ImDrawList_PathArcToFast_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, int, int, void>)load(context, "ImDrawList_PathArcToFast");
 			ImDrawList_PathBezierCubicCurveTo_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, int, void>)load(context, "ImDrawList_PathBezierCubicCurveTo");
 			ImDrawList_PathBezierQuadraticCurveTo_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, int, void>)load(context, "ImDrawList_PathBezierQuadraticCurveTo");
-			ImDrawList_PathRect_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, float, ImDrawCornerFlags, void>)load(context, "ImDrawList_PathRect");
+			ImDrawList_PathRect_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, float, ImDrawFlags, void>)load(context, "ImDrawList_PathRect");
 			ImDrawList_AddCallback_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, IntPtr, void*, void>)load(context, "ImDrawList_AddCallback");
 			ImDrawList_AddDrawCmd_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList_AddDrawCmd");
 			ImDrawList_CloneOutput_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImDrawList*>)load(context, "ImDrawList_CloneOutput");
@@ -7399,6 +7424,8 @@ namespace SharpImGUI
 			ImDrawList__OnChangedTextureID_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList__OnChangedTextureID");
 			ImDrawList__OnChangedVtxOffset_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList__OnChangedVtxOffset");
 			ImDrawList__CalcCircleAutoSegmentCount_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, float, int>)load(context, "ImDrawList__CalcCircleAutoSegmentCount");
+			ImDrawList__PathArcToFastEx_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, int, int, int, void>)load(context, "ImDrawList__PathArcToFastEx");
+			ImDrawList__PathArcToN_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, float, float, int, void>)load(context, "ImDrawList__PathArcToN");
 			ImDrawData_ImDrawData_ptr = (delegate* unmanaged[Stdcall]<ImDrawData*>)load(context, "ImDrawData_ImDrawData");
 			ImDrawData_destroy_ptr = (delegate* unmanaged[Stdcall]<ImDrawData*, void>)load(context, "ImDrawData_destroy");
 			ImDrawData_Clear_ptr = (delegate* unmanaged[Stdcall]<ImDrawData*, void>)load(context, "ImDrawData_Clear");
@@ -7559,6 +7586,7 @@ namespace SharpImGUI
 			ImRect_GetSize_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetSize");
 			ImRect_GetWidth_ptr = (delegate* unmanaged[Stdcall]<ImRect*, float>)load(context, "ImRect_GetWidth");
 			ImRect_GetHeight_ptr = (delegate* unmanaged[Stdcall]<ImRect*, float>)load(context, "ImRect_GetHeight");
+			ImRect_GetArea_ptr = (delegate* unmanaged[Stdcall]<ImRect*, float>)load(context, "ImRect_GetArea");
 			ImRect_GetTL_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetTL");
 			ImRect_GetTR_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetTR");
 			ImRect_GetBL_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetBL");
@@ -7738,6 +7766,7 @@ namespace SharpImGUI
 			TranslateWindowsInViewport_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewportP*, ImVec2, ImVec2, void>)load(context, "igTranslateWindowsInViewport");
 			ScaleWindowsInViewport_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewportP*, float, void>)load(context, "igScaleWindowsInViewport");
 			DestroyPlatformWindow_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewportP*, void>)load(context, "igDestroyPlatformWindow");
+			GetViewportPlatformMonitor_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewport*, ImGuiPlatformMonitor*>)load(context, "igGetViewportPlatformMonitor");
 			MarkIniSettingsDirtyNil_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igMarkIniSettingsDirtyNil");
 			MarkIniSettingsDirtyWindowPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "igMarkIniSettingsDirtyWindowPtr");
 			ClearIniSettings_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igClearIniSettings");
@@ -7804,8 +7833,7 @@ namespace SharpImGUI
 			GetNavInputAmount2d_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImGuiNavDirSourceFlags, ImGuiInputReadMode, float, float, void>)load(context, "igGetNavInputAmount2d");
 			CalcTypematicRepeatAmount_ptr = (delegate* unmanaged[Stdcall]<float, float, float, float, int>)load(context, "igCalcTypematicRepeatAmount");
 			ActivateItem_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igActivateItem");
-			SetNavID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, int, ImGuiID, void>)load(context, "igSetNavID");
-			SetNavIDWithRectRel_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, int, ImGuiID, ImRect, void>)load(context, "igSetNavIDWithRectRel");
+			SetNavID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, int, ImGuiID, ImRect, void>)load(context, "igSetNavID");
 			PushFocusScope_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igPushFocusScope");
 			PopFocusScope_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igPopFocusScope");
 			GetFocusedFocusScope_ptr = (delegate* unmanaged[Stdcall]<ImGuiID>)load(context, "igGetFocusedFocusScope");
@@ -7931,7 +7959,7 @@ namespace SharpImGUI
 			RenderTextEllipsis_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, float, float, byte*, byte*, ImVec2*, void>)load(context, "igRenderTextEllipsis");
 			RenderFrame_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, uint, bool, float, void>)load(context, "igRenderFrame");
 			RenderFrameBorder_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, float, void>)load(context, "igRenderFrameBorder");
-			RenderColorRectWithAlphaCheckerboard_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImVec2, float, int, void>)load(context, "igRenderColorRectWithAlphaCheckerboard");
+			RenderColorRectWithAlphaCheckerboard_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImVec2, float, ImDrawFlags, void>)load(context, "igRenderColorRectWithAlphaCheckerboard");
 			RenderNavHighlight_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiNavHighlightFlags, void>)load(context, "igRenderNavHighlight");
 			FindRenderedTextEnd_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, byte*>)load(context, "igFindRenderedTextEnd");
 			RenderArrow_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, ImGuiDir, float, void>)load(context, "igRenderArrow");
@@ -7948,7 +7976,7 @@ namespace SharpImGUI
 			CollapseButton_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, ImGuiDockNode*, bool>)load(context, "igCollapseButton");
 			ArrowButtonEx_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDir, ImVec2, ImGuiButtonFlags, bool>)load(context, "igArrowButtonEx");
 			Scrollbar_ptr = (delegate* unmanaged[Stdcall]<ImGuiAxis, void>)load(context, "igScrollbar");
-			ScrollbarEx_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiAxis, float*, float, float, ImDrawCornerFlags, bool>)load(context, "igScrollbarEx");
+			ScrollbarEx_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiAxis, float*, float, float, ImDrawFlags, bool>)load(context, "igScrollbarEx");
 			ImageButtonEx_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, ImVec4, ImVec4, bool>)load(context, "igImageButtonEx");
 			GetWindowScrollbarRect_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImGuiWindow*, ImGuiAxis, void>)load(context, "igGetWindowScrollbarRect");
 			GetWindowScrollbarID_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiAxis, ImGuiID>)load(context, "igGetWindowScrollbarID");

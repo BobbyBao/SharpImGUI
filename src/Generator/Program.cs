@@ -28,7 +28,7 @@ namespace Generator
                 }
             }
 
-            CsCodeGenerator.Generate(compilation, "../../../../SharpImGUI/SharpImGUI/Generated/");
+            CsCodeGenerator.Generate(compilation, "../../../../src/SharpImGUI/Generated/");
 
         }
     }

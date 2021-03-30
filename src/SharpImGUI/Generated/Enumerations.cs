@@ -37,9 +37,9 @@ namespace SharpImGUI
 	{
 		None = 0,
 		Mouse = 1,
-		Nav = 2,
-		NavKeyboard = 3,
-		NavGamepad = 4,
+		Keyboard = 2,
+		Gamepad = 3,
+		Nav = 4,
 		COUNT = 5,
 	}
 
@@ -125,7 +125,7 @@ namespace SharpImGUI
 		AllowTabInput = 1024,
 		CtrlEnterForNewLine = 2048,
 		NoHorizontalScroll = 4096,
-		AlwaysInsertMode = 8192,
+		AlwaysOverwrite = 8192,
 		ReadOnly = 16384,
 		Password = 32768,
 		NoUndoRedo = 65536,
@@ -672,18 +672,22 @@ namespace SharpImGUI
 	}
 
 	[Flags]
-	public enum ImDrawCornerFlags
+	public enum ImDrawFlags
 	{
 		None = 0,
-		TopLeft = 1,
-		TopRight = 2,
-		BotLeft = 4,
-		BotRight = 8,
-		Top = 3,
-		Bot = 12,
-		Left = 5,
-		Right = 10,
-		All = 15,
+		Closed = 1,
+		RoundCornersTopLeft = 16,
+		RoundCornersTopRight = 32,
+		RoundCornersBottomLeft = 64,
+		RoundCornersBottomRight = 128,
+		RoundCornersNone = 256,
+		RoundCornersTop = 48,
+		RoundCornersBottom = 192,
+		RoundCornersLeft = 80,
+		RoundCornersRight = 160,
+		RoundCornersAll = 240,
+		RoundCornersDefault = RoundCornersAll,
+		RoundCornersMask = 496,
 	}
 
 	[Flags]
@@ -750,6 +754,7 @@ namespace SharpImGUI
 		ToggledOpen = 16,
 		HasDeactivated = 32,
 		Deactivated = 64,
+		HoveredWindow = 128,
 	}
 
 	public enum ImGuiButtonFlagsPrivate

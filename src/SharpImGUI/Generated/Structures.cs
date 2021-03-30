@@ -94,7 +94,7 @@ namespace SharpImGUI
 		public int CmdListsCount;
 		public int TotalIdxCount;
 		public int TotalVtxCount;
-		public unsafe ImDrawList* CmdLists;
+		public unsafe ImDrawList** CmdLists;
 		public ImVec2 DisplayPos;
 		public ImVec2 DisplaySize;
 		public ImVec2 FramebufferScale;
@@ -179,6 +179,43 @@ namespace SharpImGUI
 		public ImVec2 ArcFastVtx_9;
 		public ImVec2 ArcFastVtx_10;
 		public ImVec2 ArcFastVtx_11;
+		public ImVec2 ArcFastVtx_12;
+		public ImVec2 ArcFastVtx_13;
+		public ImVec2 ArcFastVtx_14;
+		public ImVec2 ArcFastVtx_15;
+		public ImVec2 ArcFastVtx_16;
+		public ImVec2 ArcFastVtx_17;
+		public ImVec2 ArcFastVtx_18;
+		public ImVec2 ArcFastVtx_19;
+		public ImVec2 ArcFastVtx_20;
+		public ImVec2 ArcFastVtx_21;
+		public ImVec2 ArcFastVtx_22;
+		public ImVec2 ArcFastVtx_23;
+		public ImVec2 ArcFastVtx_24;
+		public ImVec2 ArcFastVtx_25;
+		public ImVec2 ArcFastVtx_26;
+		public ImVec2 ArcFastVtx_27;
+		public ImVec2 ArcFastVtx_28;
+		public ImVec2 ArcFastVtx_29;
+		public ImVec2 ArcFastVtx_30;
+		public ImVec2 ArcFastVtx_31;
+		public ImVec2 ArcFastVtx_32;
+		public ImVec2 ArcFastVtx_33;
+		public ImVec2 ArcFastVtx_34;
+		public ImVec2 ArcFastVtx_35;
+		public ImVec2 ArcFastVtx_36;
+		public ImVec2 ArcFastVtx_37;
+		public ImVec2 ArcFastVtx_38;
+		public ImVec2 ArcFastVtx_39;
+		public ImVec2 ArcFastVtx_40;
+		public ImVec2 ArcFastVtx_41;
+		public ImVec2 ArcFastVtx_42;
+		public ImVec2 ArcFastVtx_43;
+		public ImVec2 ArcFastVtx_44;
+		public ImVec2 ArcFastVtx_45;
+		public ImVec2 ArcFastVtx_46;
+		public ImVec2 ArcFastVtx_47;
+		public float ArcFastRadiusCutoff;
 		public unsafe fixed byte CircleSegmentCounts[64];
 		public unsafe ImVec4* TexUvLines;
 	}
@@ -232,11 +269,12 @@ namespace SharpImGUI
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImFontAtlas
 	{
-		public bool Locked;
 		public ImFontAtlasFlags Flags;
 		public ImTextureID TexID;
 		public int TexDesiredWidth;
 		public int TexGlyphPadding;
+		public bool Locked;
+		public bool TexPixelsUseColors;
 		public unsafe byte* TexPixelsAlpha8;
 		public unsafe uint* TexPixelsRGBA32;
 		public int TexWidth;
@@ -2044,7 +2082,6 @@ namespace SharpImGUI
 		public int WindowsActiveCount;
 		public unsafe ImGuiWindow* CurrentWindow;
 		public unsafe ImGuiWindow* HoveredWindow;
-		public unsafe ImGuiWindow* HoveredRootWindow;
 		public unsafe ImGuiWindow* HoveredWindowUnderMovingWindow;
 		public unsafe ImGuiDockNode* HoveredDockNode;
 		public unsafe ImGuiWindow* MovingWindow;
@@ -2098,6 +2135,7 @@ namespace SharpImGUI
 		public unsafe ImGuiViewportP* MouseViewport;
 		public unsafe ImGuiViewportP* MouseLastHoveredViewport;
 		public ImGuiID PlatformLastFocusedViewportId;
+		public ImGuiPlatformMonitor FallbackMonitor;
 		public int ViewportFrontMostStampCount;
 		public unsafe ImGuiWindow* NavWindow;
 		public ImGuiID NavId;
@@ -2143,13 +2181,13 @@ namespace SharpImGUI
 		public float NavWindowingTimer;
 		public float NavWindowingHighlightAlpha;
 		public bool NavWindowingToggleLayer;
-		public unsafe ImGuiWindow* FocusRequestCurrWindow;
-		public unsafe ImGuiWindow* FocusRequestNextWindow;
-		public int FocusRequestCurrCounterRegular;
-		public int FocusRequestCurrCounterTabStop;
-		public int FocusRequestNextCounterRegular;
-		public int FocusRequestNextCounterTabStop;
-		public bool FocusTabPressed;
+		public unsafe ImGuiWindow* TabFocusRequestCurrWindow;
+		public unsafe ImGuiWindow* TabFocusRequestNextWindow;
+		public int TabFocusRequestCurrCounterRegular;
+		public int TabFocusRequestCurrCounterTabStop;
+		public int TabFocusRequestNextCounterRegular;
+		public int TabFocusRequestNextCounterTabStop;
+		public bool TabFocusPressed;
 		public float DimBgRatio;
 		public ImGuiMouseCursor MouseCursor;
 		public bool DragDropActive;
@@ -2584,6 +2622,7 @@ namespace SharpImGUI
 		public float BackupCurrLineTextBaseOffset;
 		public ImGuiID BackupActiveIdIsAlive;
 		public bool BackupActiveIdPreviousFrameIsAlive;
+		public bool BackupHoveredIdIsAlive;
 		public bool EmitItem;
 	}
 
@@ -2941,12 +2980,12 @@ namespace SharpImGUI
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImDrawIdx));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImDrawVert));
 			 System.Diagnostics.Debug.Assert(20 == sizeof(ImDrawVert));
-			 System.Diagnostics.Debug.Assert(216 == sizeof(ImDrawListSharedData));
+			 System.Diagnostics.Debug.Assert(512 == sizeof(ImDrawListSharedData));
 			 System.Diagnostics.Debug.Assert(112 == sizeof(ImFont));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_float));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImWchar));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImFontGlyph));
-			 System.Diagnostics.Debug.Assert(1160 == sizeof(ImFontAtlas));
+			 System.Diagnostics.Debug.Assert(1168 == sizeof(ImFontAtlas));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImFontPtr));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImFontAtlasCustomRect));
 			 System.Diagnostics.Debug.Assert(32 == sizeof(ImFontAtlasCustomRect));
@@ -3000,7 +3039,7 @@ namespace SharpImGUI
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImGuiTableColumnSortSpecs));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImGuiTableSortSpecs));
 			 System.Diagnostics.Debug.Assert(72 == sizeof(ImGuiSettingsHandler));
-			 System.Diagnostics.Debug.Assert(16224 == sizeof(ImGuiContext));
+			 System.Diagnostics.Debug.Assert(16552 == sizeof(ImGuiContext));
 			 System.Diagnostics.Debug.Assert(5456 == sizeof(ImGuiIO));
 			 System.Diagnostics.Debug.Assert(224 == sizeof(ImGuiPlatformIO));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImGuiPlatformMonitor));

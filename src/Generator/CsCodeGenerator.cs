@@ -51,7 +51,8 @@ namespace Generator
             { "ImGuiDockNodeSettings*", "IntPtr" },
             { "ImGuiDockRequest*", "IntPtr" },
 
-            //{ "ImVec2", "System.Numerics.Vector2" },
+            { "ImGuiMemAllocFunc", "IntPtr" },
+            { "ImGuiMemFreeFunc", "IntPtr" },
             //{ "ImVec3", "System.Numerics.Vector3" },
             //{ "ImVec4", "System.Numerics.Vector4" },
 

@@ -126,13 +126,14 @@ namespace SharpImGUI
 
         public void GetTexDataAsRGBA32(out byte* out_pixels, out int out_width, out int out_height, out int out_bytes_per_pixel)
         {
-            byte** o_pixels = null;
-            int o_width, o_height, o_bytes_per_pixel;
-            ImGui.ImFontAtlas_GetTexDataAsRGBA32(self, (byte*)&o_pixels, &o_width, &o_height, &o_bytes_per_pixel);
-            out_pixels = *o_pixels;
-            out_width = o_width;
-            out_height = o_height;
-            out_bytes_per_pixel = o_bytes_per_pixel;
+            fixed (byte** o_pixels = &out_pixels)
+            {
+                int o_width, o_height, o_bytes_per_pixel;
+                ImGui.ImFontAtlas_GetTexDataAsRGBA32(self, (byte*)o_pixels, &o_width, &o_height, &o_bytes_per_pixel);               
+                out_width = o_width;
+                out_height = o_height;
+                out_bytes_per_pixel = o_bytes_per_pixel;
+            }
         }
 
         public bool ImFontAtlas_IsBuilt()
@@ -182,7 +183,7 @@ namespace SharpImGUI
         public ref int CmdListsCount => ref native->CmdListsCount;
         public ref int TotalIdxCount => ref native->TotalIdxCount;
         public ref int TotalVtxCount => ref native->TotalVtxCount;
-        public ImDrawListPtr CmdLists => new ImDrawListPtr(native->CmdLists);
+        public Ptr<ImDrawListPtr> CmdLists => new Ptr<ImDrawListPtr>((ImDrawListPtr*)native->CmdLists);
         public ref ImVec2 DisplayPos => ref native->DisplayPos;
         public ref ImVec2 DisplaySize => ref native->DisplaySize;
         public ref ImVec2 FramebufferScale => ref native->FramebufferScale;
@@ -203,5 +204,8 @@ namespace SharpImGUI
         }
 
         public ref ImDrawList this[int index] => ref native[index];
+        public ImVector<ImDrawCmd> CmdBuffer => native->CmdBuffer;
+        public ImVector_ImDrawIdx IdxBuffer => native->IdxBuffer;
+        public ImVector_ImDrawVert VtxBuffer => native->VtxBuffer;
     }
 }
