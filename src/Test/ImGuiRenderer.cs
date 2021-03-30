@@ -39,6 +39,7 @@ namespace ImGuiNET.SampleProgram.XNA
 
         public ImGuiRenderer(Game game)
         {
+            ImGui.CheckSize();
             ImGui.Init();
             var context = ImGui.CreateContext(null);
             ImGui.SetCurrentContext(context);
@@ -332,7 +333,7 @@ namespace ImGuiNET.SampleProgram.XNA
 
             for (int n = 0; n < drawData.CmdListsCount; n++)
             {
-                ref ImDrawList cmdList = ref drawData.CmdLists[n];
+                ImDrawListPtr cmdList = drawData.CmdLists[n];
 
                 for (int cmdi = 0; cmdi < cmdList.CmdBuffer.Size; cmdi++)
                 {

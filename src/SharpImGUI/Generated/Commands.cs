@@ -2198,8 +2198,8 @@ namespace SharpImGUI
 			SetAllocatorFunctions_ptr(alloc_func, free_func, user_data);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr*, IntPtr*, void*, void> GetAllocatorFunctions_ptr;
-		public static void GetAllocatorFunctions(IntPtr* p_alloc_func, IntPtr* p_free_func, void* p_user_data)
+		static delegate* unmanaged[Stdcall]<IntPtr*, IntPtr*, void**, void> GetAllocatorFunctions_ptr;
+		public static void GetAllocatorFunctions(IntPtr* p_alloc_func, IntPtr* p_free_func, void** p_user_data)
 		{
 			GetAllocatorFunctions_ptr(p_alloc_func, p_free_func, p_user_data);
 		}
@@ -2660,8 +2660,8 @@ namespace SharpImGUI
 			return ImGuiStorage_GetFloatRef_ptr(self, key, default_val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, void*, void*> ImGuiStorage_GetVoidPtrRef_ptr;
-		public static void* ImGuiStorage_GetVoidPtrRef(ImGuiStorage* self, ImGuiID key, void* default_val)
+		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, void*, void**> ImGuiStorage_GetVoidPtrRef_ptr;
+		public static void** ImGuiStorage_GetVoidPtrRef(ImGuiStorage* self, ImGuiID key, void* default_val)
 		{
 			return ImGuiStorage_GetVoidPtrRef_ptr(self, key, default_val);
 		}
@@ -3380,14 +3380,14 @@ namespace SharpImGUI
 			return ImFontAtlas_Build_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, byte*, int*, int*, int*, void> ImFontAtlas_GetTexDataAsAlpha8_ptr;
-		public static void ImFontAtlas_GetTexDataAsAlpha8(ImFontAtlas* self, byte* out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel)
+		static delegate* unmanaged[Stdcall]<ImFontAtlas*, byte**, int*, int*, int*, void> ImFontAtlas_GetTexDataAsAlpha8_ptr;
+		public static void ImFontAtlas_GetTexDataAsAlpha8(ImFontAtlas* self, byte** out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel)
 		{
 			ImFontAtlas_GetTexDataAsAlpha8_ptr(self, out_pixels, out_width, out_height, out_bytes_per_pixel);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, byte*, int*, int*, int*, void> ImFontAtlas_GetTexDataAsRGBA32_ptr;
-		public static void ImFontAtlas_GetTexDataAsRGBA32(ImFontAtlas* self, byte* out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel)
+		static delegate* unmanaged[Stdcall]<ImFontAtlas*, byte**, int*, int*, int*, void> ImFontAtlas_GetTexDataAsRGBA32_ptr;
+		public static void ImFontAtlas_GetTexDataAsRGBA32(ImFontAtlas* self, byte** out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel)
 		{
 			ImFontAtlas_GetTexDataAsRGBA32_ptr(self, out_pixels, out_width, out_height, out_bytes_per_pixel);
 		}
@@ -3524,8 +3524,8 @@ namespace SharpImGUI
 			return ImFont_GetDebugName_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImFont*, float, float, float, byte*, byte*, byte*, void> ImFont_CalcTextSizeA_ptr;
-		public static void ImFont_CalcTextSizeA(ImVec2* @out, ImFont* self, float size, float max_width, float wrap_width, byte* text_begin, byte* text_end, byte* remaining)
+		static delegate* unmanaged[Stdcall]<ImVec2*, ImFont*, float, float, float, byte*, byte*, byte**, void> ImFont_CalcTextSizeA_ptr;
+		public static void ImFont_CalcTextSizeA(ImVec2* @out, ImFont* self, float size, float max_width, float wrap_width, byte* text_begin, byte* text_end, byte** remaining)
 		{
 			ImFont_CalcTextSizeA_ptr(@out, self, size, max_width, wrap_width, text_begin, text_end, remaining);
 		}
@@ -3806,8 +3806,8 @@ namespace SharpImGUI
 			return ImTextCharFromUtf8_ptr(out_char, in_text, in_text_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<char*, int, byte*, byte*, byte*, int> ImTextStrFromUtf8_ptr;
-		public static int ImTextStrFromUtf8(char* buf, int buf_size, byte* in_text, byte* in_text_end, byte* in_remaining)
+		static delegate* unmanaged[Stdcall]<char*, int, byte*, byte*, byte**, int> ImTextStrFromUtf8_ptr;
+		public static int ImTextStrFromUtf8(char* buf, int buf_size, byte* in_text, byte* in_text_end, byte** in_remaining)
 		{
 			return ImTextStrFromUtf8_ptr(buf, buf_size, in_text, in_text_end, in_remaining);
 		}
@@ -7261,7 +7261,7 @@ namespace SharpImGUI
 			SaveIniSettingsToMemory_ptr = (delegate* unmanaged[Stdcall]<IntPtr*, byte*>)load(context, "igSaveIniSettingsToMemory");
 			DebugCheckVersionAndDataLayout_ptr = (delegate* unmanaged[Stdcall]<byte*, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, bool>)load(context, "igDebugCheckVersionAndDataLayout");
 			SetAllocatorFunctions_ptr = (delegate* unmanaged[Stdcall]<IntPtr, IntPtr, void*, void>)load(context, "igSetAllocatorFunctions");
-			GetAllocatorFunctions_ptr = (delegate* unmanaged[Stdcall]<IntPtr*, IntPtr*, void*, void>)load(context, "igGetAllocatorFunctions");
+			GetAllocatorFunctions_ptr = (delegate* unmanaged[Stdcall]<IntPtr*, IntPtr*, void**, void>)load(context, "igGetAllocatorFunctions");
 			MemAlloc_ptr = (delegate* unmanaged[Stdcall]<IntPtr, void*>)load(context, "igMemAlloc");
 			MemFree_ptr = (delegate* unmanaged[Stdcall]<void*, void>)load(context, "igMemFree");
 			GetPlatformIO_ptr = (delegate* unmanaged[Stdcall]<ImGuiPlatformIO*>)load(context, "igGetPlatformIO");
@@ -7338,7 +7338,7 @@ namespace SharpImGUI
 			ImGuiStorage_GetIntRef_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, int, int*>)load(context, "ImGuiStorage_GetIntRef");
 			ImGuiStorage_GetBoolRef_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, bool, bool*>)load(context, "ImGuiStorage_GetBoolRef");
 			ImGuiStorage_GetFloatRef_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, float, float*>)load(context, "ImGuiStorage_GetFloatRef");
-			ImGuiStorage_GetVoidPtrRef_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, void*, void*>)load(context, "ImGuiStorage_GetVoidPtrRef");
+			ImGuiStorage_GetVoidPtrRef_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, void*, void**>)load(context, "ImGuiStorage_GetVoidPtrRef");
 			ImGuiStorage_SetAllInt_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, int, void>)load(context, "ImGuiStorage_SetAllInt");
 			ImGuiStorage_BuildSortByKey_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, void>)load(context, "ImGuiStorage_BuildSortByKey");
 			ImGuiListClipper_ImGuiListClipper_ptr = (delegate* unmanaged[Stdcall]<ImGuiListClipper*>)load(context, "ImGuiListClipper_ImGuiListClipper");
@@ -7458,8 +7458,8 @@ namespace SharpImGUI
 			ImFontAtlas_ClearFonts_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, void>)load(context, "ImFontAtlas_ClearFonts");
 			ImFontAtlas_Clear_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, void>)load(context, "ImFontAtlas_Clear");
 			ImFontAtlas_Build_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, bool>)load(context, "ImFontAtlas_Build");
-			ImFontAtlas_GetTexDataAsAlpha8_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, byte*, int*, int*, int*, void>)load(context, "ImFontAtlas_GetTexDataAsAlpha8");
-			ImFontAtlas_GetTexDataAsRGBA32_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, byte*, int*, int*, int*, void>)load(context, "ImFontAtlas_GetTexDataAsRGBA32");
+			ImFontAtlas_GetTexDataAsAlpha8_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, byte**, int*, int*, int*, void>)load(context, "ImFontAtlas_GetTexDataAsAlpha8");
+			ImFontAtlas_GetTexDataAsRGBA32_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, byte**, int*, int*, int*, void>)load(context, "ImFontAtlas_GetTexDataAsRGBA32");
 			ImFontAtlas_IsBuilt_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, bool>)load(context, "ImFontAtlas_IsBuilt");
 			ImFontAtlas_SetTexID_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImTextureID, void>)load(context, "ImFontAtlas_SetTexID");
 			ImFontAtlas_GetGlyphRangesDefault_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesDefault");
@@ -7482,7 +7482,7 @@ namespace SharpImGUI
 			ImFont_GetCharAdvance_ptr = (delegate* unmanaged[Stdcall]<ImFont*, char, float>)load(context, "ImFont_GetCharAdvance");
 			ImFont_IsLoaded_ptr = (delegate* unmanaged[Stdcall]<ImFont*, bool>)load(context, "ImFont_IsLoaded");
 			ImFont_GetDebugName_ptr = (delegate* unmanaged[Stdcall]<ImFont*, byte*>)load(context, "ImFont_GetDebugName");
-			ImFont_CalcTextSizeA_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImFont*, float, float, float, byte*, byte*, byte*, void>)load(context, "ImFont_CalcTextSizeA");
+			ImFont_CalcTextSizeA_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImFont*, float, float, float, byte*, byte*, byte**, void>)load(context, "ImFont_CalcTextSizeA");
 			ImFont_CalcWordWrapPositionA_ptr = (delegate* unmanaged[Stdcall]<ImFont*, float, byte*, byte*, float, byte*>)load(context, "ImFont_CalcWordWrapPositionA");
 			ImFont_RenderChar_ptr = (delegate* unmanaged[Stdcall]<ImFont*, ImDrawList*, float, ImVec2, uint, char, void>)load(context, "ImFont_RenderChar");
 			ImFont_RenderText_ptr = (delegate* unmanaged[Stdcall]<ImFont*, ImDrawList*, float, ImVec2, uint, ImVec4, byte*, byte*, float, bool, void>)load(context, "ImFont_RenderText");
@@ -7529,7 +7529,7 @@ namespace SharpImGUI
 			ImCharIsBlankW_ptr = (delegate* unmanaged[Stdcall]<uint, bool>)load(context, "igImCharIsBlankW");
 			ImTextStrToUtf8_ptr = (delegate* unmanaged[Stdcall]<byte*, int, char*, char*, int>)load(context, "igImTextStrToUtf8");
 			ImTextCharFromUtf8_ptr = (delegate* unmanaged[Stdcall]<uint*, byte*, byte*, int>)load(context, "igImTextCharFromUtf8");
-			ImTextStrFromUtf8_ptr = (delegate* unmanaged[Stdcall]<char*, int, byte*, byte*, byte*, int>)load(context, "igImTextStrFromUtf8");
+			ImTextStrFromUtf8_ptr = (delegate* unmanaged[Stdcall]<char*, int, byte*, byte*, byte**, int>)load(context, "igImTextStrFromUtf8");
 			ImTextCountCharsFromUtf8_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, int>)load(context, "igImTextCountCharsFromUtf8");
 			ImTextCountUtf8BytesFromChar_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, int>)load(context, "igImTextCountUtf8BytesFromChar");
 			ImTextCountUtf8BytesFromStr_ptr = (delegate* unmanaged[Stdcall]<char*, char*, int>)load(context, "igImTextCountUtf8BytesFromStr");

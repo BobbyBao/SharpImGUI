@@ -119,20 +119,22 @@ namespace SharpImGUI
             return ImGui.ImFontAtlas_Build(self);
         }
 
-        public void GetTexDataAsAlpha8(byte* out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel)
+        public void GetTexDataAsAlpha8(out byte* out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel)
         {
-            ImGui.ImFontAtlas_GetTexDataAsAlpha8(self, out_pixels, out_width, out_height, out_bytes_per_pixel);
+            fixed (byte** o_pixels = &out_pixels)
+            {
+                ImGui.ImFontAtlas_GetTexDataAsAlpha8(self, o_pixels, out_width, out_height, out_bytes_per_pixel);
+            }
         }
 
         public void GetTexDataAsRGBA32(out byte* out_pixels, out int out_width, out int out_height, out int out_bytes_per_pixel)
         {
             fixed (byte** o_pixels = &out_pixels)
+            fixed (int* o_width = &out_width)
+            fixed (int* o_height = &out_height)
+            fixed (int* o_bytes_per_pixel = &out_bytes_per_pixel)
             {
-                int o_width, o_height, o_bytes_per_pixel;
-                ImGui.ImFontAtlas_GetTexDataAsRGBA32(self, (byte*)o_pixels, &o_width, &o_height, &o_bytes_per_pixel);               
-                out_width = o_width;
-                out_height = o_height;
-                out_bytes_per_pixel = o_bytes_per_pixel;
+                ImGui.ImFontAtlas_GetTexDataAsRGBA32(self, o_pixels, o_width, o_height, o_bytes_per_pixel);               
             }
         }
 
