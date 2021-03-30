@@ -19,14 +19,18 @@ namespace SharpImGUI
 
         public static implicit operator ImGuiIOPtr(ImGuiIO* native) => new ImGuiIOPtr(native);
 
-        public ref float DeltaTime => ref self->DeltaTime;
+        public ref ImGuiConfigFlags ConfigFlags => ref self->ConfigFlags;
+        public ref ImGuiBackendFlags BackendFlags => ref self->BackendFlags;
         public ref ImVec2 DisplaySize => ref self->DisplaySize;
+        public ref float DeltaTime => ref self->DeltaTime;
+
+        public Ptr<int> KeyMap => self->KeyMap;
+
 
         public ref ImVec2 DisplayFramebufferScale => ref self->DisplayFramebufferScale;
 
         public ImFontAtlasPtr Fonts => self->Fonts;
 
-        public Ptr<int> KeyMap => self->KeyMap;
 
         public ref System.Numerics.Vector2 MousePos => ref self->MousePos;
         public Ptr<bool> MouseDown => self->MouseDown;
@@ -51,7 +55,7 @@ namespace SharpImGUI
             ImGui.ImGuiIO_AddInputCharacterUTF16(self, c);
         }
 
-        public void AddInputCharactersUTF8(byte* str)
+        public void AddInputCharactersUTF8(string str)
         {
             ImGui.ImGuiIO_AddInputCharactersUTF8(self, str);
         }
@@ -84,7 +88,7 @@ namespace SharpImGUI
             return ImGui.ImFontAtlas_AddFontDefault(self, font_cfg);
         }
 
-        public ImFont* AddFontFromFileTTF(byte* filename, float size_pixels, ImFontConfig* font_cfg, char* glyph_ranges)
+        public ImFont* AddFontFromFileTTF(string filename, float size_pixels, ImFontConfig* font_cfg, char* glyph_ranges)
         {
             return ImGui.ImFontAtlas_AddFontFromFileTTF(self, filename, size_pixels, font_cfg, glyph_ranges);
         }
@@ -123,7 +127,7 @@ namespace SharpImGUI
         {
             fixed (byte** o_pixels = &out_pixels)
             {
-                ImGui.ImFontAtlas_GetTexDataAsAlpha8(self, o_pixels, out_width, out_height, out_bytes_per_pixel);
+                ImGui.ImFontAtlas_GetTexDataAsAlpha8(self, (byte*)o_pixels, out_width, out_height, out_bytes_per_pixel);
             }
         }
 
@@ -134,7 +138,7 @@ namespace SharpImGUI
             fixed (int* o_height = &out_height)
             fixed (int* o_bytes_per_pixel = &out_bytes_per_pixel)
             {
-                ImGui.ImFontAtlas_GetTexDataAsRGBA32(self, o_pixels, o_width, o_height, o_bytes_per_pixel);               
+                ImGui.ImFontAtlas_GetTexDataAsRGBA32(self, (byte*)o_pixels, o_width, o_height, o_bytes_per_pixel);               
             }
         }
 

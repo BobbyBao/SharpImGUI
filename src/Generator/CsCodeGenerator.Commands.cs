@@ -18,35 +18,14 @@ namespace Generator
         {
         };
 
-        private static bool sharp9x = true;
-        private static bool disableCalliFunction = false;
-
-        static string GetFunctionPointer(CppFunction cppFunction)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("delegate* unmanaged[Stdcall]<");
-
-            var index = 0;
-            foreach (var cppParameter in cppFunction.Parameters)
-            {
-                var paramCsName = GetCsTypeName(cppParameter.Type);
-
-                sb.Append(paramCsName);                 
-                sb.Append(", ");
-               
-                index++;
-            }
-
-            sb.Append(GetCsTypeName(cppFunction.ReturnType));
-            sb.Append(">");
-            return sb.ToString();
-        }
-
+        static string[] paramentNames = new string[256];
+        static List<string> stringParaments = new List<string>();
         private static void GenerateCommands(CppCompilation compilation, string outputPath)
         {
             // Generate Functions
             using var writer = new CodeWriter(Path.Combine(outputPath, "Commands.cs"),
                 "System",
+                "System.Runtime.InteropServices",
                 "ImGuiID = System.UInt32",
                 "ImTextureID = System.IntPtr",
                 "ImDrawIdx = System.UInt16",
@@ -57,6 +36,7 @@ namespace Generator
                 );
 
             var commands = new Dictionary<string, CppFunction>();
+
             foreach (var cppFunction in compilation.Functions)
             {
                 var returnType = GetCsTypeName(cppFunction.ReturnType, false);
@@ -87,13 +67,6 @@ namespace Generator
 
                 commands.Add(cppFunction.Name, cppFunction);
 
-                if (disableCalliFunction)
-                {                        
-                    writer.WriteLine("[UnmanagedFunctionPointer(CallingConvention.StdCall)]");                      
-                    writer.WriteLine($"public unsafe delegate {returnType} {csName}Delegate({argumentsString});");
-                    writer.WriteLine();
-                }
-
             }
 
             using (writer.PushBlock($"unsafe partial class ImGui"))
@@ -109,64 +82,92 @@ namespace Generator
                         funName = funName.Substring(2);
                     }
 
-                    if (disableCalliFunction)
-                    {
-                        writer.WriteLine($"private static {funName}Delegate {funName}_ptr;");
-                    }
-                    else
-                    {
-                        if(sharp9x)
-                        {
-                            var signature = GetFunctionPointer(cppFunction);
-                            writer.WriteLine($"static {signature} {funName}_ptr;");                            
-                        }
-                        else
-                        {
-                            writer.WriteLine($"private static IntPtr {funName}_ptr;");
-                            writer.WriteLine($"[Calli]");
-
-                        }
-                    }
+                    var signature = GetFunctionPointer(cppFunction);
+                    writer.WriteLine($"static {signature} {funName}_ptr;");
+                    
 
                     var returnType = GetCsTypeName(cppFunction.ReturnType, false);
                     bool canUseOut = s_outReturnFunctions.Contains(cppFunction.Name);
                     var argumentsString = GetParameterSignature(cppFunction, canUseOut);
 
+                    System.Array.Clear(paramentNames, 0, paramentNames.Length);
+                    stringParaments.Clear();
 
                     using (writer.PushBlock($"public static {returnType} {funName}({argumentsString})"))
                     {
-                        if (disableCalliFunction || sharp9x)
+                        int fixedCount = 0;
+
+                        var index = 0;
+                        foreach (var cppParameter in cppFunction.Parameters)
                         {
-                            if (returnType != "void")
+                            var paramCsTypeName = GetCsTypeName(cppParameter.Type, false);
+                            var paramCsName = GetParameterName(cppParameter.Name);
+
+                            if (cppParameter.Type.GetDisplayName() == "const char*" || cppParameter.Type.GetDisplayName() == "char*")
                             {
-                                writer.Write("return ");
+                                var newParamentName = "p_" + paramCsName;
+                                paramentNames[index] = newParamentName;
+                                stringParaments.Add(paramCsName);
+                            }
+                            else if (paramCsTypeName.EndsWith("*") && CanBeUsedAsRef(cppParameter.Type))
+                            {
+                                var newParamentName = paramCsName;
+                                if (newParamentName.StartsWith("@"))
+                                {
+                                    newParamentName = newParamentName.Substring(1);
+                                }
+                                newParamentName = "p_" + newParamentName;
+                                writer.Write($"fixed({paramCsTypeName} {newParamentName} = &{paramCsName})");
+                                paramentNames[index] = newParamentName;
+                                fixedCount++;
                             }
 
-                            writer.Write($"{funName}_ptr(");
-                            var index = 0;
-                            foreach (var cppParameter in cppFunction.Parameters)
+                            index++;
+                        }
+
+                        System.IDisposable? block = null;
+                        if(fixedCount > 0)
+                        {
+                            block = writer.PushBlock("");
+                        }
+
+                        foreach (var str in stringParaments)
+                        {
+                            writer.WriteLine($"using var p_{str} = new StringHelper({str});");                            
+                        }
+
+                        if (returnType != "void")
+                        {
+                            writer.Write("return ");
+                        }
+
+                        writer.Write($"{funName}_ptr(");
+                        
+                        index = 0;
+                        foreach (var cppParameter in cppFunction.Parameters)
+                        {
+                            var paramCsName = paramentNames[index] ?? GetParameterName(cppParameter.Name);
+
+                            if (canUseOut && CanBeUsedAsOutput(cppParameter.Type, out var cppTypeDeclaration))
                             {
-                                var paramCsName = GetParameterName(cppParameter.Name);
-                                if (canUseOut && CanBeUsedAsOutput(cppParameter.Type, out var cppTypeDeclaration))
-                                {
-                                    writer.Write("out ");
-                                }
-
-                                writer.Write($"{paramCsName}");
-                                if (index < cppFunction.Parameters.Count - 1)
-                                {
-                                    writer.Write(", ");
-                                }
-
-                                index++;
+                                writer.Write("out ");
                             }
 
-                            writer.WriteLine($");");
+
+                            writer.Write($"{paramCsName}");
+                            if (index < cppFunction.Parameters.Count - 1)
+                            {
+                                writer.Write(", ");
+                            }
+
+                            index++;
                         }
-                        else
-                        {
-                            writer.WriteLine("throw new NotImplementedException();");
-                        }
+
+                        writer.WriteLine($");");
+
+                        block?.Dispose();
+
+
                     }
                     writer.WriteLine();
                 }
@@ -188,59 +189,32 @@ namespace Generator
                         commandName = commandName.Substring(2);
                     }
 
-                    if (disableCalliFunction)
-                    {
-                        writer.WriteLine($"{commandName}_ptr = LoadCallback<{commandName}Delegate>(context, load, \"{instanceCommand.Key}\");");
-                    }
-                    else
-                    {
-                        if(sharp9x)
-                        {
-                            var fp = GetFunctionPointer(instanceCommand.Value);
-                            writer.WriteLine($"{commandName}_ptr = ({fp})load(context, \"{instanceCommand.Key}\");");
-                        }
-                        else
-                        {
-                            writer.WriteLine($"{commandName}_ptr = load(context, \"{instanceCommand.Key}\");");
+                    var fp = GetFunctionPointer(instanceCommand.Value);
+                    writer.WriteLine($"{commandName}_ptr = ({fp})load(context, \"{instanceCommand.Key}\");");
 
-                        }
-                    }
                 }
             }
         }
 
-        private static void EmitInvoke(
-            CodeWriter writer,
-            CppFunction function,
-            List<string> parameters,
-            bool handleCheckResult = true)
+        static string GetFunctionPointer(CppFunction cppFunction)
         {
-            var postCall = string.Empty;
-            if (handleCheckResult)
-            {
-                var hasResultReturn = GetCsTypeName(function.ReturnType) == "VkResult";
-                if (hasResultReturn)
-                {
-                    postCall = ".CheckResult()";
-                }
-            }
+            StringBuilder sb = new StringBuilder();
+            sb.Append("delegate* unmanaged[Stdcall]<");
 
             var index = 0;
-            var callArgumentStringBuilder = new StringBuilder();
-            foreach (var parameterName in parameters)
+            foreach (var cppParameter in cppFunction.Parameters)
             {
-                callArgumentStringBuilder.Append(parameterName);
+                var paramCsName = GetCsTypeName(cppParameter.Type);
 
-                if (index < parameters.Count - 1)
-                {
-                    callArgumentStringBuilder.Append(", ");
-                }
+                sb.Append(paramCsName);
+                sb.Append(", ");
 
                 index++;
             }
 
-            var callArgumentString = callArgumentStringBuilder.ToString();
-            writer.WriteLine($"{function.Name}({callArgumentString}){postCall};");
+            sb.Append(GetCsTypeName(cppFunction.ReturnType));
+            sb.Append(">");
+            return sb.ToString();
         }
 
         private static bool IsInstanceFunction(string name)
@@ -268,6 +242,15 @@ namespace Generator
                 {
                     argumentBuilder.Append("out ");
                     paramCsTypeName = GetCsTypeName(cppTypeDeclaration, false);
+                }
+
+                if(cppParameter.Type.GetDisplayName() == "const char*" || cppParameter.Type.GetDisplayName() == "char*")
+                {
+                    paramCsTypeName = "string";
+                }
+                else if(paramCsTypeName.EndsWith("*") && CanBeUsedAsRef(cppParameter.Type))
+                {
+                    paramCsTypeName = "ref " + paramCsTypeName.Substring(0, paramCsTypeName.Length - 1);
                 }
 
                 argumentBuilder.Append(paramCsTypeName).Append(" ").Append(paramCsName);
@@ -334,6 +317,31 @@ namespace Generator
             }
 
             elementTypeDeclaration = null;
+            return false;
+        }
+
+        private static bool CanBeUsedAsRef(CppType type)
+        {
+            return false;
+            if (type is CppPointerType pointerType)
+            {
+                if (pointerType.ElementType is CppTypedef typedef)
+                {
+                    return true;
+                }
+                else if (pointerType.ElementType is CppClass @class
+                    && @class.ClassKind != CppClassKind.Class
+                    && @class.SizeOf > 0)
+                {
+                    return true;
+                }
+                else if (pointerType.ElementType is CppEnum @enum
+                    && @enum.SizeOf > 0)
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
     }

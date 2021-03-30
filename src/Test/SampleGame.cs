@@ -20,12 +20,17 @@ namespace ImGuiNET.SampleProgram.XNA
 
         public SampleGame()
         {
+            //Window.ClientBounds = new Rectangle(0, 0, 1920, 1080);
+
             _graphics = new GraphicsDeviceManager(this)
             {
-                PreferredBackBufferWidth = 1024,
-                PreferredBackBufferHeight = 768,
+                PreferredBackBufferWidth = 1920,
+                PreferredBackBufferHeight = 1080,
                 PreferMultiSampling = true
             };
+
+            _graphics.PreferredBackBufferWidth = 1920;
+            _graphics.PreferredBackBufferHeight = 1080;
 
             IsMouseVisible = true;
         }
@@ -80,11 +85,11 @@ namespace ImGuiNET.SampleProgram.XNA
         private byte[] _textBuffer = new byte[100];
 
         protected unsafe virtual void ImGuiLayout()
-        {/*
+        {
             // 1. Show a simple window
             // Tip: if we don't call ImGui.Begin()/ImGui.End() the widgets appears in a window automatically called "Debug"
             {
-                ImGui.Text("Hello, world!");
+                ImGui.Text("Hello, world!");/*
                 ImGui.SliderFloat("float", ref f, 0.0f, 1.0f, string.Empty);
                 ImGui.ColorEdit3("clear color", ref clear_color);
                 if (ImGui.Button("Test Window")) show_test_window = !show_test_window;
@@ -92,11 +97,11 @@ namespace ImGuiNET.SampleProgram.XNA
                 ImGui.Text(string.Format("Application average {0:F3} ms/frame ({1:F1} FPS)", 1000f / ImGui.GetIO().Framerate, ImGui.GetIO().Framerate));
 
                 ImGui.InputText("Text input", _textBuffer, 100);
-
+                */
                 ImGui.Text("Texture sample");
                 ImGui.Image(_imGuiTexture, new Num.Vector2(300, 150), Num.Vector2.Zero, Num.Vector2.One, Num.Vector4.One, Num.Vector4.One); // Here, the previously loaded texture is used
             }
-
+            /*
             // 2. Show another simple window, this time using an explicit Begin/End pair
             if (show_another_window)
             {

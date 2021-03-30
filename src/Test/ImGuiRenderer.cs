@@ -43,6 +43,7 @@ namespace ImGuiNET.SampleProgram.XNA
             ImGui.Init();
             var context = ImGui.CreateContext(null);
             ImGui.SetCurrentContext(context);
+            ImGui.IO.ConfigFlags |= ImGuiConfigFlags.DockingEnable;
 
             _game = game ?? throw new ArgumentNullException(nameof(game));
             _graphicsDevice = game.GraphicsDevice;

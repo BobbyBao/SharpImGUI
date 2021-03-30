@@ -94,7 +94,7 @@ namespace SharpImGUI
 		public int CmdListsCount;
 		public int TotalIdxCount;
 		public int TotalVtxCount;
-		public unsafe ImDrawList** CmdLists;
+		public unsafe ImDrawList* CmdLists;
 		public ImVec2 DisplayPos;
 		public ImVec2 DisplaySize;
 		public ImVec2 FramebufferScale;
@@ -359,7 +359,7 @@ namespace SharpImGUI
 	{
 		public int Size;
 		public int Capacity;
-		public unsafe ImFont** Data;
+		public unsafe ImFont* Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -572,7 +572,7 @@ namespace SharpImGUI
 	{
 		public int Size;
 		public int Capacity;
-		public unsafe ImGuiWindow** Data;
+		public unsafe ImGuiWindow* Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -748,7 +748,7 @@ namespace SharpImGUI
 	{
 		public int Size;
 		public int Capacity;
-		public unsafe ImDrawList** Data;
+		public unsafe ImDrawList* Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -2425,7 +2425,7 @@ namespace SharpImGUI
 	{
 		public int Size;
 		public int Capacity;
-		public unsafe ImGuiViewport** Data;
+		public unsafe ImGuiViewport* Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -2651,7 +2651,7 @@ namespace SharpImGUI
 	{
 		public int Size;
 		public int Capacity;
-		public unsafe ImGuiViewportP** Data;
+		public unsafe ImGuiViewportP* Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -2964,7 +2964,7 @@ namespace SharpImGUI
 	{
 		public int Size;
 		public int Capacity;
-		public unsafe byte** Data;
+		public unsafe byte* Data;
 	}
 
 	unsafe partial class ImGui

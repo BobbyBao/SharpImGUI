@@ -13,8 +13,6 @@ namespace SharpImGUI
     {
         public static ImGuiIOPtr IO => GetIO();
 
-
-
         private delegate IntPtr LoadFunction(IntPtr context, string name);
 
         private static IntPtr cImGuiLib;
