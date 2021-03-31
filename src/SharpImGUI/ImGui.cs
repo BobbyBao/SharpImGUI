@@ -67,8 +67,7 @@ namespace SharpImGUI
         {
             get
             {
-                ImVec2 pos;
-                GetWindowPos(&pos);
+                GetWindowPos(out var pos);
                 return pos;
             }
         }
@@ -77,8 +76,7 @@ namespace SharpImGUI
         {
             get
             {
-                ImVec2 sz;
-                GetWindowSize(&sz);
+                GetWindowSize(out var sz);
                 return sz;
             }
         }

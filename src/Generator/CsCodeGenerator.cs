@@ -28,6 +28,7 @@ namespace Generator
             { "int16_t", "short" },
             { "int64_t", "long" },
             { "int64_t*", "long*" },
+
             { "char", "byte" },
             { "size_t", "IntPtr" },
             { "DWORD", "uint" },
@@ -53,11 +54,9 @@ namespace Generator
 
             { "ImGuiMemAllocFunc", "IntPtr" },
             { "ImGuiMemFreeFunc", "IntPtr" },
-            //{ "ImVec3", "System.Numerics.Vector3" },
             
             { "ImVector_float", "ImVector<float>"},
             { "ImVector_char", "ImVector<byte>"},
-            //{ "ImVector_const_charPtr", "ImVector<byte*>"},
             { "ImVector_ImWchar", "ImVector<char>"},
             { "ImVector_ImDrawCmd", "ImVector<ImDrawCmd>"},
             { "ImVector_ImDrawIdx", "ImVector<ImDrawIdx>"},

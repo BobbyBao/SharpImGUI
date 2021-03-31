@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using ImGuiID = System.UInt32;
-using ImS16 = System.Int16;
-using ImS8 = System.SByte;
-using ImU8 = System.Byte;
 using ImTextureID = System.IntPtr;
 using ImDrawIdx = System.UInt16;
 using ImGuiCol = System.Int32;
@@ -77,7 +74,7 @@ namespace SharpImGUI
         public float ContentMaxXUnfrozen;
         public float ContentMaxXHeadersUsed;
         public float ContentMaxXHeadersIdeal;
-        public ImS16 NameOffset;
+        public short NameOffset;
         public ImGuiTableColumnIdx DisplayOrder;
         public ImGuiTableColumnIdx IndexWithinEnabledSet;
         public ImGuiTableColumnIdx PrevEnabledColumn;
@@ -93,13 +90,17 @@ namespace SharpImGUI
         public bool IsRequestOutput;
         public bool IsSkipItems;
         public bool IsPreserveWidthAuto;
-        public ImS8 NavLayerCurrent;
-        public ImU8 AutoFitQueue;
-        public ImU8 CannotSkipItemsQueue;
-        /*public*/ ImU8 SortDirection;// : 2;
-        /*public*/ ImU8 SortDirectionsAvailCount;// : 2;
-        /*public*/ ImU8 SortDirectionsAvailMask;// : 4;
-        /*public*/ ImU8 SortDirectionsAvailList;
+        public sbyte NavLayerCurrent;
+        public byte AutoFitQueue;
+        public byte CannotSkipItemsQueue;
+        /*public*/
+        byte SortDirection;// : 2;
+        /*public*/
+        byte SortDirectionsAvailCount;// : 2;
+        /*public*/
+        byte SortDirectionsAvailMask;// : 4;
+        /*public*/
+        byte SortDirectionsAvailList;
     }
 
 
@@ -215,11 +216,6 @@ namespace SharpImGUI
     [StructLayout(LayoutKind.Sequential)]
     public partial struct ImGuiStoragePair
     {
-        /// <summary>
-        /// The size of the <see cref="ImGuiStoragePair"/> type, in bytes.
-        /// </summary>
-        public static readonly int SizeInBytes = 16;
-
         public ImGuiID key;
         public IntPtr val_p;
     }
@@ -227,11 +223,6 @@ namespace SharpImGUI
     [StructLayout(LayoutKind.Sequential)]
     public partial struct ImGuiDockNode
     {
-        /// <summary>
-        /// The size of the <see cref="ImGuiDockNode"/> type, in bytes.
-        /// </summary>
-        public static readonly int SizeInBytes = 192;
-
         public ImGuiID ID;
         public ImGuiDockNodeFlags SharedFlags;
         public ImGuiDockNodeFlags LocalFlags;
@@ -392,8 +383,8 @@ namespace SharpImGUI
     public partial struct ImGuiTableColumnSortSpecs
     {
         public ImGuiID ColumnUserID;
-        public ImS16 ColumnIndex;
-        public ImS16 SortOrder;
+        public short ColumnIndex;
+        public short SortOrder;
         public /*ImGuiSortDirection*/byte SortDirection;// : 8;
     }
 

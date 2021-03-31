@@ -24,7 +24,7 @@ namespace SharpImGUI
 	unsafe partial class ImGui
 	{
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiContext*> CreateContext_ptr;
-		public static ImGuiContext* CreateContext(ImFontAtlas* shared_font_atlas)
+		public static ImGuiContext* CreateContext(ImFontAtlasPtr shared_font_atlas)
 		{
 			return CreateContext_ptr(shared_font_atlas);
 		}
@@ -48,13 +48,13 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiIO*> GetIO_ptr;
-		public static ImGuiIO* GetIO()
+		public static ImGuiIOPtr GetIO()
 		{
 			return GetIO_ptr();
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiStyle*> GetStyle_ptr;
-		public static ImGuiStyle* GetStyle()
+		public static ImGuiStylePtr GetStyle()
 		{
 			return GetStyle_ptr();
 		}
@@ -78,7 +78,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawData*> GetDrawData_ptr;
-		public static ImDrawData* GetDrawData()
+		public static ImDrawDataPtr GetDrawData()
 		{
 			return GetDrawData_ptr();
 		}
@@ -111,7 +111,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiStyle*, void> ShowStyleEditor_ptr;
-		public static void ShowStyleEditor(ImGuiStyle* @ref)
+		public static void ShowStyleEditor(ImGuiStylePtr @ref)
 		{
 			ShowStyleEditor_ptr(@ref);
 		}
@@ -143,19 +143,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiStyle*, void> StyleColorsDark_ptr;
-		public static void StyleColorsDark(ImGuiStyle* dst)
+		public static void StyleColorsDark(ImGuiStylePtr dst)
 		{
 			StyleColorsDark_ptr(dst);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiStyle*, void> StyleColorsLight_ptr;
-		public static void StyleColorsLight(ImGuiStyle* dst)
+		public static void StyleColorsLight(ImGuiStylePtr dst)
 		{
 			StyleColorsLight_ptr(dst);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiStyle*, void> StyleColorsClassic_ptr;
-		public static void StyleColorsClassic(ImGuiStyle* dst)
+		public static void StyleColorsClassic(ImGuiStylePtr dst)
 		{
 			StyleColorsClassic_ptr(dst);
 		}
@@ -220,7 +220,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*> GetWindowDrawList_ptr;
-		public static ImDrawList* GetWindowDrawList()
+		public static ImDrawListPtr GetWindowDrawList()
 		{
 			return GetWindowDrawList_ptr();
 		}
@@ -232,15 +232,21 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetWindowPos_ptr;
-		public static void GetWindowPos(ImVec2* @out)
+		public static void GetWindowPos(out ImVec2 @out)
 		{
-			GetWindowPos_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetWindowPos_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetWindowSize_ptr;
-		public static void GetWindowSize(ImVec2* @out)
+		public static void GetWindowSize(out ImVec2 @out)
 		{
-			GetWindowSize_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetWindowSize_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<float> GetWindowWidth_ptr;
@@ -368,27 +374,39 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetContentRegionAvail_ptr;
-		public static void GetContentRegionAvail(ImVec2* @out)
+		public static void GetContentRegionAvail(out ImVec2 @out)
 		{
-			GetContentRegionAvail_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetContentRegionAvail_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetContentRegionMax_ptr;
-		public static void GetContentRegionMax(ImVec2* @out)
+		public static void GetContentRegionMax(out ImVec2 @out)
 		{
-			GetContentRegionMax_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetContentRegionMax_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetWindowContentRegionMin_ptr;
-		public static void GetWindowContentRegionMin(ImVec2* @out)
+		public static void GetWindowContentRegionMin(out ImVec2 @out)
 		{
-			GetWindowContentRegionMin_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetWindowContentRegionMin_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetWindowContentRegionMax_ptr;
-		public static void GetWindowContentRegionMax(ImVec2* @out)
+		public static void GetWindowContentRegionMax(out ImVec2 @out)
 		{
-			GetWindowContentRegionMax_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetWindowContentRegionMax_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<float> GetWindowContentRegionWidth_ptr;
@@ -458,7 +476,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, void> PushFont_ptr;
-		public static void PushFont(ImFont* font)
+		public static void PushFont(ImFontPtr font)
 		{
 			PushFont_ptr(font);
 		}
@@ -566,7 +584,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*> GetFont_ptr;
-		public static ImFont* GetFont()
+		public static ImFontPtr GetFont()
 		{
 			return GetFont_ptr();
 		}
@@ -578,9 +596,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetFontTexUvWhitePixel_ptr;
-		public static void GetFontTexUvWhitePixel(ImVec2* @out)
+		public static void GetFontTexUvWhitePixel(out ImVec2 @out)
 		{
-			GetFontTexUvWhitePixel_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetFontTexUvWhitePixel_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiCol, float, uint> GetColorU32Col_ptr;
@@ -662,9 +683,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetCursorPos_ptr;
-		public static void GetCursorPos(ImVec2* @out)
+		public static void GetCursorPos(out ImVec2 @out)
 		{
-			GetCursorPos_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetCursorPos_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<float> GetCursorPosX_ptr;
@@ -698,15 +722,21 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetCursorStartPos_ptr;
-		public static void GetCursorStartPos(ImVec2* @out)
+		public static void GetCursorStartPos(out ImVec2 @out)
 		{
-			GetCursorStartPos_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetCursorStartPos_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetCursorScreenPos_ptr;
-		public static void GetCursorScreenPos(ImVec2* @out)
+		public static void GetCursorScreenPos(out ImVec2 @out)
 		{
-			GetCursorScreenPos_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetCursorScreenPos_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2, void> SetCursorScreenPos_ptr;
@@ -2144,21 +2174,30 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetItemRectMin_ptr;
-		public static void GetItemRectMin(ImVec2* @out)
+		public static void GetItemRectMin(out ImVec2 @out)
 		{
-			GetItemRectMin_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetItemRectMin_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetItemRectMax_ptr;
-		public static void GetItemRectMax(ImVec2* @out)
+		public static void GetItemRectMax(out ImVec2 @out)
 		{
-			GetItemRectMax_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetItemRectMax_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetItemRectSize_ptr;
-		public static void GetItemRectSize(ImVec2* @out)
+		public static void GetItemRectSize(out ImVec2 @out)
 		{
-			GetItemRectSize_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetItemRectSize_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<void> SetItemAllowOverlap_ptr;
@@ -2198,25 +2237,25 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*> GetBackgroundDrawListNil_ptr;
-		public static ImDrawList* GetBackgroundDrawListNil()
+		public static ImDrawListPtr GetBackgroundDrawListNil()
 		{
 			return GetBackgroundDrawListNil_ptr();
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*> GetForegroundDrawListNil_ptr;
-		public static ImDrawList* GetForegroundDrawListNil()
+		public static ImDrawListPtr GetForegroundDrawListNil()
 		{
 			return GetForegroundDrawListNil_ptr();
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiViewport*, ImDrawList*> GetBackgroundDrawListViewportPtr_ptr;
-		public static ImDrawList* GetBackgroundDrawListViewportPtr(ImGuiViewport* viewport)
+		public static ImDrawListPtr GetBackgroundDrawListViewportPtr(ImGuiViewport* viewport)
 		{
 			return GetBackgroundDrawListViewportPtr_ptr(viewport);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiViewport*, ImDrawList*> GetForegroundDrawListViewportPtr_ptr;
-		public static ImDrawList* GetForegroundDrawListViewportPtr(ImGuiViewport* viewport)
+		public static ImDrawListPtr GetForegroundDrawListViewportPtr(ImGuiViewport* viewport)
 		{
 			return GetForegroundDrawListViewportPtr_ptr(viewport);
 		}
@@ -2268,17 +2307,23 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, byte*, byte*, bool, float, void> CalcTextSize_ptr;
-		public static void CalcTextSize(ImVec2* @out, string text, string text_end, bool hide_text_after_double_hash, float wrap_width)
+		public static void CalcTextSize(out ImVec2 @out, string text, string text_end, bool hide_text_after_double_hash, float wrap_width)
 		{
-			using var p_text = new StringHelper(text);
-			using var p_text_end = new StringHelper(text_end);
-			CalcTextSize_ptr(@out, p_text, p_text_end, hide_text_after_double_hash, wrap_width);
+			fixed(ImVec2* p_out = &@out)
+			{
+				using var p_text = new StringHelper(text);
+				using var p_text_end = new StringHelper(text_end);
+				CalcTextSize_ptr(p_out, p_text, p_text_end, hide_text_after_double_hash, wrap_width);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec4*, uint, void> ColorConvertU32ToFloat4_ptr;
-		public static void ColorConvertU32ToFloat4(ImVec4* @out, uint @in)
+		public static void ColorConvertU32ToFloat4(out ImVec4 @out, uint @in)
 		{
-			ColorConvertU32ToFloat4_ptr(@out, @in);
+			fixed(ImVec4* p_out = &@out)
+			{
+				ColorConvertU32ToFloat4_ptr(p_out, @in);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec4, uint> ColorConvertFloat4ToU32_ptr;
@@ -2388,15 +2433,21 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetMousePos_ptr;
-		public static void GetMousePos(ImVec2* @out)
+		public static void GetMousePos(out ImVec2 @out)
 		{
-			GetMousePos_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetMousePos_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetMousePosOnOpeningCurrentPopup_ptr;
-		public static void GetMousePosOnOpeningCurrentPopup(ImVec2* @out)
+		public static void GetMousePosOnOpeningCurrentPopup(out ImVec2 @out)
 		{
-			GetMousePosOnOpeningCurrentPopup_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetMousePosOnOpeningCurrentPopup_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiMouseButton, float, bool> IsMouseDragging_ptr;
@@ -2406,9 +2457,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiMouseButton, float, void> GetMouseDragDelta_ptr;
-		public static void GetMouseDragDelta(ImVec2* @out, ImGuiMouseButton button, float lock_threshold)
+		public static void GetMouseDragDelta(out ImVec2 @out, ImGuiMouseButton button, float lock_threshold)
 		{
-			GetMouseDragDelta_ptr(@out, button, lock_threshold);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetMouseDragDelta_ptr(p_out, button, lock_threshold);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiMouseButton, void> ResetMouseDragDelta_ptr;
@@ -2551,56 +2605,56 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiStyle*> ImGuiStyle_ImGuiStyle_ptr;
-		public static ImGuiStyle* ImGuiStyle_ImGuiStyle()
+		public static ImGuiStylePtr ImGuiStyle_ImGuiStyle()
 		{
 			return ImGuiStyle_ImGuiStyle_ptr();
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiStyle*, void> ImGuiStyle_destroy_ptr;
-		public static void ImGuiStyle_destroy(ImGuiStyle* self)
+		public static void ImGuiStyle_destroy(ImGuiStylePtr self)
 		{
 			ImGuiStyle_destroy_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiStyle*, float, void> ImGuiStyle_ScaleAllSizes_ptr;
-		public static void ImGuiStyle_ScaleAllSizes(ImGuiStyle* self, float scale_factor)
+		public static void ImGuiStyle_ScaleAllSizes(ImGuiStylePtr self, float scale_factor)
 		{
 			ImGuiStyle_ScaleAllSizes_ptr(self, scale_factor);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiIO*, uint, void> ImGuiIO_AddInputCharacter_ptr;
-		public static void ImGuiIO_AddInputCharacter(ImGuiIO* self, uint c)
+		public static void ImGuiIO_AddInputCharacter(ImGuiIOPtr self, uint c)
 		{
 			ImGuiIO_AddInputCharacter_ptr(self, c);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiIO*, char, void> ImGuiIO_AddInputCharacterUTF16_ptr;
-		public static void ImGuiIO_AddInputCharacterUTF16(ImGuiIO* self, char c)
+		public static void ImGuiIO_AddInputCharacterUTF16(ImGuiIOPtr self, char c)
 		{
 			ImGuiIO_AddInputCharacterUTF16_ptr(self, c);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiIO*, byte*, void> ImGuiIO_AddInputCharactersUTF8_ptr;
-		public static void ImGuiIO_AddInputCharactersUTF8(ImGuiIO* self, string str)
+		public static void ImGuiIO_AddInputCharactersUTF8(ImGuiIOPtr self, string str)
 		{
 			using var p_str = new StringHelper(str);
 			ImGuiIO_AddInputCharactersUTF8_ptr(self, p_str);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiIO*, void> ImGuiIO_ClearInputCharacters_ptr;
-		public static void ImGuiIO_ClearInputCharacters(ImGuiIO* self)
+		public static void ImGuiIO_ClearInputCharacters(ImGuiIOPtr self)
 		{
 			ImGuiIO_ClearInputCharacters_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiIO*> ImGuiIO_ImGuiIO_ptr;
-		public static ImGuiIO* ImGuiIO_ImGuiIO()
+		public static ImGuiIOPtr ImGuiIO_ImGuiIO()
 		{
 			return ImGuiIO_ImGuiIO_ptr();
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiIO*, void> ImGuiIO_destroy_ptr;
-		public static void ImGuiIO_destroy(ImGuiIO* self)
+		public static void ImGuiIO_destroy(ImGuiIOPtr self)
 		{
 			ImGuiIO_destroy_ptr(self);
 		}
@@ -3055,151 +3109,157 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawListSplitter*, ImDrawList*, int, void> ImDrawListSplitter_Split_ptr;
-		public static void ImDrawListSplitter_Split(ImDrawListSplitter* self, ImDrawList* draw_list, int count)
+		public static void ImDrawListSplitter_Split(ImDrawListSplitter* self, ImDrawListPtr draw_list, int count)
 		{
 			ImDrawListSplitter_Split_ptr(self, draw_list, count);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawListSplitter*, ImDrawList*, void> ImDrawListSplitter_Merge_ptr;
-		public static void ImDrawListSplitter_Merge(ImDrawListSplitter* self, ImDrawList* draw_list)
+		public static void ImDrawListSplitter_Merge(ImDrawListSplitter* self, ImDrawListPtr draw_list)
 		{
 			ImDrawListSplitter_Merge_ptr(self, draw_list);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawListSplitter*, ImDrawList*, int, void> ImDrawListSplitter_SetCurrentChannel_ptr;
-		public static void ImDrawListSplitter_SetCurrentChannel(ImDrawListSplitter* self, ImDrawList* draw_list, int channel_idx)
+		public static void ImDrawListSplitter_SetCurrentChannel(ImDrawListSplitter* self, ImDrawListPtr draw_list, int channel_idx)
 		{
 			ImDrawListSplitter_SetCurrentChannel_ptr(self, draw_list, channel_idx);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawListSharedData*, ImDrawList*> ImDrawList_ImDrawList_ptr;
-		public static ImDrawList* ImDrawList_ImDrawList(ImDrawListSharedData* shared_data)
+		public static ImDrawListPtr ImDrawList_ImDrawList(ImDrawListSharedData* shared_data)
 		{
 			return ImDrawList_ImDrawList_ptr(shared_data);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_destroy_ptr;
-		public static void ImDrawList_destroy(ImDrawList* self)
+		public static void ImDrawList_destroy(ImDrawListPtr self)
 		{
 			ImDrawList_destroy_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, bool, void> ImDrawList_PushClipRect_ptr;
-		public static void ImDrawList_PushClipRect(ImDrawList* self, ImVec2 clip_rect_min, ImVec2 clip_rect_max, bool intersect_with_current_clip_rect)
+		public static void ImDrawList_PushClipRect(ImDrawListPtr self, ImVec2 clip_rect_min, ImVec2 clip_rect_max, bool intersect_with_current_clip_rect)
 		{
 			ImDrawList_PushClipRect_ptr(self, clip_rect_min, clip_rect_max, intersect_with_current_clip_rect);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_PushClipRectFullScreen_ptr;
-		public static void ImDrawList_PushClipRectFullScreen(ImDrawList* self)
+		public static void ImDrawList_PushClipRectFullScreen(ImDrawListPtr self)
 		{
 			ImDrawList_PushClipRectFullScreen_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_PopClipRect_ptr;
-		public static void ImDrawList_PopClipRect(ImDrawList* self)
+		public static void ImDrawList_PopClipRect(ImDrawListPtr self)
 		{
 			ImDrawList_PopClipRect_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, void> ImDrawList_PushTextureID_ptr;
-		public static void ImDrawList_PushTextureID(ImDrawList* self, ImTextureID texture_id)
+		public static void ImDrawList_PushTextureID(ImDrawListPtr self, ImTextureID texture_id)
 		{
 			ImDrawList_PushTextureID_ptr(self, texture_id);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_PopTextureID_ptr;
-		public static void ImDrawList_PopTextureID(ImDrawList* self)
+		public static void ImDrawList_PopTextureID(ImDrawListPtr self)
 		{
 			ImDrawList_PopTextureID_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImDrawList*, void> ImDrawList_GetClipRectMin_ptr;
-		public static void ImDrawList_GetClipRectMin(ImVec2* @out, ImDrawList* self)
+		public static void ImDrawList_GetClipRectMin(out ImVec2 @out, ImDrawListPtr self)
 		{
-			ImDrawList_GetClipRectMin_ptr(@out, self);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImDrawList_GetClipRectMin_ptr(p_out, self);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImDrawList*, void> ImDrawList_GetClipRectMax_ptr;
-		public static void ImDrawList_GetClipRectMax(ImVec2* @out, ImDrawList* self)
+		public static void ImDrawList_GetClipRectMax(out ImVec2 @out, ImDrawListPtr self)
 		{
-			ImDrawList_GetClipRectMax_ptr(@out, self);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImDrawList_GetClipRectMax_ptr(p_out, self);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, void> ImDrawList_AddLine_ptr;
-		public static void ImDrawList_AddLine(ImDrawList* self, ImVec2 p1, ImVec2 p2, uint col, float thickness)
+		public static void ImDrawList_AddLine(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, uint col, float thickness)
 		{
 			ImDrawList_AddLine_ptr(self, p1, p2, col, thickness);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, float, void> ImDrawList_AddRect_ptr;
-		public static void ImDrawList_AddRect(ImDrawList* self, ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags, float thickness)
+		public static void ImDrawList_AddRect(ImDrawListPtr self, ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags, float thickness)
 		{
 			ImDrawList_AddRect_ptr(self, p_min, p_max, col, rounding, flags, thickness);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, void> ImDrawList_AddRectFilled_ptr;
-		public static void ImDrawList_AddRectFilled(ImDrawList* self, ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags)
+		public static void ImDrawList_AddRectFilled(ImDrawListPtr self, ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags)
 		{
 			ImDrawList_AddRectFilled_ptr(self, p_min, p_max, col, rounding, flags);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, uint, uint, uint, void> ImDrawList_AddRectFilledMultiColor_ptr;
-		public static void ImDrawList_AddRectFilledMultiColor(ImDrawList* self, ImVec2 p_min, ImVec2 p_max, uint col_upr_left, uint col_upr_right, uint col_bot_right, uint col_bot_left)
+		public static void ImDrawList_AddRectFilledMultiColor(ImDrawListPtr self, ImVec2 p_min, ImVec2 p_max, uint col_upr_left, uint col_upr_right, uint col_bot_right, uint col_bot_left)
 		{
 			ImDrawList_AddRectFilledMultiColor_ptr(self, p_min, p_max, col_upr_left, col_upr_right, col_bot_right, col_bot_left);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, void> ImDrawList_AddQuad_ptr;
-		public static void ImDrawList_AddQuad(ImDrawList* self, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness)
+		public static void ImDrawList_AddQuad(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness)
 		{
 			ImDrawList_AddQuad_ptr(self, p1, p2, p3, p4, col, thickness);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_AddQuadFilled_ptr;
-		public static void ImDrawList_AddQuadFilled(ImDrawList* self, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col)
+		public static void ImDrawList_AddQuadFilled(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col)
 		{
 			ImDrawList_AddQuadFilled_ptr(self, p1, p2, p3, p4, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, float, void> ImDrawList_AddTriangle_ptr;
-		public static void ImDrawList_AddTriangle(ImDrawList* self, ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness)
+		public static void ImDrawList_AddTriangle(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness)
 		{
 			ImDrawList_AddTriangle_ptr(self, p1, p2, p3, col, thickness);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_AddTriangleFilled_ptr;
-		public static void ImDrawList_AddTriangleFilled(ImDrawList* self, ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col)
+		public static void ImDrawList_AddTriangleFilled(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col)
 		{
 			ImDrawList_AddTriangleFilled_ptr(self, p1, p2, p3, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, float, void> ImDrawList_AddCircle_ptr;
-		public static void ImDrawList_AddCircle(ImDrawList* self, ImVec2 center, float radius, uint col, int num_segments, float thickness)
+		public static void ImDrawList_AddCircle(ImDrawListPtr self, ImVec2 center, float radius, uint col, int num_segments, float thickness)
 		{
 			ImDrawList_AddCircle_ptr(self, center, radius, col, num_segments, thickness);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, void> ImDrawList_AddCircleFilled_ptr;
-		public static void ImDrawList_AddCircleFilled(ImDrawList* self, ImVec2 center, float radius, uint col, int num_segments)
+		public static void ImDrawList_AddCircleFilled(ImDrawListPtr self, ImVec2 center, float radius, uint col, int num_segments)
 		{
 			ImDrawList_AddCircleFilled_ptr(self, center, radius, col, num_segments);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, float, void> ImDrawList_AddNgon_ptr;
-		public static void ImDrawList_AddNgon(ImDrawList* self, ImVec2 center, float radius, uint col, int num_segments, float thickness)
+		public static void ImDrawList_AddNgon(ImDrawListPtr self, ImVec2 center, float radius, uint col, int num_segments, float thickness)
 		{
 			ImDrawList_AddNgon_ptr(self, center, radius, col, num_segments, thickness);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, void> ImDrawList_AddNgonFilled_ptr;
-		public static void ImDrawList_AddNgonFilled(ImDrawList* self, ImVec2 center, float radius, uint col, int num_segments)
+		public static void ImDrawList_AddNgonFilled(ImDrawListPtr self, ImVec2 center, float radius, uint col, int num_segments)
 		{
 			ImDrawList_AddNgonFilled_ptr(self, center, radius, col, num_segments);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, byte*, byte*, void> ImDrawList_AddTextVec2_ptr;
-		public static void ImDrawList_AddTextVec2(ImDrawList* self, ImVec2 pos, uint col, string text_begin, string text_end)
+		public static void ImDrawList_AddTextVec2(ImDrawListPtr self, ImVec2 pos, uint col, string text_begin, string text_end)
 		{
 			using var p_text_begin = new StringHelper(text_begin);
 			using var p_text_end = new StringHelper(text_end);
@@ -3207,7 +3267,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImFont*, float, ImVec2, uint, byte*, byte*, float, ImVec4*, void> ImDrawList_AddTextFontPtr_ptr;
-		public static void ImDrawList_AddTextFontPtr(ImDrawList* self, ImFont* font, float font_size, ImVec2 pos, uint col, string text_begin, string text_end, float wrap_width, ImVec4* cpu_fine_clip_rect)
+		public static void ImDrawList_AddTextFontPtr(ImDrawListPtr self, ImFontPtr font, float font_size, ImVec2 pos, uint col, string text_begin, string text_end, float wrap_width, ImVec4* cpu_fine_clip_rect)
 		{
 			using var p_text_begin = new StringHelper(text_begin);
 			using var p_text_end = new StringHelper(text_end);
@@ -3215,283 +3275,283 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2*, int, uint, ImDrawFlags, float, void> ImDrawList_AddPolyline_ptr;
-		public static void ImDrawList_AddPolyline(ImDrawList* self, ImVec2* points, int num_points, uint col, ImDrawFlags flags, float thickness)
+		public static void ImDrawList_AddPolyline(ImDrawListPtr self, ImVec2* points, int num_points, uint col, ImDrawFlags flags, float thickness)
 		{
 			ImDrawList_AddPolyline_ptr(self, points, num_points, col, flags, thickness);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2*, int, uint, void> ImDrawList_AddConvexPolyFilled_ptr;
-		public static void ImDrawList_AddConvexPolyFilled(ImDrawList* self, ImVec2* points, int num_points, uint col)
+		public static void ImDrawList_AddConvexPolyFilled(ImDrawListPtr self, ImVec2* points, int num_points, uint col)
 		{
 			ImDrawList_AddConvexPolyFilled_ptr(self, points, num_points, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, int, void> ImDrawList_AddBezierCubic_ptr;
-		public static void ImDrawList_AddBezierCubic(ImDrawList* self, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness, int num_segments)
+		public static void ImDrawList_AddBezierCubic(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness, int num_segments)
 		{
 			ImDrawList_AddBezierCubic_ptr(self, p1, p2, p3, p4, col, thickness, num_segments);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, float, int, void> ImDrawList_AddBezierQuadratic_ptr;
-		public static void ImDrawList_AddBezierQuadratic(ImDrawList* self, ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness, int num_segments)
+		public static void ImDrawList_AddBezierQuadratic(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness, int num_segments)
 		{
 			ImDrawList_AddBezierQuadratic_ptr(self, p1, p2, p3, col, thickness, num_segments);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_AddImage_ptr;
-		public static void ImDrawList_AddImage(ImDrawList* self, ImTextureID user_texture_id, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col)
+		public static void ImDrawList_AddImage(ImDrawListPtr self, ImTextureID user_texture_id, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col)
 		{
 			ImDrawList_AddImage_ptr(self, user_texture_id, p_min, p_max, uv_min, uv_max, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_AddImageQuad_ptr;
-		public static void ImDrawList_AddImageQuad(ImDrawList* self, ImTextureID user_texture_id, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 uv1, ImVec2 uv2, ImVec2 uv3, ImVec2 uv4, uint col)
+		public static void ImDrawList_AddImageQuad(ImDrawListPtr self, ImTextureID user_texture_id, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 uv1, ImVec2 uv2, ImVec2 uv3, ImVec2 uv4, uint col)
 		{
 			ImDrawList_AddImageQuad_ptr(self, user_texture_id, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, ImDrawFlags, void> ImDrawList_AddImageRounded_ptr;
-		public static void ImDrawList_AddImageRounded(ImDrawList* self, ImTextureID user_texture_id, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col, float rounding, ImDrawFlags flags)
+		public static void ImDrawList_AddImageRounded(ImDrawListPtr self, ImTextureID user_texture_id, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col, float rounding, ImDrawFlags flags)
 		{
 			ImDrawList_AddImageRounded_ptr(self, user_texture_id, p_min, p_max, uv_min, uv_max, col, rounding, flags);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_PathClear_ptr;
-		public static void ImDrawList_PathClear(ImDrawList* self)
+		public static void ImDrawList_PathClear(ImDrawListPtr self)
 		{
 			ImDrawList_PathClear_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, void> ImDrawList_PathLineTo_ptr;
-		public static void ImDrawList_PathLineTo(ImDrawList* self, ImVec2 pos)
+		public static void ImDrawList_PathLineTo(ImDrawListPtr self, ImVec2 pos)
 		{
 			ImDrawList_PathLineTo_ptr(self, pos);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, void> ImDrawList_PathLineToMergeDuplicate_ptr;
-		public static void ImDrawList_PathLineToMergeDuplicate(ImDrawList* self, ImVec2 pos)
+		public static void ImDrawList_PathLineToMergeDuplicate(ImDrawListPtr self, ImVec2 pos)
 		{
 			ImDrawList_PathLineToMergeDuplicate_ptr(self, pos);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, uint, void> ImDrawList_PathFillConvex_ptr;
-		public static void ImDrawList_PathFillConvex(ImDrawList* self, uint col)
+		public static void ImDrawList_PathFillConvex(ImDrawListPtr self, uint col)
 		{
 			ImDrawList_PathFillConvex_ptr(self, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, uint, ImDrawFlags, float, void> ImDrawList_PathStroke_ptr;
-		public static void ImDrawList_PathStroke(ImDrawList* self, uint col, ImDrawFlags flags, float thickness)
+		public static void ImDrawList_PathStroke(ImDrawListPtr self, uint col, ImDrawFlags flags, float thickness)
 		{
 			ImDrawList_PathStroke_ptr(self, col, flags, thickness);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, float, float, int, void> ImDrawList_PathArcTo_ptr;
-		public static void ImDrawList_PathArcTo(ImDrawList* self, ImVec2 center, float radius, float a_min, float a_max, int num_segments)
+		public static void ImDrawList_PathArcTo(ImDrawListPtr self, ImVec2 center, float radius, float a_min, float a_max, int num_segments)
 		{
 			ImDrawList_PathArcTo_ptr(self, center, radius, a_min, a_max, num_segments);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, int, int, void> ImDrawList_PathArcToFast_ptr;
-		public static void ImDrawList_PathArcToFast(ImDrawList* self, ImVec2 center, float radius, int a_min_of_12, int a_max_of_12)
+		public static void ImDrawList_PathArcToFast(ImDrawListPtr self, ImVec2 center, float radius, int a_min_of_12, int a_max_of_12)
 		{
 			ImDrawList_PathArcToFast_ptr(self, center, radius, a_min_of_12, a_max_of_12);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, int, void> ImDrawList_PathBezierCubicCurveTo_ptr;
-		public static void ImDrawList_PathBezierCubicCurveTo(ImDrawList* self, ImVec2 p2, ImVec2 p3, ImVec2 p4, int num_segments)
+		public static void ImDrawList_PathBezierCubicCurveTo(ImDrawListPtr self, ImVec2 p2, ImVec2 p3, ImVec2 p4, int num_segments)
 		{
 			ImDrawList_PathBezierCubicCurveTo_ptr(self, p2, p3, p4, num_segments);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, int, void> ImDrawList_PathBezierQuadraticCurveTo_ptr;
-		public static void ImDrawList_PathBezierQuadraticCurveTo(ImDrawList* self, ImVec2 p2, ImVec2 p3, int num_segments)
+		public static void ImDrawList_PathBezierQuadraticCurveTo(ImDrawListPtr self, ImVec2 p2, ImVec2 p3, int num_segments)
 		{
 			ImDrawList_PathBezierQuadraticCurveTo_ptr(self, p2, p3, num_segments);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, float, ImDrawFlags, void> ImDrawList_PathRect_ptr;
-		public static void ImDrawList_PathRect(ImDrawList* self, ImVec2 rect_min, ImVec2 rect_max, float rounding, ImDrawFlags flags)
+		public static void ImDrawList_PathRect(ImDrawListPtr self, ImVec2 rect_min, ImVec2 rect_max, float rounding, ImDrawFlags flags)
 		{
 			ImDrawList_PathRect_ptr(self, rect_min, rect_max, rounding, flags);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, IntPtr, void*, void> ImDrawList_AddCallback_ptr;
-		public static void ImDrawList_AddCallback(ImDrawList* self, IntPtr callback, void* callback_data)
+		public static void ImDrawList_AddCallback(ImDrawListPtr self, IntPtr callback, void* callback_data)
 		{
 			ImDrawList_AddCallback_ptr(self, callback, callback_data);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_AddDrawCmd_ptr;
-		public static void ImDrawList_AddDrawCmd(ImDrawList* self)
+		public static void ImDrawList_AddDrawCmd(ImDrawListPtr self)
 		{
 			ImDrawList_AddDrawCmd_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImDrawList*> ImDrawList_CloneOutput_ptr;
-		public static ImDrawList* ImDrawList_CloneOutput(ImDrawList* self)
+		public static ImDrawListPtr ImDrawList_CloneOutput(ImDrawListPtr self)
 		{
 			return ImDrawList_CloneOutput_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, int, void> ImDrawList_ChannelsSplit_ptr;
-		public static void ImDrawList_ChannelsSplit(ImDrawList* self, int count)
+		public static void ImDrawList_ChannelsSplit(ImDrawListPtr self, int count)
 		{
 			ImDrawList_ChannelsSplit_ptr(self, count);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_ChannelsMerge_ptr;
-		public static void ImDrawList_ChannelsMerge(ImDrawList* self)
+		public static void ImDrawList_ChannelsMerge(ImDrawListPtr self)
 		{
 			ImDrawList_ChannelsMerge_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, int, void> ImDrawList_ChannelsSetCurrent_ptr;
-		public static void ImDrawList_ChannelsSetCurrent(ImDrawList* self, int n)
+		public static void ImDrawList_ChannelsSetCurrent(ImDrawListPtr self, int n)
 		{
 			ImDrawList_ChannelsSetCurrent_ptr(self, n);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, int, int, void> ImDrawList_PrimReserve_ptr;
-		public static void ImDrawList_PrimReserve(ImDrawList* self, int idx_count, int vtx_count)
+		public static void ImDrawList_PrimReserve(ImDrawListPtr self, int idx_count, int vtx_count)
 		{
 			ImDrawList_PrimReserve_ptr(self, idx_count, vtx_count);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, int, int, void> ImDrawList_PrimUnreserve_ptr;
-		public static void ImDrawList_PrimUnreserve(ImDrawList* self, int idx_count, int vtx_count)
+		public static void ImDrawList_PrimUnreserve(ImDrawListPtr self, int idx_count, int vtx_count)
 		{
 			ImDrawList_PrimUnreserve_ptr(self, idx_count, vtx_count);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, void> ImDrawList_PrimRect_ptr;
-		public static void ImDrawList_PrimRect(ImDrawList* self, ImVec2 a, ImVec2 b, uint col)
+		public static void ImDrawList_PrimRect(ImDrawListPtr self, ImVec2 a, ImVec2 b, uint col)
 		{
 			ImDrawList_PrimRect_ptr(self, a, b, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_PrimRectUV_ptr;
-		public static void ImDrawList_PrimRectUV(ImDrawList* self, ImVec2 a, ImVec2 b, ImVec2 uv_a, ImVec2 uv_b, uint col)
+		public static void ImDrawList_PrimRectUV(ImDrawListPtr self, ImVec2 a, ImVec2 b, ImVec2 uv_a, ImVec2 uv_b, uint col)
 		{
 			ImDrawList_PrimRectUV_ptr(self, a, b, uv_a, uv_b, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_PrimQuadUV_ptr;
-		public static void ImDrawList_PrimQuadUV(ImDrawList* self, ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 d, ImVec2 uv_a, ImVec2 uv_b, ImVec2 uv_c, ImVec2 uv_d, uint col)
+		public static void ImDrawList_PrimQuadUV(ImDrawListPtr self, ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 d, ImVec2 uv_a, ImVec2 uv_b, ImVec2 uv_c, ImVec2 uv_d, uint col)
 		{
 			ImDrawList_PrimQuadUV_ptr(self, a, b, c, d, uv_a, uv_b, uv_c, uv_d, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, void> ImDrawList_PrimWriteVtx_ptr;
-		public static void ImDrawList_PrimWriteVtx(ImDrawList* self, ImVec2 pos, ImVec2 uv, uint col)
+		public static void ImDrawList_PrimWriteVtx(ImDrawListPtr self, ImVec2 pos, ImVec2 uv, uint col)
 		{
 			ImDrawList_PrimWriteVtx_ptr(self, pos, uv, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImDrawIdx, void> ImDrawList_PrimWriteIdx_ptr;
-		public static void ImDrawList_PrimWriteIdx(ImDrawList* self, ImDrawIdx idx)
+		public static void ImDrawList_PrimWriteIdx(ImDrawListPtr self, ImDrawIdx idx)
 		{
 			ImDrawList_PrimWriteIdx_ptr(self, idx);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, void> ImDrawList_PrimVtx_ptr;
-		public static void ImDrawList_PrimVtx(ImDrawList* self, ImVec2 pos, ImVec2 uv, uint col)
+		public static void ImDrawList_PrimVtx(ImDrawListPtr self, ImVec2 pos, ImVec2 uv, uint col)
 		{
 			ImDrawList_PrimVtx_ptr(self, pos, uv, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList__ResetForNewFrame_ptr;
-		public static void ImDrawList__ResetForNewFrame(ImDrawList* self)
+		public static void ImDrawList__ResetForNewFrame(ImDrawListPtr self)
 		{
 			ImDrawList__ResetForNewFrame_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList__ClearFreeMemory_ptr;
-		public static void ImDrawList__ClearFreeMemory(ImDrawList* self)
+		public static void ImDrawList__ClearFreeMemory(ImDrawListPtr self)
 		{
 			ImDrawList__ClearFreeMemory_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList__PopUnusedDrawCmd_ptr;
-		public static void ImDrawList__PopUnusedDrawCmd(ImDrawList* self)
+		public static void ImDrawList__PopUnusedDrawCmd(ImDrawListPtr self)
 		{
 			ImDrawList__PopUnusedDrawCmd_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList__OnChangedClipRect_ptr;
-		public static void ImDrawList__OnChangedClipRect(ImDrawList* self)
+		public static void ImDrawList__OnChangedClipRect(ImDrawListPtr self)
 		{
 			ImDrawList__OnChangedClipRect_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList__OnChangedTextureID_ptr;
-		public static void ImDrawList__OnChangedTextureID(ImDrawList* self)
+		public static void ImDrawList__OnChangedTextureID(ImDrawListPtr self)
 		{
 			ImDrawList__OnChangedTextureID_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList__OnChangedVtxOffset_ptr;
-		public static void ImDrawList__OnChangedVtxOffset(ImDrawList* self)
+		public static void ImDrawList__OnChangedVtxOffset(ImDrawListPtr self)
 		{
 			ImDrawList__OnChangedVtxOffset_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, float, int> ImDrawList__CalcCircleAutoSegmentCount_ptr;
-		public static int ImDrawList__CalcCircleAutoSegmentCount(ImDrawList* self, float radius)
+		public static int ImDrawList__CalcCircleAutoSegmentCount(ImDrawListPtr self, float radius)
 		{
 			return ImDrawList__CalcCircleAutoSegmentCount_ptr(self, radius);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, int, int, int, void> ImDrawList__PathArcToFastEx_ptr;
-		public static void ImDrawList__PathArcToFastEx(ImDrawList* self, ImVec2 center, float radius, int a_min_sample, int a_max_sample, int a_step)
+		public static void ImDrawList__PathArcToFastEx(ImDrawListPtr self, ImVec2 center, float radius, int a_min_sample, int a_max_sample, int a_step)
 		{
 			ImDrawList__PathArcToFastEx_ptr(self, center, radius, a_min_sample, a_max_sample, a_step);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, float, float, int, void> ImDrawList__PathArcToN_ptr;
-		public static void ImDrawList__PathArcToN(ImDrawList* self, ImVec2 center, float radius, float a_min, float a_max, int num_segments)
+		public static void ImDrawList__PathArcToN(ImDrawListPtr self, ImVec2 center, float radius, float a_min, float a_max, int num_segments)
 		{
 			ImDrawList__PathArcToN_ptr(self, center, radius, a_min, a_max, num_segments);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawData*> ImDrawData_ImDrawData_ptr;
-		public static ImDrawData* ImDrawData_ImDrawData()
+		public static ImDrawDataPtr ImDrawData_ImDrawData()
 		{
 			return ImDrawData_ImDrawData_ptr();
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawData*, void> ImDrawData_destroy_ptr;
-		public static void ImDrawData_destroy(ImDrawData* self)
+		public static void ImDrawData_destroy(ImDrawDataPtr self)
 		{
 			ImDrawData_destroy_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawData*, void> ImDrawData_Clear_ptr;
-		public static void ImDrawData_Clear(ImDrawData* self)
+		public static void ImDrawData_Clear(ImDrawDataPtr self)
 		{
 			ImDrawData_Clear_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawData*, void> ImDrawData_DeIndexAllBuffers_ptr;
-		public static void ImDrawData_DeIndexAllBuffers(ImDrawData* self)
+		public static void ImDrawData_DeIndexAllBuffers(ImDrawDataPtr self)
 		{
 			ImDrawData_DeIndexAllBuffers_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawData*, ImVec2, void> ImDrawData_ScaleClipRects_ptr;
-		public static void ImDrawData_ScaleClipRects(ImDrawData* self, ImVec2 fb_scale)
+		public static void ImDrawData_ScaleClipRects(ImDrawDataPtr self, ImVec2 fb_scale)
 		{
 			ImDrawData_ScaleClipRects_ptr(self, fb_scale);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontConfig*> ImFontConfig_ImFontConfig_ptr;
-		public static ImFontConfig* ImFontConfig_ImFontConfig()
+		public static ImFontConfigPtr ImFontConfig_ImFontConfig()
 		{
 			return ImFontConfig_ImFontConfig_ptr();
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontConfig*, void> ImFontConfig_destroy_ptr;
-		public static void ImFontConfig_destroy(ImFontConfig* self)
+		public static void ImFontConfig_destroy(ImFontConfigPtr self)
 		{
 			ImFontConfig_destroy_ptr(self);
 		}
@@ -3571,87 +3631,87 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*> ImFontAtlas_ImFontAtlas_ptr;
-		public static ImFontAtlas* ImFontAtlas_ImFontAtlas()
+		public static ImFontAtlasPtr ImFontAtlas_ImFontAtlas()
 		{
 			return ImFontAtlas_ImFontAtlas_ptr();
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlas_destroy_ptr;
-		public static void ImFontAtlas_destroy(ImFontAtlas* self)
+		public static void ImFontAtlas_destroy(ImFontAtlasPtr self)
 		{
 			ImFontAtlas_destroy_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFontConfig*, ImFont*> ImFontAtlas_AddFont_ptr;
-		public static ImFont* ImFontAtlas_AddFont(ImFontAtlas* self, ImFontConfig* font_cfg)
+		public static ImFontPtr ImFontAtlas_AddFont(ImFontAtlasPtr self, ImFontConfigPtr font_cfg)
 		{
 			return ImFontAtlas_AddFont_ptr(self, font_cfg);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFontConfig*, ImFont*> ImFontAtlas_AddFontDefault_ptr;
-		public static ImFont* ImFontAtlas_AddFontDefault(ImFontAtlas* self, ImFontConfig* font_cfg)
+		public static ImFontPtr ImFontAtlas_AddFontDefault(ImFontAtlasPtr self, ImFontConfigPtr font_cfg)
 		{
 			return ImFontAtlas_AddFontDefault_ptr(self, font_cfg);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, byte*, float, ImFontConfig*, char*, ImFont*> ImFontAtlas_AddFontFromFileTTF_ptr;
-		public static ImFont* ImFontAtlas_AddFontFromFileTTF(ImFontAtlas* self, string filename, float size_pixels, ImFontConfig* font_cfg, char* glyph_ranges)
+		public static ImFontPtr ImFontAtlas_AddFontFromFileTTF(ImFontAtlasPtr self, string filename, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges)
 		{
 			using var p_filename = new StringHelper(filename);
 			return ImFontAtlas_AddFontFromFileTTF_ptr(self, p_filename, size_pixels, font_cfg, glyph_ranges);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void*, int, float, ImFontConfig*, char*, ImFont*> ImFontAtlas_AddFontFromMemoryTTF_ptr;
-		public static ImFont* ImFontAtlas_AddFontFromMemoryTTF(ImFontAtlas* self, void* font_data, int font_size, float size_pixels, ImFontConfig* font_cfg, char* glyph_ranges)
+		public static ImFontPtr ImFontAtlas_AddFontFromMemoryTTF(ImFontAtlasPtr self, void* font_data, int font_size, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges)
 		{
 			return ImFontAtlas_AddFontFromMemoryTTF_ptr(self, font_data, font_size, size_pixels, font_cfg, glyph_ranges);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void*, int, float, ImFontConfig*, char*, ImFont*> ImFontAtlas_AddFontFromMemoryCompressedTTF_ptr;
-		public static ImFont* ImFontAtlas_AddFontFromMemoryCompressedTTF(ImFontAtlas* self, void* compressed_font_data, int compressed_font_size, float size_pixels, ImFontConfig* font_cfg, char* glyph_ranges)
+		public static ImFontPtr ImFontAtlas_AddFontFromMemoryCompressedTTF(ImFontAtlasPtr self, void* compressed_font_data, int compressed_font_size, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges)
 		{
 			return ImFontAtlas_AddFontFromMemoryCompressedTTF_ptr(self, compressed_font_data, compressed_font_size, size_pixels, font_cfg, glyph_ranges);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, byte*, float, ImFontConfig*, char*, ImFont*> ImFontAtlas_AddFontFromMemoryCompressedBase85TTF_ptr;
-		public static ImFont* ImFontAtlas_AddFontFromMemoryCompressedBase85TTF(ImFontAtlas* self, string compressed_font_data_base85, float size_pixels, ImFontConfig* font_cfg, char* glyph_ranges)
+		public static ImFontPtr ImFontAtlas_AddFontFromMemoryCompressedBase85TTF(ImFontAtlasPtr self, string compressed_font_data_base85, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges)
 		{
 			using var p_compressed_font_data_base85 = new StringHelper(compressed_font_data_base85);
 			return ImFontAtlas_AddFontFromMemoryCompressedBase85TTF_ptr(self, p_compressed_font_data_base85, size_pixels, font_cfg, glyph_ranges);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlas_ClearInputData_ptr;
-		public static void ImFontAtlas_ClearInputData(ImFontAtlas* self)
+		public static void ImFontAtlas_ClearInputData(ImFontAtlasPtr self)
 		{
 			ImFontAtlas_ClearInputData_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlas_ClearTexData_ptr;
-		public static void ImFontAtlas_ClearTexData(ImFontAtlas* self)
+		public static void ImFontAtlas_ClearTexData(ImFontAtlasPtr self)
 		{
 			ImFontAtlas_ClearTexData_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlas_ClearFonts_ptr;
-		public static void ImFontAtlas_ClearFonts(ImFontAtlas* self)
+		public static void ImFontAtlas_ClearFonts(ImFontAtlasPtr self)
 		{
 			ImFontAtlas_ClearFonts_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlas_Clear_ptr;
-		public static void ImFontAtlas_Clear(ImFontAtlas* self)
+		public static void ImFontAtlas_Clear(ImFontAtlasPtr self)
 		{
 			ImFontAtlas_Clear_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, bool> ImFontAtlas_Build_ptr;
-		public static bool ImFontAtlas_Build(ImFontAtlas* self)
+		public static bool ImFontAtlas_Build(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_Build_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, byte**, int*, int*, int*, void> ImFontAtlas_GetTexDataAsAlpha8_ptr;
-		public static void ImFontAtlas_GetTexDataAsAlpha8(ImFontAtlas* self, out byte* out_pixels, out int out_width, out int out_height, out int out_bytes_per_pixel)
+		public static void ImFontAtlas_GetTexDataAsAlpha8(ImFontAtlasPtr self, out byte* out_pixels, out int out_width, out int out_height, out int out_bytes_per_pixel)
 		{
 			fixed(byte** p_out_pixels = &out_pixels)
 			fixed(int* p_out_width = &out_width)
@@ -3663,7 +3723,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, byte**, int*, int*, int*, void> ImFontAtlas_GetTexDataAsRGBA32_ptr;
-		public static void ImFontAtlas_GetTexDataAsRGBA32(ImFontAtlas* self, out byte* out_pixels, out int out_width, out int out_height, out int out_bytes_per_pixel)
+		public static void ImFontAtlas_GetTexDataAsRGBA32(ImFontAtlasPtr self, out byte* out_pixels, out int out_width, out int out_height, out int out_bytes_per_pixel)
 		{
 			fixed(byte** p_out_pixels = &out_pixels)
 			fixed(int* p_out_width = &out_width)
@@ -3675,150 +3735,159 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, bool> ImFontAtlas_IsBuilt_ptr;
-		public static bool ImFontAtlas_IsBuilt(ImFontAtlas* self)
+		public static bool ImFontAtlas_IsBuilt(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_IsBuilt_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImTextureID, void> ImFontAtlas_SetTexID_ptr;
-		public static void ImFontAtlas_SetTexID(ImFontAtlas* self, ImTextureID id)
+		public static void ImFontAtlas_SetTexID(ImFontAtlasPtr self, ImTextureID id)
 		{
 			ImFontAtlas_SetTexID_ptr(self, id);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesDefault_ptr;
-		public static char* ImFontAtlas_GetGlyphRangesDefault(ImFontAtlas* self)
+		public static char* ImFontAtlas_GetGlyphRangesDefault(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesDefault_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesKorean_ptr;
-		public static char* ImFontAtlas_GetGlyphRangesKorean(ImFontAtlas* self)
+		public static char* ImFontAtlas_GetGlyphRangesKorean(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesKorean_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesJapanese_ptr;
-		public static char* ImFontAtlas_GetGlyphRangesJapanese(ImFontAtlas* self)
+		public static char* ImFontAtlas_GetGlyphRangesJapanese(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesJapanese_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesChineseFull_ptr;
-		public static char* ImFontAtlas_GetGlyphRangesChineseFull(ImFontAtlas* self)
+		public static char* ImFontAtlas_GetGlyphRangesChineseFull(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesChineseFull_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon_ptr;
-		public static char* ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon(ImFontAtlas* self)
+		public static char* ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesCyrillic_ptr;
-		public static char* ImFontAtlas_GetGlyphRangesCyrillic(ImFontAtlas* self)
+		public static char* ImFontAtlas_GetGlyphRangesCyrillic(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesCyrillic_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesThai_ptr;
-		public static char* ImFontAtlas_GetGlyphRangesThai(ImFontAtlas* self)
+		public static char* ImFontAtlas_GetGlyphRangesThai(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesThai_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesVietnamese_ptr;
-		public static char* ImFontAtlas_GetGlyphRangesVietnamese(ImFontAtlas* self)
+		public static char* ImFontAtlas_GetGlyphRangesVietnamese(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesVietnamese_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, int, int, int> ImFontAtlas_AddCustomRectRegular_ptr;
-		public static int ImFontAtlas_AddCustomRectRegular(ImFontAtlas* self, int width, int height)
+		public static int ImFontAtlas_AddCustomRectRegular(ImFontAtlasPtr self, int width, int height)
 		{
 			return ImFontAtlas_AddCustomRectRegular_ptr(self, width, height);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFont*, char, int, int, float, ImVec2, int> ImFontAtlas_AddCustomRectFontGlyph_ptr;
-		public static int ImFontAtlas_AddCustomRectFontGlyph(ImFontAtlas* self, ImFont* font, char id, int width, int height, float advance_x, ImVec2 offset)
+		public static int ImFontAtlas_AddCustomRectFontGlyph(ImFontAtlasPtr self, ImFontPtr font, char id, int width, int height, float advance_x, ImVec2 offset)
 		{
 			return ImFontAtlas_AddCustomRectFontGlyph_ptr(self, font, id, width, height, advance_x, offset);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, int, ImFontAtlasCustomRect*> ImFontAtlas_GetCustomRectByIndex_ptr;
-		public static ImFontAtlasCustomRect* ImFontAtlas_GetCustomRectByIndex(ImFontAtlas* self, int index)
+		public static ImFontAtlasCustomRect* ImFontAtlas_GetCustomRectByIndex(ImFontAtlasPtr self, int index)
 		{
 			return ImFontAtlas_GetCustomRectByIndex_ptr(self, index);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFontAtlasCustomRect*, ImVec2*, ImVec2*, void> ImFontAtlas_CalcCustomRectUV_ptr;
-		public static void ImFontAtlas_CalcCustomRectUV(ImFontAtlas* self, ImFontAtlasCustomRect* rect, ImVec2* out_uv_min, ImVec2* out_uv_max)
+		public static void ImFontAtlas_CalcCustomRectUV(ImFontAtlasPtr self, ImFontAtlasCustomRect* rect, out ImVec2 out_uv_min, out ImVec2 out_uv_max)
 		{
-			ImFontAtlas_CalcCustomRectUV_ptr(self, rect, out_uv_min, out_uv_max);
+			fixed(ImVec2* p_out_uv_min = &out_uv_min)
+			fixed(ImVec2* p_out_uv_max = &out_uv_max)
+			{
+				ImFontAtlas_CalcCustomRectUV_ptr(self, rect, p_out_uv_min, p_out_uv_max);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiMouseCursor, ImVec2*, ImVec2*, ImVec2*, ImVec2*, bool> ImFontAtlas_GetMouseCursorTexData_ptr;
-		public static bool ImFontAtlas_GetMouseCursorTexData(ImFontAtlas* self, ImGuiMouseCursor cursor, ImVec2* out_offset, ImVec2* out_size, ImVec2* out_uv_border, ImVec2* out_uv_fill)
+		public static bool ImFontAtlas_GetMouseCursorTexData(ImFontAtlasPtr self, ImGuiMouseCursor cursor, out ImVec2 out_offset, out ImVec2 out_size, ImVec2* out_uv_border, ImVec2* out_uv_fill)
 		{
-			return ImFontAtlas_GetMouseCursorTexData_ptr(self, cursor, out_offset, out_size, out_uv_border, out_uv_fill);
+			fixed(ImVec2* p_out_offset = &out_offset)
+			fixed(ImVec2* p_out_size = &out_size)
+			{
+				return ImFontAtlas_GetMouseCursorTexData_ptr(self, cursor, p_out_offset, p_out_size, out_uv_border, out_uv_fill);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*> ImFont_ImFont_ptr;
-		public static ImFont* ImFont_ImFont()
+		public static ImFontPtr ImFont_ImFont()
 		{
 			return ImFont_ImFont_ptr();
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, void> ImFont_destroy_ptr;
-		public static void ImFont_destroy(ImFont* self)
+		public static void ImFont_destroy(ImFontPtr self)
 		{
 			ImFont_destroy_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, char, ImFontGlyph*> ImFont_FindGlyph_ptr;
-		public static ImFontGlyph* ImFont_FindGlyph(ImFont* self, char c)
+		public static ImFontGlyph* ImFont_FindGlyph(ImFontPtr self, char c)
 		{
 			return ImFont_FindGlyph_ptr(self, c);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, char, ImFontGlyph*> ImFont_FindGlyphNoFallback_ptr;
-		public static ImFontGlyph* ImFont_FindGlyphNoFallback(ImFont* self, char c)
+		public static ImFontGlyph* ImFont_FindGlyphNoFallback(ImFontPtr self, char c)
 		{
 			return ImFont_FindGlyphNoFallback_ptr(self, c);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, char, float> ImFont_GetCharAdvance_ptr;
-		public static float ImFont_GetCharAdvance(ImFont* self, char c)
+		public static float ImFont_GetCharAdvance(ImFontPtr self, char c)
 		{
 			return ImFont_GetCharAdvance_ptr(self, c);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, bool> ImFont_IsLoaded_ptr;
-		public static bool ImFont_IsLoaded(ImFont* self)
+		public static bool ImFont_IsLoaded(ImFontPtr self)
 		{
 			return ImFont_IsLoaded_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, byte*> ImFont_GetDebugName_ptr;
-		public static byte* ImFont_GetDebugName(ImFont* self)
+		public static byte* ImFont_GetDebugName(ImFontPtr self)
 		{
 			return ImFont_GetDebugName_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImFont*, float, float, float, byte*, byte*, byte**, void> ImFont_CalcTextSizeA_ptr;
-		public static void ImFont_CalcTextSizeA(ImVec2* @out, ImFont* self, float size, float max_width, float wrap_width, string text_begin, string text_end, ref byte* remaining)
+		public static void ImFont_CalcTextSizeA(out ImVec2 @out, ImFontPtr self, float size, float max_width, float wrap_width, string text_begin, string text_end, ref byte* remaining)
 		{
+			fixed(ImVec2* p_out = &@out)
 			fixed(byte** p_remaining = &remaining)
 			{
 				using var p_text_begin = new StringHelper(text_begin);
 				using var p_text_end = new StringHelper(text_end);
-				ImFont_CalcTextSizeA_ptr(@out, self, size, max_width, wrap_width, p_text_begin, p_text_end, p_remaining);
+				ImFont_CalcTextSizeA_ptr(p_out, self, size, max_width, wrap_width, p_text_begin, p_text_end, p_remaining);
 			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, float, byte*, byte*, float, byte*> ImFont_CalcWordWrapPositionA_ptr;
-		public static byte* ImFont_CalcWordWrapPositionA(ImFont* self, float scale, string text, string text_end, float wrap_width)
+		public static byte* ImFont_CalcWordWrapPositionA(ImFontPtr self, float scale, string text, string text_end, float wrap_width)
 		{
 			using var p_text = new StringHelper(text);
 			using var p_text_end = new StringHelper(text_end);
@@ -3826,13 +3895,13 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, ImDrawList*, float, ImVec2, uint, char, void> ImFont_RenderChar_ptr;
-		public static void ImFont_RenderChar(ImFont* self, ImDrawList* draw_list, float size, ImVec2 pos, uint col, char c)
+		public static void ImFont_RenderChar(ImFontPtr self, ImDrawListPtr draw_list, float size, ImVec2 pos, uint col, char c)
 		{
 			ImFont_RenderChar_ptr(self, draw_list, size, pos, col, c);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, ImDrawList*, float, ImVec2, uint, ImVec4, byte*, byte*, float, bool, void> ImFont_RenderText_ptr;
-		public static void ImFont_RenderText(ImFont* self, ImDrawList* draw_list, float size, ImVec2 pos, uint col, ImVec4 clip_rect, string text_begin, string text_end, float wrap_width, bool cpu_fine_clip)
+		public static void ImFont_RenderText(ImFontPtr self, ImDrawListPtr draw_list, float size, ImVec2 pos, uint col, ImVec4 clip_rect, string text_begin, string text_end, float wrap_width, bool cpu_fine_clip)
 		{
 			using var p_text_begin = new StringHelper(text_begin);
 			using var p_text_end = new StringHelper(text_end);
@@ -3840,49 +3909,49 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, void> ImFont_BuildLookupTable_ptr;
-		public static void ImFont_BuildLookupTable(ImFont* self)
+		public static void ImFont_BuildLookupTable(ImFontPtr self)
 		{
 			ImFont_BuildLookupTable_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, void> ImFont_ClearOutputData_ptr;
-		public static void ImFont_ClearOutputData(ImFont* self)
+		public static void ImFont_ClearOutputData(ImFontPtr self)
 		{
 			ImFont_ClearOutputData_ptr(self);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, int, void> ImFont_GrowIndex_ptr;
-		public static void ImFont_GrowIndex(ImFont* self, int new_size)
+		public static void ImFont_GrowIndex(ImFontPtr self, int new_size)
 		{
 			ImFont_GrowIndex_ptr(self, new_size);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, ImFontConfig*, char, float, float, float, float, float, float, float, float, float, void> ImFont_AddGlyph_ptr;
-		public static void ImFont_AddGlyph(ImFont* self, ImFontConfig* src_cfg, char c, float x0, float y0, float x1, float y1, float u0, float v0, float u1, float v1, float advance_x)
+		public static void ImFont_AddGlyph(ImFontPtr self, ImFontConfigPtr src_cfg, char c, float x0, float y0, float x1, float y1, float u0, float v0, float u1, float v1, float advance_x)
 		{
 			ImFont_AddGlyph_ptr(self, src_cfg, c, x0, y0, x1, y1, u0, v0, u1, v1, advance_x);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, char, char, bool, void> ImFont_AddRemapChar_ptr;
-		public static void ImFont_AddRemapChar(ImFont* self, char dst, char src, bool overwrite_dst)
+		public static void ImFont_AddRemapChar(ImFontPtr self, char dst, char src, bool overwrite_dst)
 		{
 			ImFont_AddRemapChar_ptr(self, dst, src, overwrite_dst);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, char, bool, void> ImFont_SetGlyphVisible_ptr;
-		public static void ImFont_SetGlyphVisible(ImFont* self, char c, bool visible)
+		public static void ImFont_SetGlyphVisible(ImFontPtr self, char c, bool visible)
 		{
 			ImFont_SetGlyphVisible_ptr(self, c, visible);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, char, void> ImFont_SetFallbackChar_ptr;
-		public static void ImFont_SetFallbackChar(ImFont* self, char c)
+		public static void ImFont_SetFallbackChar(ImFontPtr self, char c)
 		{
 			ImFont_SetFallbackChar_ptr(self, c);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, uint, uint, bool> ImFont_IsGlyphRangeUnused_ptr;
-		public static bool ImFont_IsGlyphRangeUnused(ImFont* self, uint c_begin, uint c_last)
+		public static bool ImFont_IsGlyphRangeUnused(ImFontPtr self, uint c_begin, uint c_last)
 		{
 			return ImFont_IsGlyphRangeUnused_ptr(self, c_begin, c_last);
 		}
@@ -3900,15 +3969,21 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiViewport*, void> ImGuiViewport_GetCenter_ptr;
-		public static void ImGuiViewport_GetCenter(ImVec2* @out, ImGuiViewport* self)
+		public static void ImGuiViewport_GetCenter(out ImVec2 @out, ImGuiViewport* self)
 		{
-			ImGuiViewport_GetCenter_ptr(@out, self);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImGuiViewport_GetCenter_ptr(p_out, self);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiViewport*, void> ImGuiViewport_GetWorkCenter_ptr;
-		public static void ImGuiViewport_GetWorkCenter(ImVec2* @out, ImGuiViewport* self)
+		public static void ImGuiViewport_GetWorkCenter(out ImVec2 @out, ImGuiViewport* self)
 		{
-			ImGuiViewport_GetWorkCenter_ptr(@out, self);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImGuiViewport_GetWorkCenter_ptr(p_out, self);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiPlatformIO*> ImGuiPlatformIO_ImGuiPlatformIO_ptr;
@@ -4253,39 +4328,57 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, void> ImMin_ptr;
-		public static void ImMin(ImVec2* @out, ImVec2 lhs, ImVec2 rhs)
+		public static void ImMin(out ImVec2 @out, ImVec2 lhs, ImVec2 rhs)
 		{
-			ImMin_ptr(@out, lhs, rhs);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImMin_ptr(p_out, lhs, rhs);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, void> ImMax_ptr;
-		public static void ImMax(ImVec2* @out, ImVec2 lhs, ImVec2 rhs)
+		public static void ImMax(out ImVec2 @out, ImVec2 lhs, ImVec2 rhs)
 		{
-			ImMax_ptr(@out, lhs, rhs);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImMax_ptr(p_out, lhs, rhs);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, void> ImClamp_ptr;
-		public static void ImClamp(ImVec2* @out, ImVec2 v, ImVec2 mn, ImVec2 mx)
+		public static void ImClamp(out ImVec2 @out, ImVec2 v, ImVec2 mn, ImVec2 mx)
 		{
-			ImClamp_ptr(@out, v, mn, mx);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImClamp_ptr(p_out, v, mn, mx);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, float, void> ImLerpVec2Float_ptr;
-		public static void ImLerpVec2Float(ImVec2* @out, ImVec2 a, ImVec2 b, float t)
+		public static void ImLerpVec2Float(out ImVec2 @out, ImVec2 a, ImVec2 b, float t)
 		{
-			ImLerpVec2Float_ptr(@out, a, b, t);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImLerpVec2Float_ptr(p_out, a, b, t);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, void> ImLerpVec2Vec2_ptr;
-		public static void ImLerpVec2Vec2(ImVec2* @out, ImVec2 a, ImVec2 b, ImVec2 t)
+		public static void ImLerpVec2Vec2(out ImVec2 @out, ImVec2 a, ImVec2 b, ImVec2 t)
 		{
-			ImLerpVec2Vec2_ptr(@out, a, b, t);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImLerpVec2Vec2_ptr(p_out, a, b, t);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec4*, ImVec4, ImVec4, float, void> ImLerpVec4_ptr;
-		public static void ImLerpVec4(ImVec4* @out, ImVec4 a, ImVec4 b, float t)
+		public static void ImLerpVec4(out ImVec4 @out, ImVec4 a, ImVec4 b, float t)
 		{
-			ImLerpVec4_ptr(@out, a, b, t);
+			fixed(ImVec4* p_out = &@out)
+			{
+				ImLerpVec4_ptr(p_out, a, b, t);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<float, float> ImSaturate_ptr;
@@ -4319,9 +4412,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, void> ImFloorVec2_ptr;
-		public static void ImFloorVec2(ImVec2* @out, ImVec2 v)
+		public static void ImFloorVec2(out ImVec2 @out, ImVec2 v)
 		{
-			ImFloorVec2_ptr(@out, v);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImFloorVec2_ptr(p_out, v);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<int, int, int> ImModPositive_ptr;
@@ -4337,9 +4433,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, float, float, void> ImRotate_ptr;
-		public static void ImRotate(ImVec2* @out, ImVec2 v, float cos_a, float sin_a)
+		public static void ImRotate(out ImVec2 @out, ImVec2 v, float cos_a, float sin_a)
 		{
-			ImRotate_ptr(@out, v, cos_a, sin_a);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImRotate_ptr(p_out, v, cos_a, sin_a);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<float, float, float, float> ImLinearSweep_ptr;
@@ -4349,39 +4448,57 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, void> ImMul_ptr;
-		public static void ImMul(ImVec2* @out, ImVec2 lhs, ImVec2 rhs)
+		public static void ImMul(out ImVec2 @out, ImVec2 lhs, ImVec2 rhs)
 		{
-			ImMul_ptr(@out, lhs, rhs);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImMul_ptr(p_out, lhs, rhs);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, float, void> ImBezierCubicCalc_ptr;
-		public static void ImBezierCubicCalc(ImVec2* @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, float t)
+		public static void ImBezierCubicCalc(out ImVec2 @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, float t)
 		{
-			ImBezierCubicCalc_ptr(@out, p1, p2, p3, p4, t);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImBezierCubicCalc_ptr(p_out, p1, p2, p3, p4, t);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, int, void> ImBezierCubicClosestPoint_ptr;
-		public static void ImBezierCubicClosestPoint(ImVec2* @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 p, int num_segments)
+		public static void ImBezierCubicClosestPoint(out ImVec2 @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 p, int num_segments)
 		{
-			ImBezierCubicClosestPoint_ptr(@out, p1, p2, p3, p4, p, num_segments);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImBezierCubicClosestPoint_ptr(p_out, p1, p2, p3, p4, p, num_segments);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, float, void> ImBezierCubicClosestPointCasteljau_ptr;
-		public static void ImBezierCubicClosestPointCasteljau(ImVec2* @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 p, float tess_tol)
+		public static void ImBezierCubicClosestPointCasteljau(out ImVec2 @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 p, float tess_tol)
 		{
-			ImBezierCubicClosestPointCasteljau_ptr(@out, p1, p2, p3, p4, p, tess_tol);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImBezierCubicClosestPointCasteljau_ptr(p_out, p1, p2, p3, p4, p, tess_tol);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, float, void> ImBezierQuadraticCalc_ptr;
-		public static void ImBezierQuadraticCalc(ImVec2* @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, float t)
+		public static void ImBezierQuadraticCalc(out ImVec2 @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, float t)
 		{
-			ImBezierQuadraticCalc_ptr(@out, p1, p2, p3, t);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImBezierQuadraticCalc_ptr(p_out, p1, p2, p3, t);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, void> ImLineClosestPoint_ptr;
-		public static void ImLineClosestPoint(ImVec2* @out, ImVec2 a, ImVec2 b, ImVec2 p)
+		public static void ImLineClosestPoint(out ImVec2 @out, ImVec2 a, ImVec2 b, ImVec2 p)
 		{
-			ImLineClosestPoint_ptr(@out, a, b, p);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImLineClosestPoint_ptr(p_out, a, b, p);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, ImVec2, ImVec2, bool> ImTriangleContainsPoint_ptr;
@@ -4391,9 +4508,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, void> ImTriangleClosestPoint_ptr;
-		public static void ImTriangleClosestPoint(ImVec2* @out, ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 p)
+		public static void ImTriangleClosestPoint(out ImVec2 @out, ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 p)
 		{
-			ImTriangleClosestPoint_ptr(@out, a, b, c, p);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImTriangleClosestPoint_ptr(p_out, a, b, c, p);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, ImVec2, ImVec2, float*, float*, float*, void> ImTriangleBarycentricCoords_ptr;
@@ -4450,15 +4570,21 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetCenter_ptr;
-		public static void ImRect_GetCenter(ImVec2* @out, ImRect* self)
+		public static void ImRect_GetCenter(out ImVec2 @out, ImRect* self)
 		{
-			ImRect_GetCenter_ptr(@out, self);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImRect_GetCenter_ptr(p_out, self);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetSize_ptr;
-		public static void ImRect_GetSize(ImVec2* @out, ImRect* self)
+		public static void ImRect_GetSize(out ImVec2 @out, ImRect* self)
 		{
-			ImRect_GetSize_ptr(@out, self);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImRect_GetSize_ptr(p_out, self);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImRect*, float> ImRect_GetWidth_ptr;
@@ -4480,27 +4606,39 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetTL_ptr;
-		public static void ImRect_GetTL(ImVec2* @out, ImRect* self)
+		public static void ImRect_GetTL(out ImVec2 @out, ImRect* self)
 		{
-			ImRect_GetTL_ptr(@out, self);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImRect_GetTL_ptr(p_out, self);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetTR_ptr;
-		public static void ImRect_GetTR(ImVec2* @out, ImRect* self)
+		public static void ImRect_GetTR(out ImVec2 @out, ImRect* self)
 		{
-			ImRect_GetTR_ptr(@out, self);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImRect_GetTR_ptr(p_out, self);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetBL_ptr;
-		public static void ImRect_GetBL(ImVec2* @out, ImRect* self)
+		public static void ImRect_GetBL(out ImVec2 @out, ImRect* self)
 		{
-			ImRect_GetBL_ptr(@out, self);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImRect_GetBL_ptr(p_out, self);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetBR_ptr;
-		public static void ImRect_GetBR(ImVec2* @out, ImRect* self)
+		public static void ImRect_GetBR(out ImVec2 @out, ImRect* self)
 		{
-			ImRect_GetBR_ptr(@out, self);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ImRect_GetBR_ptr(p_out, self);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImRect*, ImVec2, bool> ImRect_ContainsVec2_ptr;
@@ -4588,9 +4726,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec4*, ImRect*, void> ImRect_ToVec4_ptr;
-		public static void ImRect_ToVec4(ImVec4* @out, ImRect* self)
+		public static void ImRect_ToVec4(out ImVec4 @out, ImRect* self)
 		{
-			ImRect_ToVec4_ptr(@out, self);
+			fixed(ImVec4* p_out = &@out)
+			{
+				ImRect_ToVec4_ptr(p_out, self);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<uint*, int, bool> ImBitArrayTestBit_ptr;
@@ -5137,7 +5278,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiContext*> ImGuiContext_ImGuiContext_ptr;
-		public static ImGuiContext* ImGuiContext_ImGuiContext(ImFontAtlas* shared_font_atlas)
+		public static ImGuiContext* ImGuiContext_ImGuiContext(ImFontAtlasPtr shared_font_atlas)
 		{
 			return ImGuiContext_ImGuiContext_ptr(shared_font_atlas);
 		}
@@ -5389,9 +5530,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiWindow*, void> CalcWindowNextAutoFitSize_ptr;
-		public static void CalcWindowNextAutoFitSize(ImVec2* @out, ImGuiWindow* window)
+		public static void CalcWindowNextAutoFitSize(out ImVec2 @out, ImGuiWindow* window)
 		{
-			CalcWindowNextAutoFitSize_ptr(@out, window);
+			fixed(ImVec2* p_out = &@out)
+			{
+				CalcWindowNextAutoFitSize_ptr(p_out, window);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiWindow*, bool> IsWindowChildOf_ptr;
@@ -5473,19 +5617,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*, void> SetCurrentFont_ptr;
-		public static void SetCurrentFont(ImFont* font)
+		public static void SetCurrentFont(ImFontPtr font)
 		{
 			SetCurrentFont_ptr(font);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFont*> GetDefaultFont_ptr;
-		public static ImFont* GetDefaultFont()
+		public static ImFontPtr GetDefaultFont()
 		{
 			return GetDefaultFont_ptr();
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImDrawList*> GetForegroundDrawListWindowPtr_ptr;
-		public static ImDrawList* GetForegroundDrawListWindowPtr(ImGuiWindow* window)
+		public static ImDrawListPtr GetForegroundDrawListWindowPtr(ImGuiWindow* window)
 		{
 			return GetForegroundDrawListWindowPtr_ptr(window);
 		}
@@ -5650,9 +5794,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiWindow*, ImRect, void> ScrollToBringRectIntoView_ptr;
-		public static void ScrollToBringRectIntoView(ImVec2* @out, ImGuiWindow* window, ImRect item_rect)
+		public static void ScrollToBringRectIntoView(out ImVec2 @out, ImGuiWindow* window, ImRect item_rect)
 		{
-			ScrollToBringRectIntoView_ptr(@out, window, item_rect);
+			fixed(ImVec2* p_out = &@out)
+			{
+				ScrollToBringRectIntoView_ptr(p_out, window, item_rect);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiID> GetItemID_ptr;
@@ -5790,9 +5937,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, float, float, void> CalcItemSize_ptr;
-		public static void CalcItemSize(ImVec2* @out, ImVec2 size, float default_w, float default_h)
+		public static void CalcItemSize(out ImVec2 @out, ImVec2 size, float default_w, float default_h)
 		{
-			CalcItemSize_ptr(@out, size, default_w, default_h);
+			fixed(ImVec2* p_out = &@out)
+			{
+				CalcItemSize_ptr(p_out, size, default_w, default_h);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2, float, float> CalcWrapWidthForPos_ptr;
@@ -5826,9 +5976,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetContentRegionMaxAbs_ptr;
-		public static void GetContentRegionMaxAbs(ImVec2* @out)
+		public static void GetContentRegionMaxAbs(out ImVec2 @out)
 		{
-			GetContentRegionMaxAbs_ptr(@out);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetContentRegionMaxAbs_ptr(p_out);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiShrinkWidthItem*, int, float, void> ShrinkWidths_ptr;
@@ -5915,17 +6068,21 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiWindow*, void> FindBestWindowPosForPopup_ptr;
-		public static void FindBestWindowPosForPopup(ImVec2* @out, ImGuiWindow* window)
+		public static void FindBestWindowPosForPopup(out ImVec2 @out, ImGuiWindow* window)
 		{
-			FindBestWindowPosForPopup_ptr(@out, window);
+			fixed(ImVec2* p_out = &@out)
+			{
+				FindBestWindowPosForPopup_ptr(p_out, window);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImGuiDir*, ImRect, ImRect, ImGuiPopupPositionPolicy, void> FindBestWindowPosForPopupEx_ptr;
-		public static void FindBestWindowPosForPopupEx(ImVec2* @out, ImVec2 ref_pos, ImVec2 size, ref ImGuiDir last_dir, ImRect r_outer, ImRect r_avoid, ImGuiPopupPositionPolicy policy)
+		public static void FindBestWindowPosForPopupEx(out ImVec2 @out, ImVec2 ref_pos, ImVec2 size, ref ImGuiDir last_dir, ImRect r_outer, ImRect r_avoid, ImGuiPopupPositionPolicy policy)
 		{
+			fixed(ImVec2* p_out = &@out)
 			fixed(ImGuiDir* p_last_dir = &last_dir)
 			{
-				FindBestWindowPosForPopupEx_ptr(@out, ref_pos, size, p_last_dir, r_outer, r_avoid, policy);
+				FindBestWindowPosForPopupEx_ptr(p_out, ref_pos, size, p_last_dir, r_outer, r_avoid, policy);
 			}
 		}
 
@@ -5966,9 +6123,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiNavDirSourceFlags, ImGuiInputReadMode, float, float, void> GetNavInputAmount2d_ptr;
-		public static void GetNavInputAmount2d(ImVec2* @out, ImGuiNavDirSourceFlags dir_sources, ImGuiInputReadMode mode, float slow_factor, float fast_factor)
+		public static void GetNavInputAmount2d(out ImVec2 @out, ImGuiNavDirSourceFlags dir_sources, ImGuiInputReadMode mode, float slow_factor, float fast_factor)
 		{
-			GetNavInputAmount2d_ptr(@out, dir_sources, mode, slow_factor, fast_factor);
+			fixed(ImVec2* p_out = &@out)
+			{
+				GetNavInputAmount2d_ptr(p_out, dir_sources, mode, slow_factor, fast_factor);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<float, float, float, float, int> CalcTypematicRepeatAmount_ptr;
@@ -6128,9 +6288,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiDockNode*, ImGuiWindow*, ImGuiDir, bool, ImVec2*, bool> DockContextCalcDropPosForDocking_ptr;
-		public static bool DockContextCalcDropPosForDocking(ImGuiWindow* target, ImGuiDockNode* target_node, ImGuiWindow* payload, ImGuiDir split_dir, bool split_outer, ImVec2* out_pos)
+		public static bool DockContextCalcDropPosForDocking(ImGuiWindow* target, ImGuiDockNode* target_node, ImGuiWindow* payload, ImGuiDir split_dir, bool split_outer, out ImVec2 out_pos)
 		{
-			return DockContextCalcDropPosForDocking_ptr(target, target_node, payload, split_dir, split_outer, out_pos);
+			fixed(ImVec2* p_out_pos = &out_pos)
+			{
+				return DockContextCalcDropPosForDocking_ptr(target, target_node, payload, split_dir, split_outer, p_out_pos);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool> DockNodeBeginAmendTabBar_ptr;
@@ -6697,20 +6860,23 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImVec2*, byte*, bool, void> TabItemCalcSize_ptr;
-		public static void TabItemCalcSize(ImVec2* @out, string label, bool has_close_button)
+		public static void TabItemCalcSize(out ImVec2 @out, string label, bool has_close_button)
 		{
-			using var p_label = new StringHelper(label);
-			TabItemCalcSize_ptr(@out, p_label, has_close_button);
+			fixed(ImVec2* p_out = &@out)
+			{
+				using var p_label = new StringHelper(label);
+				TabItemCalcSize_ptr(p_out, p_label, has_close_button);
+			}
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImRect, ImGuiTabItemFlags, uint, void> TabItemBackground_ptr;
-		public static void TabItemBackground(ImDrawList* draw_list, ImRect bb, ImGuiTabItemFlags flags, uint col)
+		public static void TabItemBackground(ImDrawListPtr draw_list, ImRect bb, ImGuiTabItemFlags flags, uint col)
 		{
 			TabItemBackground_ptr(draw_list, bb, flags, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImRect, ImGuiTabItemFlags, ImVec2, byte*, ImGuiID, ImGuiID, bool, bool*, bool*, void> TabItemLabelAndCloseButton_ptr;
-		public static void TabItemLabelAndCloseButton(ImDrawList* draw_list, ImRect bb, ImGuiTabItemFlags flags, ImVec2 frame_padding, string label, ImGuiID tab_id, ImGuiID close_button_id, bool is_contents_visible, out bool out_just_closed, out bool out_text_clipped)
+		public static void TabItemLabelAndCloseButton(ImDrawListPtr draw_list, ImRect bb, ImGuiTabItemFlags flags, ImVec2 frame_padding, string label, ImGuiID tab_id, ImGuiID close_button_id, bool is_contents_visible, out bool out_just_closed, out bool out_text_clipped)
 		{
 			fixed(bool* p_out_just_closed = &out_just_closed)
 			fixed(bool* p_out_text_clipped = &out_text_clipped)
@@ -6745,7 +6911,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, byte*, byte*, ImVec2*, ImVec2, ImRect*, void> RenderTextClippedEx_ptr;
-		public static void RenderTextClippedEx(ImDrawList* draw_list, ImVec2 pos_min, ImVec2 pos_max, string text, string text_end, ImVec2* text_size_if_known, ImVec2 align, ImRect* clip_rect)
+		public static void RenderTextClippedEx(ImDrawListPtr draw_list, ImVec2 pos_min, ImVec2 pos_max, string text, string text_end, ImVec2* text_size_if_known, ImVec2 align, ImRect* clip_rect)
 		{
 			using var p_text = new StringHelper(text);
 			using var p_text_end = new StringHelper(text_end);
@@ -6753,7 +6919,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, float, float, byte*, byte*, ImVec2*, void> RenderTextEllipsis_ptr;
-		public static void RenderTextEllipsis(ImDrawList* draw_list, ImVec2 pos_min, ImVec2 pos_max, float clip_max_x, float ellipsis_max_x, string text, string text_end, ImVec2* text_size_if_known)
+		public static void RenderTextEllipsis(ImDrawListPtr draw_list, ImVec2 pos_min, ImVec2 pos_max, float clip_max_x, float ellipsis_max_x, string text, string text_end, ImVec2* text_size_if_known)
 		{
 			using var p_text = new StringHelper(text);
 			using var p_text_end = new StringHelper(text_end);
@@ -6773,7 +6939,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImVec2, float, ImDrawFlags, void> RenderColorRectWithAlphaCheckerboard_ptr;
-		public static void RenderColorRectWithAlphaCheckerboard(ImDrawList* draw_list, ImVec2 p_min, ImVec2 p_max, uint fill_col, float grid_step, ImVec2 grid_off, float rounding, ImDrawFlags flags)
+		public static void RenderColorRectWithAlphaCheckerboard(ImDrawListPtr draw_list, ImVec2 p_min, ImVec2 p_max, uint fill_col, float grid_step, ImVec2 grid_off, float rounding, ImDrawFlags flags)
 		{
 			RenderColorRectWithAlphaCheckerboard_ptr(draw_list, p_min, p_max, fill_col, grid_step, grid_off, rounding, flags);
 		}
@@ -6793,49 +6959,49 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, ImGuiDir, float, void> RenderArrow_ptr;
-		public static void RenderArrow(ImDrawList* draw_list, ImVec2 pos, uint col, ImGuiDir dir, float scale)
+		public static void RenderArrow(ImDrawListPtr draw_list, ImVec2 pos, uint col, ImGuiDir dir, float scale)
 		{
 			RenderArrow_ptr(draw_list, pos, col, dir, scale);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, void> RenderBullet_ptr;
-		public static void RenderBullet(ImDrawList* draw_list, ImVec2 pos, uint col)
+		public static void RenderBullet(ImDrawListPtr draw_list, ImVec2 pos, uint col)
 		{
 			RenderBullet_ptr(draw_list, pos, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, float, void> RenderCheckMark_ptr;
-		public static void RenderCheckMark(ImDrawList* draw_list, ImVec2 pos, uint col, float sz)
+		public static void RenderCheckMark(ImDrawListPtr draw_list, ImVec2 pos, uint col, float sz)
 		{
 			RenderCheckMark_ptr(draw_list, pos, col, sz);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, ImGuiMouseCursor, uint, uint, uint, void> RenderMouseCursor_ptr;
-		public static void RenderMouseCursor(ImDrawList* draw_list, ImVec2 pos, float scale, ImGuiMouseCursor mouse_cursor, uint col_fill, uint col_border, uint col_shadow)
+		public static void RenderMouseCursor(ImDrawListPtr draw_list, ImVec2 pos, float scale, ImGuiMouseCursor mouse_cursor, uint col_fill, uint col_border, uint col_shadow)
 		{
 			RenderMouseCursor_ptr(draw_list, pos, scale, mouse_cursor, col_fill, col_border, col_shadow);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImGuiDir, uint, void> RenderArrowPointingAt_ptr;
-		public static void RenderArrowPointingAt(ImDrawList* draw_list, ImVec2 pos, ImVec2 half_sz, ImGuiDir direction, uint col)
+		public static void RenderArrowPointingAt(ImDrawListPtr draw_list, ImVec2 pos, ImVec2 half_sz, ImGuiDir direction, uint col)
 		{
 			RenderArrowPointingAt_ptr(draw_list, pos, half_sz, direction, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, void> RenderArrowDockMenu_ptr;
-		public static void RenderArrowDockMenu(ImDrawList* draw_list, ImVec2 p_min, float sz, uint col)
+		public static void RenderArrowDockMenu(ImDrawListPtr draw_list, ImVec2 p_min, float sz, uint col)
 		{
 			RenderArrowDockMenu_ptr(draw_list, p_min, sz, col);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImRect, uint, float, float, float, void> RenderRectFilledRangeH_ptr;
-		public static void RenderRectFilledRangeH(ImDrawList* draw_list, ImRect rect, uint col, float x_start_norm, float x_end_norm, float rounding)
+		public static void RenderRectFilledRangeH(ImDrawListPtr draw_list, ImRect rect, uint col, float x_start_norm, float x_end_norm, float rounding)
 		{
 			RenderRectFilledRangeH_ptr(draw_list, rect, col, x_start_norm, x_end_norm, rounding);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImRect, ImRect, uint, float, void> RenderRectFilledWithHole_ptr;
-		public static void RenderRectFilledWithHole(ImDrawList* draw_list, ImRect outer, ImRect inner, uint col, float rounding)
+		public static void RenderRectFilledWithHole(ImDrawListPtr draw_list, ImRect outer, ImRect inner, uint col, float rounding)
 		{
 			RenderRectFilledWithHole_ptr(draw_list, outer, inner, col, rounding);
 		}
@@ -7096,13 +7262,13 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, int, int, ImVec2, ImVec2, uint, uint, void> ShadeVertsLinearColorGradientKeepAlpha_ptr;
-		public static void ShadeVertsLinearColorGradientKeepAlpha(ImDrawList* draw_list, int vert_start_idx, int vert_end_idx, ImVec2 gradient_p0, ImVec2 gradient_p1, uint col0, uint col1)
+		public static void ShadeVertsLinearColorGradientKeepAlpha(ImDrawListPtr draw_list, int vert_start_idx, int vert_end_idx, ImVec2 gradient_p0, ImVec2 gradient_p1, uint col0, uint col1)
 		{
 			ShadeVertsLinearColorGradientKeepAlpha_ptr(draw_list, vert_start_idx, vert_end_idx, gradient_p0, gradient_p1, col0, col1);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, int, int, ImVec2, ImVec2, ImVec2, ImVec2, bool, void> ShadeVertsLinearUV_ptr;
-		public static void ShadeVertsLinearUV(ImDrawList* draw_list, int vert_start_idx, int vert_end_idx, ImVec2 a, ImVec2 b, ImVec2 uv_a, ImVec2 uv_b, bool clamp)
+		public static void ShadeVertsLinearUV(ImDrawListPtr draw_list, int vert_start_idx, int vert_end_idx, ImVec2 a, ImVec2 b, ImVec2 uv_a, ImVec2 uv_b, bool clamp)
 		{
 			ShadeVertsLinearUV_ptr(draw_list, vert_start_idx, vert_end_idx, a, b, uv_a, uv_b, clamp);
 		}
@@ -7157,14 +7323,14 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiViewportP*, ImDrawList*, byte*, void> DebugNodeDrawList_ptr;
-		public static void DebugNodeDrawList(ImGuiWindow* window, ImGuiViewportP* viewport, ImDrawList* draw_list, string label)
+		public static void DebugNodeDrawList(ImGuiWindow* window, ImGuiViewportP* viewport, ImDrawListPtr draw_list, string label)
 		{
 			using var p_label = new StringHelper(label);
 			DebugNodeDrawList_ptr(window, viewport, draw_list, p_label);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImDrawList*, ImDrawCmd*, bool, bool, void> DebugNodeDrawCmdShowMeshAndBoundingBox_ptr;
-		public static void DebugNodeDrawCmdShowMeshAndBoundingBox(ImDrawList* out_draw_list, ImDrawList* draw_list, ImDrawCmd* draw_cmd, bool show_mesh, bool show_aabb)
+		public static void DebugNodeDrawCmdShowMeshAndBoundingBox(ImDrawListPtr out_draw_list, ImDrawListPtr draw_list, ImDrawCmd* draw_cmd, bool show_mesh, bool show_aabb)
 		{
 			DebugNodeDrawCmdShowMeshAndBoundingBox_ptr(out_draw_list, draw_list, draw_cmd, show_mesh, show_aabb);
 		}
@@ -7222,7 +7388,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImDrawList*, ImGuiViewportP*, ImRect, void> DebugRenderViewportThumbnail_ptr;
-		public static void DebugRenderViewportThumbnail(ImDrawList* draw_list, ImGuiViewportP* viewport, ImRect bb)
+		public static void DebugRenderViewportThumbnail(ImDrawListPtr draw_list, ImGuiViewportP* viewport, ImRect bb)
 		{
 			DebugRenderViewportThumbnail_ptr(draw_list, viewport, bb);
 		}
@@ -7234,38 +7400,38 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlasBuildInit_ptr;
-		public static void ImFontAtlasBuildInit(ImFontAtlas* atlas)
+		public static void ImFontAtlasBuildInit(ImFontAtlasPtr atlas)
 		{
 			ImFontAtlasBuildInit_ptr(atlas);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFont*, ImFontConfig*, float, float, void> ImFontAtlasBuildSetupFont_ptr;
-		public static void ImFontAtlasBuildSetupFont(ImFontAtlas* atlas, ImFont* font, ImFontConfig* font_config, float ascent, float descent)
+		public static void ImFontAtlasBuildSetupFont(ImFontAtlasPtr atlas, ImFontPtr font, ImFontConfigPtr font_config, float ascent, float descent)
 		{
 			ImFontAtlasBuildSetupFont_ptr(atlas, font, font_config, ascent, descent);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void*, void> ImFontAtlasBuildPackCustomRects_ptr;
-		public static void ImFontAtlasBuildPackCustomRects(ImFontAtlas* atlas, void* stbrp_context_opaque)
+		public static void ImFontAtlasBuildPackCustomRects(ImFontAtlasPtr atlas, void* stbrp_context_opaque)
 		{
 			ImFontAtlasBuildPackCustomRects_ptr(atlas, stbrp_context_opaque);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlasBuildFinish_ptr;
-		public static void ImFontAtlasBuildFinish(ImFontAtlas* atlas)
+		public static void ImFontAtlasBuildFinish(ImFontAtlasPtr atlas)
 		{
 			ImFontAtlasBuildFinish_ptr(atlas);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, int, int, int, int, byte*, byte, byte, void> ImFontAtlasBuildRender8bppRectFromString_ptr;
-		public static void ImFontAtlasBuildRender8bppRectFromString(ImFontAtlas* atlas, int x, int y, int w, int h, string in_str, byte in_marker_char, byte in_marker_pixel_value)
+		public static void ImFontAtlasBuildRender8bppRectFromString(ImFontAtlasPtr atlas, int x, int y, int w, int h, string in_str, byte in_marker_char, byte in_marker_pixel_value)
 		{
 			using var p_in_str = new StringHelper(in_str);
 			ImFontAtlasBuildRender8bppRectFromString_ptr(atlas, x, y, w, h, p_in_str, in_marker_char, in_marker_pixel_value);
 		}
 
 		static delegate* unmanaged[Stdcall]<ImFontAtlas*, int, int, int, int, byte*, byte, uint, void> ImFontAtlasBuildRender32bppRectFromString_ptr;
-		public static void ImFontAtlasBuildRender32bppRectFromString(ImFontAtlas* atlas, int x, int y, int w, int h, string in_str, byte in_marker_char, uint in_marker_pixel_value)
+		public static void ImFontAtlasBuildRender32bppRectFromString(ImFontAtlasPtr atlas, int x, int y, int w, int h, string in_str, byte in_marker_char, uint in_marker_pixel_value)
 		{
 			using var p_in_str = new StringHelper(in_str);
 			ImFontAtlasBuildRender32bppRectFromString_ptr(atlas, x, y, w, h, p_in_str, in_marker_char, in_marker_pixel_value);

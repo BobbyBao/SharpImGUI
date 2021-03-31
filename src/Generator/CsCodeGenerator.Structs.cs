@@ -12,7 +12,7 @@ namespace Generator
     {
         private static bool generateSizeOfStructs = false;
 
-        private static readonly HashSet<string> s_ignoreStructs = new HashSet<string>
+        private static readonly HashSet<string> s_knowntructs = new HashSet<string>
         {
             "ImVector",
             "ImVec1",
@@ -24,7 +24,13 @@ namespace Generator
 
         private static Dictionary<string, string> s_handleMappings = new Dictionary<string, string>
         {
-
+            { "ImGuiStyle*", "ImGuiStylePtr" },
+            { "ImGuiIO*", "ImGuiIOPtr"},
+            { "ImFontAtlas*", "ImFontAtlasPtr"},
+            { "ImDrawData*", "ImDrawDataPtr"},
+            { "ImDrawList*", "ImDrawListPtr"},
+            { "ImFont*", "ImFontPtr"},
+            { "ImFontConfig*", "ImFontConfigPtr" },
         };
 
         private static void GenerateStructAndUnions(CppCompilation compilation, string outputPath)
@@ -54,10 +60,11 @@ namespace Generator
                 "ImVec3 = System.Numerics.Vector3",
                 "ImVec4 = System.Numerics.Vector4",
                 "ImColor = System.Numerics.Vector4"
-                ); ;
+                );
 
-            List<CppClass> generatedClass = new List<CppClass>();
+            List<CppClass> generatedClasses = new List<CppClass>();
 
+            List<CppClass> handleClasses = new List<CppClass>();
             // Print All classes, structs
             foreach (var cppClass in compilation.Classes)
             {
@@ -71,12 +78,12 @@ namespace Generator
                     continue;
                 }
 
-                if (s_ignoreStructs.Contains(cppClass.Name))
+                if (s_knowntructs.Contains(cppClass.Name))
                 {
                     continue;
                 }
 
-                generatedClass.Add(cppClass);
+                generatedClasses.Add(cppClass);
 
                 bool hasBitField = false;
                 foreach (CppField cppField in cppClass.Fields)
@@ -84,7 +91,7 @@ namespace Generator
                     if (cppField.IsBitField)
                     {
                         hasBitField = true;
-                        Console.WriteLine($"==== BitField : {cppClass.Name}." + cppField.Name);
+                        //Console.WriteLine($"==== BitField : {cppClass.Name}." + cppField.Name);
                         break;
                     }
                 }
@@ -106,23 +113,22 @@ namespace Generator
 
                 string csName = cppClass.Name;
                 bool isReadOnly = false;
-                string modifier = "partial";
 
-                if (s_handleMappings.ContainsKey(cppClass.Name))
+                if (s_handleMappings.TryGetValue(cppClass.Name + "*", out var handleName))
                 {
-                    Console.WriteLine($"Generating struct {cppClass.Name}Ptr");
+                    handleClasses.Add(cppClass);
+                }
 
-                }
-                else
-                {
-                    Console.WriteLine($"Generating struct {cppClass.Name}");
-                    GenerateStructures(writer, cppClass, isUnion, csName, isReadOnly, modifier);
-                }
+                Console.WriteLine($"Generating struct {cppClass.Name}");
+                string modifier = "public partial";
+                GenerateStructures(writer, cppClass, isUnion, csName, isReadOnly, modifier);
 
                 writer.WriteLine();
             }
 
-            CheckSize(writer, generatedClass);
+            GenerateHandles(handleClasses, outputPath);
+
+            CheckSize(writer, generatedClasses);
         }
 
         private static void GenerateStructures(CodeWriter writer, CppClass cppClass, bool isUnion, string csName, bool isReadOnly, string modifier)
@@ -136,7 +142,7 @@ namespace Generator
                 writer.WriteLine("[StructLayout(LayoutKind.Sequential)]");
             }
 
-            using (writer.PushBlock($"public {modifier} struct {csName}"))
+            using (writer.PushBlock($"{modifier} struct {csName}"))
             {
                 if (generateSizeOfStructs && cppClass.SizeOf > 0)
                 {
@@ -193,21 +199,21 @@ namespace Generator
                     }
                     else
                     {
-//                         if (!s_csNameMappings.TryGetValue(cppField.Type.GetDisplayName(), out var csFieldType))
-//                         {
-                            var csFieldType = GetCsTypeName(cppField.Type, false);
-//                         }
-//                         else
-//                         {
-//                             Console.Write("");
-//                         }
-
-
-                        if (csFieldType.Equals("ImGuiDockNodeSettings*") ||
-                            csFieldType.Equals("ImGuiDockRequest*"))
+                        if (!s_csNameMappings.TryGetValue(cppField.Type.GetDisplayName(), out var csFieldType))
                         {
-                            csFieldType = "IntPtr";
+                            csFieldType = GetCsTypeName(cppField.Type, false);
                         }
+                        else
+                        {
+                            Console.Write("");
+                        }
+
+
+                        //                         if (csFieldType.Equals("ImGuiDockNodeSettings*") ||
+                        //                             csFieldType.Equals("ImGuiDockRequest*"))
+                        //                         {
+                        //                             csFieldType = "IntPtr";
+                        //                         }
 
                         string fieldPrefix = isReadOnly ? "readonly " : string.Empty;
                         if (csFieldType.EndsWith('*'))
@@ -218,6 +224,109 @@ namespace Generator
                         writer.WriteLine($"public {fieldPrefix}{csFieldType} {csFieldName};");
                     }
                 }
+            }
+        }
+
+        private static void GenerateHandles(List<CppClass> handleClasses, string outputPath)
+        {
+            using var writer = new CodeWriter(Path.Combine(outputPath, "Handles.cs"),
+               "System",
+               "System.Runtime.InteropServices",
+               "ImGuiID = System.UInt32",
+               "ImTextureID = System.IntPtr",
+               "ImDrawIdx = System.UInt16",
+               "ImGuiCol = System.Int32",
+               "ImGuiCond = System.Int32",
+               "ImGuiDir = System.Int32",
+               "ImGuiKey = System.Int32",
+               "ImGuiStyleVar = System.Int32",
+               "ImGuiSortDirection = System.Int32",
+               "ImGuiDataAuthority = System.Int32",
+               "ImGuiLayoutType = System.Int32",
+               "ImGuiMouseCursor = System.Int32",
+               "ImPoolIdx = System.Int32",
+               "ImGuiTableColumnIdx = System.SByte",
+               "ImGuiTableDrawChannelIdx = System.Byte",
+               "ImFileHandle = System.IntPtr",
+               "ImVec1 = System.Single",
+               "ImVec2 = System.Numerics.Vector2",
+               "ImVec3 = System.Numerics.Vector3",
+               "ImVec4 = System.Numerics.Vector4",
+            "ImColor = System.Numerics.Vector4",
+            "System.Runtime.CompilerServices"
+           );
+
+            foreach (var cppClass in handleClasses)
+            {
+                var csName = cppClass.Name;
+                var handleName = s_handleMappings[csName + "*"];
+
+                Console.WriteLine($"Generating Handle {cppClass.Name}Ptr");
+
+                using (writer.PushBlock($"public unsafe partial struct {handleName}"))
+                {
+                    writer.WriteLine($"private unsafe {csName}* self;");
+
+                    using (writer.PushBlock($"public {handleName}({csName}* native)"))
+                    {
+                        writer.WriteLine($"self = ({csName}*)native;");
+                    }
+
+                    writer.WriteLine();
+                    writer.WriteLine($"public static implicit operator {handleName}({csName}* native) => new {handleName}(native);");
+                    writer.WriteLine($"public static implicit operator {csName}*({handleName} handle) => handle.self;");
+
+                    foreach (CppField cppField in cppClass.Fields)
+                    {
+                        string csFieldName = NormalizeFieldName(cppField.Name);
+
+                        if (!s_csNameMappings.TryGetValue(cppField.Type.GetDisplayName(), out var csFieldType))
+                        {
+                            csFieldType = GetCsTypeName(cppField.Type, false);
+                        }
+
+                        if (cppField.Type is CppArrayType arrayType)
+                        {
+                            bool canUseFixed = false;
+                            if (arrayType.ElementType is CppPrimitiveType)
+                            {
+                                canUseFixed = true;
+                            }
+                            else if (arrayType.ElementType is CppTypedef typedef
+                                && typedef.ElementType is CppPrimitiveType)
+                            {
+                                canUseFixed = true;
+                            }
+
+                            var elementTypeName = GetCsTypeName(arrayType.ElementType, false);
+                            if(canUseFixed)
+                                writer.WriteLine($"public RangeAccessor<{elementTypeName}> {csFieldName} => ({elementTypeName}*)Unsafe.AsPointer(ref self->{csFieldName}[0]);");
+                            else
+                                writer.WriteLine($"public RangeAccessor<{elementTypeName}> {csFieldName} => ({elementTypeName}*)Unsafe.AsPointer(ref self->{csFieldName}_0);");
+
+                            continue;
+                        }
+
+                        if (cppField.Type is CppPointerType pointerType)
+                        {
+                            if (s_handleMappings.TryGetValue(csFieldType, out var p_HandleName))
+                            {
+                                writer.WriteLine($"public {p_HandleName} {csFieldName} => self->{csFieldName};");
+
+                                continue;
+                            }
+
+
+                        }
+
+
+                         
+                        writer.WriteLine($"public ref {csFieldType} {csFieldName} => ref self->{csFieldName};");
+                        
+                    }
+                }
+                writer.WriteLine();
+
             }
         }
 

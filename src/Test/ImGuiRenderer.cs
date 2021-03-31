@@ -306,7 +306,7 @@ namespace ImGuiNET.SampleProgram.XNA
 
             for (int n = 0; n < drawData.CmdListsCount; n++)
             {
-                var cmdList = drawData.CmdLists[n];
+                var cmdList = drawData.CmdListsRange[n];
 
                 fixed (void* vtxDstPtr = &_vertexData[vtxOffset * DrawVertDeclaration.Size])
                 fixed (void* idxDstPtr = &_indexData[idxOffset * sizeof(ushort)])

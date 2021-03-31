@@ -37,13 +37,9 @@ namespace Generator
 
             foreach (var cppFunction in compilation.Functions)
             {
-                var returnType = GetCsTypeName(cppFunction.ReturnType, false);
-                bool canUseOut = s_outReturnFunctions.Contains(cppFunction.Name);
                 var csName = cppFunction.Name;
-                var argumentsString = GetParameterSignature(cppFunction, canUseOut);
-
                 bool skip = false;
-                foreach (var str in s_ignoreStructs)
+                foreach (var str in s_knowntructs)
                 {
                     if(csName.StartsWith(str))
                     {
@@ -93,6 +89,11 @@ namespace Generator
                     
 
                     var returnType = GetCsTypeName(cppFunction.ReturnType, false);
+                    if (s_handleMappings.TryGetValue(returnType, out var handleName))
+                    {
+                        returnType = handleName;
+                    }
+
                     bool canUseOut = s_outReturnFunctions.Contains(cppFunction.Name);
                     var argumentsString = GetParameterSignature(cppFunction, canUseOut);
 
@@ -102,12 +103,6 @@ namespace Generator
                     using (writer.PushBlock($"public static {returnType} {funName}({argumentsString})"))
                     {
                         int fixedCount = 0;
-
-                        if(funName == "CheckboxFlagsS64Ptr")
-                        {
-                            System.Console.Write("");
-                        }
-
                         var index = 0;
                         foreach (var cppParameter in cppFunction.Parameters)
                         {
@@ -230,15 +225,10 @@ namespace Generator
 
         public static string GetParameterSignature(CppFunction cppFunction, bool canUseOut)
         {
-            return GetParameterSignature(cppFunction.Parameters, canUseOut);
-        }
-
-        private static string GetParameterSignature(IList<CppParameter> parameters, bool canUseOut)
-        {
             var argumentBuilder = new StringBuilder();
             var index = 0;
 
-            foreach (var cppParameter in parameters)
+            foreach (var cppParameter in cppFunction.Parameters)
             {
                 var direction = string.Empty;
                 var paramCsTypeName = GetCsTypeName(cppParameter.Type, false);
@@ -254,23 +244,30 @@ namespace Generator
                 {
                     paramCsTypeName = "string";
                 }
-                else if(paramCsTypeName.EndsWith("*") && CanBeUsedAsRef(cppParameter.Type))
+                else if(paramCsTypeName.EndsWith("*") )
                 {
-                    if (paramCsName.StartsWith("out"))                    
-                        paramCsTypeName = "out " + paramCsTypeName.Substring(0, paramCsTypeName.Length - 1);                    
-                    else 
-                        paramCsTypeName = "ref " + paramCsTypeName.Substring(0, paramCsTypeName.Length - 1);
+                    if(CanBeUsedAsRef(cppParameter.Type))
+                    {
+                        if (paramCsName.StartsWith("out") || paramCsName.StartsWith("@out"))
+                            paramCsTypeName = "out " + paramCsTypeName.Substring(0, paramCsTypeName.Length - 1);
+                        else
+                            paramCsTypeName = "ref " + paramCsTypeName.Substring(0, paramCsTypeName.Length - 1);
+
+                    }
+                    else
+                    {
+                        if (s_handleMappings.TryGetValue(paramCsTypeName, out var handleName))
+                        {
+                            paramCsTypeName = handleName;
+                        }
+
+                    }
+
                 }
 
                 argumentBuilder.Append(paramCsTypeName).Append(" ").Append(paramCsName);
 
-                if(cppParameter.InitValue != null)
-                {
-                //    argumentBuilder.Append("= ").Append(cppParameter.InitValue);
-
-                }
-
-                if (index < parameters.Count - 1)
+                if (index < cppFunction.Parameters.Count - 1)
                 {
                     argumentBuilder.Append(", ");
                 }
@@ -353,6 +350,11 @@ namespace Generator
                     if (typedef.Name == "ImS64" || typedef.Name == "ImU64")
                         return true;
 
+                    return true;
+                }
+
+                if(s_knowntructs.Contains(pointerType.ElementType.GetDisplayName()))
+                {
                     return true;
                 }
 
