@@ -33,14 +33,18 @@ namespace SharpImGUI
         private IntPtr ansiStr;
         public StringHelper(string str)
         {
-            ansiStr = Marshal.StringToHGlobalAnsi(str);            
+            if (str != null)
+                ansiStr = Marshal.StringToHGlobalAnsi(str);
+            else
+                ansiStr = IntPtr.Zero;
         }
 
         public unsafe static implicit operator byte*(StringHelper self) => (byte*)self.ansiStr;
 
         public void Dispose()
         {
-            Marshal.FreeHGlobal(ansiStr);
+            if(ansiStr != IntPtr.Zero)
+                Marshal.FreeHGlobal(ansiStr);
         }
 
     }

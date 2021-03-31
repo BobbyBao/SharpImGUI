@@ -15,8 +15,6 @@ namespace SharpImGUI
 
     public unsafe partial class ImGui
     {
-        public static ImGuiIOPtr IO => GetIO();
-
         private delegate IntPtr LoadFunction(IntPtr context, string name);
 
         private static IntPtr cImGuiLib;
@@ -63,6 +61,31 @@ namespace SharpImGUI
             return NativeLibrary.Load(libName);
         }
 
+        public static ImGuiIOPtr IO => GetIO();
+        public static ImGuiStylePtr Style => GetStyle();
+        public static ImVec2 WindowPos
+        {
+            get
+            {
+                ImVec2 pos;
+                GetWindowPos(&pos);
+                return pos;
+            }
+        }
+
+        public static ImVec2 WindowSize
+        {
+            get
+            {
+                ImVec2 sz;
+                GetWindowSize(&sz);
+                return sz;
+            }
+        }
+
+        public static float WindowWidth => GetWindowWidth();
+        public static float WindowHeight => GetWindowHeight();
+
         public static bool Begin(string name, ref bool p_open) => Begin(name, ref p_open, default);
         public static bool Button(string label) => Button(label, default);
         public static bool BeginCombo(string label, string preview_value) => BeginCombo(label, preview_value, default);
@@ -83,13 +106,24 @@ namespace SharpImGUI
         public static bool ColorPicker3(string label, ref ImVec3 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit3(label, (float*)Unsafe.AsPointer(ref col.X), flags);
         public static bool ColorPicker4(string label, ref ImVec4 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit4(label, (float*)Unsafe.AsPointer(ref col.X), flags);
         public static bool ColorButton(string desc_id, in ImVec4 col, ImGuiColorEditFlags flags = default) => ColorButton(desc_id, col, flags, default);
+
+        public static void Value(string prefix, bool v) => ValueBool(prefix, v);
+        public static void Value(string prefix, int v) => ValueInt(prefix, v);
+        public static void Value(string prefix, uint v) => ValueUint(prefix, v);
+        public static void Value(string prefix, float v, string float_format = null) => ValueFloat(prefix, v, float_format);
+        public static bool BeginMenu(string label) => BeginMenu(label, true);
+        public static bool MenuItem(string label, string shortcut = null, bool selected = false, bool enabled = true)
+            => MenuItemBool(label, shortcut, selected, enabled);
+        public static bool MenuItem(string label, ref bool selected, string shortcut = null, bool enabled = true)
+            => MenuItemBoolPtr(label, shortcut, ref selected, enabled);
+
         public static bool BeginTable(string str_id, int column, ImGuiTableFlags flags = default, in ImVec2 outer_size = default)
             => BeginTable(str_id, column, flags, outer_size, default);
         public static void TableNextRow(ImGuiTableRowFlags row_flags = 0) => TableNextRow(row_flags, default);
         public static void TableSetupColumn(string label, ImGuiTableColumnFlags flags = 0, float init_width_or_weight = 0.0f)
             => TableSetupColumn(label, flags, init_width_or_weight, default);
 
-        public static string? TableGetColumnName(int column_n = -1)
+        public static string TableGetColumnName(int column_n = -1)
         {
             var ptr = TableGetColumnNameInt(column_n);
             return Marshal.PtrToStringAnsi((IntPtr)ptr);

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ImVec2 = System.Numerics.Vector2;
+using ImVec4 = System.Numerics.Vector4;
 using ImTextureID = System.IntPtr;
 using ImGuiID = System.UInt32;
 using ImDrawIdx = System.UInt16;
+using System.Runtime.CompilerServices;
 
 namespace SharpImGUI
 {
@@ -71,6 +73,59 @@ namespace SharpImGUI
         }
     }
 
+    public unsafe struct ImGuiStylePtr
+    {
+        ImGuiStyle* self;
+        public ImGuiStylePtr(ImGuiStyle* native)
+        {
+            this.self = native;
+        }
+
+        public static implicit operator ImGuiStylePtr(ImGuiStyle* native) => new ImGuiStylePtr(native);
+
+        public ref float Alpha => ref self->Alpha;
+        public ref ImVec2 WindowPadding => ref self->WindowPadding;
+        public ref float WindowRounding => ref self->WindowRounding;
+        public ref float WindowBorderSize => ref self->WindowBorderSize;
+        public ref ImVec2 WindowMinSize => ref self->WindowMinSize;
+        public ref ImVec2 WindowTitleAlign => ref self->WindowTitleAlign;
+        public ref ImGuiDir WindowMenuButtonPosition => ref self->WindowMenuButtonPosition;
+        public ref float ChildRounding => ref self->ChildRounding;
+        public ref float ChildBorderSize => ref self->ChildBorderSize;
+        public ref float PopupRounding => ref self->PopupRounding;
+        public ref float PopupBorderSize => ref self->PopupBorderSize;
+        public ref ImVec2 FramePadding => ref self->FramePadding;
+        public ref float FrameRounding => ref self->FrameRounding;
+        public ref float FrameBorderSize => ref self->FrameBorderSize;
+        public ref ImVec2 ItemSpacing => ref self->ItemSpacing;
+        public ref ImVec2 ItemInnerSpacing => ref self->ItemInnerSpacing;
+        public ref ImVec2 CellPadding => ref self->CellPadding;
+        public ref ImVec2 TouchExtraPadding => ref self->TouchExtraPadding;
+        public ref float IndentSpacing => ref self->IndentSpacing;
+        public ref float ColumnsMinSpacing => ref self->ColumnsMinSpacing;
+        public ref float ScrollbarSize => ref self->ScrollbarSize;
+        public ref float ScrollbarRounding => ref self->ScrollbarRounding;
+        public ref float GrabMinSize => ref self->GrabMinSize;
+        public ref float GrabRounding => ref self->GrabRounding;
+        public ref float LogSliderDeadzone => ref self->LogSliderDeadzone;
+        public ref float TabRounding => ref self->TabRounding;
+        public ref float TabBorderSize => ref self->TabBorderSize;
+        public ref float TabMinWidthForCloseButton => ref self->TabMinWidthForCloseButton;
+        public ref ImGuiDir ColorButtonPosition => ref self->ColorButtonPosition;
+        public ref ImVec2 ButtonTextAlign => ref self->ButtonTextAlign;
+        public ref ImVec2 SelectableTextAlign => ref self->SelectableTextAlign;
+        public ref ImVec2 DisplayWindowPadding => ref self->DisplayWindowPadding;
+        public ref ImVec2 DisplaySafeAreaPadding => ref self->DisplaySafeAreaPadding;
+        public ref float MouseCursorScale => ref self->MouseCursorScale;
+        public ref bool AntiAliasedLines => ref self->AntiAliasedLines;
+        public ref bool AntiAliasedLinesUseTex => ref self->AntiAliasedLinesUseTex;
+        public ref bool AntiAliasedFill => ref self->AntiAliasedFill;
+        public ref float CurveTessellationTol => ref self->CurveTessellationTol;
+        public ref float CircleTessellationMaxError => ref self->CircleTessellationMaxError;
+        public RangeAccessor<ImVec4> Colors => (ImVec4*)Unsafe.AsPointer(ref self->Colors_0);
+
+
+    }
 
     public unsafe struct ImFontAtlasPtr
     {

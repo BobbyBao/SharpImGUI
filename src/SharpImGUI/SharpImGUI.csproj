@@ -3,6 +3,7 @@
     <OutputType>Library</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyTitle>SharpImGUI</AssemblyTitle>
+	<Nullable>disable</Nullable>
     <Product>SharpImGUI</Product>
 	  <LangVersion>latest</LangVersion>
 	  <Platforms>AnyCPU;x64</Platforms>

@@ -13,9 +13,9 @@ namespace ImGuiNET.SampleProgram.XNA
     public class SampleGame : Game
     {
         private GraphicsDeviceManager _graphics;
-        private ImGuiRenderer? _imGuiRenderer;
+        private ImGuiRenderer _imGuiRenderer;
 
-        private Texture2D? _xnaTexture;
+        private Texture2D _xnaTexture;
         private IntPtr _imGuiTexture;
 
         public SampleGame()
