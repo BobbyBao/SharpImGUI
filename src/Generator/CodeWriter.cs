@@ -76,9 +76,17 @@ namespace Generator
             _shouldIndent = true;
         }
 
-        public void BeginBlock(string content)
+        public void BeginBlock(string content, bool newLine = true)
         {
-            WriteLine(content);
+            if (newLine)
+            {
+                WriteLine(content);
+            }
+            else
+            {
+                Write(content);
+            }
+
             WriteLine("{");
             Indent(1);
         }
@@ -89,9 +97,9 @@ namespace Generator
             WriteLine("}");
         }
 
-        public IDisposable PushBlock(string marker = "{")
+        public IDisposable PushBlock(string marker = "{", bool newLine = true)
         {
-            return new CodeBlock(this, marker);
+            return new CodeBlock(this, marker, newLine);
         }
 
         public void Indent(int count = 1)
@@ -150,10 +158,10 @@ namespace Generator
         {
             private readonly CodeWriter _writer;
 
-            public CodeBlock(CodeWriter writer, string content)
+            public CodeBlock(CodeWriter writer, string content, bool newLine)
             {
                 _writer = writer;
-                _writer.BeginBlock(content);
+                _writer.BeginBlock(content, newLine);
             }
 
             public void Dispose()

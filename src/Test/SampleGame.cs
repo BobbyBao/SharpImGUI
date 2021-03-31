@@ -83,40 +83,39 @@ namespace ImGuiNET.SampleProgram.XNA
         private bool show_another_window = false;
         private Num.Vector3 clear_color = new Num.Vector3(114f / 255f, 144f / 255f, 154f / 255f);
         private byte[] _textBuffer = new byte[100];
-
+        
         protected unsafe virtual void ImGuiLayout()
         {
             // 1. Show a simple window
             // Tip: if we don't call ImGui.Begin()/ImGui.End() the widgets appears in a window automatically called "Debug"
             {
-                ImGui.Text("Hello, world!");/*
-                ImGui.SliderFloat("float", ref f, 0.0f, 1.0f, string.Empty);
-                ImGui.ColorEdit3("clear color", ref clear_color);
-                if (ImGui.Button("Test Window")) show_test_window = !show_test_window;
-                if (ImGui.Button("Another Window")) show_another_window = !show_another_window;
-                ImGui.Text(string.Format("Application average {0:F3} ms/frame ({1:F1} FPS)", 1000f / ImGui.GetIO().Framerate, ImGui.GetIO().Framerate));
+                ImGui.Text("Hello, world!");
+                ImGui.SliderFloat("float", ref f, 0.0f, 1.0f, string.Empty, default);
+                //ImGui.ColorEdit3("clear color", ref clear_color, default);
+                if (ImGui.Button("Test Window", default)) show_test_window = !show_test_window;
+                if (ImGui.Button("Another Window", default)) show_another_window = !show_another_window;
+                ImGui.Text(string.Format("Application average {0:F3} ms/frame ({1:F1} FPS)", 1000f / ImGui.IO.Framerate, ImGui.IO.Framerate));
 
-                ImGui.InputText("Text input", _textBuffer, 100);
-                */
+                ImGui.InputText("Text input", _textBuffer, default, default, default);
+                
                 ImGui.Text("Texture sample");
                 ImGui.Image(_imGuiTexture, new Num.Vector2(300, 150), Num.Vector2.Zero, Num.Vector2.One, Num.Vector4.One, Num.Vector4.One); // Here, the previously loaded texture is used
             }
-            /*
+           
             // 2. Show another simple window, this time using an explicit Begin/End pair
             if (show_another_window)
             {
                 ImGui.SetNextWindowSize(new Num.Vector2(200, 100), ImGuiCond.FirstUseEver);
-                ImGui.Begin("Another Window", ref show_another_window);
+                ImGui.Begin("Another Window", ref show_another_window, default);
                 ImGui.Text("Hello");
                 ImGui.End();
-            }*/
+            }
 
             // 3. Show the ImGui test window. Most of the sample code is in ImGui.ShowTestWindow()
             if (show_test_window)
             {
-                ImGui.SetNextWindowPos(new Num.Vector2(650, 20), ImGuiCond.FirstUseEver, Num.Vector2.Zero);
-                fixed(bool* show = &show_test_window)
-                ImGui.ShowDemoWindow(show);
+                ImGui.SetNextWindowPos(new Num.Vector2(650, 20), ImGuiCond.FirstUseEver, Num.Vector2.Zero);               
+                ImGui.ShowDemoWindow(ref show_test_window);
             }
         }
 

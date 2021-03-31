@@ -34,9 +34,11 @@ namespace Generator
                 "ImGuiTableColumnIdx = System.SByte",
                 "ImGuiTableDrawChannelIdx = System.Byte",
                 "ImFileHandle = System.IntPtr",
+                "ImVec1 = System.Single",
                 "ImVec2 = System.Numerics.Vector2",
                 "ImVec3 = System.Numerics.Vector3",
-                "ImVec4 = System.Numerics.Vector4"
+                "ImVec4 = System.Numerics.Vector4",
+                "ImColor = System.Numerics.Vector4"
                 ); ;
             
             List<CppClass> generatedClass = new List<CppClass>();
@@ -56,13 +58,17 @@ namespace Generator
                     continue;
                 }
 
-                if (cppClass.Name == "ImVec2"
+                if (cppClass.Name == "ImVector"
+                    || cppClass.Name == "ImVec1"
+                    || cppClass.Name == "ImVec2"
                     || cppClass.Name == "ImVec3"
-                    || cppClass.Name == "ImVec4")
+                    || cppClass.Name == "ImVec4"
+                    || cppClass.Name == "ImColor")
                 {
                     continue;
                 }
 
+                generatedClass.Add(cppClass);
                 if (cppClass.Name == "ImGuiTableColumnSettings"
                     || cppClass.Name == "ImFontGlyph"
                     || cppClass.Name == "ImGuiWindow"
@@ -74,7 +80,6 @@ namespace Generator
                     continue;
                 }
 
-                generatedClass.Add(cppClass);
                 bool isUnion = cppClass.ClassKind == CppClassKind.Union;
                 Console.WriteLine($"Generating struct {cppClass.Name}");
 

@@ -30,9 +30,11 @@ namespace Generator
                 "ImTextureID = System.IntPtr",
                 "ImDrawIdx = System.UInt16",
                 "ImFileHandle = System.IntPtr",
+                "ImVec1 = System.Single",
                 "ImVec2 = System.Numerics.Vector2",
                 "ImVec3 = System.Numerics.Vector3",
-                "ImVec4 = System.Numerics.Vector4"
+                "ImVec4 = System.Numerics.Vector4",
+                "ImColor = System.Numerics.Vector4"
                 );
 
             var commands = new Dictionary<string, CppFunction>();
@@ -44,11 +46,14 @@ namespace Generator
                 var csName = cppFunction.Name;
                 var argumentsString = GetParameterSignature(cppFunction, canUseOut);
 
-                if(csName.StartsWith("ImVec2") || csName.StartsWith("ImVec3") || csName.StartsWith("ImVec4"))
+                if(csName.StartsWith("ImVec1") 
+                    || csName.StartsWith("ImVec2")
+                    || csName.StartsWith("ImVec3")
+                    || csName.StartsWith("ImVec4")
+                    || csName.StartsWith("ImColor"))
                 {
                     continue;
                 }
-
 
                 bool skip = false;
                 foreach (var param in cppFunction.Parameters)
@@ -97,13 +102,18 @@ namespace Generator
                     {
                         int fixedCount = 0;
 
+                        if(funName == "CheckboxFlagsS64Ptr")
+                        {
+                            System.Console.Write("");
+                        }
+
                         var index = 0;
                         foreach (var cppParameter in cppFunction.Parameters)
                         {
                             var paramCsTypeName = GetCsTypeName(cppParameter.Type, false);
                             var paramCsName = GetParameterName(cppParameter.Name);
 
-                            if (cppParameter.Type.GetDisplayName() == "const char*" || cppParameter.Type.GetDisplayName() == "char*")
+                            if (cppParameter.Type.GetDisplayName() == "const char*" /*|| cppParameter.Type.GetDisplayName() == "char*"*/)
                             {
                                 var newParamentName = "p_" + paramCsName;
                                 paramentNames[index] = newParamentName;
@@ -117,7 +127,7 @@ namespace Generator
                                     newParamentName = newParamentName.Substring(1);
                                 }
                                 newParamentName = "p_" + newParamentName;
-                                writer.Write($"fixed({paramCsTypeName} {newParamentName} = &{paramCsName})");
+                                writer.WriteLine($"fixed({paramCsTypeName} {newParamentName} = &{paramCsName})");
                                 paramentNames[index] = newParamentName;
                                 fixedCount++;
                             }
@@ -128,7 +138,7 @@ namespace Generator
                         System.IDisposable? block = null;
                         if(fixedCount > 0)
                         {
-                            block = writer.PushBlock("");
+                            block = writer.PushBlock("", false);
                         }
 
                         foreach (var str in stringParaments)
@@ -244,16 +254,26 @@ namespace Generator
                     paramCsTypeName = GetCsTypeName(cppTypeDeclaration, false);
                 }
 
-                if(cppParameter.Type.GetDisplayName() == "const char*" || cppParameter.Type.GetDisplayName() == "char*")
+                if(cppParameter.Type.GetDisplayName() == "const char*" /*|| cppParameter.Type.GetDisplayName() == "char*"*/)
                 {
                     paramCsTypeName = "string";
                 }
                 else if(paramCsTypeName.EndsWith("*") && CanBeUsedAsRef(cppParameter.Type))
                 {
-                    paramCsTypeName = "ref " + paramCsTypeName.Substring(0, paramCsTypeName.Length - 1);
+                    if (paramCsName.StartsWith("out"))                    
+                        paramCsTypeName = "out " + paramCsTypeName.Substring(0, paramCsTypeName.Length - 1);                    
+                    else 
+                        paramCsTypeName = "ref " + paramCsTypeName.Substring(0, paramCsTypeName.Length - 1);
                 }
 
                 argumentBuilder.Append(paramCsTypeName).Append(" ").Append(paramCsName);
+
+                if(cppParameter.InitValue != null)
+                {
+                    argumentBuilder.Append("= ").Append(cppParameter.InitValue);
+
+                }
+
                 if (index < parameters.Count - 1)
                 {
                     argumentBuilder.Append(", ");
@@ -322,24 +342,31 @@ namespace Generator
 
         private static bool CanBeUsedAsRef(CppType type)
         {
-            return false;
             if (type is CppPointerType pointerType)
             {
+                if (pointerType.ElementType is CppPrimitiveType primitiveType)
+                {
+                    if(primitiveType.GetDisplayName()== "void" || primitiveType.GetDisplayName() == "char")
+                        return false;
+
+                    return true;
+                }
+
                 if (pointerType.ElementType is CppTypedef typedef)
                 {
+                    if (typedef.Name == "ImS64" || typedef.Name == "ImU64")
+                        return true;
+
                     return true;
                 }
-                else if (pointerType.ElementType is CppClass @class
-                    && @class.ClassKind != CppClassKind.Class
-                    && @class.SizeOf > 0)
-                {
+
+                if (pointerType.ElementType is CppPointerType ptType)
+                {                     
                     return true;
                 }
-                else if (pointerType.ElementType is CppEnum @enum
-                    && @enum.SizeOf > 0)
-                {
-                    return true;
-                }
+
+                return false;
+
             }
 
             return false;

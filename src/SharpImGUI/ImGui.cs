@@ -58,5 +58,8 @@ namespace SharpImGUI
 
             return NativeLibrary.Load(libName);            
         }
+
+        public static bool InputText(string label, byte[] buf, ImGuiInputTextFlags flags, IntPtr callback, IntPtr user_data)
+            => InputText(label, (byte*)Unsafe.AsPointer(ref buf[0]), (IntPtr)buf.Length, flags, callback, (void*)user_data);
     }
 }

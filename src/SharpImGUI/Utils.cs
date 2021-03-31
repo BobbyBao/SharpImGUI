@@ -7,6 +7,27 @@ using System.Threading.Tasks;
 
 namespace SharpImGUI
 {
+    public unsafe struct ImVector<T> where T : unmanaged
+    {
+        public int Size;
+        public int Capacity;
+        public unsafe T* Data;
+        public ref T this[int index] => ref Data[index];
+    }
+
+    public unsafe struct RangeAccessor<T> where T : unmanaged
+    {
+        public unsafe T* Data;
+        public RangeAccessor(T* data)
+        {
+            this.Data = data;
+        }
+
+        public static implicit operator RangeAccessor<T>(T* native) => new RangeAccessor<T>(native);
+        public ref T this[int index] => ref Data[index];
+    }
+
+
     public ref struct StringHelper
     {
         private IntPtr ansiStr;

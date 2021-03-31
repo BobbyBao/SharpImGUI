@@ -25,9 +25,11 @@ using ImPoolIdx = System.Int32;
 using ImGuiTableColumnIdx = System.SByte;
 using ImGuiTableDrawChannelIdx = System.Byte;
 using ImFileHandle = System.IntPtr;
+using ImVec1 = System.Single;
 using ImVec2 = System.Numerics.Vector2;
 using ImVec3 = System.Numerics.Vector3;
 using ImVec4 = System.Numerics.Vector4;
+using ImColor = System.Numerics.Vector4;
 
 namespace SharpImGUI
 {
@@ -94,7 +96,7 @@ namespace SharpImGUI
 		public int CmdListsCount;
 		public int TotalIdxCount;
 		public int TotalVtxCount;
-		public unsafe ImDrawList* CmdLists;
+		public unsafe ImDrawList** CmdLists;
 		public ImVec2 DisplayPos;
 		public ImVec2 DisplaySize;
 		public ImVec2 FramebufferScale;
@@ -105,17 +107,17 @@ namespace SharpImGUI
 	public partial struct ImDrawList
 	{
 		public ImVector<ImDrawCmd> CmdBuffer;
-		public ImVector_ImDrawIdx IdxBuffer;
-		public ImVector_ImDrawVert VtxBuffer;
+		public ImVector<ImDrawIdx> IdxBuffer;
+		public ImVector<ImDrawVert> VtxBuffer;
 		public ImDrawListFlags Flags;
 		public uint _VtxCurrentIdx;
 		public unsafe ImDrawListSharedData* _Data;
 		public unsafe byte* _OwnerName;
 		public unsafe ImDrawVert* _VtxWritePtr;
 		public unsafe ImDrawIdx* _IdxWritePtr;
-		public ImVector_ImVec4 _ClipRectStack;
-		public ImVector_ImTextureID _TextureIdStack;
-		public ImVector_ImVec2 _Path;
+		public ImVector<ImVec4> _ClipRectStack;
+		public ImVector<ImTextureID> _TextureIdStack;
+		public ImVector<ImVec2> _Path;
 		public ImDrawCmdHeader _CmdHeader;
 		public ImDrawListSplitter _Splitter;
 		public float _FringeScale;
@@ -131,22 +133,6 @@ namespace SharpImGUI
 		public uint ElemCount;
 		public IntPtr UserCallback;
 		public unsafe void* UserCallbackData;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImVector_ImDrawIdx
-	{
-		public int Size;
-		public int Capacity;
-		public unsafe ImDrawIdx* Data;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImVector_ImDrawVert
-	{
-		public int Size;
-		public int Capacity;
-		public unsafe ImDrawVert* Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -223,11 +209,11 @@ namespace SharpImGUI
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImFont
 	{
-		public ImVector_float IndexAdvanceX;
+		public ImVector<float> IndexAdvanceX;
 		public float FallbackAdvanceX;
 		public float FontSize;
-		public ImVector_ImWchar IndexLookup;
-		public ImVector_ImFontGlyph Glyphs;
+		public ImVector<char> IndexLookup;
+		public ImVector<ImFontGlyph> Glyphs;
 		public unsafe ImFontGlyph* FallbackGlyph;
 		public unsafe ImFontAtlas* ContainerAtlas;
 		public unsafe ImFontConfig* ConfigData;
@@ -240,30 +226,6 @@ namespace SharpImGUI
 		public float Descent;
 		public int MetricsTotalSurface;
 		public unsafe fixed byte Used4kPagesMap[2];
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImVector_float
-	{
-		public int Size;
-		public int Capacity;
-		public unsafe float* Data;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImVector_ImWchar
-	{
-		public int Size;
-		public int Capacity;
-		public unsafe char* Data;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImVector_ImFontGlyph
-	{
-		public int Size;
-		public int Capacity;
-		public unsafe ImFontGlyph* Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -359,7 +321,7 @@ namespace SharpImGUI
 	{
 		public int Size;
 		public int Capacity;
-		public unsafe ImFont* Data;
+		public unsafe ImFont** Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -422,30 +384,6 @@ namespace SharpImGUI
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImVector_ImVec4
-	{
-		public int Size;
-		public int Capacity;
-		public unsafe ImVec4* Data;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImVector_ImTextureID
-	{
-		public int Size;
-		public int Capacity;
-		public unsafe ImTextureID* Data;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImVector_ImVec2
-	{
-		public int Size;
-		public int Capacity;
-		public unsafe ImVec2* Data;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImDrawCmdHeader
 	{
 		public ImVec4 ClipRect;
@@ -473,7 +411,7 @@ namespace SharpImGUI
 	public partial struct ImDrawChannel
 	{
 		public ImVector<ImDrawCmd> _CmdBuffer;
-		public ImVector_ImDrawIdx _IdxBuffer;
+		public ImVector<ImDrawIdx> _IdxBuffer;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -539,15 +477,9 @@ namespace SharpImGUI
 		public ImGuiItemFlags ItemFlags;
 		public float ItemWidth;
 		public float TextWrapPos;
-		public ImVector_float ItemWidthStack;
-		public ImVector_float TextWrapPosStack;
+		public ImVector<float> ItemWidthStack;
+		public ImVector<float> TextWrapPosStack;
 		public ImGuiStackSizes StackSizesOnBegin;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImVec1
-	{
-		public float x;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -572,7 +504,7 @@ namespace SharpImGUI
 	{
 		public int Size;
 		public int Capacity;
-		public unsafe ImGuiWindow* Data;
+		public unsafe ImGuiWindow** Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -725,15 +657,7 @@ namespace SharpImGUI
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImGuiTextBuffer
 	{
-		public ImVector_char Buf;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImVector_char
-	{
-		public int Size;
-		public int Capacity;
-		public unsafe byte* Data;
+		public ImVector<byte> Buf;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -748,7 +672,7 @@ namespace SharpImGUI
 	{
 		public int Size;
 		public int Capacity;
-		public unsafe ImDrawList* Data;
+		public unsafe ImDrawList** Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -2210,7 +2134,7 @@ namespace SharpImGUI
 		public unsafe ImGuiTable* CurrentTable;
 		public ImPool_ImGuiTable Tables;
 		public ImVector_ImGuiPtrOrIndex CurrentTableStack;
-		public ImVector_float TablesLastTimeActive;
+		public ImVector<float> TablesLastTimeActive;
 		public ImVector_ImDrawChannel DrawChannelsTempMergeBuffer;
 		public unsafe ImGuiTabBar* CurrentTabBar;
 		public ImPool_ImGuiTabBar TabBars;
@@ -2233,7 +2157,7 @@ namespace SharpImGUI
 		public float ScrollbarClickDeltaToGrabCenter;
 		public int TooltipOverrideCount;
 		public float TooltipSlowDelay;
-		public ImVector_char ClipboardHandlerData;
+		public ImVector<byte> ClipboardHandlerData;
 		public ImVector_ImGuiID MenusIdSubmittedThisFrame;
 		public ImVec2 PlatformImePos;
 		public ImVec2 PlatformImeLastPos;
@@ -2368,7 +2292,7 @@ namespace SharpImGUI
 		public unsafe fixed float NavInputsDownDurationPrev[21];
 		public float PenPressure;
 		public char InputQueueSurrogate;
-		public ImVector_ImWchar InputQueueCharacters;
+		public ImVector<char> InputQueueCharacters;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -2425,7 +2349,7 @@ namespace SharpImGUI
 	{
 		public int Size;
 		public int Capacity;
-		public unsafe ImGuiViewport* Data;
+		public unsafe ImGuiViewport** Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -2651,7 +2575,7 @@ namespace SharpImGUI
 	{
 		public int Size;
 		public int Capacity;
-		public unsafe ImGuiViewportP* Data;
+		public unsafe ImGuiViewportP** Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -2741,9 +2665,9 @@ namespace SharpImGUI
 		public ImGuiID ID;
 		public int CurLenW;
 		public int CurLenA;
-		public ImVector_ImWchar TextW;
-		public ImVector_char TextA;
-		public ImVector_char InitialTextA;
+		public ImVector<char> TextW;
+		public ImVector<byte> TextA;
+		public ImVector<byte> InitialTextA;
 		public bool TextAIsValid;
 		public int BufCapacityA;
 		public float ScrollX;
@@ -2940,23 +2864,9 @@ namespace SharpImGUI
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImColor
-	{
-		public ImVec4 Value;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImFontGlyphRangesBuilder
 	{
 		public ImVector_ImU32 UsedChars;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImVector
-	{
-		public int Size;
-		public int Capacity;
-		public unsafe void* Data;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -2964,27 +2874,24 @@ namespace SharpImGUI
 	{
 		public int Size;
 		public int Capacity;
-		public unsafe byte* Data;
+		public unsafe byte** Data;
 	}
 
 	unsafe partial class ImGui
 	{
 		public unsafe static void CheckSize()
 		{
+			 System.Diagnostics.Debug.Assert(12 == sizeof(ImGuiTableColumnSettings));
 			 System.Diagnostics.Debug.Assert(8 == sizeof(ImGuiTableCellData));
 			 System.Diagnostics.Debug.Assert(312 == sizeof(ImGuiViewportP));
 			 System.Diagnostics.Debug.Assert(96 == sizeof(ImGuiViewport));
 			 System.Diagnostics.Debug.Assert(56 == sizeof(ImDrawData));
 			 System.Diagnostics.Debug.Assert(200 == sizeof(ImDrawList));
 			 System.Diagnostics.Debug.Assert(56 == sizeof(ImDrawCmd));
-			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImDrawIdx));
-			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImDrawVert));
 			 System.Diagnostics.Debug.Assert(20 == sizeof(ImDrawVert));
 			 System.Diagnostics.Debug.Assert(512 == sizeof(ImDrawListSharedData));
 			 System.Diagnostics.Debug.Assert(112 == sizeof(ImFont));
-			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_float));
-			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImWchar));
-			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImFontGlyph));
+			 System.Diagnostics.Debug.Assert(40 == sizeof(ImFontGlyph));
 			 System.Diagnostics.Debug.Assert(1168 == sizeof(ImFontAtlas));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImFontPtr));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImFontAtlasCustomRect));
@@ -2992,22 +2899,20 @@ namespace SharpImGUI
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImFontConfig));
 			 System.Diagnostics.Debug.Assert(136 == sizeof(ImFontConfig));
 			 System.Diagnostics.Debug.Assert(8 == sizeof(ImFontBuilderIO));
-			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImVec4));
-			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImTextureID));
-			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImVec2));
 			 System.Diagnostics.Debug.Assert(32 == sizeof(ImDrawCmdHeader));
 			 System.Diagnostics.Debug.Assert(24 == sizeof(ImDrawListSplitter));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImDrawChannel));
 			 System.Diagnostics.Debug.Assert(32 == sizeof(ImDrawChannel));
+			 System.Diagnostics.Debug.Assert(1144 == sizeof(ImGuiWindow));
 			 System.Diagnostics.Debug.Assert(32 == sizeof(ImGuiWindowClass));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImGuiID));
 			 System.Diagnostics.Debug.Assert(304 == sizeof(ImGuiWindowTempData));
-			 System.Diagnostics.Debug.Assert(4 == sizeof(ImVec1));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImRect));
 			 System.Diagnostics.Debug.Assert(36 == sizeof(ImGuiMenuColumns));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImGuiWindowPtr));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImGuiStorage));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImGuiStoragePair));
+			 System.Diagnostics.Debug.Assert(16 == sizeof(ImGuiStoragePair));
 			 System.Diagnostics.Debug.Assert(136 == sizeof(ImGuiOldColumns));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImGuiOldColumnData));
 			 System.Diagnostics.Debug.Assert(28 == sizeof(ImGuiOldColumnData));
@@ -3015,11 +2920,11 @@ namespace SharpImGUI
 			 System.Diagnostics.Debug.Assert(4 == sizeof(ImVec2ih));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImGuiOldColumns));
 			 System.Diagnostics.Debug.Assert(24 == sizeof(ImGuiWindowDockStyle));
+			 System.Diagnostics.Debug.Assert(192 == sizeof(ImGuiDockNode));
 			 System.Diagnostics.Debug.Assert(152 == sizeof(ImGuiTabBar));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImGuiTabItem));
 			 System.Diagnostics.Debug.Assert(48 == sizeof(ImGuiTabItem));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImGuiTextBuffer));
-			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_char));
 			 System.Diagnostics.Debug.Assert(32 == sizeof(ImDrawDataBuilder));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImDrawListPtr));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImGuiPtrOrIndex));
@@ -3032,12 +2937,14 @@ namespace SharpImGUI
 			 System.Diagnostics.Debug.Assert(32 == sizeof(ImGuiWindowSettings));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImGuiTableSettings));
 			 System.Diagnostics.Debug.Assert(104 == sizeof(ImGuiTableColumn));
+			 System.Diagnostics.Debug.Assert(600 == sizeof(ImGuiTable));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImSpan_ImGuiTableColumn));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImSpan_ImGuiTableColumnIdx));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImSpan_ImGuiTableCellData));
 			 System.Diagnostics.Debug.Assert(12 == sizeof(ImGuiTableColumnSortSpecs));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImGuiTableColumnSortSpecs));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImGuiTableSortSpecs));
+			 System.Diagnostics.Debug.Assert(12 == sizeof(ImGuiStyleMod));
 			 System.Diagnostics.Debug.Assert(72 == sizeof(ImGuiSettingsHandler));
 			 System.Diagnostics.Debug.Assert(16552 == sizeof(ImGuiContext));
 			 System.Diagnostics.Debug.Assert(5456 == sizeof(ImGuiIO));
@@ -3089,9 +2996,7 @@ namespace SharpImGUI
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImGuiTextRange));
 			 System.Diagnostics.Debug.Assert(4 == sizeof(ImGuiOnceUponAFrame));
 			 System.Diagnostics.Debug.Assert(28 == sizeof(ImGuiListClipper));
-			 System.Diagnostics.Debug.Assert(16 == sizeof(ImColor));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImFontGlyphRangesBuilder));
-			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_const_charPtr));
 		}
 	}

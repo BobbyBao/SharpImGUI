@@ -54,118 +54,35 @@ namespace Generator
             { "ImGuiMemAllocFunc", "IntPtr" },
             { "ImGuiMemFreeFunc", "IntPtr" },
             //{ "ImVec3", "System.Numerics.Vector3" },
-            //{ "ImVec4", "System.Numerics.Vector4" },
+            
+            { "ImVector_float", "ImVector<float>"},
+            { "ImVector_char", "ImVector<byte>"},
+            //{ "ImVector_const_charPtr", "ImVector<byte*>"},
+            { "ImVector_ImWchar", "ImVector<char>"},
+            { "ImVector_ImDrawCmd", "ImVector<ImDrawCmd>"},
+            { "ImVector_ImDrawIdx", "ImVector<ImDrawIdx>"},
+            { "ImVector_ImDrawVert", "ImVector<ImDrawVert>"},
+            { "ImVector_ImFontGlyph", "ImVector<ImFontGlyph>" },
 
-            { "ImVector_ImDrawCmd", "ImVector<ImDrawCmd>"}
+            { "ImVector_ImVec2", "ImVector<ImVec2>"},
+            { "ImVector_ImVec3", "ImVector<ImVec3>"},
+            { "ImVector_ImVec4", "ImVector<ImVec4>"},
+            { "ImVector_ImTextureID", "ImVector<ImTextureID>"},
+
+
 
         };
 
         public static void Generate(CppCompilation compilation, string outputPath)
         {
-            //GenerateConstants(compilation, outputPath);
             GenerateEnums(compilation, outputPath);
-            //GenerateHandles(compilation, outputPath);
             GenerateStructAndUnions(compilation, outputPath);
             GenerateCommands(compilation, outputPath);
-            //GenerateHelperCommands(compilation, outputPath);
         }
 
         public static void AddCsMapping(string typeName, string csTypeName)
         {
             s_csNameMappings[typeName] = csTypeName;
-        }
-
-        private static void GenerateConstants(CppCompilation compilation, string outputPath)
-        {
-            using var writer = new CodeWriter(Path.Combine(outputPath, "Constants.cs"));
-            writer.WriteLine("/// <summary>");
-            writer.WriteLine("/// Provides Vulkan specific constants for special values, layer names and extension names.");
-            writer.WriteLine("/// </summary>");
-            using (writer.PushBlock("public static partial class Vulkan"))
-            {
-                foreach (var cppMacro in compilation.Macros)
-                {
-                    if (string.IsNullOrEmpty(cppMacro.Value)
-                        || cppMacro.Name.EndsWith("_H_", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.Equals("VKAPI_CALL", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.Equals("VKAPI_PTR", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.Equals("VULKAN_CORE_H_", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.Equals("VK_TRUE", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.Equals("VK_FALSE", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.Equals("VK_MAKE_VERSION", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.StartsWith("VK_ENABLE_BETA_EXTENSIONS", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.StartsWith("VK_VERSION_", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.StartsWith("VK_API_VERSION_", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.Equals("VK_NULL_HANDLE", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.Equals("VK_DEFINE_HANDLE", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.Equals("VK_DEFINE_NON_DISPATCHABLE_HANDLE", StringComparison.OrdinalIgnoreCase)
-                        || cppMacro.Name.StartsWith("VK_USE_PLATFORM_", StringComparison.OrdinalIgnoreCase)
-                        )
-                    {
-                        continue;
-                    }
-
-                    string csName = GetPrettyEnumName(cppMacro.Name, "VK_");
-
-                    string modifier = "const";
-                    string csDataType = "string";
-                    var macroValue = NormalizeEnumValue(cppMacro.Value);
-                    if (macroValue.EndsWith("F", StringComparison.OrdinalIgnoreCase))
-                    {
-                        csDataType = "float";
-                    }
-                    else if (macroValue.EndsWith("UL", StringComparison.OrdinalIgnoreCase))
-                    {
-                        csDataType = "ulong";
-                    }
-                    else if (macroValue.EndsWith("U", StringComparison.OrdinalIgnoreCase))
-                    {
-                        csDataType = "uint";
-                    }
-                    else if (uint.TryParse(macroValue, out _))
-                    {
-                        csDataType = "uint";
-                    }
-
-                    if (cppMacro.Name == "VK_QUEUE_FAMILY_EXTERNAL"
-                        || cppMacro.Name == "VK_QUEUE_FAMILY_FOREIGN_EXT")
-                    {
-                        csDataType = "uint";
-                    }
-                    else if (cppMacro.Name == "VK_LUID_SIZE_KHR"
-                        || cppMacro.Name == "VK_SHADER_UNUSED_NV"
-                        || cppMacro.Name == "VK_QUEUE_FAMILY_EXTERNAL_KHR"
-                        || cppMacro.Name == "VK_MAX_DRIVER_NAME_SIZE_KHR"
-                        || cppMacro.Name == "VK_MAX_DRIVER_INFO_SIZE_KHR"
-                        || cppMacro.Name == "VK_MAX_DEVICE_GROUP_SIZE_KHR"
-                        )
-                    {
-                        csDataType = "uint";
-                        macroValue = GetCsCleanName(cppMacro.Value);
-                    }
-
-                    AddCsMapping(cppMacro.Name, csName);
-
-                    writer.WriteLine("/// <summary>");
-                    if (cppMacro.Name == "VK_HEADER_VERSION_COMPLETE")
-                    {
-                        modifier = "static readonly";
-                        csDataType = "VkVersion";
-                        
-                    }
-
-                    writer.WriteLine($"/// {cppMacro.Name} = {cppMacro.Value}");
-                    writer.WriteLine("/// </summary>");
-                    if (cppMacro.Name == "VK_HEADER_VERSION_COMPLETE")
-                    {
-                        writer.WriteLine($"public {modifier} {csDataType} {csName} = new VkVersion({cppMacro.Tokens[2]}, {cppMacro.Tokens[4]}, HeaderVersion);");
-                    }
-                    else
-                    {
-                        writer.WriteLine($"public {modifier} {csDataType} {csName} = {macroValue};");
-                    }
-                }
-            }
         }
 
         private static string NormalizeFieldName(string name)
@@ -320,6 +237,10 @@ namespace Generator
                 }
 
                 return GetCsTypeName(qualifiedType.ElementType, true);
+            }
+            else if(pointerType.ElementType is CppPointerType pt)
+            {
+                return GetCsTypeName(pt, true) + "*";
             }
 
             return GetCsTypeName(pointerType.ElementType, true);

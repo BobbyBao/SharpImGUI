@@ -19,6 +19,7 @@ using ImGuiTableColumnIdx = System.SByte;
 using ImGuiTableDrawChannelIdx = System.Byte;
 using ImFileHandle = System.IntPtr;
 using ImVec2 = System.Numerics.Vector2;
+using ImVec1 = System.Single;
 
 namespace SharpImGUI
 {

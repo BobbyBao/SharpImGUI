@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ImVec2 = System.Numerics.Vector2;
 using ImTextureID = System.IntPtr;
 using ImGuiID = System.UInt32;
+using ImDrawIdx = System.UInt16;
 
 namespace SharpImGUI
 {
@@ -24,16 +25,15 @@ namespace SharpImGUI
         public ref ImVec2 DisplaySize => ref self->DisplaySize;
         public ref float DeltaTime => ref self->DeltaTime;
 
-        public Ptr<int> KeyMap => self->KeyMap;
+        public RangeAccessor<int> KeyMap => self->KeyMap;
 
 
         public ref ImVec2 DisplayFramebufferScale => ref self->DisplayFramebufferScale;
 
         public ImFontAtlasPtr Fonts => self->Fonts;
 
-
-        public ref System.Numerics.Vector2 MousePos => ref self->MousePos;
-        public Ptr<bool> MouseDown => self->MouseDown;
+        public ref ImVec2 MousePos => ref self->MousePos;
+        public RangeAccessor<bool> MouseDown => self->MouseDown;
         public ref float MouseWheel => ref self->MouseWheel;
         public ref float MouseWheelH => ref self->MouseWheelH;
         public ref ImGuiID MouseHoveredViewport => ref self->MouseHoveredViewport;
@@ -41,8 +41,13 @@ namespace SharpImGUI
         public ref bool KeyShift => ref self->KeyShift;
         public ref bool KeyAlt => ref self->KeyAlt;
         public ref bool KeySuper => ref self->KeySuper;
-        public Ptr<bool> KeysDown => self->KeysDown;
-        public Ptr<float> NavInputs => self->NavInputs;
+        public RangeAccessor<bool> KeysDown => self->KeysDown;
+        public RangeAccessor<float> NavInputs => self->NavInputs;
+
+        public ref float Framerate => ref self->Framerate;
+        public ref ImVec2 MouseDelta => ref self->MouseDelta;
+
+
 
 
         public void AddInputCharacter(uint c)
@@ -123,23 +128,14 @@ namespace SharpImGUI
             return ImGui.ImFontAtlas_Build(self);
         }
 
-        public void GetTexDataAsAlpha8(out byte* out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel)
-        {
-            fixed (byte** o_pixels = &out_pixels)
-            {
-                ImGui.ImFontAtlas_GetTexDataAsAlpha8(self, (byte*)o_pixels, out_width, out_height, out_bytes_per_pixel);
-            }
+        public void GetTexDataAsAlpha8(out byte* out_pixels, out int out_width, out int out_height, out int out_bytes_per_pixel)
+        {              
+            ImGui.ImFontAtlas_GetTexDataAsAlpha8(self, out out_pixels, out out_width, out out_height, out out_bytes_per_pixel);           
         }
 
         public void GetTexDataAsRGBA32(out byte* out_pixels, out int out_width, out int out_height, out int out_bytes_per_pixel)
-        {
-            fixed (byte** o_pixels = &out_pixels)
-            fixed (int* o_width = &out_width)
-            fixed (int* o_height = &out_height)
-            fixed (int* o_bytes_per_pixel = &out_bytes_per_pixel)
-            {
-                ImGui.ImFontAtlas_GetTexDataAsRGBA32(self, (byte*)o_pixels, o_width, o_height, o_bytes_per_pixel);               
-            }
+        {             
+            ImGui.ImFontAtlas_GetTexDataAsRGBA32(self, out out_pixels, out out_width, out out_height, out out_bytes_per_pixel);            
         }
 
         public bool ImFontAtlas_IsBuilt()
@@ -153,27 +149,6 @@ namespace SharpImGUI
         }
 
     }
-
-    public unsafe struct ImVector<T> where T : unmanaged
-    {
-        public int Size;
-        public int Capacity;
-        public unsafe T* Data;
-        public ref T this[int index] => ref Data[index];
-    }
-
-    public unsafe struct Ptr<T> where T : unmanaged
-    {
-        public unsafe T* Data;
-        public Ptr(T* data)
-        {
-            this.Data = data;
-        }
-
-        public static implicit operator Ptr<T>(T* native) => new Ptr<T>(native);
-        public ref T this[int index] => ref Data[index];
-    }
-
 
     public unsafe struct ImDrawDataPtr
     {
@@ -189,7 +164,7 @@ namespace SharpImGUI
         public ref int CmdListsCount => ref native->CmdListsCount;
         public ref int TotalIdxCount => ref native->TotalIdxCount;
         public ref int TotalVtxCount => ref native->TotalVtxCount;
-        public Ptr<ImDrawListPtr> CmdLists => new Ptr<ImDrawListPtr>((ImDrawListPtr*)native->CmdLists);
+        public RangeAccessor<ImDrawListPtr> CmdLists => new RangeAccessor<ImDrawListPtr>((ImDrawListPtr*)native->CmdLists);
         public ref ImVec2 DisplayPos => ref native->DisplayPos;
         public ref ImVec2 DisplaySize => ref native->DisplaySize;
         public ref ImVec2 FramebufferScale => ref native->FramebufferScale;
@@ -211,7 +186,7 @@ namespace SharpImGUI
 
         public ref ImDrawList this[int index] => ref native[index];
         public ImVector<ImDrawCmd> CmdBuffer => native->CmdBuffer;
-        public ImVector_ImDrawIdx IdxBuffer => native->IdxBuffer;
-        public ImVector_ImDrawVert VtxBuffer => native->VtxBuffer;
+        public ImVector<ImDrawIdx> IdxBuffer => native->IdxBuffer;
+        public ImVector<ImDrawVert> VtxBuffer => native->VtxBuffer;
     }
 }
