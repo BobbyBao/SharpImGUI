@@ -153,7 +153,8 @@ namespace Generator
 
             if (type is CppArrayType arrayType)
             {
-                return GetCsTypeName(arrayType.ElementType, isPointer);
+                //return GetCsCleanName(arrayType.GetDisplayName());
+                return GetCsTypeName(arrayType.ElementType, false) + "*";
             }
 
             if(type?.TypeKind == CppTypeKind.Function)

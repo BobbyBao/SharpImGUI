@@ -964,8 +964,8 @@ namespace SharpImGUI
 			EndCombo_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, byte*, int, int, bool> ComboStr_arr_ptr;
-		public static bool ComboStr_arr(string label, ref int current_item, byte* items, int items_count, int popup_max_height_in_items)
+		static delegate* unmanaged[Stdcall]<byte*, int*, byte**, int, int, bool> ComboStr_arr_ptr;
+		public static bool ComboStr_arr(string label, ref int current_item, byte** items, int items_count, int popup_max_height_in_items)
 		{
 			fixed(int* p_current_item = &current_item)
 			{
@@ -1006,24 +1006,24 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat2_ptr;
-		public static bool DragFloat2(string label, float v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat2_ptr;
+		public static bool DragFloat2(string label, float* v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
 			return DragFloat2_ptr(p_label, v, v_speed, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat3_ptr;
-		public static bool DragFloat3(string label, float v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat3_ptr;
+		public static bool DragFloat3(string label, float* v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
 			return DragFloat3_ptr(p_label, v, v_speed, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat4_ptr;
-		public static bool DragFloat4(string label, float v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat4_ptr;
+		public static bool DragFloat4(string label, float* v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
@@ -1054,24 +1054,24 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt2_ptr;
-		public static bool DragInt2(string label, int v, float v_speed, int v_min, int v_max, string format, ImGuiSliderFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt2_ptr;
+		public static bool DragInt2(string label, int* v, float v_speed, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
 			return DragInt2_ptr(p_label, v, v_speed, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt3_ptr;
-		public static bool DragInt3(string label, int v, float v_speed, int v_min, int v_max, string format, ImGuiSliderFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt3_ptr;
+		public static bool DragInt3(string label, int* v, float v_speed, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
 			return DragInt3_ptr(p_label, v, v_speed, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt4_ptr;
-		public static bool DragInt4(string label, int v, float v_speed, int v_min, int v_max, string format, ImGuiSliderFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt4_ptr;
+		public static bool DragInt4(string label, int* v, float v_speed, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
@@ -1118,24 +1118,24 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat2_ptr;
-		public static bool SliderFloat2(string label, float v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat2_ptr;
+		public static bool SliderFloat2(string label, float* v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
 			return SliderFloat2_ptr(p_label, v, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat3_ptr;
-		public static bool SliderFloat3(string label, float v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat3_ptr;
+		public static bool SliderFloat3(string label, float* v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
 			return SliderFloat3_ptr(p_label, v, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat4_ptr;
-		public static bool SliderFloat4(string label, float v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat4_ptr;
+		public static bool SliderFloat4(string label, float* v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
@@ -1164,24 +1164,24 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, int, int, byte*, ImGuiSliderFlags, bool> SliderInt2_ptr;
-		public static bool SliderInt2(string label, int v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool> SliderInt2_ptr;
+		public static bool SliderInt2(string label, int* v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
 			return SliderInt2_ptr(p_label, v, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, int, int, byte*, ImGuiSliderFlags, bool> SliderInt3_ptr;
-		public static bool SliderInt3(string label, int v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool> SliderInt3_ptr;
+		public static bool SliderInt3(string label, int* v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
 			return SliderInt3_ptr(p_label, v, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, int, int, byte*, ImGuiSliderFlags, bool> SliderInt4_ptr;
-		public static bool SliderInt4(string label, int v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool> SliderInt4_ptr;
+		public static bool SliderInt4(string label, int* v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
@@ -1267,24 +1267,24 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, byte*, ImGuiInputTextFlags, bool> InputFloat2_ptr;
-		public static bool InputFloat2(string label, float v, string format, ImGuiInputTextFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, float*, byte*, ImGuiInputTextFlags, bool> InputFloat2_ptr;
+		public static bool InputFloat2(string label, float* v, string format, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
 			return InputFloat2_ptr(p_label, v, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, byte*, ImGuiInputTextFlags, bool> InputFloat3_ptr;
-		public static bool InputFloat3(string label, float v, string format, ImGuiInputTextFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, float*, byte*, ImGuiInputTextFlags, bool> InputFloat3_ptr;
+		public static bool InputFloat3(string label, float* v, string format, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
 			return InputFloat3_ptr(p_label, v, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, byte*, ImGuiInputTextFlags, bool> InputFloat4_ptr;
-		public static bool InputFloat4(string label, float v, string format, ImGuiInputTextFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, float*, byte*, ImGuiInputTextFlags, bool> InputFloat4_ptr;
+		public static bool InputFloat4(string label, float* v, string format, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			using var p_format = new StringHelper(format);
@@ -1301,22 +1301,22 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, ImGuiInputTextFlags, bool> InputInt2_ptr;
-		public static bool InputInt2(string label, int v, ImGuiInputTextFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, int*, ImGuiInputTextFlags, bool> InputInt2_ptr;
+		public static bool InputInt2(string label, int* v, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return InputInt2_ptr(p_label, v, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, ImGuiInputTextFlags, bool> InputInt3_ptr;
-		public static bool InputInt3(string label, int v, ImGuiInputTextFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, int*, ImGuiInputTextFlags, bool> InputInt3_ptr;
+		public static bool InputInt3(string label, int* v, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return InputInt3_ptr(p_label, v, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, ImGuiInputTextFlags, bool> InputInt4_ptr;
-		public static bool InputInt4(string label, int v, ImGuiInputTextFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, int*, ImGuiInputTextFlags, bool> InputInt4_ptr;
+		public static bool InputInt4(string label, int* v, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return InputInt4_ptr(p_label, v, flags);
@@ -1349,29 +1349,29 @@ namespace SharpImGUI
 			return InputScalarN_ptr(p_label, data_type, p_data, components, p_step, p_step_fast, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, ImGuiColorEditFlags, bool> ColorEdit3_ptr;
-		public static bool ColorEdit3(string label, float col, ImGuiColorEditFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, bool> ColorEdit3_ptr;
+		public static bool ColorEdit3(string label, float* col, ImGuiColorEditFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return ColorEdit3_ptr(p_label, col, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, ImGuiColorEditFlags, bool> ColorEdit4_ptr;
-		public static bool ColorEdit4(string label, float col, ImGuiColorEditFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, bool> ColorEdit4_ptr;
+		public static bool ColorEdit4(string label, float* col, ImGuiColorEditFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return ColorEdit4_ptr(p_label, col, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, ImGuiColorEditFlags, bool> ColorPicker3_ptr;
-		public static bool ColorPicker3(string label, float col, ImGuiColorEditFlags flags)
+		static delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, bool> ColorPicker3_ptr;
+		public static bool ColorPicker3(string label, float* col, ImGuiColorEditFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return ColorPicker3_ptr(p_label, col, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, ImGuiColorEditFlags, float*, bool> ColorPicker4_ptr;
-		public static bool ColorPicker4(string label, float col, ImGuiColorEditFlags flags, float* ref_col)
+		static delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, float*, bool> ColorPicker4_ptr;
+		public static bool ColorPicker4(string label, float* col, ImGuiColorEditFlags flags, float* ref_col)
 		{
 			using var p_label = new StringHelper(label);
 			return ColorPicker4_ptr(p_label, col, flags, ref_col);
@@ -1512,8 +1512,8 @@ namespace SharpImGUI
 			EndListBox_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, byte*, int, int, bool> ListBoxStr_arr_ptr;
-		public static bool ListBoxStr_arr(string label, ref int current_item, byte* items, int items_count, int height_in_items)
+		static delegate* unmanaged[Stdcall]<byte*, int*, byte**, int, int, bool> ListBoxStr_arr_ptr;
+		public static bool ListBoxStr_arr(string label, ref int current_item, byte** items, int items_count, int height_in_items)
 		{
 			fixed(int* p_current_item = &current_item)
 			{
@@ -3758,8 +3758,8 @@ namespace SharpImGUI
 			ImFontAtlas_CalcCustomRectUV_ptr(self, rect, out_uv_min, out_uv_max);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiMouseCursor, ImVec2*, ImVec2*, ImVec2, ImVec2, bool> ImFontAtlas_GetMouseCursorTexData_ptr;
-		public static bool ImFontAtlas_GetMouseCursorTexData(ImFontAtlas* self, ImGuiMouseCursor cursor, ImVec2* out_offset, ImVec2* out_size, ImVec2 out_uv_border, ImVec2 out_uv_fill)
+		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiMouseCursor, ImVec2*, ImVec2*, ImVec2*, ImVec2*, bool> ImFontAtlas_GetMouseCursorTexData_ptr;
+		public static bool ImFontAtlas_GetMouseCursorTexData(ImFontAtlas* self, ImGuiMouseCursor cursor, ImVec2* out_offset, ImVec2* out_size, ImVec2* out_uv_border, ImVec2* out_uv_fill)
 		{
 			return ImFontAtlas_GetMouseCursorTexData_ptr(self, cursor, out_offset, out_size, out_uv_border, out_uv_fill);
 		}
@@ -7271,14 +7271,14 @@ namespace SharpImGUI
 			ImFontAtlasBuildRender32bppRectFromString_ptr(atlas, x, y, w, h, p_in_str, in_marker_char, in_marker_pixel_value);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte, float, void> ImFontAtlasBuildMultiplyCalcLookupTable_ptr;
-		public static void ImFontAtlasBuildMultiplyCalcLookupTable(byte out_table, float in_multiply_factor)
+		static delegate* unmanaged[Stdcall]<byte*, float, void> ImFontAtlasBuildMultiplyCalcLookupTable_ptr;
+		public static void ImFontAtlasBuildMultiplyCalcLookupTable(byte* out_table, float in_multiply_factor)
 		{
 			ImFontAtlasBuildMultiplyCalcLookupTable_ptr(out_table, in_multiply_factor);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte, byte*, int, int, int, int, int, void> ImFontAtlasBuildMultiplyRectAlpha8_ptr;
-		public static void ImFontAtlasBuildMultiplyRectAlpha8(byte table, ref byte pixels, int x, int y, int w, int h, int stride)
+		static delegate* unmanaged[Stdcall]<byte*, byte*, int, int, int, int, int, void> ImFontAtlasBuildMultiplyRectAlpha8_ptr;
+		public static void ImFontAtlasBuildMultiplyRectAlpha8(byte* table, ref byte pixels, int x, int y, int w, int h, int stride)
 		{
 			fixed(byte* p_pixels = &pixels)
 			{
@@ -7485,30 +7485,30 @@ namespace SharpImGUI
 			Bullet_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igBullet");
 			BeginCombo_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiComboFlags, bool>)load(context, "igBeginCombo");
 			EndCombo_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndCombo");
-			ComboStr_arr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, byte*, int, int, bool>)load(context, "igComboStr_arr");
+			ComboStr_arr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, byte**, int, int, bool>)load(context, "igComboStr_arr");
 			ComboStr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, byte*, int, bool>)load(context, "igComboStr");
 			ComboFnBoolPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, IntPtr, void*, int, int, bool>)load(context, "igComboFnBoolPtr");
 			DragFloat_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat");
-			DragFloat2_ptr = (delegate* unmanaged[Stdcall]<byte*, float, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat2");
-			DragFloat3_ptr = (delegate* unmanaged[Stdcall]<byte*, float, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat3");
-			DragFloat4_ptr = (delegate* unmanaged[Stdcall]<byte*, float, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat4");
+			DragFloat2_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat2");
+			DragFloat3_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat3");
+			DragFloat4_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat4");
 			DragFloatRange2_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float*, float, float, float, byte*, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloatRange2");
 			DragInt_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt");
-			DragInt2_ptr = (delegate* unmanaged[Stdcall]<byte*, int, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt2");
-			DragInt3_ptr = (delegate* unmanaged[Stdcall]<byte*, int, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt3");
-			DragInt4_ptr = (delegate* unmanaged[Stdcall]<byte*, int, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt4");
+			DragInt2_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt2");
+			DragInt3_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt3");
+			DragInt4_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt4");
 			DragIntRange2_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int*, float, int, int, byte*, byte*, ImGuiSliderFlags, bool>)load(context, "igDragIntRange2");
 			DragScalar_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, void*, float, void*, void*, byte*, ImGuiSliderFlags, bool>)load(context, "igDragScalar");
 			DragScalarN_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, void*, int, float, void*, void*, byte*, ImGuiSliderFlags, bool>)load(context, "igDragScalarN");
 			SliderFloat_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat");
-			SliderFloat2_ptr = (delegate* unmanaged[Stdcall]<byte*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat2");
-			SliderFloat3_ptr = (delegate* unmanaged[Stdcall]<byte*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat3");
-			SliderFloat4_ptr = (delegate* unmanaged[Stdcall]<byte*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat4");
+			SliderFloat2_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat2");
+			SliderFloat3_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat3");
+			SliderFloat4_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat4");
 			SliderAngle_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderAngle");
 			SliderInt_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt");
-			SliderInt2_ptr = (delegate* unmanaged[Stdcall]<byte*, int, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt2");
-			SliderInt3_ptr = (delegate* unmanaged[Stdcall]<byte*, int, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt3");
-			SliderInt4_ptr = (delegate* unmanaged[Stdcall]<byte*, int, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt4");
+			SliderInt2_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt2");
+			SliderInt3_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt3");
+			SliderInt4_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt4");
 			SliderScalar_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, void*, void*, void*, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderScalar");
 			SliderScalarN_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, void*, int, void*, void*, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderScalarN");
 			VSliderFloat_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec2, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igVSliderFloat");
@@ -7518,20 +7518,20 @@ namespace SharpImGUI
 			InputTextMultiline_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr, ImVec2, ImGuiInputTextFlags, IntPtr, void*, bool>)load(context, "igInputTextMultiline");
 			InputTextWithHint_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, byte*, IntPtr, ImGuiInputTextFlags, IntPtr, void*, bool>)load(context, "igInputTextWithHint");
 			InputFloat_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat");
-			InputFloat2_ptr = (delegate* unmanaged[Stdcall]<byte*, float, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat2");
-			InputFloat3_ptr = (delegate* unmanaged[Stdcall]<byte*, float, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat3");
-			InputFloat4_ptr = (delegate* unmanaged[Stdcall]<byte*, float, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat4");
+			InputFloat2_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat2");
+			InputFloat3_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat3");
+			InputFloat4_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat4");
 			InputInt_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int, int, ImGuiInputTextFlags, bool>)load(context, "igInputInt");
-			InputInt2_ptr = (delegate* unmanaged[Stdcall]<byte*, int, ImGuiInputTextFlags, bool>)load(context, "igInputInt2");
-			InputInt3_ptr = (delegate* unmanaged[Stdcall]<byte*, int, ImGuiInputTextFlags, bool>)load(context, "igInputInt3");
-			InputInt4_ptr = (delegate* unmanaged[Stdcall]<byte*, int, ImGuiInputTextFlags, bool>)load(context, "igInputInt4");
+			InputInt2_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, ImGuiInputTextFlags, bool>)load(context, "igInputInt2");
+			InputInt3_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, ImGuiInputTextFlags, bool>)load(context, "igInputInt3");
+			InputInt4_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, ImGuiInputTextFlags, bool>)load(context, "igInputInt4");
 			InputDouble_ptr = (delegate* unmanaged[Stdcall]<byte*, double*, double, double, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputDouble");
 			InputScalar_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, void*, void*, void*, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputScalar");
 			InputScalarN_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, void*, int, void*, void*, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputScalarN");
-			ColorEdit3_ptr = (delegate* unmanaged[Stdcall]<byte*, float, ImGuiColorEditFlags, bool>)load(context, "igColorEdit3");
-			ColorEdit4_ptr = (delegate* unmanaged[Stdcall]<byte*, float, ImGuiColorEditFlags, bool>)load(context, "igColorEdit4");
-			ColorPicker3_ptr = (delegate* unmanaged[Stdcall]<byte*, float, ImGuiColorEditFlags, bool>)load(context, "igColorPicker3");
-			ColorPicker4_ptr = (delegate* unmanaged[Stdcall]<byte*, float, ImGuiColorEditFlags, float*, bool>)load(context, "igColorPicker4");
+			ColorEdit3_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, bool>)load(context, "igColorEdit3");
+			ColorEdit4_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, bool>)load(context, "igColorEdit4");
+			ColorPicker3_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, bool>)load(context, "igColorPicker3");
+			ColorPicker4_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, float*, bool>)load(context, "igColorPicker4");
 			ColorButton_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec4, ImGuiColorEditFlags, ImVec2, bool>)load(context, "igColorButton");
 			SetColorEditOptions_ptr = (delegate* unmanaged[Stdcall]<ImGuiColorEditFlags, void>)load(context, "igSetColorEditOptions");
 			TreeNodeStr_ptr = (delegate* unmanaged[Stdcall]<byte*, bool>)load(context, "igTreeNodeStr");
@@ -7551,7 +7551,7 @@ namespace SharpImGUI
 			SelectableBoolPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, bool*, ImGuiSelectableFlags, ImVec2, bool>)load(context, "igSelectableBoolPtr");
 			BeginListBox_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec2, bool>)load(context, "igBeginListBox");
 			EndListBox_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndListBox");
-			ListBoxStr_arr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, byte*, int, int, bool>)load(context, "igListBoxStr_arr");
+			ListBoxStr_arr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, byte**, int, int, bool>)load(context, "igListBoxStr_arr");
 			ListBoxFnBoolPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, IntPtr, void*, int, int, bool>)load(context, "igListBoxFnBoolPtr");
 			PlotLinesFloatPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, int, int, byte*, float, float, ImVec2, int, void>)load(context, "igPlotLinesFloatPtr");
 			PlotLinesFnFloatPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, IntPtr, void*, int, int, byte*, float, float, ImVec2, void>)load(context, "igPlotLinesFnFloatPtr");
@@ -7906,7 +7906,7 @@ namespace SharpImGUI
 			ImFontAtlas_AddCustomRectFontGlyph_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFont*, char, int, int, float, ImVec2, int>)load(context, "ImFontAtlas_AddCustomRectFontGlyph");
 			ImFontAtlas_GetCustomRectByIndex_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, int, ImFontAtlasCustomRect*>)load(context, "ImFontAtlas_GetCustomRectByIndex");
 			ImFontAtlas_CalcCustomRectUV_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFontAtlasCustomRect*, ImVec2*, ImVec2*, void>)load(context, "ImFontAtlas_CalcCustomRectUV");
-			ImFontAtlas_GetMouseCursorTexData_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiMouseCursor, ImVec2*, ImVec2*, ImVec2, ImVec2, bool>)load(context, "ImFontAtlas_GetMouseCursorTexData");
+			ImFontAtlas_GetMouseCursorTexData_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiMouseCursor, ImVec2*, ImVec2*, ImVec2*, ImVec2*, bool>)load(context, "ImFontAtlas_GetMouseCursorTexData");
 			ImFont_ImFont_ptr = (delegate* unmanaged[Stdcall]<ImFont*>)load(context, "ImFont_ImFont");
 			ImFont_destroy_ptr = (delegate* unmanaged[Stdcall]<ImFont*, void>)load(context, "ImFont_destroy");
 			ImFont_FindGlyph_ptr = (delegate* unmanaged[Stdcall]<ImFont*, char, ImFontGlyph*>)load(context, "ImFont_FindGlyph");
@@ -8463,8 +8463,8 @@ namespace SharpImGUI
 			ImFontAtlasBuildFinish_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, void>)load(context, "igImFontAtlasBuildFinish");
 			ImFontAtlasBuildRender8bppRectFromString_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, int, int, int, int, byte*, byte, byte, void>)load(context, "igImFontAtlasBuildRender8bppRectFromString");
 			ImFontAtlasBuildRender32bppRectFromString_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, int, int, int, int, byte*, byte, uint, void>)load(context, "igImFontAtlasBuildRender32bppRectFromString");
-			ImFontAtlasBuildMultiplyCalcLookupTable_ptr = (delegate* unmanaged[Stdcall]<byte, float, void>)load(context, "igImFontAtlasBuildMultiplyCalcLookupTable");
-			ImFontAtlasBuildMultiplyRectAlpha8_ptr = (delegate* unmanaged[Stdcall]<byte, byte*, int, int, int, int, int, void>)load(context, "igImFontAtlasBuildMultiplyRectAlpha8");
+			ImFontAtlasBuildMultiplyCalcLookupTable_ptr = (delegate* unmanaged[Stdcall]<byte*, float, void>)load(context, "igImFontAtlasBuildMultiplyCalcLookupTable");
+			ImFontAtlasBuildMultiplyRectAlpha8_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, int, int, int, int, int, void>)load(context, "igImFontAtlasBuildMultiplyRectAlpha8");
 			LogText_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igLogText");
 			ImGuiTextBuffer_appendf_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, byte*, void>)load(context, "ImGuiTextBuffer_appendf");
 			GET_FLT_MAX_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGET_FLT_MAX");

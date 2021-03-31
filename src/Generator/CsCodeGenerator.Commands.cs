@@ -254,7 +254,7 @@ namespace Generator
                     paramCsTypeName = GetCsTypeName(cppTypeDeclaration, false);
                 }
 
-                if(cppParameter.Type.GetDisplayName() == "const char*" /*|| cppParameter.Type.GetDisplayName() == "char*"*/)
+                if(cppParameter.Type.GetDisplayName() == "const char*")
                 {
                     paramCsTypeName = "string";
                 }
@@ -270,7 +270,7 @@ namespace Generator
 
                 if(cppParameter.InitValue != null)
                 {
-                    argumentBuilder.Append("= ").Append(cppParameter.InitValue);
+                //    argumentBuilder.Append("= ").Append(cppParameter.InitValue);
 
                 }
 
