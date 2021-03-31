@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using ImGuiID = System.UInt32;
+using ImS16 = System.Int16;
+using ImS8 = System.SByte;
+using ImU8 = System.Byte;
 using ImTextureID = System.IntPtr;
 using ImDrawIdx = System.UInt16;
 using ImGuiCol = System.Int32;
@@ -26,11 +29,6 @@ namespace SharpImGUI
     [StructLayout(LayoutKind.Sequential)]
     public partial struct ImGuiTableColumnSettings
     {
-        /// <summary>
-        /// The size of the <see cref="ImGuiTableColumnSettings"/> type, in bytes.
-        /// </summary>
-        public static readonly int SizeInBytes = 12;
-
         public float WidthOrWeight;
         public ImGuiID UserID;
         public ImGuiTableColumnIdx Index;
@@ -45,14 +43,9 @@ namespace SharpImGUI
     [StructLayout(LayoutKind.Sequential)]
     public partial struct ImFontGlyph
     {
-        /// <summary>
-        /// The size of the <see cref="ImFontGlyph"/> type, in bytes.
-        /// </summary>
-        public static readonly int SizeInBytes = 40;
-
-        //public uint Colored;
-        //public uint Visible;
-        public uint Codepoint;
+        //public uint Colored: 1;
+        //public uint Visible: 1;
+        public uint Codepoint;//: 30
         public float AdvanceX;
         public float X0;
         public float Y0;
@@ -64,15 +57,55 @@ namespace SharpImGUI
         public float V1;
     }
 
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct ImGuiTableColumn
+    {
+        public ImGuiTableColumnFlags Flags;
+        public float WidthGiven;
+        public float MinX;
+        public float MaxX;
+        public float WidthRequest;
+        public float WidthAuto;
+        public float StretchWeight;
+        public float InitStretchWeightOrWidth;
+        public ImRect ClipRect;
+        public ImGuiID UserID;
+        public float WorkMinX;
+        public float WorkMaxX;
+        public float ItemWidth;
+        public float ContentMaxXFrozen;
+        public float ContentMaxXUnfrozen;
+        public float ContentMaxXHeadersUsed;
+        public float ContentMaxXHeadersIdeal;
+        public ImS16 NameOffset;
+        public ImGuiTableColumnIdx DisplayOrder;
+        public ImGuiTableColumnIdx IndexWithinEnabledSet;
+        public ImGuiTableColumnIdx PrevEnabledColumn;
+        public ImGuiTableColumnIdx NextEnabledColumn;
+        public ImGuiTableColumnIdx SortOrder;
+        public ImGuiTableDrawChannelIdx DrawChannelCurrent;
+        public ImGuiTableDrawChannelIdx DrawChannelFrozen;
+        public ImGuiTableDrawChannelIdx DrawChannelUnfrozen;
+        public bool IsEnabled;
+        public bool IsEnabledNextFrame;
+        public bool IsVisibleX;
+        public bool IsVisibleY;
+        public bool IsRequestOutput;
+        public bool IsSkipItems;
+        public bool IsPreserveWidthAuto;
+        public ImS8 NavLayerCurrent;
+        public ImU8 AutoFitQueue;
+        public ImU8 CannotSkipItemsQueue;
+        /*public*/ ImU8 SortDirection;// : 2;
+        /*public*/ ImU8 SortDirectionsAvailCount;// : 2;
+        /*public*/ ImU8 SortDirectionsAvailMask;// : 4;
+        /*public*/ ImU8 SortDirectionsAvailList;
+    }
+
 
     [StructLayout(LayoutKind.Sequential)]
     public partial struct ImGuiWindow
     {
-        /// <summary>
-        /// The size of the <see cref="ImGuiWindow"/> type, in bytes.
-        /// </summary>
-        public static readonly int SizeInBytes = 1144;
-
         public unsafe byte* Name;
         public ImGuiID ID;
         public ImGuiWindowFlags Flags;
@@ -242,11 +275,6 @@ namespace SharpImGUI
     [StructLayout(LayoutKind.Sequential)]
     public partial struct ImGuiTable
     {
-        /// <summary>
-        /// The size of the <see cref="ImGuiTable"/> type, in bytes.
-        /// </summary>
-        public static readonly int SizeInBytes = 600;
-
         public ImGuiID ID;
         public ImGuiTableFlags Flags;
         public unsafe void* RawData;
@@ -358,6 +386,15 @@ namespace SharpImGUI
         public bool IsDefaultSizingPolicy;
         public bool MemoryCompacted;
         public bool HostSkipItems;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public partial struct ImGuiTableColumnSortSpecs
+    {
+        public ImGuiID ColumnUserID;
+        public ImS16 ColumnIndex;
+        public ImS16 SortOrder;
+        public /*ImGuiSortDirection*/byte SortDirection;// : 8;
     }
 
     [StructLayout(LayoutKind.Sequential)]

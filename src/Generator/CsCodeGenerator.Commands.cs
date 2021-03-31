@@ -10,10 +10,6 @@ namespace Generator
 {
     public static partial class CsCodeGenerator
     {
-        private static readonly HashSet<string> s_instanceFunctions = new HashSet<string>
-        {
-        };
-
         private static readonly HashSet<string> s_outReturnFunctions = new HashSet<string>
         {
         };
@@ -46,16 +42,21 @@ namespace Generator
                 var csName = cppFunction.Name;
                 var argumentsString = GetParameterSignature(cppFunction, canUseOut);
 
-                if(csName.StartsWith("ImVec1") 
-                    || csName.StartsWith("ImVec2")
-                    || csName.StartsWith("ImVec3")
-                    || csName.StartsWith("ImVec4")
-                    || csName.StartsWith("ImColor"))
+                bool skip = false;
+                foreach (var str in s_ignoreStructs)
+                {
+                    if(csName.StartsWith(str))
+                    {
+                        skip = true;
+                        break;
+                    }
+                }
+
+                if (skip)
                 {
                     continue;
                 }
 
-                bool skip = false;
                 foreach (var param in cppFunction.Parameters)
                 {
                     var paramType = GetCsTypeName(param.Type, false);
@@ -225,11 +226,6 @@ namespace Generator
             sb.Append(GetCsTypeName(cppFunction.ReturnType));
             sb.Append(">");
             return sb.ToString();
-        }
-
-        private static bool IsInstanceFunction(string name)
-        {
-            return s_instanceFunctions.Contains(name);
         }
 
         public static string GetParameterSignature(CppFunction cppFunction, bool canUseOut)

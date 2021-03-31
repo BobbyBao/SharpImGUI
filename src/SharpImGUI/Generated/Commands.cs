@@ -7312,30 +7312,6 @@ namespace SharpImGUI
 			return GET_FLT_MIN_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVector<char>*> ImVector_ImWchar_create_ptr;
-		public static ImVector<char>* ImVector_ImWchar_create()
-		{
-			return ImVector_ImWchar_create_ptr();
-		}
-
-		static delegate* unmanaged[Stdcall]<ImVector<char>*, void> ImVector_ImWchar_destroy_ptr;
-		public static void ImVector_ImWchar_destroy(ImVector<char>* self)
-		{
-			ImVector_ImWchar_destroy_ptr(self);
-		}
-
-		static delegate* unmanaged[Stdcall]<ImVector<char>*, void> ImVector_ImWchar_Init_ptr;
-		public static void ImVector_ImWchar_Init(ImVector<char>* p)
-		{
-			ImVector_ImWchar_Init_ptr(p);
-		}
-
-		static delegate* unmanaged[Stdcall]<ImVector<char>*, void> ImVector_ImWchar_UnInit_ptr;
-		public static void ImVector_ImWchar_UnInit(ImVector<char>* p)
-		{
-			ImVector_ImWchar_UnInit_ptr(p);
-		}
-
 		private static void GenLoadFunctions(IntPtr context, LoadFunction load)
 		{
 			CreateContext_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiContext*>)load(context, "igCreateContext");
@@ -8469,10 +8445,6 @@ namespace SharpImGUI
 			ImGuiTextBuffer_appendf_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, byte*, void>)load(context, "ImGuiTextBuffer_appendf");
 			GET_FLT_MAX_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGET_FLT_MAX");
 			GET_FLT_MIN_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGET_FLT_MIN");
-			ImVector_ImWchar_create_ptr = (delegate* unmanaged[Stdcall]<ImVector<char>*>)load(context, "ImVector_ImWchar_create");
-			ImVector_ImWchar_destroy_ptr = (delegate* unmanaged[Stdcall]<ImVector<char>*, void>)load(context, "ImVector_ImWchar_destroy");
-			ImVector_ImWchar_Init_ptr = (delegate* unmanaged[Stdcall]<ImVector<char>*, void>)load(context, "ImVector_ImWchar_Init");
-			ImVector_ImWchar_UnInit_ptr = (delegate* unmanaged[Stdcall]<ImVector<char>*, void>)load(context, "ImVector_ImWchar_UnInit");
 		}
 	}
 }

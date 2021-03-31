@@ -1868,51 +1868,6 @@ namespace SharpImGUI
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImGuiTableColumn
-	{
-		public ImGuiTableColumnFlags Flags;
-		public float WidthGiven;
-		public float MinX;
-		public float MaxX;
-		public float WidthRequest;
-		public float WidthAuto;
-		public float StretchWeight;
-		public float InitStretchWeightOrWidth;
-		public ImRect ClipRect;
-		public ImGuiID UserID;
-		public float WorkMinX;
-		public float WorkMaxX;
-		public float ItemWidth;
-		public float ContentMaxXFrozen;
-		public float ContentMaxXUnfrozen;
-		public float ContentMaxXHeadersUsed;
-		public float ContentMaxXHeadersIdeal;
-		public short NameOffset;
-		public ImGuiTableColumnIdx DisplayOrder;
-		public ImGuiTableColumnIdx IndexWithinEnabledSet;
-		public ImGuiTableColumnIdx PrevEnabledColumn;
-		public ImGuiTableColumnIdx NextEnabledColumn;
-		public ImGuiTableColumnIdx SortOrder;
-		public ImGuiTableDrawChannelIdx DrawChannelCurrent;
-		public ImGuiTableDrawChannelIdx DrawChannelFrozen;
-		public ImGuiTableDrawChannelIdx DrawChannelUnfrozen;
-		public bool IsEnabled;
-		public bool IsEnabledNextFrame;
-		public bool IsVisibleX;
-		public bool IsVisibleY;
-		public bool IsRequestOutput;
-		public bool IsSkipItems;
-		public bool IsPreserveWidthAuto;
-		public sbyte NavLayerCurrent;
-		public byte AutoFitQueue;
-		public byte CannotSkipItemsQueue;
-		public byte SortDirection;
-		public byte SortDirectionsAvailCount;
-		public byte SortDirectionsAvailMask;
-		public byte SortDirectionsAvailList;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImSpan_ImGuiTableColumn
 	{
 		public unsafe ImGuiTableColumn* Data;
@@ -1931,15 +1886,6 @@ namespace SharpImGUI
 	{
 		public unsafe ImGuiTableCellData* Data;
 		public unsafe ImGuiTableCellData* DataEnd;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImGuiTableColumnSortSpecs
-	{
-		public ImGuiID ColumnUserID;
-		public short ColumnIndex;
-		public short SortOrder;
-		public ImGuiSortDirection SortDirection;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
