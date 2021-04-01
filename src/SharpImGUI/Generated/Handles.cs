@@ -31,6 +31,34 @@ using System.Runtime.CompilerServices;
 
 namespace SharpImGUI
 {
+	public unsafe partial struct ImGuiViewportPtr
+	{
+		private unsafe ImGuiViewport* self;
+		public ImGuiViewportPtr(ImGuiViewport* native)
+		{
+			self = (ImGuiViewport*)native;
+		}
+
+		public static implicit operator ImGuiViewportPtr(ImGuiViewport* native) => new ImGuiViewportPtr(native);
+		public static implicit operator ImGuiViewport*(ImGuiViewportPtr handle) => handle.self;
+		public ref ImGuiID ID => ref self->ID;
+		public ref ImGuiViewportFlags Flags => ref self->Flags;
+		public ref ImVec2 Pos => ref self->Pos;
+		public ref ImVec2 Size => ref self->Size;
+		public ref ImVec2 WorkPos => ref self->WorkPos;
+		public ref ImVec2 WorkSize => ref self->WorkSize;
+		public ref float DpiScale => ref self->DpiScale;
+		public ref ImGuiID ParentViewportId => ref self->ParentViewportId;
+		public ImDrawDataPtr DrawData => self->DrawData;
+		public ref IntPtr RendererUserData => ref self->RendererUserData;
+		public ref IntPtr PlatformUserData => ref self->PlatformUserData;
+		public ref IntPtr PlatformHandle => ref self->PlatformHandle;
+		public ref IntPtr PlatformHandleRaw => ref self->PlatformHandleRaw;
+		public ref bool PlatformRequestMove => ref self->PlatformRequestMove;
+		public ref bool PlatformRequestResize => ref self->PlatformRequestResize;
+		public ref bool PlatformRequestClose => ref self->PlatformRequestClose;
+	}
+
 	public unsafe partial struct ImDrawDataPtr
 	{
 		private unsafe ImDrawData* self;
@@ -49,7 +77,7 @@ namespace SharpImGUI
 		public ref ImVec2 DisplayPos => ref self->DisplayPos;
 		public ref ImVec2 DisplaySize => ref self->DisplaySize;
 		public ref ImVec2 FramebufferScale => ref self->FramebufferScale;
-		public ref ImGuiViewport* OwnerViewport => ref self->OwnerViewport;
+		public ImGuiViewportPtr OwnerViewport => self->OwnerViewport;
 	}
 
 	public unsafe partial struct ImDrawListPtr
@@ -150,7 +178,7 @@ namespace SharpImGUI
 
 		public static implicit operator ImFontConfigPtr(ImFontConfig* native) => new ImFontConfigPtr(native);
 		public static implicit operator ImFontConfig*(ImFontConfigPtr handle) => handle.self;
-		public ref void* FontData => ref self->FontData;
+		public ref IntPtr FontData => ref self->FontData;
 		public ref int FontDataSize => ref self->FontDataSize;
 		public ref bool FontDataOwnedByAtlas => ref self->FontDataOwnedByAtlas;
 		public ref int FontNo => ref self->FontNo;
@@ -194,7 +222,7 @@ namespace SharpImGUI
 		public RangeAccessor<int> KeyMap => (int*)Unsafe.AsPointer(ref self->KeyMap[0]);
 		public ref float KeyRepeatDelay => ref self->KeyRepeatDelay;
 		public ref float KeyRepeatRate => ref self->KeyRepeatRate;
-		public ref void* UserData => ref self->UserData;
+		public ref IntPtr UserData => ref self->UserData;
 		public ImFontAtlasPtr Fonts => self->Fonts;
 		public ref float FontGlobalScale => ref self->FontGlobalScale;
 		public ref bool FontAllowUserScaling => ref self->FontAllowUserScaling;
@@ -217,12 +245,12 @@ namespace SharpImGUI
 		public ref float ConfigMemoryCompactTimer => ref self->ConfigMemoryCompactTimer;
 		public ref byte* BackendPlatformName => ref self->BackendPlatformName;
 		public ref byte* BackendRendererName => ref self->BackendRendererName;
-		public ref void* BackendPlatformUserData => ref self->BackendPlatformUserData;
-		public ref void* BackendRendererUserData => ref self->BackendRendererUserData;
-		public ref void* BackendLanguageUserData => ref self->BackendLanguageUserData;
+		public ref IntPtr BackendPlatformUserData => ref self->BackendPlatformUserData;
+		public ref IntPtr BackendRendererUserData => ref self->BackendRendererUserData;
+		public ref IntPtr BackendLanguageUserData => ref self->BackendLanguageUserData;
 		public ref IntPtr GetClipboardTextFn => ref self->GetClipboardTextFn;
 		public ref IntPtr SetClipboardTextFn => ref self->SetClipboardTextFn;
-		public ref void* ClipboardUserData => ref self->ClipboardUserData;
+		public ref IntPtr ClipboardUserData => ref self->ClipboardUserData;
 		public ref ImVec2 MousePos => ref self->MousePos;
 		public RangeAccessor<bool> MouseDown => (bool*)Unsafe.AsPointer(ref self->MouseDown[0]);
 		public ref float MouseWheel => ref self->MouseWheel;

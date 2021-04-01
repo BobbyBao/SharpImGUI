@@ -7,6 +7,9 @@
     <Product>SharpImGUI</Product>
 	  <LangVersion>latest</LangVersion>
 	  <Platforms>AnyCPU;x64</Platforms>
+	  <Version>1.0.1</Version>
+	  <Authors>BobbBao</Authors>
+	  <Company />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>

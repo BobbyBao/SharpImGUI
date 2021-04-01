@@ -169,7 +169,7 @@ namespace Generator
             switch (primitiveType.Kind)
             {
                 case CppPrimitiveKind.Void:
-                    return isPointer ? "void*" : "void";
+                    return isPointer ? "IntPtr" : "void";
 
                 case CppPrimitiveKind.Char:
                     return isPointer ? "byte*" : "byte";

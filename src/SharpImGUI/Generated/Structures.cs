@@ -77,10 +77,10 @@ namespace SharpImGUI
 		public float DpiScale;
 		public ImGuiID ParentViewportId;
 		public unsafe ImDrawData* DrawData;
-		public unsafe void* RendererUserData;
-		public unsafe void* PlatformUserData;
-		public unsafe void* PlatformHandle;
-		public unsafe void* PlatformHandleRaw;
+		public IntPtr RendererUserData;
+		public IntPtr PlatformUserData;
+		public IntPtr PlatformHandle;
+		public IntPtr PlatformHandleRaw;
 		public bool PlatformRequestMove;
 		public bool PlatformRequestResize;
 		public bool PlatformRequestClose;
@@ -129,7 +129,7 @@ namespace SharpImGUI
 		public uint IdxOffset;
 		public uint ElemCount;
 		public IntPtr UserCallback;
-		public unsafe void* UserCallbackData;
+		public IntPtr UserCallbackData;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -353,7 +353,7 @@ namespace SharpImGUI
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImFontConfig
 	{
-		public unsafe void* FontData;
+		public IntPtr FontData;
 		public int FontDataSize;
 		public bool FontDataOwnedByAtlas;
 		public int FontNo;
@@ -675,7 +675,7 @@ namespace SharpImGUI
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImGuiPtrOrIndex
 	{
-		public unsafe void* Ptr;
+		public IntPtr Ptr;
 		public int Index;
 	}
 
@@ -1912,7 +1912,7 @@ namespace SharpImGUI
 		public IntPtr ReadLineFn;
 		public IntPtr ApplyAllFn;
 		public IntPtr WriteAllFn;
-		public unsafe void* UserData;
+		public IntPtr UserData;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -1940,7 +1940,7 @@ namespace SharpImGUI
 		public bool GcCompactAll;
 		public bool TestEngineHookItems;
 		public ImGuiID TestEngineHookIdInfo;
-		public unsafe void* TestEngine;
+		public IntPtr TestEngine;
 		public ImVector_ImGuiWindowPtr Windows;
 		public ImVector_ImGuiWindowPtr WindowsFocusOrder;
 		public ImVector_ImGuiWindowPtr WindowsTempSortBuffer;
@@ -2154,7 +2154,7 @@ namespace SharpImGUI
 		public unsafe fixed int KeyMap[22];
 		public float KeyRepeatDelay;
 		public float KeyRepeatRate;
-		public unsafe void* UserData;
+		public IntPtr UserData;
 		public unsafe ImFontAtlas* Fonts;
 		public float FontGlobalScale;
 		public bool FontAllowUserScaling;
@@ -2177,12 +2177,12 @@ namespace SharpImGUI
 		public float ConfigMemoryCompactTimer;
 		public unsafe byte* BackendPlatformName;
 		public unsafe byte* BackendRendererName;
-		public unsafe void* BackendPlatformUserData;
-		public unsafe void* BackendRendererUserData;
-		public unsafe void* BackendLanguageUserData;
+		public IntPtr BackendPlatformUserData;
+		public IntPtr BackendRendererUserData;
+		public IntPtr BackendLanguageUserData;
 		public IntPtr GetClipboardTextFn;
 		public IntPtr SetClipboardTextFn;
-		public unsafe void* ClipboardUserData;
+		public IntPtr ClipboardUserData;
 		public ImVec2 MousePos;
 		public unsafe fixed bool MouseDown[5];
 		public float MouseWheel;
@@ -2411,7 +2411,7 @@ namespace SharpImGUI
 		public bool CollapsedVal;
 		public ImRect SizeConstraintRect;
 		public IntPtr SizeCallback;
-		public unsafe void* SizeCallbackUserData;
+		public IntPtr SizeCallbackUserData;
 		public float BgAlphaVal;
 		public ImGuiID ViewportId;
 		public ImGuiID DockId;
@@ -2422,7 +2422,7 @@ namespace SharpImGUI
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImGuiSizeCallbackData
 	{
-		public unsafe void* UserData;
+		public IntPtr UserData;
 		public ImVec2 Pos;
 		public ImVec2 CurrentSize;
 		public ImVec2 DesiredSize;
@@ -2536,7 +2536,7 @@ namespace SharpImGUI
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImGuiPayload
 	{
-		public unsafe void* Data;
+		public IntPtr Data;
 		public int DataSize;
 		public ImGuiID SourceId;
 		public ImGuiID SourceParentId;
@@ -2621,7 +2621,7 @@ namespace SharpImGUI
 		public bool Edited;
 		public ImGuiInputTextFlags UserFlags;
 		public IntPtr UserCallback;
-		public unsafe void* UserCallbackData;
+		public IntPtr UserCallbackData;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
@@ -2629,7 +2629,7 @@ namespace SharpImGUI
 	{
 		public ImGuiInputTextFlags EventFlag;
 		public ImGuiInputTextFlags Flags;
-		public unsafe void* UserData;
+		public IntPtr UserData;
 		public char EventChar;
 		public ImGuiKey EventKey;
 		public unsafe byte* Buf;
@@ -2717,7 +2717,7 @@ namespace SharpImGUI
 		public ImGuiContextHookType Type;
 		public ImGuiID Owner;
 		public IntPtr Callback;
-		public unsafe void* UserData;
+		public IntPtr UserData;
 	}
 
 	[StructLayout(LayoutKind.Sequential)]

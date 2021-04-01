@@ -26,7 +26,7 @@ namespace SharpImGUI
         public ImFontPtr AddFontDefault(ImFontConfigPtr font_cfg = default) => ImGui.ImFontAtlas_AddFontDefault(self, font_cfg);
         public ImFontPtr AddFontFromFileTTF(string filename, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges)
             => ImGui.ImFontAtlas_AddFontFromFileTTF(self, filename, size_pixels, font_cfg, glyph_ranges);
-        public ImFontPtr AddFontFromMemoryTTF(void* font_data, int font_size, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges)
+        public ImFontPtr AddFontFromMemoryTTF(IntPtr font_data, int font_size, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges)
             => ImGui.ImFontAtlas_AddFontFromMemoryTTF(self, font_data, font_size, size_pixels, font_cfg, glyph_ranges);
         public void ClearInputData() => ImGui.ImFontAtlas_ClearInputData(self);
         public void ClearTexData() => ImGui.ImFontAtlas_ClearTexData(self);

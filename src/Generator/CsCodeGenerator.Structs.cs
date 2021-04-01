@@ -31,6 +31,7 @@ namespace Generator
             { "ImDrawList*", "ImDrawListPtr"},
             { "ImFont*", "ImFontPtr"},
             { "ImFontConfig*", "ImFontConfigPtr" },
+            { "ImGuiViewport*", "ImGuiViewportPtr" }
         };
 
         private static void GenerateStructAndUnions(CppCompilation compilation, string outputPath)

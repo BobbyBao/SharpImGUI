@@ -86,6 +86,7 @@ namespace SharpImGUI
 
         public static bool Begin(string name, ref bool p_open) => Begin(name, ref p_open, default);
         public static bool Button(string label) => Button(label, default);
+        public static void SameLine(float offset_from_start_x = 0.0f) => SameLine(offset_from_start_x, -1.0f);
         public static bool BeginCombo(string label, string preview_value) => BeginCombo(label, preview_value, default);
         public static bool DragFloat(string label, ref float v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")
             => DragFloat(label, ref v, v_speed, v_min, v_max, format, default);
@@ -95,16 +96,55 @@ namespace SharpImGUI
             => DragFloat3(label, (float*)Unsafe.AsPointer(ref v.X), v_speed, v_min, v_max, format, default);
         public static bool DragFloat4(string label, ref ImVec4 v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")
             => DragFloat4(label, (float*)Unsafe.AsPointer(ref v.X), v_speed, v_min, v_max, format, default);
+        public static bool DragFloatRange2(string label, ref float v_current_min, ref float v_current_max, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f", string format_max = null)
+            => DragFloatRange2(label, ref v_current_min, ref v_current_max, v_speed, v_min, v_max, format, format_max, ImGuiSliderFlags.None);
+        public static bool DragInt(string label, ref int v, float v_speed = 1.0f, int v_min = 0, int v_max = 0, string format = "%d")
+            => DragInt(label, ref v, v_speed, v_min, v_max, format, default);
+        public static bool DragInt2(string label, ref int v, float v_speed = 1.0f, int v_min = 0, int v_max = 0, string format = "%d")
+            => DragInt2(label, (int*)Unsafe.AsPointer(ref v), v_speed, v_min, v_max, format, default);
+        public static bool DragInt3(string label, ref int v, float v_speed = 1.0f, int v_min = 0, int v_max = 0, string format = "%d")
+            => DragInt3(label, (int*)Unsafe.AsPointer(ref v), v_speed, v_min, v_max, format, default);
+        public static bool DragInt4(string label, ref int v, float v_speed = 1.0f, int v_min = 0, int v_max = 0, string format = "%d")
+            => DragInt4(label, (int*)Unsafe.AsPointer(ref v), v_speed, v_min, v_max, format, default);
+        public static bool DragIntRange2(string label, ref int v_current_min, ref int v_current_max, float v_speed = 1.0f, int v_min = 0, int v_max = 0, string format = "%d", string format_max = null)
+            => DragIntRange2(label, ref v_current_min, ref v_current_max, v_speed, v_min, v_max, format, format_max, ImGuiSliderFlags.None);
+        public static bool DragScalar(string label, ImGuiDataType data_type, IntPtr p_data, float v_speed = 1.0f, IntPtr p_min = default, IntPtr p_max = default, string format = null)
+            => DragScalar(label, data_type, p_data, v_speed, p_min, p_max, format, default);
+        public static bool DragScalarN(string label, ImGuiDataType data_type, IntPtr p_data, int components, float v_speed = 1.0f, IntPtr p_min = default, IntPtr p_max = default, string format = null)
+            => DragScalarN(label, data_type, p_data, components, v_speed, p_min, p_max, format, default);
+        public static bool SliderFloat(string label, ref float v, float v_min, float v_max, string format = "%.3f")
+            => SliderFloat(label, ref v, v_min, v_max, format, default);
+        public static bool SliderFloat2(string label, ref float v, float v_min, float v_max, string format = "%.3f")
+            => SliderFloat2(label, (float*)Unsafe.AsPointer(ref v), v_min, v_max, format, default);
+        public static bool SliderFloat3(string label, ref float v, float v_min, float v_max, string format = "%.3f")
+            => SliderFloat3(label, (float*)Unsafe.AsPointer(ref v), v_min, v_max, format, default);
+        public static bool SliderFloat4(string label, ref float v, float v_min, float v_max, string format = "%.3f")
+            => SliderFloat4(label, (float*)Unsafe.AsPointer(ref v), v_min, v_max, format, default);
 
         public static bool InputText(string label, byte[] buf, ImGuiInputTextFlags flags = default, IntPtr callback = default, IntPtr user_data = default)
-            => InputText(label, (byte*)Unsafe.AsPointer(ref buf[0]), (IntPtr)buf.Length, flags, callback, (void*)user_data);
-
+            => InputText(label, (byte*)Unsafe.AsPointer(ref buf[0]), (IntPtr)buf.Length, flags, callback, user_data);
+        public static bool InputTextMultiline(string label, byte[] buf, ImVec2 size, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None, IntPtr callback = default, IntPtr user_data = default)
+            => InputTextMultiline(label, (byte*)Unsafe.AsPointer(ref buf[0]), (IntPtr)buf.Length, size, flags, callback, user_data);
+        public static bool InputTextWithHint(string label, string hint, byte[] buf, ImGuiInputTextFlags flags, IntPtr callback, IntPtr user_data)
+            => InputTextWithHint(label, hint, (byte*)Unsafe.AsPointer(ref buf[0]), (IntPtr)buf.Length, flags, callback, user_data);
+     
         public static bool ColorEdit3(string label, ref ImVec3 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit3(label, (float*)Unsafe.AsPointer(ref col.X), flags);
         public static bool ColorEdit4(string label, ref ImVec4 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit4(label, (float*)Unsafe.AsPointer(ref col.X), flags);
         public static bool ColorPicker3(string label, ref ImVec3 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit3(label, (float*)Unsafe.AsPointer(ref col.X), flags);
         public static bool ColorPicker4(string label, ref ImVec4 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit4(label, (float*)Unsafe.AsPointer(ref col.X), flags);
         public static bool ColorButton(string desc_id, in ImVec4 col, ImGuiColorEditFlags flags = default) => ColorButton(desc_id, col, flags, default);
 
+        public static bool TreeNode(string label) => TreeNodeStr(label);
+        public static bool TreeNode(string str_id, string fmt) => TreeNodeStrStr(str_id, fmt);
+        public static bool TreeNodeEx(string label, ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags.None) => TreeNodeExStr(label, flags);
+        public static bool TreeNodeEx(string label, ImGuiTreeNodeFlags flags, string fmt) => TreeNodeExStrStr(label, flags, fmt);
+        public static bool TreeNodeEx(IntPtr ptr_id, ImGuiTreeNodeFlags flags, string fmt) => TreeNodeExPtr(ptr_id, flags, fmt);
+        public static void TreePush(string label) => TreePushStr(label);
+        public static void TreePush(IntPtr ptr_id) => TreePushPtr(ptr_id);
+        public static bool CollapsingHeader(string label, ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags.None) => CollapsingHeaderTreeNodeFlags(label, flags);
+        public static bool CollapsingHeader(string label, ref bool p_visible, ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags.None) => CollapsingHeaderBoolPtr(label, ref p_visible, flags);
+        public static bool Selectable(string label, bool selected = false, ImGuiSelectableFlags flags = ImGuiSelectableFlags.None, ImVec2 size = default) => SelectableBool(label, selected, flags, size);
+        public static bool Selectable(string label, ref bool selected, ImGuiSelectableFlags flags = ImGuiSelectableFlags.None, ImVec2 size = default) => SelectableBoolPtr(label, ref selected, flags, size);
         public static void Value(string prefix, bool v) => ValueBool(prefix, v);
         public static void Value(string prefix, int v) => ValueInt(prefix, v);
         public static void Value(string prefix, uint v) => ValueUint(prefix, v);
