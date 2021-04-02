@@ -84,8 +84,19 @@ namespace SharpImGUI
         public static float WindowWidth => GetWindowWidth();
         public static float WindowHeight => GetWindowHeight();
 
+        public static void PushID(string str_id) => PushIDStr(str_id);
+        public static void PushID(string str_id_begin, string str_id_end) => PushIDStrStr(str_id_begin, str_id_end);
+        public static void PushID(int int_id) => PushIDInt(int_id);
+        public static void PushID(nint ptr_id) => PushIDPtr(ptr_id);
+        public static void PushStyleColor(ImGuiCol idx, uint col) => PushStyleColorU32(idx, col);
+        public static void PushStyleColor(ImGuiCol idx, ImVec4 col) => PushStyleColorVec4(idx, col);
+        public static void PushStyleVar(ImGuiStyleVar idx, float val) => PushStyleVarFloat(idx, val);
+        public static void PushStyleVar(ImGuiStyleVar idx, ImVec2 val) => PushStyleVarVec2(idx, val);
+        public static void PopStyleColor() => PopStyleColor(1);
+        public static void PopStyleVar() => PopStyleVar(1);
         public static bool Begin(string name, ref bool p_open) => Begin(name, ref p_open, default);
         public static bool Button(string label) => Button(label, default);
+        public static bool InvisibleButton(string str_id, ImVec2 size) => InvisibleButton(str_id, size, ImGuiButtonFlags.None);
         public static void SameLine(float offset_from_start_x = 0.0f) => SameLine(offset_from_start_x, -1.0f);
         public static bool BeginCombo(string label, string preview_value) => BeginCombo(label, preview_value, default);
         public static bool DragFloat(string label, ref float v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")

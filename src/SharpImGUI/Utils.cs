@@ -36,6 +36,12 @@ namespace SharpImGUI
         private fixed byte bytes[MAX_STACK_SIZE];
         public StringHelper(string str)
         {
+            if(str == null)
+            {
+                utf8Str = 0;
+                return;
+            }
+
             int count = Encoding.UTF8.GetByteCount(str);
             if (count < MAX_STACK_SIZE)
             {
