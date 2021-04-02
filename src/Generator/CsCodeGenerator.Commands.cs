@@ -205,7 +205,7 @@ namespace Generator
         static string GetFunctionPointer(CppFunction cppFunction)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("delegate* unmanaged[Stdcall]<");
+            sb.Append("delegate* unmanaged[Cdecl]<");
 
             var index = 0;
             foreach (var cppParameter in cppFunction.Parameters)

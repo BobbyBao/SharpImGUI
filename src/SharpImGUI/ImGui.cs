@@ -120,14 +120,43 @@ namespace SharpImGUI
             => SliderFloat3(label, (float*)Unsafe.AsPointer(ref v), v_min, v_max, format, default);
         public static bool SliderFloat4(string label, ref float v, float v_min, float v_max, string format = "%.3f")
             => SliderFloat4(label, (float*)Unsafe.AsPointer(ref v), v_min, v_max, format, default);
-
+        public static bool SliderAngle(string label, ref float v_rad, float v_degrees_min = -360.0f, float v_degrees_max = +360.0f, string format = "%.0f deg")
+            => SliderAngle(label, ref v_rad, v_degrees_min, v_degrees_max, format, default);
+        public static bool SliderInt(string label, ref int v, int v_min, int v_max, string format = "%d")
+            => SliderInt(label, ref v, v_min, v_max, format, ImGuiSliderFlags.None);
+        public static bool SliderInt2(string label, ref int v, int v_min, int v_max, string format = "%d")
+            => SliderInt2(label, (int*)Unsafe.AsPointer(ref v), v_min, v_max, format, ImGuiSliderFlags.None);
+        public static bool SliderInt3(string label, ref int v, int v_min, int v_max, string format = "%d")
+            => SliderInt3(label, (int*)Unsafe.AsPointer(ref v), v_min, v_max, format, ImGuiSliderFlags.None);
+        public static bool SliderInt4(string label, ref int v, int v_min, int v_max, string format = "%d")
+            => SliderInt4(label, (int*)Unsafe.AsPointer(ref v), v_min, v_max, format, ImGuiSliderFlags.None);
+        public static bool SliderScalar(string label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, string format = null)
+            => SliderScalar(label, data_type, p_data, p_min, p_max, format, ImGuiSliderFlags.None);
+        public static bool SliderScalarN(string label, ImGuiDataType data_type, IntPtr p_data, int components, IntPtr p_min, IntPtr p_max, string format = null)
+            => SliderScalarN(label, data_type, p_data, components, p_min, p_max, format, ImGuiSliderFlags.None);
+        public static bool VSlidert(string label, ImVec2 size, ref float v, float v_min, float v_max, string format = "%.3f")
+            => VSliderFloat(label, size, ref v, v_min, v_max, format, ImGuiSliderFlags.None);
+        public static bool VSlider(string label, ImVec2 size, ref int v, int v_min, int v_max, string format = "%d")
+            => VSliderInt(label, size, ref v, v_min, v_max, format, ImGuiSliderFlags.None);
+        public static bool VSliderScalar(string label, ImVec2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, string format = null)
+            => VSliderScalar(label, size, data_type, p_data, p_min, p_max, format, ImGuiSliderFlags.None);
         public static bool InputText(string label, byte[] buf, ImGuiInputTextFlags flags = default, IntPtr callback = default, IntPtr user_data = default)
             => InputText(label, (byte*)Unsafe.AsPointer(ref buf[0]), (IntPtr)buf.Length, flags, callback, user_data);
         public static bool InputTextMultiline(string label, byte[] buf, ImVec2 size, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None, IntPtr callback = default, IntPtr user_data = default)
             => InputTextMultiline(label, (byte*)Unsafe.AsPointer(ref buf[0]), (IntPtr)buf.Length, size, flags, callback, user_data);
         public static bool InputTextWithHint(string label, string hint, byte[] buf, ImGuiInputTextFlags flags, IntPtr callback, IntPtr user_data)
             => InputTextWithHint(label, hint, (byte*)Unsafe.AsPointer(ref buf[0]), (IntPtr)buf.Length, flags, callback, user_data);
-     
+        public static bool InputFloat(string label, ref float v, float step = 0.0f, float step_fast = 0.0f, string format = "%.3f") => InputFloat(label, ref v, step, step_fast, format, ImGuiInputTextFlags.None);
+        public static bool InputFloat2(string label, ref float v, string format = "%.3f") => InputFloat2(label, (float*)Unsafe.AsPointer(ref v), format, ImGuiInputTextFlags.None);
+        public static bool InputFloat3(string label, ref float v, string format = "%.3f") => InputFloat3(label, (float*)Unsafe.AsPointer(ref v), format, ImGuiInputTextFlags.None);
+        public static bool InputFloat4(string label, ref float v, string format = "%.3f") => InputFloat4(label, (float*)Unsafe.AsPointer(ref v), format, ImGuiInputTextFlags.None);
+        public static bool InputInt(string label, ref int v, int step = 0, int step_fast = 0) => InputInt(label, ref v, step, step_fast, ImGuiInputTextFlags.None);
+        public static bool InputInt2(string label, ref int v) => InputInt2(label, (int*)Unsafe.AsPointer(ref v), ImGuiInputTextFlags.None);
+        public static bool InputInt3(string label, ref int v) => InputInt3(label, (int*)Unsafe.AsPointer(ref v), ImGuiInputTextFlags.None);
+        public static bool InputInt4(string label, ref int v) => InputInt4(label, (int*)Unsafe.AsPointer(ref v), ImGuiInputTextFlags.None);
+        public static bool InputDouble(string label, ref double v, double step = 0.0, double step_fast = 0.0, string format = "%.6f") => InputDouble(label, ref v, step, step_fast, format, ImGuiInputTextFlags.None);
+        public static bool InputScalar(string label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_step = default, IntPtr p_step_fast = default, string format = null) => InputScalar(label, data_type, p_data, p_step, p_step_fast, format, ImGuiInputTextFlags.None);
+        public static bool InputScalarN(string label, ImGuiDataType data_type, IntPtr p_data, int components, IntPtr p_step = default, IntPtr p_step_fast = default, string format = null) => InputScalarN(label, data_type, p_data, components, p_step, p_step_fast, format, ImGuiInputTextFlags.None);
         public static bool ColorEdit3(string label, ref ImVec3 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit3(label, (float*)Unsafe.AsPointer(ref col.X), flags);
         public static bool ColorEdit4(string label, ref ImVec4 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit4(label, (float*)Unsafe.AsPointer(ref col.X), flags);
         public static bool ColorPicker3(string label, ref ImVec3 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit3(label, (float*)Unsafe.AsPointer(ref col.X), flags);
@@ -145,6 +174,23 @@ namespace SharpImGUI
         public static bool CollapsingHeader(string label, ref bool p_visible, ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags.None) => CollapsingHeaderBoolPtr(label, ref p_visible, flags);
         public static bool Selectable(string label, bool selected = false, ImGuiSelectableFlags flags = ImGuiSelectableFlags.None, ImVec2 size = default) => SelectableBool(label, selected, flags, size);
         public static bool Selectable(string label, ref bool selected, ImGuiSelectableFlags flags = ImGuiSelectableFlags.None, ImVec2 size = default) => SelectableBoolPtr(label, ref selected, flags, size);
+        public static bool BeginListBox(string label) => BeginListBox(label, default);
+        public static bool ListBox(string label, ref int current_item, string[] items, int items_count, int height_in_items = -1)
+        {
+            using CStringArray strArr = stackalloc IntPtr[items.Length];
+            for(int i = 0; i < items.Length; i++)
+            {
+                strArr[i] = StringHelper.ToPtr(items[i]);
+            }
+
+            return ListBoxStr_arr(label, ref current_item, (byte**)strArr.Ptr, items_count, height_in_items);
+        }
+
+        public static bool ListBox(string label, ref int current_item, delegate*<IntPtr, int, IntPtr, bool> items_getter, IntPtr data, int items_count, int height_in_items = -1)
+        {
+            return ListBoxFnBoolPtr(label, ref current_item, (IntPtr)items_getter, data, items_count, height_in_items);
+        }
+
         public static void Value(string prefix, bool v) => ValueBool(prefix, v);
         public static void Value(string prefix, int v) => ValueInt(prefix, v);
         public static void Value(string prefix, uint v) => ValueUint(prefix, v);

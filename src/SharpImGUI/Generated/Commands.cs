@@ -20,67 +20,67 @@ namespace SharpImGUI
 {
 	unsafe partial class ImGui
 	{
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiContext*> CreateContext_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, ImGuiContext*> CreateContext_ptr;
 		public static ImGuiContext* CreateContext(ImFontAtlasPtr shared_font_atlas)
 		{
 			return CreateContext_ptr(shared_font_atlas);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, void> DestroyContext_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> DestroyContext_ptr;
 		public static void DestroyContext(ImGuiContext* ctx)
 		{
 			DestroyContext_ptr(ctx);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*> GetCurrentContext_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*> GetCurrentContext_ptr;
 		public static ImGuiContext* GetCurrentContext()
 		{
 			return GetCurrentContext_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, void> SetCurrentContext_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> SetCurrentContext_ptr;
 		public static void SetCurrentContext(ImGuiContext* ctx)
 		{
 			SetCurrentContext_ptr(ctx);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiIO*> GetIO_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiIO*> GetIO_ptr;
 		public static ImGuiIOPtr GetIO()
 		{
 			return GetIO_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyle*> GetStyle_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyle*> GetStyle_ptr;
 		public static ImGuiStylePtr GetStyle()
 		{
 			return GetStyle_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> NewFrame_ptr;
+		static delegate* unmanaged[Cdecl]<void> NewFrame_ptr;
 		public static void NewFrame()
 		{
 			NewFrame_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndFrame_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndFrame_ptr;
 		public static void EndFrame()
 		{
 			EndFrame_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> Render_ptr;
+		static delegate* unmanaged[Cdecl]<void> Render_ptr;
 		public static void Render()
 		{
 			Render_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawData*> GetDrawData_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawData*> GetDrawData_ptr;
 		public static ImDrawDataPtr GetDrawData()
 		{
 			return GetDrawData_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool*, void> ShowDemoWindow_ptr;
+		static delegate* unmanaged[Cdecl]<bool*, void> ShowDemoWindow_ptr;
 		public static void ShowDemoWindow(ref bool p_open)
 		{
 			fixed(bool* p_p_open = &p_open)
@@ -89,7 +89,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<bool*, void> ShowMetricsWindow_ptr;
+		static delegate* unmanaged[Cdecl]<bool*, void> ShowMetricsWindow_ptr;
 		public static void ShowMetricsWindow(ref bool p_open)
 		{
 			fixed(bool* p_p_open = &p_open)
@@ -98,7 +98,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<bool*, void> ShowAboutWindow_ptr;
+		static delegate* unmanaged[Cdecl]<bool*, void> ShowAboutWindow_ptr;
 		public static void ShowAboutWindow(ref bool p_open)
 		{
 			fixed(bool* p_p_open = &p_open)
@@ -107,57 +107,57 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyle*, void> ShowStyleEditor_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyle*, void> ShowStyleEditor_ptr;
 		public static void ShowStyleEditor(ImGuiStylePtr @ref)
 		{
 			ShowStyleEditor_ptr(@ref);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool> ShowStyleSelector_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool> ShowStyleSelector_ptr;
 		public static bool ShowStyleSelector(string label)
 		{
 			using var p_label = new StringHelper(label);
 			return ShowStyleSelector_ptr(p_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> ShowFontSelector_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> ShowFontSelector_ptr;
 		public static void ShowFontSelector(string label)
 		{
 			using var p_label = new StringHelper(label);
 			ShowFontSelector_ptr(p_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> ShowUserGuide_ptr;
+		static delegate* unmanaged[Cdecl]<void> ShowUserGuide_ptr;
 		public static void ShowUserGuide()
 		{
 			ShowUserGuide_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*> GetVersion_ptr;
+		static delegate* unmanaged[Cdecl]<byte*> GetVersion_ptr;
 		public static byte* GetVersion()
 		{
 			return GetVersion_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyle*, void> StyleColorsDark_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyle*, void> StyleColorsDark_ptr;
 		public static void StyleColorsDark(ImGuiStylePtr dst)
 		{
 			StyleColorsDark_ptr(dst);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyle*, void> StyleColorsLight_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyle*, void> StyleColorsLight_ptr;
 		public static void StyleColorsLight(ImGuiStylePtr dst)
 		{
 			StyleColorsLight_ptr(dst);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyle*, void> StyleColorsClassic_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyle*, void> StyleColorsClassic_ptr;
 		public static void StyleColorsClassic(ImGuiStylePtr dst)
 		{
 			StyleColorsClassic_ptr(dst);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool*, ImGuiWindowFlags, bool> Begin_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool*, ImGuiWindowFlags, bool> Begin_ptr;
 		public static bool Begin(string name, ref bool p_open, ImGuiWindowFlags flags)
 		{
 			fixed(bool* p_p_open = &p_open)
@@ -167,68 +167,68 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<void> End_ptr;
+		static delegate* unmanaged[Cdecl]<void> End_ptr;
 		public static void End()
 		{
 			End_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImVec2, bool, ImGuiWindowFlags, bool> BeginChildStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImVec2, bool, ImGuiWindowFlags, bool> BeginChildStr_ptr;
 		public static bool BeginChildStr(string str_id, ImVec2 size, bool border, ImGuiWindowFlags flags)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return BeginChildStr_ptr(p_str_id, size, border, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, bool, ImGuiWindowFlags, bool> BeginChildID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, bool, ImGuiWindowFlags, bool> BeginChildID_ptr;
 		public static bool BeginChildID(ImGuiID id, ImVec2 size, bool border, ImGuiWindowFlags flags)
 		{
 			return BeginChildID_ptr(id, size, border, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndChild_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndChild_ptr;
 		public static void EndChild()
 		{
 			EndChild_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsWindowAppearing_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsWindowAppearing_ptr;
 		public static bool IsWindowAppearing()
 		{
 			return IsWindowAppearing_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsWindowCollapsed_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsWindowCollapsed_ptr;
 		public static bool IsWindowCollapsed()
 		{
 			return IsWindowCollapsed_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiFocusedFlags, bool> IsWindowFocused_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiFocusedFlags, bool> IsWindowFocused_ptr;
 		public static bool IsWindowFocused(ImGuiFocusedFlags flags)
 		{
 			return IsWindowFocused_ptr(flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiHoveredFlags, bool> IsWindowHovered_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiHoveredFlags, bool> IsWindowHovered_ptr;
 		public static bool IsWindowHovered(ImGuiHoveredFlags flags)
 		{
 			return IsWindowHovered_ptr(flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*> GetWindowDrawList_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*> GetWindowDrawList_ptr;
 		public static ImDrawListPtr GetWindowDrawList()
 		{
 			return GetWindowDrawList_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetWindowDpiScale_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetWindowDpiScale_ptr;
 		public static float GetWindowDpiScale()
 		{
 			return GetWindowDpiScale_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetWindowPos_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetWindowPos_ptr;
 		public static void GetWindowPos(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -237,7 +237,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetWindowSize_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetWindowSize_ptr;
 		public static void GetWindowSize(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -246,131 +246,131 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetWindowWidth_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetWindowWidth_ptr;
 		public static float GetWindowWidth()
 		{
 			return GetWindowWidth_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetWindowHeight_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetWindowHeight_ptr;
 		public static float GetWindowHeight()
 		{
 			return GetWindowHeight_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewport*> GetWindowViewport_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewport*> GetWindowViewport_ptr;
 		public static ImGuiViewportPtr GetWindowViewport()
 		{
 			return GetWindowViewport_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImGuiCond, ImVec2, void> SetNextWindowPos_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImGuiCond, ImVec2, void> SetNextWindowPos_ptr;
 		public static void SetNextWindowPos(ImVec2 pos, ImGuiCond cond, ImVec2 pivot)
 		{
 			SetNextWindowPos_ptr(pos, cond, pivot);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImGuiCond, void> SetNextWindowSize_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImGuiCond, void> SetNextWindowSize_ptr;
 		public static void SetNextWindowSize(ImVec2 size, ImGuiCond cond)
 		{
 			SetNextWindowSize_ptr(size, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, IntPtr, IntPtr, void> SetNextWindowSizeConstraints_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, IntPtr, IntPtr, void> SetNextWindowSizeConstraints_ptr;
 		public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max, IntPtr custom_callback, IntPtr custom_callback_data)
 		{
 			SetNextWindowSizeConstraints_ptr(size_min, size_max, custom_callback, custom_callback_data);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, void> SetNextWindowContentSize_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, void> SetNextWindowContentSize_ptr;
 		public static void SetNextWindowContentSize(ImVec2 size)
 		{
 			SetNextWindowContentSize_ptr(size);
 		}
 
-		static delegate* unmanaged[Stdcall]<bool, ImGuiCond, void> SetNextWindowCollapsed_ptr;
+		static delegate* unmanaged[Cdecl]<bool, ImGuiCond, void> SetNextWindowCollapsed_ptr;
 		public static void SetNextWindowCollapsed(bool collapsed, ImGuiCond cond)
 		{
 			SetNextWindowCollapsed_ptr(collapsed, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> SetNextWindowFocus_ptr;
+		static delegate* unmanaged[Cdecl]<void> SetNextWindowFocus_ptr;
 		public static void SetNextWindowFocus()
 		{
 			SetNextWindowFocus_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> SetNextWindowBgAlpha_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> SetNextWindowBgAlpha_ptr;
 		public static void SetNextWindowBgAlpha(float alpha)
 		{
 			SetNextWindowBgAlpha_ptr(alpha);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, void> SetNextWindowViewport_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, void> SetNextWindowViewport_ptr;
 		public static void SetNextWindowViewport(ImGuiID viewport_id)
 		{
 			SetNextWindowViewport_ptr(viewport_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImGuiCond, void> SetWindowPosVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImGuiCond, void> SetWindowPosVec2_ptr;
 		public static void SetWindowPosVec2(ImVec2 pos, ImGuiCond cond)
 		{
 			SetWindowPosVec2_ptr(pos, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImGuiCond, void> SetWindowSizeVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImGuiCond, void> SetWindowSizeVec2_ptr;
 		public static void SetWindowSizeVec2(ImVec2 size, ImGuiCond cond)
 		{
 			SetWindowSizeVec2_ptr(size, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<bool, ImGuiCond, void> SetWindowCollapsedBool_ptr;
+		static delegate* unmanaged[Cdecl]<bool, ImGuiCond, void> SetWindowCollapsedBool_ptr;
 		public static void SetWindowCollapsedBool(bool collapsed, ImGuiCond cond)
 		{
 			SetWindowCollapsedBool_ptr(collapsed, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> SetWindowFocusNil_ptr;
+		static delegate* unmanaged[Cdecl]<void> SetWindowFocusNil_ptr;
 		public static void SetWindowFocusNil()
 		{
 			SetWindowFocusNil_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> SetWindowFontScale_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> SetWindowFontScale_ptr;
 		public static void SetWindowFontScale(float scale)
 		{
 			SetWindowFontScale_ptr(scale);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImVec2, ImGuiCond, void> SetWindowPosStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImVec2, ImGuiCond, void> SetWindowPosStr_ptr;
 		public static void SetWindowPosStr(string name, ImVec2 pos, ImGuiCond cond)
 		{
 			using var p_name = new StringHelper(name);
 			SetWindowPosStr_ptr(p_name, pos, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImVec2, ImGuiCond, void> SetWindowSizeStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImVec2, ImGuiCond, void> SetWindowSizeStr_ptr;
 		public static void SetWindowSizeStr(string name, ImVec2 size, ImGuiCond cond)
 		{
 			using var p_name = new StringHelper(name);
 			SetWindowSizeStr_ptr(p_name, size, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool, ImGuiCond, void> SetWindowCollapsedStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool, ImGuiCond, void> SetWindowCollapsedStr_ptr;
 		public static void SetWindowCollapsedStr(string name, bool collapsed, ImGuiCond cond)
 		{
 			using var p_name = new StringHelper(name);
 			SetWindowCollapsedStr_ptr(p_name, collapsed, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> SetWindowFocusStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> SetWindowFocusStr_ptr;
 		public static void SetWindowFocusStr(string name)
 		{
 			using var p_name = new StringHelper(name);
 			SetWindowFocusStr_ptr(p_name);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetContentRegionAvail_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetContentRegionAvail_ptr;
 		public static void GetContentRegionAvail(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -379,7 +379,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetContentRegionMax_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetContentRegionMax_ptr;
 		public static void GetContentRegionMax(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -388,7 +388,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetWindowContentRegionMin_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetWindowContentRegionMin_ptr;
 		public static void GetWindowContentRegionMin(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -397,7 +397,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetWindowContentRegionMax_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetWindowContentRegionMax_ptr;
 		public static void GetWindowContentRegionMax(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -406,193 +406,193 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetWindowContentRegionWidth_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetWindowContentRegionWidth_ptr;
 		public static float GetWindowContentRegionWidth()
 		{
 			return GetWindowContentRegionWidth_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetScrollX_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetScrollX_ptr;
 		public static float GetScrollX()
 		{
 			return GetScrollX_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetScrollY_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetScrollY_ptr;
 		public static float GetScrollY()
 		{
 			return GetScrollY_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> SetScrollXFloat_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> SetScrollXFloat_ptr;
 		public static void SetScrollXFloat(float scroll_x)
 		{
 			SetScrollXFloat_ptr(scroll_x);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> SetScrollYFloat_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> SetScrollYFloat_ptr;
 		public static void SetScrollYFloat(float scroll_y)
 		{
 			SetScrollYFloat_ptr(scroll_y);
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetScrollMaxX_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetScrollMaxX_ptr;
 		public static float GetScrollMaxX()
 		{
 			return GetScrollMaxX_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetScrollMaxY_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetScrollMaxY_ptr;
 		public static float GetScrollMaxY()
 		{
 			return GetScrollMaxY_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> SetScrollHereX_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> SetScrollHereX_ptr;
 		public static void SetScrollHereX(float center_x_ratio)
 		{
 			SetScrollHereX_ptr(center_x_ratio);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> SetScrollHereY_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> SetScrollHereY_ptr;
 		public static void SetScrollHereY(float center_y_ratio)
 		{
 			SetScrollHereY_ptr(center_y_ratio);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float, void> SetScrollFromPosXFloat_ptr;
+		static delegate* unmanaged[Cdecl]<float, float, void> SetScrollFromPosXFloat_ptr;
 		public static void SetScrollFromPosXFloat(float local_x, float center_x_ratio)
 		{
 			SetScrollFromPosXFloat_ptr(local_x, center_x_ratio);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float, void> SetScrollFromPosYFloat_ptr;
+		static delegate* unmanaged[Cdecl]<float, float, void> SetScrollFromPosYFloat_ptr;
 		public static void SetScrollFromPosYFloat(float local_y, float center_y_ratio)
 		{
 			SetScrollFromPosYFloat_ptr(local_y, center_y_ratio);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, void> PushFont_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, void> PushFont_ptr;
 		public static void PushFont(ImFontPtr font)
 		{
 			PushFont_ptr(font);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> PopFont_ptr;
+		static delegate* unmanaged[Cdecl]<void> PopFont_ptr;
 		public static void PopFont()
 		{
 			PopFont_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiCol, uint, void> PushStyleColorU32_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiCol, uint, void> PushStyleColorU32_ptr;
 		public static void PushStyleColorU32(ImGuiCol idx, uint col)
 		{
 			PushStyleColorU32_ptr(idx, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiCol, ImVec4, void> PushStyleColorVec4_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiCol, ImVec4, void> PushStyleColorVec4_ptr;
 		public static void PushStyleColorVec4(ImGuiCol idx, ImVec4 col)
 		{
 			PushStyleColorVec4_ptr(idx, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, void> PopStyleColor_ptr;
+		static delegate* unmanaged[Cdecl]<int, void> PopStyleColor_ptr;
 		public static void PopStyleColor(int count)
 		{
 			PopStyleColor_ptr(count);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyleVar, float, void> PushStyleVarFloat_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyleVar, float, void> PushStyleVarFloat_ptr;
 		public static void PushStyleVarFloat(ImGuiStyleVar idx, float val)
 		{
 			PushStyleVarFloat_ptr(idx, val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyleVar, ImVec2, void> PushStyleVarVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyleVar, ImVec2, void> PushStyleVarVec2_ptr;
 		public static void PushStyleVarVec2(ImGuiStyleVar idx, ImVec2 val)
 		{
 			PushStyleVarVec2_ptr(idx, val);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, void> PopStyleVar_ptr;
+		static delegate* unmanaged[Cdecl]<int, void> PopStyleVar_ptr;
 		public static void PopStyleVar(int count)
 		{
 			PopStyleVar_ptr(count);
 		}
 
-		static delegate* unmanaged[Stdcall]<bool, void> PushAllowKeyboardFocus_ptr;
+		static delegate* unmanaged[Cdecl]<bool, void> PushAllowKeyboardFocus_ptr;
 		public static void PushAllowKeyboardFocus(bool allow_keyboard_focus)
 		{
 			PushAllowKeyboardFocus_ptr(allow_keyboard_focus);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> PopAllowKeyboardFocus_ptr;
+		static delegate* unmanaged[Cdecl]<void> PopAllowKeyboardFocus_ptr;
 		public static void PopAllowKeyboardFocus()
 		{
 			PopAllowKeyboardFocus_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool, void> PushButtonRepeat_ptr;
+		static delegate* unmanaged[Cdecl]<bool, void> PushButtonRepeat_ptr;
 		public static void PushButtonRepeat(bool repeat)
 		{
 			PushButtonRepeat_ptr(repeat);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> PopButtonRepeat_ptr;
+		static delegate* unmanaged[Cdecl]<void> PopButtonRepeat_ptr;
 		public static void PopButtonRepeat()
 		{
 			PopButtonRepeat_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> PushItemWidth_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> PushItemWidth_ptr;
 		public static void PushItemWidth(float item_width)
 		{
 			PushItemWidth_ptr(item_width);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> PopItemWidth_ptr;
+		static delegate* unmanaged[Cdecl]<void> PopItemWidth_ptr;
 		public static void PopItemWidth()
 		{
 			PopItemWidth_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> SetNextItemWidth_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> SetNextItemWidth_ptr;
 		public static void SetNextItemWidth(float item_width)
 		{
 			SetNextItemWidth_ptr(item_width);
 		}
 
-		static delegate* unmanaged[Stdcall]<float> CalcItemWidth_ptr;
+		static delegate* unmanaged[Cdecl]<float> CalcItemWidth_ptr;
 		public static float CalcItemWidth()
 		{
 			return CalcItemWidth_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> PushTextWrapPos_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> PushTextWrapPos_ptr;
 		public static void PushTextWrapPos(float wrap_local_pos_x)
 		{
 			PushTextWrapPos_ptr(wrap_local_pos_x);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> PopTextWrapPos_ptr;
+		static delegate* unmanaged[Cdecl]<void> PopTextWrapPos_ptr;
 		public static void PopTextWrapPos()
 		{
 			PopTextWrapPos_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*> GetFont_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*> GetFont_ptr;
 		public static ImFontPtr GetFont()
 		{
 			return GetFont_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetFontSize_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetFontSize_ptr;
 		public static float GetFontSize()
 		{
 			return GetFontSize_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetFontTexUvWhitePixel_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetFontTexUvWhitePixel_ptr;
 		public static void GetFontTexUvWhitePixel(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -601,85 +601,85 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiCol, float, uint> GetColorU32Col_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiCol, float, uint> GetColorU32Col_ptr;
 		public static uint GetColorU32Col(ImGuiCol idx, float alpha_mul)
 		{
 			return GetColorU32Col_ptr(idx, alpha_mul);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec4, uint> GetColorU32Vec4_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec4, uint> GetColorU32Vec4_ptr;
 		public static uint GetColorU32Vec4(ImVec4 col)
 		{
 			return GetColorU32Vec4_ptr(col);
 		}
 
-		static delegate* unmanaged[Stdcall]<uint, uint> GetColorU32U32_ptr;
+		static delegate* unmanaged[Cdecl]<uint, uint> GetColorU32U32_ptr;
 		public static uint GetColorU32U32(uint col)
 		{
 			return GetColorU32U32_ptr(col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiCol, ImVec4*> GetStyleColorVec4_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiCol, ImVec4*> GetStyleColorVec4_ptr;
 		public static ImVec4* GetStyleColorVec4(ImGuiCol idx)
 		{
 			return GetStyleColorVec4_ptr(idx);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> Separator_ptr;
+		static delegate* unmanaged[Cdecl]<void> Separator_ptr;
 		public static void Separator()
 		{
 			Separator_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float, void> SameLine_ptr;
+		static delegate* unmanaged[Cdecl]<float, float, void> SameLine_ptr;
 		public static void SameLine(float offset_from_start_x, float spacing)
 		{
 			SameLine_ptr(offset_from_start_x, spacing);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> NewLine_ptr;
+		static delegate* unmanaged[Cdecl]<void> NewLine_ptr;
 		public static void NewLine()
 		{
 			NewLine_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> Spacing_ptr;
+		static delegate* unmanaged[Cdecl]<void> Spacing_ptr;
 		public static void Spacing()
 		{
 			Spacing_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, void> Dummy_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, void> Dummy_ptr;
 		public static void Dummy(ImVec2 size)
 		{
 			Dummy_ptr(size);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> Indent_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> Indent_ptr;
 		public static void Indent(float indent_w)
 		{
 			Indent_ptr(indent_w);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> Unindent_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> Unindent_ptr;
 		public static void Unindent(float indent_w)
 		{
 			Unindent_ptr(indent_w);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> BeginGroup_ptr;
+		static delegate* unmanaged[Cdecl]<void> BeginGroup_ptr;
 		public static void BeginGroup()
 		{
 			BeginGroup_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndGroup_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndGroup_ptr;
 		public static void EndGroup()
 		{
 			EndGroup_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetCursorPos_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetCursorPos_ptr;
 		public static void GetCursorPos(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -688,37 +688,37 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetCursorPosX_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetCursorPosX_ptr;
 		public static float GetCursorPosX()
 		{
 			return GetCursorPosX_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetCursorPosY_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetCursorPosY_ptr;
 		public static float GetCursorPosY()
 		{
 			return GetCursorPosY_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, void> SetCursorPos_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, void> SetCursorPos_ptr;
 		public static void SetCursorPos(ImVec2 local_pos)
 		{
 			SetCursorPos_ptr(local_pos);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> SetCursorPosX_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> SetCursorPosX_ptr;
 		public static void SetCursorPosX(float local_x)
 		{
 			SetCursorPosX_ptr(local_x);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, void> SetCursorPosY_ptr;
+		static delegate* unmanaged[Cdecl]<float, void> SetCursorPosY_ptr;
 		public static void SetCursorPosY(float local_y)
 		{
 			SetCursorPosY_ptr(local_y);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetCursorStartPos_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetCursorStartPos_ptr;
 		public static void GetCursorStartPos(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -727,7 +727,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetCursorScreenPos_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetCursorScreenPos_ptr;
 		public static void GetCursorScreenPos(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -736,50 +736,50 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, void> SetCursorScreenPos_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, void> SetCursorScreenPos_ptr;
 		public static void SetCursorScreenPos(ImVec2 pos)
 		{
 			SetCursorScreenPos_ptr(pos);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> AlignTextToFramePadding_ptr;
+		static delegate* unmanaged[Cdecl]<void> AlignTextToFramePadding_ptr;
 		public static void AlignTextToFramePadding()
 		{
 			AlignTextToFramePadding_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetTextLineHeight_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetTextLineHeight_ptr;
 		public static float GetTextLineHeight()
 		{
 			return GetTextLineHeight_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetTextLineHeightWithSpacing_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetTextLineHeightWithSpacing_ptr;
 		public static float GetTextLineHeightWithSpacing()
 		{
 			return GetTextLineHeightWithSpacing_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetFrameHeight_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetFrameHeight_ptr;
 		public static float GetFrameHeight()
 		{
 			return GetFrameHeight_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetFrameHeightWithSpacing_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetFrameHeightWithSpacing_ptr;
 		public static float GetFrameHeightWithSpacing()
 		{
 			return GetFrameHeightWithSpacing_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> PushIDStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> PushIDStr_ptr;
 		public static void PushIDStr(string str_id)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			PushIDStr_ptr(p_str_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, void> PushIDStrStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, void> PushIDStrStr_ptr;
 		public static void PushIDStrStr(string str_id_begin, string str_id_end)
 		{
 			using var p_str_id_begin = new StringHelper(str_id_begin);
@@ -787,32 +787,32 @@ namespace SharpImGUI
 			PushIDStrStr_ptr(p_str_id_begin, p_str_id_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, void> PushIDPtr_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, void> PushIDPtr_ptr;
 		public static void PushIDPtr(IntPtr ptr_id)
 		{
 			PushIDPtr_ptr(ptr_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, void> PushIDInt_ptr;
+		static delegate* unmanaged[Cdecl]<int, void> PushIDInt_ptr;
 		public static void PushIDInt(int int_id)
 		{
 			PushIDInt_ptr(int_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> PopID_ptr;
+		static delegate* unmanaged[Cdecl]<void> PopID_ptr;
 		public static void PopID()
 		{
 			PopID_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiID> GetIDStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiID> GetIDStr_ptr;
 		public static ImGuiID GetIDStr(string str_id)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return GetIDStr_ptr(p_str_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiID> GetIDStrStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, ImGuiID> GetIDStrStr_ptr;
 		public static ImGuiID GetIDStrStr(string str_id_begin, string str_id_end)
 		{
 			using var p_str_id_begin = new StringHelper(str_id_begin);
@@ -820,13 +820,13 @@ namespace SharpImGUI
 			return GetIDStrStr_ptr(p_str_id_begin, p_str_id_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, ImGuiID> GetIDPtr_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, ImGuiID> GetIDPtr_ptr;
 		public static ImGuiID GetIDPtr(IntPtr ptr_id)
 		{
 			return GetIDPtr_ptr(ptr_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, void> TextUnformatted_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, void> TextUnformatted_ptr;
 		public static void TextUnformatted(string text, string text_end)
 		{
 			using var p_text = new StringHelper(text);
@@ -834,35 +834,35 @@ namespace SharpImGUI
 			TextUnformatted_ptr(p_text, p_text_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> Text_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> Text_ptr;
 		public static void Text(string fmt)
 		{
 			using var p_fmt = new StringHelper(fmt);
 			Text_ptr(p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec4, byte*, void> TextColored_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec4, byte*, void> TextColored_ptr;
 		public static void TextColored(ImVec4 col, string fmt)
 		{
 			using var p_fmt = new StringHelper(fmt);
 			TextColored_ptr(col, p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> TextDisabled_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> TextDisabled_ptr;
 		public static void TextDisabled(string fmt)
 		{
 			using var p_fmt = new StringHelper(fmt);
 			TextDisabled_ptr(p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> TextWrapped_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> TextWrapped_ptr;
 		public static void TextWrapped(string fmt)
 		{
 			using var p_fmt = new StringHelper(fmt);
 			TextWrapped_ptr(p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, void> LabelText_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, void> LabelText_ptr;
 		public static void LabelText(string label, string fmt)
 		{
 			using var p_label = new StringHelper(label);
@@ -870,54 +870,54 @@ namespace SharpImGUI
 			LabelText_ptr(p_label, p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> BulletText_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> BulletText_ptr;
 		public static void BulletText(string fmt)
 		{
 			using var p_fmt = new StringHelper(fmt);
 			BulletText_ptr(p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImVec2, bool> Button_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImVec2, bool> Button_ptr;
 		public static bool Button(string label, ImVec2 size)
 		{
 			using var p_label = new StringHelper(label);
 			return Button_ptr(p_label, size);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool> SmallButton_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool> SmallButton_ptr;
 		public static bool SmallButton(string label)
 		{
 			using var p_label = new StringHelper(label);
 			return SmallButton_ptr(p_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImVec2, ImGuiButtonFlags, bool> InvisibleButton_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImVec2, ImGuiButtonFlags, bool> InvisibleButton_ptr;
 		public static bool InvisibleButton(string str_id, ImVec2 size, ImGuiButtonFlags flags)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return InvisibleButton_ptr(p_str_id, size, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiDir, bool> ArrowButton_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiDir, bool> ArrowButton_ptr;
 		public static bool ArrowButton(string str_id, ImGuiDir dir)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return ArrowButton_ptr(p_str_id, dir);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImTextureID, ImVec2, ImVec2, ImVec2, ImVec4, ImVec4, void> Image_ptr;
+		static delegate* unmanaged[Cdecl]<ImTextureID, ImVec2, ImVec2, ImVec2, ImVec4, ImVec4, void> Image_ptr;
 		public static void Image(ImTextureID user_texture_id, ImVec2 size, ImVec2 uv0, ImVec2 uv1, ImVec4 tint_col, ImVec4 border_col)
 		{
 			Image_ptr(user_texture_id, size, uv0, uv1, tint_col, border_col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImTextureID, ImVec2, ImVec2, ImVec2, int, ImVec4, ImVec4, bool> ImageButton_ptr;
+		static delegate* unmanaged[Cdecl]<ImTextureID, ImVec2, ImVec2, ImVec2, int, ImVec4, ImVec4, bool> ImageButton_ptr;
 		public static bool ImageButton(ImTextureID user_texture_id, ImVec2 size, ImVec2 uv0, ImVec2 uv1, int frame_padding, ImVec4 bg_col, ImVec4 tint_col)
 		{
 			return ImageButton_ptr(user_texture_id, size, uv0, uv1, frame_padding, bg_col, tint_col);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool*, bool> Checkbox_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool*, bool> Checkbox_ptr;
 		public static bool Checkbox(string label, ref bool v)
 		{
 			fixed(bool* p_v = &v)
@@ -927,7 +927,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, int, bool> CheckboxFlagsIntPtr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, int, bool> CheckboxFlagsIntPtr_ptr;
 		public static bool CheckboxFlagsIntPtr(string label, ref int flags, int flags_value)
 		{
 			fixed(int* p_flags = &flags)
@@ -937,7 +937,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, uint*, uint, bool> CheckboxFlagsUintPtr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, uint*, uint, bool> CheckboxFlagsUintPtr_ptr;
 		public static bool CheckboxFlagsUintPtr(string label, ref uint flags, uint flags_value)
 		{
 			fixed(uint* p_flags = &flags)
@@ -947,14 +947,14 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool, bool> RadioButtonBool_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool, bool> RadioButtonBool_ptr;
 		public static bool RadioButtonBool(string label, bool active)
 		{
 			using var p_label = new StringHelper(label);
 			return RadioButtonBool_ptr(p_label, active);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, int, bool> RadioButtonIntPtr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, int, bool> RadioButtonIntPtr_ptr;
 		public static bool RadioButtonIntPtr(string label, ref int v, int v_button)
 		{
 			fixed(int* p_v = &v)
@@ -964,20 +964,20 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<float, ImVec2, byte*, void> ProgressBar_ptr;
+		static delegate* unmanaged[Cdecl]<float, ImVec2, byte*, void> ProgressBar_ptr;
 		public static void ProgressBar(float fraction, ImVec2 size_arg, string overlay)
 		{
 			using var p_overlay = new StringHelper(overlay);
 			ProgressBar_ptr(fraction, size_arg, p_overlay);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> Bullet_ptr;
+		static delegate* unmanaged[Cdecl]<void> Bullet_ptr;
 		public static void Bullet()
 		{
 			Bullet_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiComboFlags, bool> BeginCombo_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, ImGuiComboFlags, bool> BeginCombo_ptr;
 		public static bool BeginCombo(string label, string preview_value, ImGuiComboFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -985,13 +985,13 @@ namespace SharpImGUI
 			return BeginCombo_ptr(p_label, p_preview_value, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndCombo_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndCombo_ptr;
 		public static void EndCombo()
 		{
 			EndCombo_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, byte**, int, int, bool> ComboStr_arr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, byte**, int, int, bool> ComboStr_arr_ptr;
 		public static bool ComboStr_arr(string label, ref int current_item, byte** items, int items_count, int popup_max_height_in_items)
 		{
 			fixed(int* p_current_item = &current_item)
@@ -1001,7 +1001,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, byte*, int, bool> ComboStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, byte*, int, bool> ComboStr_ptr;
 		public static bool ComboStr(string label, ref int current_item, string items_separated_by_zeros, int popup_max_height_in_items)
 		{
 			fixed(int* p_current_item = &current_item)
@@ -1012,7 +1012,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, IntPtr, IntPtr, int, int, bool> ComboFnBoolPtr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, IntPtr, IntPtr, int, int, bool> ComboFnBoolPtr_ptr;
 		public static bool ComboFnBoolPtr(string label, ref int current_item, IntPtr items_getter, IntPtr data, int items_count, int popup_max_height_in_items)
 		{
 			fixed(int* p_current_item = &current_item)
@@ -1022,7 +1022,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat_ptr;
 		public static bool DragFloat(string label, ref float v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			fixed(float* p_v = &v)
@@ -1033,7 +1033,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat2_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat2_ptr;
 		public static bool DragFloat2(string label, float* v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1041,7 +1041,7 @@ namespace SharpImGUI
 			return DragFloat2_ptr(p_label, v, v_speed, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat3_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat3_ptr;
 		public static bool DragFloat3(string label, float* v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1049,7 +1049,7 @@ namespace SharpImGUI
 			return DragFloat3_ptr(p_label, v, v_speed, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat4_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool> DragFloat4_ptr;
 		public static bool DragFloat4(string label, float* v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1057,7 +1057,7 @@ namespace SharpImGUI
 			return DragFloat4_ptr(p_label, v, v_speed, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, float*, float, float, float, byte*, byte*, ImGuiSliderFlags, bool> DragFloatRange2_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, float*, float, float, float, byte*, byte*, ImGuiSliderFlags, bool> DragFloatRange2_ptr;
 		public static bool DragFloatRange2(string label, ref float v_current_min, ref float v_current_max, float v_speed, float v_min, float v_max, string format, string format_max, ImGuiSliderFlags flags)
 		{
 			fixed(float* p_v_current_min = &v_current_min)
@@ -1070,7 +1070,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt_ptr;
 		public static bool DragInt(string label, ref int v, float v_speed, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			fixed(int* p_v = &v)
@@ -1081,7 +1081,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt2_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt2_ptr;
 		public static bool DragInt2(string label, int* v, float v_speed, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1089,7 +1089,7 @@ namespace SharpImGUI
 			return DragInt2_ptr(p_label, v, v_speed, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt3_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt3_ptr;
 		public static bool DragInt3(string label, int* v, float v_speed, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1097,7 +1097,7 @@ namespace SharpImGUI
 			return DragInt3_ptr(p_label, v, v_speed, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt4_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool> DragInt4_ptr;
 		public static bool DragInt4(string label, int* v, float v_speed, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1105,7 +1105,7 @@ namespace SharpImGUI
 			return DragInt4_ptr(p_label, v, v_speed, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, int*, float, int, int, byte*, byte*, ImGuiSliderFlags, bool> DragIntRange2_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, int*, float, int, int, byte*, byte*, ImGuiSliderFlags, bool> DragIntRange2_ptr;
 		public static bool DragIntRange2(string label, ref int v_current_min, ref int v_current_max, float v_speed, int v_min, int v_max, string format, string format_max, ImGuiSliderFlags flags)
 		{
 			fixed(int* p_v_current_min = &v_current_min)
@@ -1118,7 +1118,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, IntPtr, float, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool> DragScalar_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiDataType, IntPtr, float, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool> DragScalar_ptr;
 		public static bool DragScalar(string label, ImGuiDataType data_type, IntPtr p_data, float v_speed, IntPtr p_min, IntPtr p_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1126,7 +1126,7 @@ namespace SharpImGUI
 			return DragScalar_ptr(p_label, data_type, p_data, v_speed, p_min, p_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, IntPtr, int, float, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool> DragScalarN_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiDataType, IntPtr, int, float, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool> DragScalarN_ptr;
 		public static bool DragScalarN(string label, ImGuiDataType data_type, IntPtr p_data, int components, float v_speed, IntPtr p_min, IntPtr p_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1134,7 +1134,7 @@ namespace SharpImGUI
 			return DragScalarN_ptr(p_label, data_type, p_data, components, v_speed, p_min, p_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat_ptr;
 		public static bool SliderFloat(string label, ref float v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			fixed(float* p_v = &v)
@@ -1145,7 +1145,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat2_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat2_ptr;
 		public static bool SliderFloat2(string label, float* v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1153,7 +1153,7 @@ namespace SharpImGUI
 			return SliderFloat2_ptr(p_label, v, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat3_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat3_ptr;
 		public static bool SliderFloat3(string label, float* v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1161,7 +1161,7 @@ namespace SharpImGUI
 			return SliderFloat3_ptr(p_label, v, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat4_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderFloat4_ptr;
 		public static bool SliderFloat4(string label, float* v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1169,7 +1169,7 @@ namespace SharpImGUI
 			return SliderFloat4_ptr(p_label, v, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderAngle_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool> SliderAngle_ptr;
 		public static bool SliderAngle(string label, ref float v_rad, float v_degrees_min, float v_degrees_max, string format, ImGuiSliderFlags flags)
 		{
 			fixed(float* p_v_rad = &v_rad)
@@ -1180,7 +1180,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool> SliderInt_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool> SliderInt_ptr;
 		public static bool SliderInt(string label, ref int v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			fixed(int* p_v = &v)
@@ -1191,7 +1191,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool> SliderInt2_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool> SliderInt2_ptr;
 		public static bool SliderInt2(string label, int* v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1199,7 +1199,7 @@ namespace SharpImGUI
 			return SliderInt2_ptr(p_label, v, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool> SliderInt3_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool> SliderInt3_ptr;
 		public static bool SliderInt3(string label, int* v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1207,7 +1207,7 @@ namespace SharpImGUI
 			return SliderInt3_ptr(p_label, v, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool> SliderInt4_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool> SliderInt4_ptr;
 		public static bool SliderInt4(string label, int* v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1215,7 +1215,7 @@ namespace SharpImGUI
 			return SliderInt4_ptr(p_label, v, v_min, v_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool> SliderScalar_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool> SliderScalar_ptr;
 		public static bool SliderScalar(string label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1223,7 +1223,7 @@ namespace SharpImGUI
 			return SliderScalar_ptr(p_label, data_type, p_data, p_min, p_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, IntPtr, int, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool> SliderScalarN_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiDataType, IntPtr, int, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool> SliderScalarN_ptr;
 		public static bool SliderScalarN(string label, ImGuiDataType data_type, IntPtr p_data, int components, IntPtr p_min, IntPtr p_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1231,7 +1231,7 @@ namespace SharpImGUI
 			return SliderScalarN_ptr(p_label, data_type, p_data, components, p_min, p_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImVec2, float*, float, float, byte*, ImGuiSliderFlags, bool> VSliderFloat_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImVec2, float*, float, float, byte*, ImGuiSliderFlags, bool> VSliderFloat_ptr;
 		public static bool VSliderFloat(string label, ImVec2 size, ref float v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
 		{
 			fixed(float* p_v = &v)
@@ -1242,7 +1242,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImVec2, int*, int, int, byte*, ImGuiSliderFlags, bool> VSliderInt_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImVec2, int*, int, int, byte*, ImGuiSliderFlags, bool> VSliderInt_ptr;
 		public static bool VSliderInt(string label, ImVec2 size, ref int v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
 		{
 			fixed(int* p_v = &v)
@@ -1253,7 +1253,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImVec2, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool> VSliderScalar_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImVec2, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool> VSliderScalar_ptr;
 		public static bool VSliderScalar(string label, ImVec2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1261,21 +1261,21 @@ namespace SharpImGUI
 			return VSliderScalar_ptr(p_label, size, data_type, p_data, p_min, p_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr, ImGuiInputTextFlags, IntPtr, IntPtr, bool> InputText_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, IntPtr, ImGuiInputTextFlags, IntPtr, IntPtr, bool> InputText_ptr;
 		public static bool InputText(string label, byte* buf, IntPtr buf_size, ImGuiInputTextFlags flags, IntPtr callback, IntPtr user_data)
 		{
 			using var p_label = new StringHelper(label);
 			return InputText_ptr(p_label, buf, buf_size, flags, callback, user_data);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr, ImVec2, ImGuiInputTextFlags, IntPtr, IntPtr, bool> InputTextMultiline_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, IntPtr, ImVec2, ImGuiInputTextFlags, IntPtr, IntPtr, bool> InputTextMultiline_ptr;
 		public static bool InputTextMultiline(string label, byte* buf, IntPtr buf_size, ImVec2 size, ImGuiInputTextFlags flags, IntPtr callback, IntPtr user_data)
 		{
 			using var p_label = new StringHelper(label);
 			return InputTextMultiline_ptr(p_label, buf, buf_size, size, flags, callback, user_data);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, byte*, IntPtr, ImGuiInputTextFlags, IntPtr, IntPtr, bool> InputTextWithHint_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, byte*, IntPtr, ImGuiInputTextFlags, IntPtr, IntPtr, bool> InputTextWithHint_ptr;
 		public static bool InputTextWithHint(string label, string hint, byte* buf, IntPtr buf_size, ImGuiInputTextFlags flags, IntPtr callback, IntPtr user_data)
 		{
 			using var p_label = new StringHelper(label);
@@ -1283,7 +1283,7 @@ namespace SharpImGUI
 			return InputTextWithHint_ptr(p_label, p_hint, buf, buf_size, flags, callback, user_data);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiInputTextFlags, bool> InputFloat_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, float, float, byte*, ImGuiInputTextFlags, bool> InputFloat_ptr;
 		public static bool InputFloat(string label, ref float v, float step, float step_fast, string format, ImGuiInputTextFlags flags)
 		{
 			fixed(float* p_v = &v)
@@ -1294,7 +1294,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, byte*, ImGuiInputTextFlags, bool> InputFloat2_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, byte*, ImGuiInputTextFlags, bool> InputFloat2_ptr;
 		public static bool InputFloat2(string label, float* v, string format, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1302,7 +1302,7 @@ namespace SharpImGUI
 			return InputFloat2_ptr(p_label, v, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, byte*, ImGuiInputTextFlags, bool> InputFloat3_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, byte*, ImGuiInputTextFlags, bool> InputFloat3_ptr;
 		public static bool InputFloat3(string label, float* v, string format, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1310,7 +1310,7 @@ namespace SharpImGUI
 			return InputFloat3_ptr(p_label, v, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, byte*, ImGuiInputTextFlags, bool> InputFloat4_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, byte*, ImGuiInputTextFlags, bool> InputFloat4_ptr;
 		public static bool InputFloat4(string label, float* v, string format, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1318,7 +1318,7 @@ namespace SharpImGUI
 			return InputFloat4_ptr(p_label, v, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, int, int, ImGuiInputTextFlags, bool> InputInt_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, int, int, ImGuiInputTextFlags, bool> InputInt_ptr;
 		public static bool InputInt(string label, ref int v, int step, int step_fast, ImGuiInputTextFlags flags)
 		{
 			fixed(int* p_v = &v)
@@ -1328,28 +1328,28 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, ImGuiInputTextFlags, bool> InputInt2_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, ImGuiInputTextFlags, bool> InputInt2_ptr;
 		public static bool InputInt2(string label, int* v, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return InputInt2_ptr(p_label, v, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, ImGuiInputTextFlags, bool> InputInt3_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, ImGuiInputTextFlags, bool> InputInt3_ptr;
 		public static bool InputInt3(string label, int* v, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return InputInt3_ptr(p_label, v, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, ImGuiInputTextFlags, bool> InputInt4_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, ImGuiInputTextFlags, bool> InputInt4_ptr;
 		public static bool InputInt4(string label, int* v, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return InputInt4_ptr(p_label, v, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, double*, double, double, byte*, ImGuiInputTextFlags, bool> InputDouble_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, double*, double, double, byte*, ImGuiInputTextFlags, bool> InputDouble_ptr;
 		public static bool InputDouble(string label, ref double v, double step, double step_fast, string format, ImGuiInputTextFlags flags)
 		{
 			fixed(double* p_v = &v)
@@ -1360,7 +1360,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiInputTextFlags, bool> InputScalar_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiInputTextFlags, bool> InputScalar_ptr;
 		public static bool InputScalar(string label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_step, IntPtr p_step_fast, string format, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1368,7 +1368,7 @@ namespace SharpImGUI
 			return InputScalar_ptr(p_label, data_type, p_data, p_step, p_step_fast, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, IntPtr, int, IntPtr, IntPtr, byte*, ImGuiInputTextFlags, bool> InputScalarN_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiDataType, IntPtr, int, IntPtr, IntPtr, byte*, ImGuiInputTextFlags, bool> InputScalarN_ptr;
 		public static bool InputScalarN(string label, ImGuiDataType data_type, IntPtr p_data, int components, IntPtr p_step, IntPtr p_step_fast, string format, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
@@ -1376,55 +1376,55 @@ namespace SharpImGUI
 			return InputScalarN_ptr(p_label, data_type, p_data, components, p_step, p_step_fast, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, bool> ColorEdit3_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, ImGuiColorEditFlags, bool> ColorEdit3_ptr;
 		public static bool ColorEdit3(string label, float* col, ImGuiColorEditFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return ColorEdit3_ptr(p_label, col, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, bool> ColorEdit4_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, ImGuiColorEditFlags, bool> ColorEdit4_ptr;
 		public static bool ColorEdit4(string label, float* col, ImGuiColorEditFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return ColorEdit4_ptr(p_label, col, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, bool> ColorPicker3_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, ImGuiColorEditFlags, bool> ColorPicker3_ptr;
 		public static bool ColorPicker3(string label, float* col, ImGuiColorEditFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return ColorPicker3_ptr(p_label, col, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, float*, bool> ColorPicker4_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, ImGuiColorEditFlags, float*, bool> ColorPicker4_ptr;
 		public static bool ColorPicker4(string label, float* col, ImGuiColorEditFlags flags, float* ref_col)
 		{
 			using var p_label = new StringHelper(label);
 			return ColorPicker4_ptr(p_label, col, flags, ref_col);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImVec4, ImGuiColorEditFlags, ImVec2, bool> ColorButton_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImVec4, ImGuiColorEditFlags, ImVec2, bool> ColorButton_ptr;
 		public static bool ColorButton(string desc_id, ImVec4 col, ImGuiColorEditFlags flags, ImVec2 size)
 		{
 			using var p_desc_id = new StringHelper(desc_id);
 			return ColorButton_ptr(p_desc_id, col, flags, size);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiColorEditFlags, void> SetColorEditOptions_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiColorEditFlags, void> SetColorEditOptions_ptr;
 		public static void SetColorEditOptions(ImGuiColorEditFlags flags)
 		{
 			SetColorEditOptions_ptr(flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool> TreeNodeStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool> TreeNodeStr_ptr;
 		public static bool TreeNodeStr(string label)
 		{
 			using var p_label = new StringHelper(label);
 			return TreeNodeStr_ptr(p_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, bool> TreeNodeStrStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, bool> TreeNodeStrStr_ptr;
 		public static bool TreeNodeStrStr(string str_id, string fmt)
 		{
 			using var p_str_id = new StringHelper(str_id);
@@ -1432,21 +1432,21 @@ namespace SharpImGUI
 			return TreeNodeStrStr_ptr(p_str_id, p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, byte*, bool> TreeNodePtr_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, byte*, bool> TreeNodePtr_ptr;
 		public static bool TreeNodePtr(IntPtr ptr_id, string fmt)
 		{
 			using var p_fmt = new StringHelper(fmt);
 			return TreeNodePtr_ptr(ptr_id, p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiTreeNodeFlags, bool> TreeNodeExStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiTreeNodeFlags, bool> TreeNodeExStr_ptr;
 		public static bool TreeNodeExStr(string label, ImGuiTreeNodeFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return TreeNodeExStr_ptr(p_label, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiTreeNodeFlags, byte*, bool> TreeNodeExStrStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiTreeNodeFlags, byte*, bool> TreeNodeExStrStr_ptr;
 		public static bool TreeNodeExStrStr(string str_id, ImGuiTreeNodeFlags flags, string fmt)
 		{
 			using var p_str_id = new StringHelper(str_id);
@@ -1454,46 +1454,46 @@ namespace SharpImGUI
 			return TreeNodeExStrStr_ptr(p_str_id, flags, p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, ImGuiTreeNodeFlags, byte*, bool> TreeNodeExPtr_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, ImGuiTreeNodeFlags, byte*, bool> TreeNodeExPtr_ptr;
 		public static bool TreeNodeExPtr(IntPtr ptr_id, ImGuiTreeNodeFlags flags, string fmt)
 		{
 			using var p_fmt = new StringHelper(fmt);
 			return TreeNodeExPtr_ptr(ptr_id, flags, p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> TreePushStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> TreePushStr_ptr;
 		public static void TreePushStr(string str_id)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			TreePushStr_ptr(p_str_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, void> TreePushPtr_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, void> TreePushPtr_ptr;
 		public static void TreePushPtr(IntPtr ptr_id)
 		{
 			TreePushPtr_ptr(ptr_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> TreePop_ptr;
+		static delegate* unmanaged[Cdecl]<void> TreePop_ptr;
 		public static void TreePop()
 		{
 			TreePop_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GetTreeNodeToLabelSpacing_ptr;
+		static delegate* unmanaged[Cdecl]<float> GetTreeNodeToLabelSpacing_ptr;
 		public static float GetTreeNodeToLabelSpacing()
 		{
 			return GetTreeNodeToLabelSpacing_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiTreeNodeFlags, bool> CollapsingHeaderTreeNodeFlags_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiTreeNodeFlags, bool> CollapsingHeaderTreeNodeFlags_ptr;
 		public static bool CollapsingHeaderTreeNodeFlags(string label, ImGuiTreeNodeFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return CollapsingHeaderTreeNodeFlags_ptr(p_label, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool*, ImGuiTreeNodeFlags, bool> CollapsingHeaderBoolPtr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool*, ImGuiTreeNodeFlags, bool> CollapsingHeaderBoolPtr_ptr;
 		public static bool CollapsingHeaderBoolPtr(string label, ref bool p_visible, ImGuiTreeNodeFlags flags)
 		{
 			fixed(bool* p_p_visible = &p_visible)
@@ -1503,20 +1503,20 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<bool, ImGuiCond, void> SetNextItemOpen_ptr;
+		static delegate* unmanaged[Cdecl]<bool, ImGuiCond, void> SetNextItemOpen_ptr;
 		public static void SetNextItemOpen(bool is_open, ImGuiCond cond)
 		{
 			SetNextItemOpen_ptr(is_open, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool, ImGuiSelectableFlags, ImVec2, bool> SelectableBool_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool, ImGuiSelectableFlags, ImVec2, bool> SelectableBool_ptr;
 		public static bool SelectableBool(string label, bool selected, ImGuiSelectableFlags flags, ImVec2 size)
 		{
 			using var p_label = new StringHelper(label);
 			return SelectableBool_ptr(p_label, selected, flags, size);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool*, ImGuiSelectableFlags, ImVec2, bool> SelectableBoolPtr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool*, ImGuiSelectableFlags, ImVec2, bool> SelectableBoolPtr_ptr;
 		public static bool SelectableBoolPtr(string label, ref bool p_selected, ImGuiSelectableFlags flags, ImVec2 size)
 		{
 			fixed(bool* p_p_selected = &p_selected)
@@ -1526,20 +1526,20 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImVec2, bool> BeginListBox_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImVec2, bool> BeginListBox_ptr;
 		public static bool BeginListBox(string label, ImVec2 size)
 		{
 			using var p_label = new StringHelper(label);
 			return BeginListBox_ptr(p_label, size);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndListBox_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndListBox_ptr;
 		public static void EndListBox()
 		{
 			EndListBox_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, byte**, int, int, bool> ListBoxStr_arr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, byte**, int, int, bool> ListBoxStr_arr_ptr;
 		public static bool ListBoxStr_arr(string label, ref int current_item, byte** items, int items_count, int height_in_items)
 		{
 			fixed(int* p_current_item = &current_item)
@@ -1549,7 +1549,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int*, IntPtr, IntPtr, int, int, bool> ListBoxFnBoolPtr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int*, IntPtr, IntPtr, int, int, bool> ListBoxFnBoolPtr_ptr;
 		public static bool ListBoxFnBoolPtr(string label, ref int current_item, IntPtr items_getter, IntPtr data, int items_count, int height_in_items)
 		{
 			fixed(int* p_current_item = &current_item)
@@ -1559,7 +1559,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, int, int, byte*, float, float, ImVec2, int, void> PlotLinesFloatPtr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, int, int, byte*, float, float, ImVec2, int, void> PlotLinesFloatPtr_ptr;
 		public static void PlotLinesFloatPtr(string label, float* values, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride)
 		{
 			using var p_label = new StringHelper(label);
@@ -1567,7 +1567,7 @@ namespace SharpImGUI
 			PlotLinesFloatPtr_ptr(p_label, values, values_count, values_offset, p_overlay_text, scale_min, scale_max, graph_size, stride);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, IntPtr, IntPtr, int, int, byte*, float, float, ImVec2, void> PlotLinesFnFloatPtr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, IntPtr, IntPtr, int, int, byte*, float, float, ImVec2, void> PlotLinesFnFloatPtr_ptr;
 		public static void PlotLinesFnFloatPtr(string label, IntPtr values_getter, IntPtr data, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, ImVec2 graph_size)
 		{
 			using var p_label = new StringHelper(label);
@@ -1575,7 +1575,7 @@ namespace SharpImGUI
 			PlotLinesFnFloatPtr_ptr(p_label, values_getter, data, values_count, values_offset, p_overlay_text, scale_min, scale_max, graph_size);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, int, int, byte*, float, float, ImVec2, int, void> PlotHistogramFloatPtr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, int, int, byte*, float, float, ImVec2, int, void> PlotHistogramFloatPtr_ptr;
 		public static void PlotHistogramFloatPtr(string label, float* values, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride)
 		{
 			using var p_label = new StringHelper(label);
@@ -1583,7 +1583,7 @@ namespace SharpImGUI
 			PlotHistogramFloatPtr_ptr(p_label, values, values_count, values_offset, p_overlay_text, scale_min, scale_max, graph_size, stride);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, IntPtr, IntPtr, int, int, byte*, float, float, ImVec2, void> PlotHistogramFnFloatPtr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, IntPtr, IntPtr, int, int, byte*, float, float, ImVec2, void> PlotHistogramFnFloatPtr_ptr;
 		public static void PlotHistogramFnFloatPtr(string label, IntPtr values_getter, IntPtr data, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, ImVec2 graph_size)
 		{
 			using var p_label = new StringHelper(label);
@@ -1591,28 +1591,28 @@ namespace SharpImGUI
 			PlotHistogramFnFloatPtr_ptr(p_label, values_getter, data, values_count, values_offset, p_overlay_text, scale_min, scale_max, graph_size);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool, void> ValueBool_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool, void> ValueBool_ptr;
 		public static void ValueBool(string prefix, bool b)
 		{
 			using var p_prefix = new StringHelper(prefix);
 			ValueBool_ptr(p_prefix, b);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, void> ValueInt_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int, void> ValueInt_ptr;
 		public static void ValueInt(string prefix, int v)
 		{
 			using var p_prefix = new StringHelper(prefix);
 			ValueInt_ptr(p_prefix, v);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, uint, void> ValueUint_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, uint, void> ValueUint_ptr;
 		public static void ValueUint(string prefix, uint v)
 		{
 			using var p_prefix = new StringHelper(prefix);
 			ValueUint_ptr(p_prefix, v);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, byte*, void> ValueFloat_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float, byte*, void> ValueFloat_ptr;
 		public static void ValueFloat(string prefix, float v, string float_format)
 		{
 			using var p_prefix = new StringHelper(prefix);
@@ -1620,44 +1620,44 @@ namespace SharpImGUI
 			ValueFloat_ptr(p_prefix, v, p_float_format);
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> BeginMenuBar_ptr;
+		static delegate* unmanaged[Cdecl]<bool> BeginMenuBar_ptr;
 		public static bool BeginMenuBar()
 		{
 			return BeginMenuBar_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndMenuBar_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndMenuBar_ptr;
 		public static void EndMenuBar()
 		{
 			EndMenuBar_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> BeginMainMenuBar_ptr;
+		static delegate* unmanaged[Cdecl]<bool> BeginMainMenuBar_ptr;
 		public static bool BeginMainMenuBar()
 		{
 			return BeginMainMenuBar_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndMainMenuBar_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndMainMenuBar_ptr;
 		public static void EndMainMenuBar()
 		{
 			EndMainMenuBar_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool, bool> BeginMenu_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool, bool> BeginMenu_ptr;
 		public static bool BeginMenu(string label, bool enabled)
 		{
 			using var p_label = new StringHelper(label);
 			return BeginMenu_ptr(p_label, enabled);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndMenu_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndMenu_ptr;
 		public static void EndMenu()
 		{
 			EndMenu_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, bool, bool, bool> MenuItemBool_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, bool, bool, bool> MenuItemBool_ptr;
 		public static bool MenuItemBool(string label, string shortcut, bool selected, bool enabled)
 		{
 			using var p_label = new StringHelper(label);
@@ -1665,7 +1665,7 @@ namespace SharpImGUI
 			return MenuItemBool_ptr(p_label, p_shortcut, selected, enabled);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, bool*, bool, bool> MenuItemBoolPtr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, bool*, bool, bool> MenuItemBoolPtr_ptr;
 		public static bool MenuItemBoolPtr(string label, string shortcut, ref bool p_selected, bool enabled)
 		{
 			fixed(bool* p_p_selected = &p_selected)
@@ -1676,33 +1676,33 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<void> BeginTooltip_ptr;
+		static delegate* unmanaged[Cdecl]<void> BeginTooltip_ptr;
 		public static void BeginTooltip()
 		{
 			BeginTooltip_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndTooltip_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndTooltip_ptr;
 		public static void EndTooltip()
 		{
 			EndTooltip_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> SetTooltip_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> SetTooltip_ptr;
 		public static void SetTooltip(string fmt)
 		{
 			using var p_fmt = new StringHelper(fmt);
 			SetTooltip_ptr(p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiWindowFlags, bool> BeginPopup_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiWindowFlags, bool> BeginPopup_ptr;
 		public static bool BeginPopup(string str_id, ImGuiWindowFlags flags)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return BeginPopup_ptr(p_str_id, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool*, ImGuiWindowFlags, bool> BeginPopupModal_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool*, ImGuiWindowFlags, bool> BeginPopupModal_ptr;
 		public static bool BeginPopupModal(string name, ref bool p_open, ImGuiWindowFlags flags)
 		{
 			fixed(bool* p_p_open = &p_open)
@@ -1712,222 +1712,222 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndPopup_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndPopup_ptr;
 		public static void EndPopup()
 		{
 			EndPopup_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiPopupFlags, void> OpenPopup_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiPopupFlags, void> OpenPopup_ptr;
 		public static void OpenPopup(string str_id, ImGuiPopupFlags popup_flags)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			OpenPopup_ptr(p_str_id, popup_flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiPopupFlags, void> OpenPopupOnItemClick_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiPopupFlags, void> OpenPopupOnItemClick_ptr;
 		public static void OpenPopupOnItemClick(string str_id, ImGuiPopupFlags popup_flags)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			OpenPopupOnItemClick_ptr(p_str_id, popup_flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> CloseCurrentPopup_ptr;
+		static delegate* unmanaged[Cdecl]<void> CloseCurrentPopup_ptr;
 		public static void CloseCurrentPopup()
 		{
 			CloseCurrentPopup_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiPopupFlags, bool> BeginPopupContextItem_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiPopupFlags, bool> BeginPopupContextItem_ptr;
 		public static bool BeginPopupContextItem(string str_id, ImGuiPopupFlags popup_flags)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return BeginPopupContextItem_ptr(p_str_id, popup_flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiPopupFlags, bool> BeginPopupContextWindow_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiPopupFlags, bool> BeginPopupContextWindow_ptr;
 		public static bool BeginPopupContextWindow(string str_id, ImGuiPopupFlags popup_flags)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return BeginPopupContextWindow_ptr(p_str_id, popup_flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiPopupFlags, bool> BeginPopupContextVoid_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiPopupFlags, bool> BeginPopupContextVoid_ptr;
 		public static bool BeginPopupContextVoid(string str_id, ImGuiPopupFlags popup_flags)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return BeginPopupContextVoid_ptr(p_str_id, popup_flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiPopupFlags, bool> IsPopupOpenStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiPopupFlags, bool> IsPopupOpenStr_ptr;
 		public static bool IsPopupOpenStr(string str_id, ImGuiPopupFlags flags)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return IsPopupOpenStr_ptr(p_str_id, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, ImGuiTableFlags, ImVec2, float, bool> BeginTable_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int, ImGuiTableFlags, ImVec2, float, bool> BeginTable_ptr;
 		public static bool BeginTable(string str_id, int column, ImGuiTableFlags flags, ImVec2 outer_size, float inner_width)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return BeginTable_ptr(p_str_id, column, flags, outer_size, inner_width);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndTable_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndTable_ptr;
 		public static void EndTable()
 		{
 			EndTable_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableRowFlags, float, void> TableNextRow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableRowFlags, float, void> TableNextRow_ptr;
 		public static void TableNextRow(ImGuiTableRowFlags row_flags, float min_row_height)
 		{
 			TableNextRow_ptr(row_flags, min_row_height);
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> TableNextColumn_ptr;
+		static delegate* unmanaged[Cdecl]<bool> TableNextColumn_ptr;
 		public static bool TableNextColumn()
 		{
 			return TableNextColumn_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<int, bool> TableSetColumnIndex_ptr;
+		static delegate* unmanaged[Cdecl]<int, bool> TableSetColumnIndex_ptr;
 		public static bool TableSetColumnIndex(int column_n)
 		{
 			return TableSetColumnIndex_ptr(column_n);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiTableColumnFlags, float, ImGuiID, void> TableSetupColumn_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiTableColumnFlags, float, ImGuiID, void> TableSetupColumn_ptr;
 		public static void TableSetupColumn(string label, ImGuiTableColumnFlags flags, float init_width_or_weight, ImGuiID user_id)
 		{
 			using var p_label = new StringHelper(label);
 			TableSetupColumn_ptr(p_label, flags, init_width_or_weight, user_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, int, void> TableSetupScrollFreeze_ptr;
+		static delegate* unmanaged[Cdecl]<int, int, void> TableSetupScrollFreeze_ptr;
 		public static void TableSetupScrollFreeze(int cols, int rows)
 		{
 			TableSetupScrollFreeze_ptr(cols, rows);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> TableHeadersRow_ptr;
+		static delegate* unmanaged[Cdecl]<void> TableHeadersRow_ptr;
 		public static void TableHeadersRow()
 		{
 			TableHeadersRow_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> TableHeader_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> TableHeader_ptr;
 		public static void TableHeader(string label)
 		{
 			using var p_label = new StringHelper(label);
 			TableHeader_ptr(p_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableSortSpecs*> TableGetSortSpecs_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableSortSpecs*> TableGetSortSpecs_ptr;
 		public static ImGuiTableSortSpecs* TableGetSortSpecs()
 		{
 			return TableGetSortSpecs_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<int> TableGetColumnCount_ptr;
+		static delegate* unmanaged[Cdecl]<int> TableGetColumnCount_ptr;
 		public static int TableGetColumnCount()
 		{
 			return TableGetColumnCount_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<int> TableGetColumnIndex_ptr;
+		static delegate* unmanaged[Cdecl]<int> TableGetColumnIndex_ptr;
 		public static int TableGetColumnIndex()
 		{
 			return TableGetColumnIndex_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<int> TableGetRowIndex_ptr;
+		static delegate* unmanaged[Cdecl]<int> TableGetRowIndex_ptr;
 		public static int TableGetRowIndex()
 		{
 			return TableGetRowIndex_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<int, byte*> TableGetColumnNameInt_ptr;
+		static delegate* unmanaged[Cdecl]<int, byte*> TableGetColumnNameInt_ptr;
 		public static byte* TableGetColumnNameInt(int column_n)
 		{
 			return TableGetColumnNameInt_ptr(column_n);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, ImGuiTableColumnFlags> TableGetColumnFlags_ptr;
+		static delegate* unmanaged[Cdecl]<int, ImGuiTableColumnFlags> TableGetColumnFlags_ptr;
 		public static ImGuiTableColumnFlags TableGetColumnFlags(int column_n)
 		{
 			return TableGetColumnFlags_ptr(column_n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableBgTarget, uint, int, void> TableSetBgColor_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableBgTarget, uint, int, void> TableSetBgColor_ptr;
 		public static void TableSetBgColor(ImGuiTableBgTarget target, uint color, int column_n)
 		{
 			TableSetBgColor_ptr(target, color, column_n);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, byte*, bool, void> Columns_ptr;
+		static delegate* unmanaged[Cdecl]<int, byte*, bool, void> Columns_ptr;
 		public static void Columns(int count, string id, bool border)
 		{
 			using var p_id = new StringHelper(id);
 			Columns_ptr(count, p_id, border);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> NextColumn_ptr;
+		static delegate* unmanaged[Cdecl]<void> NextColumn_ptr;
 		public static void NextColumn()
 		{
 			NextColumn_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<int> GetColumnIndex_ptr;
+		static delegate* unmanaged[Cdecl]<int> GetColumnIndex_ptr;
 		public static int GetColumnIndex()
 		{
 			return GetColumnIndex_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<int, float> GetColumnWidth_ptr;
+		static delegate* unmanaged[Cdecl]<int, float> GetColumnWidth_ptr;
 		public static float GetColumnWidth(int column_index)
 		{
 			return GetColumnWidth_ptr(column_index);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, float, void> SetColumnWidth_ptr;
+		static delegate* unmanaged[Cdecl]<int, float, void> SetColumnWidth_ptr;
 		public static void SetColumnWidth(int column_index, float width)
 		{
 			SetColumnWidth_ptr(column_index, width);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, float> GetColumnOffset_ptr;
+		static delegate* unmanaged[Cdecl]<int, float> GetColumnOffset_ptr;
 		public static float GetColumnOffset(int column_index)
 		{
 			return GetColumnOffset_ptr(column_index);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, float, void> SetColumnOffset_ptr;
+		static delegate* unmanaged[Cdecl]<int, float, void> SetColumnOffset_ptr;
 		public static void SetColumnOffset(int column_index, float offset_x)
 		{
 			SetColumnOffset_ptr(column_index, offset_x);
 		}
 
-		static delegate* unmanaged[Stdcall]<int> GetColumnsCount_ptr;
+		static delegate* unmanaged[Cdecl]<int> GetColumnsCount_ptr;
 		public static int GetColumnsCount()
 		{
 			return GetColumnsCount_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiTabBarFlags, bool> BeginTabBar_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiTabBarFlags, bool> BeginTabBar_ptr;
 		public static bool BeginTabBar(string str_id, ImGuiTabBarFlags flags)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return BeginTabBar_ptr(p_str_id, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndTabBar_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndTabBar_ptr;
 		public static void EndTabBar()
 		{
 			EndTabBar_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, bool*, ImGuiTabItemFlags, bool> BeginTabItem_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, bool*, ImGuiTabItemFlags, bool> BeginTabItem_ptr;
 		public static bool BeginTabItem(string label, ref bool p_open, ImGuiTabItemFlags flags)
 		{
 			fixed(bool* p_p_open = &p_open)
@@ -1937,240 +1937,240 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndTabItem_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndTabItem_ptr;
 		public static void EndTabItem()
 		{
 			EndTabItem_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiTabItemFlags, bool> TabItemButton_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiTabItemFlags, bool> TabItemButton_ptr;
 		public static bool TabItemButton(string label, ImGuiTabItemFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return TabItemButton_ptr(p_label, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> SetTabItemClosed_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> SetTabItemClosed_ptr;
 		public static void SetTabItemClosed(string tab_or_docked_window_label)
 		{
 			using var p_tab_or_docked_window_label = new StringHelper(tab_or_docked_window_label);
 			SetTabItemClosed_ptr(p_tab_or_docked_window_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, ImGuiDockNodeFlags, ImGuiWindowClass*, ImGuiID> DockSpace_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, ImGuiDockNodeFlags, ImGuiWindowClass*, ImGuiID> DockSpace_ptr;
 		public static ImGuiID DockSpace(ImGuiID id, ImVec2 size, ImGuiDockNodeFlags flags, ImGuiWindowClass* window_class)
 		{
 			return DockSpace_ptr(id, size, flags, window_class);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewport*, ImGuiDockNodeFlags, ImGuiWindowClass*, ImGuiID> DockSpaceOverViewport_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewport*, ImGuiDockNodeFlags, ImGuiWindowClass*, ImGuiID> DockSpaceOverViewport_ptr;
 		public static ImGuiID DockSpaceOverViewport(ImGuiViewportPtr viewport, ImGuiDockNodeFlags flags, ImGuiWindowClass* window_class)
 		{
 			return DockSpaceOverViewport_ptr(viewport, flags, window_class);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiCond, void> SetNextWindowDockID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiCond, void> SetNextWindowDockID_ptr;
 		public static void SetNextWindowDockID(ImGuiID dock_id, ImGuiCond cond)
 		{
 			SetNextWindowDockID_ptr(dock_id, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindowClass*, void> SetNextWindowClass_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindowClass*, void> SetNextWindowClass_ptr;
 		public static void SetNextWindowClass(ImGuiWindowClass* window_class)
 		{
 			SetNextWindowClass_ptr(window_class);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID> GetWindowDockID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID> GetWindowDockID_ptr;
 		public static ImGuiID GetWindowDockID()
 		{
 			return GetWindowDockID_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsWindowDocked_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsWindowDocked_ptr;
 		public static bool IsWindowDocked()
 		{
 			return IsWindowDocked_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<int, void> LogToTTY_ptr;
+		static delegate* unmanaged[Cdecl]<int, void> LogToTTY_ptr;
 		public static void LogToTTY(int auto_open_depth)
 		{
 			LogToTTY_ptr(auto_open_depth);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, byte*, void> LogToFile_ptr;
+		static delegate* unmanaged[Cdecl]<int, byte*, void> LogToFile_ptr;
 		public static void LogToFile(int auto_open_depth, string filename)
 		{
 			using var p_filename = new StringHelper(filename);
 			LogToFile_ptr(auto_open_depth, p_filename);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, void> LogToClipboard_ptr;
+		static delegate* unmanaged[Cdecl]<int, void> LogToClipboard_ptr;
 		public static void LogToClipboard(int auto_open_depth)
 		{
 			LogToClipboard_ptr(auto_open_depth);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> LogFinish_ptr;
+		static delegate* unmanaged[Cdecl]<void> LogFinish_ptr;
 		public static void LogFinish()
 		{
 			LogFinish_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> LogButtons_ptr;
+		static delegate* unmanaged[Cdecl]<void> LogButtons_ptr;
 		public static void LogButtons()
 		{
 			LogButtons_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDragDropFlags, bool> BeginDragDropSource_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDragDropFlags, bool> BeginDragDropSource_ptr;
 		public static bool BeginDragDropSource(ImGuiDragDropFlags flags)
 		{
 			return BeginDragDropSource_ptr(flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, IntPtr, IntPtr, ImGuiCond, bool> SetDragDropPayload_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, IntPtr, IntPtr, ImGuiCond, bool> SetDragDropPayload_ptr;
 		public static bool SetDragDropPayload(string type, IntPtr data, IntPtr sz, ImGuiCond cond)
 		{
 			using var p_type = new StringHelper(type);
 			return SetDragDropPayload_ptr(p_type, data, sz, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndDragDropSource_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndDragDropSource_ptr;
 		public static void EndDragDropSource()
 		{
 			EndDragDropSource_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> BeginDragDropTarget_ptr;
+		static delegate* unmanaged[Cdecl]<bool> BeginDragDropTarget_ptr;
 		public static bool BeginDragDropTarget()
 		{
 			return BeginDragDropTarget_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiDragDropFlags, ImGuiPayload*> AcceptDragDropPayload_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiDragDropFlags, ImGuiPayload*> AcceptDragDropPayload_ptr;
 		public static ImGuiPayload* AcceptDragDropPayload(string type, ImGuiDragDropFlags flags)
 		{
 			using var p_type = new StringHelper(type);
 			return AcceptDragDropPayload_ptr(p_type, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndDragDropTarget_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndDragDropTarget_ptr;
 		public static void EndDragDropTarget()
 		{
 			EndDragDropTarget_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPayload*> GetDragDropPayload_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPayload*> GetDragDropPayload_ptr;
 		public static ImGuiPayload* GetDragDropPayload()
 		{
 			return GetDragDropPayload_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, bool, void> PushClipRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, bool, void> PushClipRect_ptr;
 		public static void PushClipRect(ImVec2 clip_rect_min, ImVec2 clip_rect_max, bool intersect_with_current_clip_rect)
 		{
 			PushClipRect_ptr(clip_rect_min, clip_rect_max, intersect_with_current_clip_rect);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> PopClipRect_ptr;
+		static delegate* unmanaged[Cdecl]<void> PopClipRect_ptr;
 		public static void PopClipRect()
 		{
 			PopClipRect_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> SetItemDefaultFocus_ptr;
+		static delegate* unmanaged[Cdecl]<void> SetItemDefaultFocus_ptr;
 		public static void SetItemDefaultFocus()
 		{
 			SetItemDefaultFocus_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<int, void> SetKeyboardFocusHere_ptr;
+		static delegate* unmanaged[Cdecl]<int, void> SetKeyboardFocusHere_ptr;
 		public static void SetKeyboardFocusHere(int offset)
 		{
 			SetKeyboardFocusHere_ptr(offset);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiHoveredFlags, bool> IsItemHovered_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiHoveredFlags, bool> IsItemHovered_ptr;
 		public static bool IsItemHovered(ImGuiHoveredFlags flags)
 		{
 			return IsItemHovered_ptr(flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsItemActive_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsItemActive_ptr;
 		public static bool IsItemActive()
 		{
 			return IsItemActive_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsItemFocused_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsItemFocused_ptr;
 		public static bool IsItemFocused()
 		{
 			return IsItemFocused_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMouseButton, bool> IsItemClicked_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMouseButton, bool> IsItemClicked_ptr;
 		public static bool IsItemClicked(ImGuiMouseButton mouse_button)
 		{
 			return IsItemClicked_ptr(mouse_button);
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsItemVisible_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsItemVisible_ptr;
 		public static bool IsItemVisible()
 		{
 			return IsItemVisible_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsItemEdited_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsItemEdited_ptr;
 		public static bool IsItemEdited()
 		{
 			return IsItemEdited_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsItemActivated_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsItemActivated_ptr;
 		public static bool IsItemActivated()
 		{
 			return IsItemActivated_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsItemDeactivated_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsItemDeactivated_ptr;
 		public static bool IsItemDeactivated()
 		{
 			return IsItemDeactivated_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsItemDeactivatedAfterEdit_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsItemDeactivatedAfterEdit_ptr;
 		public static bool IsItemDeactivatedAfterEdit()
 		{
 			return IsItemDeactivatedAfterEdit_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsItemToggledOpen_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsItemToggledOpen_ptr;
 		public static bool IsItemToggledOpen()
 		{
 			return IsItemToggledOpen_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsAnyItemHovered_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsAnyItemHovered_ptr;
 		public static bool IsAnyItemHovered()
 		{
 			return IsAnyItemHovered_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsAnyItemActive_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsAnyItemActive_ptr;
 		public static bool IsAnyItemActive()
 		{
 			return IsAnyItemActive_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsAnyItemFocused_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsAnyItemFocused_ptr;
 		public static bool IsAnyItemFocused()
 		{
 			return IsAnyItemFocused_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetItemRectMin_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetItemRectMin_ptr;
 		public static void GetItemRectMin(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -2179,7 +2179,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetItemRectMax_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetItemRectMax_ptr;
 		public static void GetItemRectMax(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -2188,7 +2188,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetItemRectSize_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetItemRectSize_ptr;
 		public static void GetItemRectSize(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -2197,91 +2197,91 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<void> SetItemAllowOverlap_ptr;
+		static delegate* unmanaged[Cdecl]<void> SetItemAllowOverlap_ptr;
 		public static void SetItemAllowOverlap()
 		{
 			SetItemAllowOverlap_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewport*> GetMainViewport_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewport*> GetMainViewport_ptr;
 		public static ImGuiViewportPtr GetMainViewport()
 		{
 			return GetMainViewport_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, bool> IsRectVisibleNil_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, bool> IsRectVisibleNil_ptr;
 		public static bool IsRectVisibleNil(ImVec2 size)
 		{
 			return IsRectVisibleNil_ptr(size);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, bool> IsRectVisibleVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, bool> IsRectVisibleVec2_ptr;
 		public static bool IsRectVisibleVec2(ImVec2 rect_min, ImVec2 rect_max)
 		{
 			return IsRectVisibleVec2_ptr(rect_min, rect_max);
 		}
 
-		static delegate* unmanaged[Stdcall]<double> GetTime_ptr;
+		static delegate* unmanaged[Cdecl]<double> GetTime_ptr;
 		public static double GetTime()
 		{
 			return GetTime_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<int> GetFrameCount_ptr;
+		static delegate* unmanaged[Cdecl]<int> GetFrameCount_ptr;
 		public static int GetFrameCount()
 		{
 			return GetFrameCount_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*> GetBackgroundDrawListNil_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*> GetBackgroundDrawListNil_ptr;
 		public static ImDrawListPtr GetBackgroundDrawListNil()
 		{
 			return GetBackgroundDrawListNil_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*> GetForegroundDrawListNil_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*> GetForegroundDrawListNil_ptr;
 		public static ImDrawListPtr GetForegroundDrawListNil()
 		{
 			return GetForegroundDrawListNil_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewport*, ImDrawList*> GetBackgroundDrawListViewportPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewport*, ImDrawList*> GetBackgroundDrawListViewportPtr_ptr;
 		public static ImDrawListPtr GetBackgroundDrawListViewportPtr(ImGuiViewportPtr viewport)
 		{
 			return GetBackgroundDrawListViewportPtr_ptr(viewport);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewport*, ImDrawList*> GetForegroundDrawListViewportPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewport*, ImDrawList*> GetForegroundDrawListViewportPtr_ptr;
 		public static ImDrawListPtr GetForegroundDrawListViewportPtr(ImGuiViewportPtr viewport)
 		{
 			return GetForegroundDrawListViewportPtr_ptr(viewport);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawListSharedData*> GetDrawListSharedData_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawListSharedData*> GetDrawListSharedData_ptr;
 		public static ImDrawListSharedData* GetDrawListSharedData()
 		{
 			return GetDrawListSharedData_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiCol, byte*> GetStyleColorName_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiCol, byte*> GetStyleColorName_ptr;
 		public static byte* GetStyleColorName(ImGuiCol idx)
 		{
 			return GetStyleColorName_ptr(idx);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, void> SetStateStorage_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, void> SetStateStorage_ptr;
 		public static void SetStateStorage(ImGuiStorage* storage)
 		{
 			SetStateStorage_ptr(storage);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*> GetStateStorage_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*> GetStateStorage_ptr;
 		public static ImGuiStorage* GetStateStorage()
 		{
 			return GetStateStorage_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<int, float, int*, int*, void> CalcListClipping_ptr;
+		static delegate* unmanaged[Cdecl]<int, float, int*, int*, void> CalcListClipping_ptr;
 		public static void CalcListClipping(int items_count, float items_height, out int out_items_display_start, out int out_items_display_end)
 		{
 			fixed(int* p_out_items_display_start = &out_items_display_start)
@@ -2291,19 +2291,19 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, ImGuiWindowFlags, bool> BeginChildFrame_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, ImGuiWindowFlags, bool> BeginChildFrame_ptr;
 		public static bool BeginChildFrame(ImGuiID id, ImVec2 size, ImGuiWindowFlags flags)
 		{
 			return BeginChildFrame_ptr(id, size, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndChildFrame_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndChildFrame_ptr;
 		public static void EndChildFrame()
 		{
 			EndChildFrame_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, byte*, byte*, bool, float, void> CalcTextSize_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, byte*, byte*, bool, float, void> CalcTextSize_ptr;
 		public static void CalcTextSize(out ImVec2 @out, string text, string text_end, bool hide_text_after_double_hash, float wrap_width)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -2314,7 +2314,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec4*, uint, void> ColorConvertU32ToFloat4_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec4*, uint, void> ColorConvertU32ToFloat4_ptr;
 		public static void ColorConvertU32ToFloat4(out ImVec4 @out, uint @in)
 		{
 			fixed(ImVec4* p_out = &@out)
@@ -2323,13 +2323,13 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec4, uint> ColorConvertFloat4ToU32_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec4, uint> ColorConvertFloat4ToU32_ptr;
 		public static uint ColorConvertFloat4ToU32(ImVec4 @in)
 		{
 			return ColorConvertFloat4ToU32_ptr(@in);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float, float, float*, float*, float*, void> ColorConvertRGBtoHSV_ptr;
+		static delegate* unmanaged[Cdecl]<float, float, float, float*, float*, float*, void> ColorConvertRGBtoHSV_ptr;
 		public static void ColorConvertRGBtoHSV(float r, float g, float b, out float out_h, out float out_s, out float out_v)
 		{
 			fixed(float* p_out_h = &out_h)
@@ -2340,7 +2340,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float, float, float*, float*, float*, void> ColorConvertHSVtoRGB_ptr;
+		static delegate* unmanaged[Cdecl]<float, float, float, float*, float*, float*, void> ColorConvertHSVtoRGB_ptr;
 		public static void ColorConvertHSVtoRGB(float h, float s, float v, out float out_r, out float out_g, out float out_b)
 		{
 			fixed(float* p_out_r = &out_r)
@@ -2351,85 +2351,85 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiKey, int> GetKeyIndex_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiKey, int> GetKeyIndex_ptr;
 		public static int GetKeyIndex(ImGuiKey imgui_key)
 		{
 			return GetKeyIndex_ptr(imgui_key);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, bool> IsKeyDown_ptr;
+		static delegate* unmanaged[Cdecl]<int, bool> IsKeyDown_ptr;
 		public static bool IsKeyDown(int user_key_index)
 		{
 			return IsKeyDown_ptr(user_key_index);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, bool, bool> IsKeyPressed_ptr;
+		static delegate* unmanaged[Cdecl]<int, bool, bool> IsKeyPressed_ptr;
 		public static bool IsKeyPressed(int user_key_index, bool repeat)
 		{
 			return IsKeyPressed_ptr(user_key_index, repeat);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, bool> IsKeyReleased_ptr;
+		static delegate* unmanaged[Cdecl]<int, bool> IsKeyReleased_ptr;
 		public static bool IsKeyReleased(int user_key_index)
 		{
 			return IsKeyReleased_ptr(user_key_index);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, float, float, int> GetKeyPressedAmount_ptr;
+		static delegate* unmanaged[Cdecl]<int, float, float, int> GetKeyPressedAmount_ptr;
 		public static int GetKeyPressedAmount(int key_index, float repeat_delay, float rate)
 		{
 			return GetKeyPressedAmount_ptr(key_index, repeat_delay, rate);
 		}
 
-		static delegate* unmanaged[Stdcall]<bool, void> CaptureKeyboardFromApp_ptr;
+		static delegate* unmanaged[Cdecl]<bool, void> CaptureKeyboardFromApp_ptr;
 		public static void CaptureKeyboardFromApp(bool want_capture_keyboard_value)
 		{
 			CaptureKeyboardFromApp_ptr(want_capture_keyboard_value);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMouseButton, bool> IsMouseDown_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMouseButton, bool> IsMouseDown_ptr;
 		public static bool IsMouseDown(ImGuiMouseButton button)
 		{
 			return IsMouseDown_ptr(button);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMouseButton, bool, bool> IsMouseClicked_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMouseButton, bool, bool> IsMouseClicked_ptr;
 		public static bool IsMouseClicked(ImGuiMouseButton button, bool repeat)
 		{
 			return IsMouseClicked_ptr(button, repeat);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMouseButton, bool> IsMouseReleased_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMouseButton, bool> IsMouseReleased_ptr;
 		public static bool IsMouseReleased(ImGuiMouseButton button)
 		{
 			return IsMouseReleased_ptr(button);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMouseButton, bool> IsMouseDoubleClicked_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMouseButton, bool> IsMouseDoubleClicked_ptr;
 		public static bool IsMouseDoubleClicked(ImGuiMouseButton button)
 		{
 			return IsMouseDoubleClicked_ptr(button);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, bool, bool> IsMouseHoveringRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, bool, bool> IsMouseHoveringRect_ptr;
 		public static bool IsMouseHoveringRect(ImVec2 r_min, ImVec2 r_max, bool clip)
 		{
 			return IsMouseHoveringRect_ptr(r_min, r_max, clip);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, bool> IsMousePosValid_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, bool> IsMousePosValid_ptr;
 		public static bool IsMousePosValid(ImVec2* mouse_pos)
 		{
 			return IsMousePosValid_ptr(mouse_pos);
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsAnyMouseDown_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsAnyMouseDown_ptr;
 		public static bool IsAnyMouseDown()
 		{
 			return IsAnyMouseDown_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetMousePos_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetMousePos_ptr;
 		public static void GetMousePos(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -2438,7 +2438,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetMousePosOnOpeningCurrentPopup_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetMousePosOnOpeningCurrentPopup_ptr;
 		public static void GetMousePosOnOpeningCurrentPopup(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -2447,13 +2447,13 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMouseButton, float, bool> IsMouseDragging_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMouseButton, float, bool> IsMouseDragging_ptr;
 		public static bool IsMouseDragging(ImGuiMouseButton button, float lock_threshold)
 		{
 			return IsMouseDragging_ptr(button, lock_threshold);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiMouseButton, float, void> GetMouseDragDelta_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiMouseButton, float, void> GetMouseDragDelta_ptr;
 		public static void GetMouseDragDelta(out ImVec2 @out, ImGuiMouseButton button, float lock_threshold)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -2462,65 +2462,65 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMouseButton, void> ResetMouseDragDelta_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMouseButton, void> ResetMouseDragDelta_ptr;
 		public static void ResetMouseDragDelta(ImGuiMouseButton button)
 		{
 			ResetMouseDragDelta_ptr(button);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMouseCursor> GetMouseCursor_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMouseCursor> GetMouseCursor_ptr;
 		public static ImGuiMouseCursor GetMouseCursor()
 		{
 			return GetMouseCursor_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMouseCursor, void> SetMouseCursor_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMouseCursor, void> SetMouseCursor_ptr;
 		public static void SetMouseCursor(ImGuiMouseCursor cursor_type)
 		{
 			SetMouseCursor_ptr(cursor_type);
 		}
 
-		static delegate* unmanaged[Stdcall]<bool, void> CaptureMouseFromApp_ptr;
+		static delegate* unmanaged[Cdecl]<bool, void> CaptureMouseFromApp_ptr;
 		public static void CaptureMouseFromApp(bool want_capture_mouse_value)
 		{
 			CaptureMouseFromApp_ptr(want_capture_mouse_value);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*> GetClipboardText_ptr;
+		static delegate* unmanaged[Cdecl]<byte*> GetClipboardText_ptr;
 		public static byte* GetClipboardText()
 		{
 			return GetClipboardText_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> SetClipboardText_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> SetClipboardText_ptr;
 		public static void SetClipboardText(string text)
 		{
 			using var p_text = new StringHelper(text);
 			SetClipboardText_ptr(p_text);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> LoadIniSettingsFromDisk_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> LoadIniSettingsFromDisk_ptr;
 		public static void LoadIniSettingsFromDisk(string ini_filename)
 		{
 			using var p_ini_filename = new StringHelper(ini_filename);
 			LoadIniSettingsFromDisk_ptr(p_ini_filename);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, IntPtr, void> LoadIniSettingsFromMemory_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, IntPtr, void> LoadIniSettingsFromMemory_ptr;
 		public static void LoadIniSettingsFromMemory(string ini_data, IntPtr ini_size)
 		{
 			using var p_ini_data = new StringHelper(ini_data);
 			LoadIniSettingsFromMemory_ptr(p_ini_data, ini_size);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> SaveIniSettingsToDisk_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> SaveIniSettingsToDisk_ptr;
 		public static void SaveIniSettingsToDisk(string ini_filename)
 		{
 			using var p_ini_filename = new StringHelper(ini_filename);
 			SaveIniSettingsToDisk_ptr(p_ini_filename);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr*, byte*> SaveIniSettingsToMemory_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr*, byte*> SaveIniSettingsToMemory_ptr;
 		public static byte* SaveIniSettingsToMemory(out IntPtr out_ini_size)
 		{
 			fixed(IntPtr* p_out_ini_size = &out_ini_size)
@@ -2529,20 +2529,20 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, bool> DebugCheckVersionAndDataLayout_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, bool> DebugCheckVersionAndDataLayout_ptr;
 		public static bool DebugCheckVersionAndDataLayout(string version_str, IntPtr sz_io, IntPtr sz_style, IntPtr sz_vec2, IntPtr sz_vec4, IntPtr sz_drawvert, IntPtr sz_drawidx)
 		{
 			using var p_version_str = new StringHelper(version_str);
 			return DebugCheckVersionAndDataLayout_ptr(p_version_str, sz_io, sz_style, sz_vec2, sz_vec4, sz_drawvert, sz_drawidx);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, IntPtr, IntPtr, void> SetAllocatorFunctions_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, IntPtr, IntPtr, void> SetAllocatorFunctions_ptr;
 		public static void SetAllocatorFunctions(IntPtr alloc_func, IntPtr free_func, IntPtr user_data)
 		{
 			SetAllocatorFunctions_ptr(alloc_func, free_func, user_data);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr*, IntPtr*, IntPtr*, void> GetAllocatorFunctions_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr*, IntPtr*, IntPtr*, void> GetAllocatorFunctions_ptr;
 		public static void GetAllocatorFunctions(ref IntPtr p_alloc_func, ref IntPtr p_free_func, ref IntPtr p_user_data)
 		{
 			fixed(IntPtr* p_p_alloc_func = &p_alloc_func)
@@ -2553,128 +2553,128 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, IntPtr> MemAlloc_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, IntPtr> MemAlloc_ptr;
 		public static IntPtr MemAlloc(IntPtr size)
 		{
 			return MemAlloc_ptr(size);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, void> MemFree_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, void> MemFree_ptr;
 		public static void MemFree(IntPtr ptr)
 		{
 			MemFree_ptr(ptr);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPlatformIO*> GetPlatformIO_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPlatformIO*> GetPlatformIO_ptr;
 		public static ImGuiPlatformIO* GetPlatformIO()
 		{
 			return GetPlatformIO_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> UpdatePlatformWindows_ptr;
+		static delegate* unmanaged[Cdecl]<void> UpdatePlatformWindows_ptr;
 		public static void UpdatePlatformWindows()
 		{
 			UpdatePlatformWindows_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, IntPtr, void> RenderPlatformWindowsDefault_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, IntPtr, void> RenderPlatformWindowsDefault_ptr;
 		public static void RenderPlatformWindowsDefault(IntPtr platform_render_arg, IntPtr renderer_render_arg)
 		{
 			RenderPlatformWindowsDefault_ptr(platform_render_arg, renderer_render_arg);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> DestroyPlatformWindows_ptr;
+		static delegate* unmanaged[Cdecl]<void> DestroyPlatformWindows_ptr;
 		public static void DestroyPlatformWindows()
 		{
 			DestroyPlatformWindows_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiViewport*> FindViewportByID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiViewport*> FindViewportByID_ptr;
 		public static ImGuiViewportPtr FindViewportByID(ImGuiID id)
 		{
 			return FindViewportByID_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, ImGuiViewport*> FindViewportByPlatformHandle_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, ImGuiViewport*> FindViewportByPlatformHandle_ptr;
 		public static ImGuiViewportPtr FindViewportByPlatformHandle(IntPtr platform_handle)
 		{
 			return FindViewportByPlatformHandle_ptr(platform_handle);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyle*> ImGuiStyle_ImGuiStyle_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyle*> ImGuiStyle_ImGuiStyle_ptr;
 		public static ImGuiStylePtr ImGuiStyle_ImGuiStyle()
 		{
 			return ImGuiStyle_ImGuiStyle_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyle*, void> ImGuiStyle_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyle*, void> ImGuiStyle_destroy_ptr;
 		public static void ImGuiStyle_destroy(ImGuiStylePtr self)
 		{
 			ImGuiStyle_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyle*, float, void> ImGuiStyle_ScaleAllSizes_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyle*, float, void> ImGuiStyle_ScaleAllSizes_ptr;
 		public static void ImGuiStyle_ScaleAllSizes(ImGuiStylePtr self, float scale_factor)
 		{
 			ImGuiStyle_ScaleAllSizes_ptr(self, scale_factor);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiIO*, uint, void> ImGuiIO_AddInputCharacter_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiIO*, uint, void> ImGuiIO_AddInputCharacter_ptr;
 		public static void ImGuiIO_AddInputCharacter(ImGuiIOPtr self, uint c)
 		{
 			ImGuiIO_AddInputCharacter_ptr(self, c);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiIO*, char, void> ImGuiIO_AddInputCharacterUTF16_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiIO*, char, void> ImGuiIO_AddInputCharacterUTF16_ptr;
 		public static void ImGuiIO_AddInputCharacterUTF16(ImGuiIOPtr self, char c)
 		{
 			ImGuiIO_AddInputCharacterUTF16_ptr(self, c);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiIO*, byte*, void> ImGuiIO_AddInputCharactersUTF8_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiIO*, byte*, void> ImGuiIO_AddInputCharactersUTF8_ptr;
 		public static void ImGuiIO_AddInputCharactersUTF8(ImGuiIOPtr self, string str)
 		{
 			using var p_str = new StringHelper(str);
 			ImGuiIO_AddInputCharactersUTF8_ptr(self, p_str);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiIO*, void> ImGuiIO_ClearInputCharacters_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiIO*, void> ImGuiIO_ClearInputCharacters_ptr;
 		public static void ImGuiIO_ClearInputCharacters(ImGuiIOPtr self)
 		{
 			ImGuiIO_ClearInputCharacters_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiIO*> ImGuiIO_ImGuiIO_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiIO*> ImGuiIO_ImGuiIO_ptr;
 		public static ImGuiIOPtr ImGuiIO_ImGuiIO()
 		{
 			return ImGuiIO_ImGuiIO_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiIO*, void> ImGuiIO_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiIO*, void> ImGuiIO_destroy_ptr;
 		public static void ImGuiIO_destroy(ImGuiIOPtr self)
 		{
 			ImGuiIO_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*> ImGuiInputTextCallbackData_ImGuiInputTextCallbackData_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*> ImGuiInputTextCallbackData_ImGuiInputTextCallbackData_ptr;
 		public static ImGuiInputTextCallbackData* ImGuiInputTextCallbackData_ImGuiInputTextCallbackData()
 		{
 			return ImGuiInputTextCallbackData_ImGuiInputTextCallbackData_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*, void> ImGuiInputTextCallbackData_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*, void> ImGuiInputTextCallbackData_destroy_ptr;
 		public static void ImGuiInputTextCallbackData_destroy(ImGuiInputTextCallbackData* self)
 		{
 			ImGuiInputTextCallbackData_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*, int, int, void> ImGuiInputTextCallbackData_DeleteChars_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*, int, int, void> ImGuiInputTextCallbackData_DeleteChars_ptr;
 		public static void ImGuiInputTextCallbackData_DeleteChars(ImGuiInputTextCallbackData* self, int pos, int bytes_count)
 		{
 			ImGuiInputTextCallbackData_DeleteChars_ptr(self, pos, bytes_count);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*, int, byte*, byte*, void> ImGuiInputTextCallbackData_InsertChars_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*, int, byte*, byte*, void> ImGuiInputTextCallbackData_InsertChars_ptr;
 		public static void ImGuiInputTextCallbackData_InsertChars(ImGuiInputTextCallbackData* self, int pos, string text, string text_end)
 		{
 			using var p_text = new StringHelper(text);
@@ -2682,130 +2682,130 @@ namespace SharpImGUI
 			ImGuiInputTextCallbackData_InsertChars_ptr(self, pos, p_text, p_text_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*, void> ImGuiInputTextCallbackData_SelectAll_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*, void> ImGuiInputTextCallbackData_SelectAll_ptr;
 		public static void ImGuiInputTextCallbackData_SelectAll(ImGuiInputTextCallbackData* self)
 		{
 			ImGuiInputTextCallbackData_SelectAll_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*, void> ImGuiInputTextCallbackData_ClearSelection_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*, void> ImGuiInputTextCallbackData_ClearSelection_ptr;
 		public static void ImGuiInputTextCallbackData_ClearSelection(ImGuiInputTextCallbackData* self)
 		{
 			ImGuiInputTextCallbackData_ClearSelection_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*, bool> ImGuiInputTextCallbackData_HasSelection_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*, bool> ImGuiInputTextCallbackData_HasSelection_ptr;
 		public static bool ImGuiInputTextCallbackData_HasSelection(ImGuiInputTextCallbackData* self)
 		{
 			return ImGuiInputTextCallbackData_HasSelection_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindowClass*> ImGuiWindowClass_ImGuiWindowClass_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindowClass*> ImGuiWindowClass_ImGuiWindowClass_ptr;
 		public static ImGuiWindowClass* ImGuiWindowClass_ImGuiWindowClass()
 		{
 			return ImGuiWindowClass_ImGuiWindowClass_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindowClass*, void> ImGuiWindowClass_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindowClass*, void> ImGuiWindowClass_destroy_ptr;
 		public static void ImGuiWindowClass_destroy(ImGuiWindowClass* self)
 		{
 			ImGuiWindowClass_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPayload*> ImGuiPayload_ImGuiPayload_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPayload*> ImGuiPayload_ImGuiPayload_ptr;
 		public static ImGuiPayload* ImGuiPayload_ImGuiPayload()
 		{
 			return ImGuiPayload_ImGuiPayload_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPayload*, void> ImGuiPayload_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPayload*, void> ImGuiPayload_destroy_ptr;
 		public static void ImGuiPayload_destroy(ImGuiPayload* self)
 		{
 			ImGuiPayload_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPayload*, void> ImGuiPayload_Clear_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPayload*, void> ImGuiPayload_Clear_ptr;
 		public static void ImGuiPayload_Clear(ImGuiPayload* self)
 		{
 			ImGuiPayload_Clear_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPayload*, byte*, bool> ImGuiPayload_IsDataType_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPayload*, byte*, bool> ImGuiPayload_IsDataType_ptr;
 		public static bool ImGuiPayload_IsDataType(ImGuiPayload* self, string type)
 		{
 			using var p_type = new StringHelper(type);
 			return ImGuiPayload_IsDataType_ptr(self, p_type);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPayload*, bool> ImGuiPayload_IsPreview_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPayload*, bool> ImGuiPayload_IsPreview_ptr;
 		public static bool ImGuiPayload_IsPreview(ImGuiPayload* self)
 		{
 			return ImGuiPayload_IsPreview_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPayload*, bool> ImGuiPayload_IsDelivery_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPayload*, bool> ImGuiPayload_IsDelivery_ptr;
 		public static bool ImGuiPayload_IsDelivery(ImGuiPayload* self)
 		{
 			return ImGuiPayload_IsDelivery_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableColumnSortSpecs*> ImGuiTableColumnSortSpecs_ImGuiTableColumnSortSpecs_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableColumnSortSpecs*> ImGuiTableColumnSortSpecs_ImGuiTableColumnSortSpecs_ptr;
 		public static ImGuiTableColumnSortSpecs* ImGuiTableColumnSortSpecs_ImGuiTableColumnSortSpecs()
 		{
 			return ImGuiTableColumnSortSpecs_ImGuiTableColumnSortSpecs_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableColumnSortSpecs*, void> ImGuiTableColumnSortSpecs_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableColumnSortSpecs*, void> ImGuiTableColumnSortSpecs_destroy_ptr;
 		public static void ImGuiTableColumnSortSpecs_destroy(ImGuiTableColumnSortSpecs* self)
 		{
 			ImGuiTableColumnSortSpecs_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableSortSpecs*> ImGuiTableSortSpecs_ImGuiTableSortSpecs_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableSortSpecs*> ImGuiTableSortSpecs_ImGuiTableSortSpecs_ptr;
 		public static ImGuiTableSortSpecs* ImGuiTableSortSpecs_ImGuiTableSortSpecs()
 		{
 			return ImGuiTableSortSpecs_ImGuiTableSortSpecs_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableSortSpecs*, void> ImGuiTableSortSpecs_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableSortSpecs*, void> ImGuiTableSortSpecs_destroy_ptr;
 		public static void ImGuiTableSortSpecs_destroy(ImGuiTableSortSpecs* self)
 		{
 			ImGuiTableSortSpecs_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiOnceUponAFrame*> ImGuiOnceUponAFrame_ImGuiOnceUponAFrame_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiOnceUponAFrame*> ImGuiOnceUponAFrame_ImGuiOnceUponAFrame_ptr;
 		public static ImGuiOnceUponAFrame* ImGuiOnceUponAFrame_ImGuiOnceUponAFrame()
 		{
 			return ImGuiOnceUponAFrame_ImGuiOnceUponAFrame_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiOnceUponAFrame*, void> ImGuiOnceUponAFrame_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiOnceUponAFrame*, void> ImGuiOnceUponAFrame_destroy_ptr;
 		public static void ImGuiOnceUponAFrame_destroy(ImGuiOnceUponAFrame* self)
 		{
 			ImGuiOnceUponAFrame_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiTextFilter*> ImGuiTextFilter_ImGuiTextFilter_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiTextFilter*> ImGuiTextFilter_ImGuiTextFilter_ptr;
 		public static ImGuiTextFilter* ImGuiTextFilter_ImGuiTextFilter(string default_filter)
 		{
 			using var p_default_filter = new StringHelper(default_filter);
 			return ImGuiTextFilter_ImGuiTextFilter_ptr(p_default_filter);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextFilter*, void> ImGuiTextFilter_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextFilter*, void> ImGuiTextFilter_destroy_ptr;
 		public static void ImGuiTextFilter_destroy(ImGuiTextFilter* self)
 		{
 			ImGuiTextFilter_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextFilter*, byte*, float, bool> ImGuiTextFilter_Draw_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextFilter*, byte*, float, bool> ImGuiTextFilter_Draw_ptr;
 		public static bool ImGuiTextFilter_Draw(ImGuiTextFilter* self, string label, float width)
 		{
 			using var p_label = new StringHelper(label);
 			return ImGuiTextFilter_Draw_ptr(self, p_label, width);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextFilter*, byte*, byte*, bool> ImGuiTextFilter_PassFilter_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextFilter*, byte*, byte*, bool> ImGuiTextFilter_PassFilter_ptr;
 		public static bool ImGuiTextFilter_PassFilter(ImGuiTextFilter* self, string text, string text_end)
 		{
 			using var p_text = new StringHelper(text);
@@ -2813,37 +2813,37 @@ namespace SharpImGUI
 			return ImGuiTextFilter_PassFilter_ptr(self, p_text, p_text_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextFilter*, void> ImGuiTextFilter_Build_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextFilter*, void> ImGuiTextFilter_Build_ptr;
 		public static void ImGuiTextFilter_Build(ImGuiTextFilter* self)
 		{
 			ImGuiTextFilter_Build_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextFilter*, void> ImGuiTextFilter_Clear_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextFilter*, void> ImGuiTextFilter_Clear_ptr;
 		public static void ImGuiTextFilter_Clear(ImGuiTextFilter* self)
 		{
 			ImGuiTextFilter_Clear_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextFilter*, bool> ImGuiTextFilter_IsActive_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextFilter*, bool> ImGuiTextFilter_IsActive_ptr;
 		public static bool ImGuiTextFilter_IsActive(ImGuiTextFilter* self)
 		{
 			return ImGuiTextFilter_IsActive_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextRange*> ImGuiTextRange_ImGuiTextRangeNil_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextRange*> ImGuiTextRange_ImGuiTextRangeNil_ptr;
 		public static ImGuiTextRange* ImGuiTextRange_ImGuiTextRangeNil()
 		{
 			return ImGuiTextRange_ImGuiTextRangeNil_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextRange*, void> ImGuiTextRange_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextRange*, void> ImGuiTextRange_destroy_ptr;
 		public static void ImGuiTextRange_destroy(ImGuiTextRange* self)
 		{
 			ImGuiTextRange_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiTextRange*> ImGuiTextRange_ImGuiTextRangeStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, ImGuiTextRange*> ImGuiTextRange_ImGuiTextRangeStr_ptr;
 		public static ImGuiTextRange* ImGuiTextRange_ImGuiTextRangeStr(string _b, string _e)
 		{
 			using var p__b = new StringHelper(_b);
@@ -2851,73 +2851,73 @@ namespace SharpImGUI
 			return ImGuiTextRange_ImGuiTextRangeStr_ptr(p__b, p__e);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextRange*, bool> ImGuiTextRange_empty_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextRange*, bool> ImGuiTextRange_empty_ptr;
 		public static bool ImGuiTextRange_empty(ImGuiTextRange* self)
 		{
 			return ImGuiTextRange_empty_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextRange*, byte, ImVector_ImGuiTextRange*, void> ImGuiTextRange_split_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextRange*, byte, ImVector_ImGuiTextRange*, void> ImGuiTextRange_split_ptr;
 		public static void ImGuiTextRange_split(ImGuiTextRange* self, byte separator, ImVector_ImGuiTextRange* @out)
 		{
 			ImGuiTextRange_split_ptr(self, separator, @out);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextBuffer*> ImGuiTextBuffer_ImGuiTextBuffer_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextBuffer*> ImGuiTextBuffer_ImGuiTextBuffer_ptr;
 		public static ImGuiTextBuffer* ImGuiTextBuffer_ImGuiTextBuffer()
 		{
 			return ImGuiTextBuffer_ImGuiTextBuffer_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, void> ImGuiTextBuffer_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, void> ImGuiTextBuffer_destroy_ptr;
 		public static void ImGuiTextBuffer_destroy(ImGuiTextBuffer* self)
 		{
 			ImGuiTextBuffer_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, byte*> ImGuiTextBuffer_begin_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, byte*> ImGuiTextBuffer_begin_ptr;
 		public static byte* ImGuiTextBuffer_begin(ImGuiTextBuffer* self)
 		{
 			return ImGuiTextBuffer_begin_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, byte*> ImGuiTextBuffer_end_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, byte*> ImGuiTextBuffer_end_ptr;
 		public static byte* ImGuiTextBuffer_end(ImGuiTextBuffer* self)
 		{
 			return ImGuiTextBuffer_end_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, int> ImGuiTextBuffer_size_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, int> ImGuiTextBuffer_size_ptr;
 		public static int ImGuiTextBuffer_size(ImGuiTextBuffer* self)
 		{
 			return ImGuiTextBuffer_size_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, bool> ImGuiTextBuffer_empty_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, bool> ImGuiTextBuffer_empty_ptr;
 		public static bool ImGuiTextBuffer_empty(ImGuiTextBuffer* self)
 		{
 			return ImGuiTextBuffer_empty_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, void> ImGuiTextBuffer_clear_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, void> ImGuiTextBuffer_clear_ptr;
 		public static void ImGuiTextBuffer_clear(ImGuiTextBuffer* self)
 		{
 			ImGuiTextBuffer_clear_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, int, void> ImGuiTextBuffer_reserve_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, int, void> ImGuiTextBuffer_reserve_ptr;
 		public static void ImGuiTextBuffer_reserve(ImGuiTextBuffer* self, int capacity)
 		{
 			ImGuiTextBuffer_reserve_ptr(self, capacity);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, byte*> ImGuiTextBuffer_c_str_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, byte*> ImGuiTextBuffer_c_str_ptr;
 		public static byte* ImGuiTextBuffer_c_str(ImGuiTextBuffer* self)
 		{
 			return ImGuiTextBuffer_c_str_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, byte*, byte*, void> ImGuiTextBuffer_append_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, byte*, byte*, void> ImGuiTextBuffer_append_ptr;
 		public static void ImGuiTextBuffer_append(ImGuiTextBuffer* self, string str, string str_end)
 		{
 			using var p_str = new StringHelper(str);
@@ -2925,247 +2925,247 @@ namespace SharpImGUI
 			ImGuiTextBuffer_append_ptr(self, p_str, p_str_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, int, ImGuiStoragePair*> ImGuiStoragePair_ImGuiStoragePairInt_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, int, ImGuiStoragePair*> ImGuiStoragePair_ImGuiStoragePairInt_ptr;
 		public static ImGuiStoragePair* ImGuiStoragePair_ImGuiStoragePairInt(ImGuiID _key, int _val_i)
 		{
 			return ImGuiStoragePair_ImGuiStoragePairInt_ptr(_key, _val_i);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStoragePair*, void> ImGuiStoragePair_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStoragePair*, void> ImGuiStoragePair_destroy_ptr;
 		public static void ImGuiStoragePair_destroy(ImGuiStoragePair* self)
 		{
 			ImGuiStoragePair_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, float, ImGuiStoragePair*> ImGuiStoragePair_ImGuiStoragePairFloat_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, float, ImGuiStoragePair*> ImGuiStoragePair_ImGuiStoragePairFloat_ptr;
 		public static ImGuiStoragePair* ImGuiStoragePair_ImGuiStoragePairFloat(ImGuiID _key, float _val_f)
 		{
 			return ImGuiStoragePair_ImGuiStoragePairFloat_ptr(_key, _val_f);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, IntPtr, ImGuiStoragePair*> ImGuiStoragePair_ImGuiStoragePairPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, IntPtr, ImGuiStoragePair*> ImGuiStoragePair_ImGuiStoragePairPtr_ptr;
 		public static ImGuiStoragePair* ImGuiStoragePair_ImGuiStoragePairPtr(ImGuiID _key, IntPtr _val_p)
 		{
 			return ImGuiStoragePair_ImGuiStoragePairPtr_ptr(_key, _val_p);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, void> ImGuiStorage_Clear_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, void> ImGuiStorage_Clear_ptr;
 		public static void ImGuiStorage_Clear(ImGuiStorage* self)
 		{
 			ImGuiStorage_Clear_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, int, int> ImGuiStorage_GetInt_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, int, int> ImGuiStorage_GetInt_ptr;
 		public static int ImGuiStorage_GetInt(ImGuiStorage* self, ImGuiID key, int default_val)
 		{
 			return ImGuiStorage_GetInt_ptr(self, key, default_val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, int, void> ImGuiStorage_SetInt_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, int, void> ImGuiStorage_SetInt_ptr;
 		public static void ImGuiStorage_SetInt(ImGuiStorage* self, ImGuiID key, int val)
 		{
 			ImGuiStorage_SetInt_ptr(self, key, val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, bool, bool> ImGuiStorage_GetBool_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, bool, bool> ImGuiStorage_GetBool_ptr;
 		public static bool ImGuiStorage_GetBool(ImGuiStorage* self, ImGuiID key, bool default_val)
 		{
 			return ImGuiStorage_GetBool_ptr(self, key, default_val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, bool, void> ImGuiStorage_SetBool_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, bool, void> ImGuiStorage_SetBool_ptr;
 		public static void ImGuiStorage_SetBool(ImGuiStorage* self, ImGuiID key, bool val)
 		{
 			ImGuiStorage_SetBool_ptr(self, key, val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, float, float> ImGuiStorage_GetFloat_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, float, float> ImGuiStorage_GetFloat_ptr;
 		public static float ImGuiStorage_GetFloat(ImGuiStorage* self, ImGuiID key, float default_val)
 		{
 			return ImGuiStorage_GetFloat_ptr(self, key, default_val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, float, void> ImGuiStorage_SetFloat_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, float, void> ImGuiStorage_SetFloat_ptr;
 		public static void ImGuiStorage_SetFloat(ImGuiStorage* self, ImGuiID key, float val)
 		{
 			ImGuiStorage_SetFloat_ptr(self, key, val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, IntPtr> ImGuiStorage_GetVoidPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, IntPtr> ImGuiStorage_GetVoidPtr_ptr;
 		public static IntPtr ImGuiStorage_GetVoidPtr(ImGuiStorage* self, ImGuiID key)
 		{
 			return ImGuiStorage_GetVoidPtr_ptr(self, key);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, IntPtr, void> ImGuiStorage_SetVoidPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, IntPtr, void> ImGuiStorage_SetVoidPtr_ptr;
 		public static void ImGuiStorage_SetVoidPtr(ImGuiStorage* self, ImGuiID key, IntPtr val)
 		{
 			ImGuiStorage_SetVoidPtr_ptr(self, key, val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, int, int*> ImGuiStorage_GetIntRef_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, int, int*> ImGuiStorage_GetIntRef_ptr;
 		public static int* ImGuiStorage_GetIntRef(ImGuiStorage* self, ImGuiID key, int default_val)
 		{
 			return ImGuiStorage_GetIntRef_ptr(self, key, default_val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, bool, bool*> ImGuiStorage_GetBoolRef_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, bool, bool*> ImGuiStorage_GetBoolRef_ptr;
 		public static bool* ImGuiStorage_GetBoolRef(ImGuiStorage* self, ImGuiID key, bool default_val)
 		{
 			return ImGuiStorage_GetBoolRef_ptr(self, key, default_val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, float, float*> ImGuiStorage_GetFloatRef_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, float, float*> ImGuiStorage_GetFloatRef_ptr;
 		public static float* ImGuiStorage_GetFloatRef(ImGuiStorage* self, ImGuiID key, float default_val)
 		{
 			return ImGuiStorage_GetFloatRef_ptr(self, key, default_val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, IntPtr, IntPtr*> ImGuiStorage_GetVoidPtrRef_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, IntPtr, IntPtr*> ImGuiStorage_GetVoidPtrRef_ptr;
 		public static IntPtr* ImGuiStorage_GetVoidPtrRef(ImGuiStorage* self, ImGuiID key, IntPtr default_val)
 		{
 			return ImGuiStorage_GetVoidPtrRef_ptr(self, key, default_val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, int, void> ImGuiStorage_SetAllInt_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, int, void> ImGuiStorage_SetAllInt_ptr;
 		public static void ImGuiStorage_SetAllInt(ImGuiStorage* self, int val)
 		{
 			ImGuiStorage_SetAllInt_ptr(self, val);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, void> ImGuiStorage_BuildSortByKey_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, void> ImGuiStorage_BuildSortByKey_ptr;
 		public static void ImGuiStorage_BuildSortByKey(ImGuiStorage* self)
 		{
 			ImGuiStorage_BuildSortByKey_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiListClipper*> ImGuiListClipper_ImGuiListClipper_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiListClipper*> ImGuiListClipper_ImGuiListClipper_ptr;
 		public static ImGuiListClipper* ImGuiListClipper_ImGuiListClipper()
 		{
 			return ImGuiListClipper_ImGuiListClipper_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiListClipper*, void> ImGuiListClipper_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiListClipper*, void> ImGuiListClipper_destroy_ptr;
 		public static void ImGuiListClipper_destroy(ImGuiListClipper* self)
 		{
 			ImGuiListClipper_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiListClipper*, int, float, void> ImGuiListClipper_Begin_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiListClipper*, int, float, void> ImGuiListClipper_Begin_ptr;
 		public static void ImGuiListClipper_Begin(ImGuiListClipper* self, int items_count, float items_height)
 		{
 			ImGuiListClipper_Begin_ptr(self, items_count, items_height);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiListClipper*, void> ImGuiListClipper_End_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiListClipper*, void> ImGuiListClipper_End_ptr;
 		public static void ImGuiListClipper_End(ImGuiListClipper* self)
 		{
 			ImGuiListClipper_End_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiListClipper*, bool> ImGuiListClipper_Step_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiListClipper*, bool> ImGuiListClipper_Step_ptr;
 		public static bool ImGuiListClipper_Step(ImGuiListClipper* self)
 		{
 			return ImGuiListClipper_Step_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawCmd*> ImDrawCmd_ImDrawCmd_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawCmd*> ImDrawCmd_ImDrawCmd_ptr;
 		public static ImDrawCmd* ImDrawCmd_ImDrawCmd()
 		{
 			return ImDrawCmd_ImDrawCmd_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawCmd*, void> ImDrawCmd_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawCmd*, void> ImDrawCmd_destroy_ptr;
 		public static void ImDrawCmd_destroy(ImDrawCmd* self)
 		{
 			ImDrawCmd_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawListSplitter*> ImDrawListSplitter_ImDrawListSplitter_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawListSplitter*> ImDrawListSplitter_ImDrawListSplitter_ptr;
 		public static ImDrawListSplitter* ImDrawListSplitter_ImDrawListSplitter()
 		{
 			return ImDrawListSplitter_ImDrawListSplitter_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawListSplitter*, void> ImDrawListSplitter_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawListSplitter*, void> ImDrawListSplitter_destroy_ptr;
 		public static void ImDrawListSplitter_destroy(ImDrawListSplitter* self)
 		{
 			ImDrawListSplitter_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawListSplitter*, void> ImDrawListSplitter_Clear_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawListSplitter*, void> ImDrawListSplitter_Clear_ptr;
 		public static void ImDrawListSplitter_Clear(ImDrawListSplitter* self)
 		{
 			ImDrawListSplitter_Clear_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawListSplitter*, void> ImDrawListSplitter_ClearFreeMemory_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawListSplitter*, void> ImDrawListSplitter_ClearFreeMemory_ptr;
 		public static void ImDrawListSplitter_ClearFreeMemory(ImDrawListSplitter* self)
 		{
 			ImDrawListSplitter_ClearFreeMemory_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawListSplitter*, ImDrawList*, int, void> ImDrawListSplitter_Split_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawListSplitter*, ImDrawList*, int, void> ImDrawListSplitter_Split_ptr;
 		public static void ImDrawListSplitter_Split(ImDrawListSplitter* self, ImDrawListPtr draw_list, int count)
 		{
 			ImDrawListSplitter_Split_ptr(self, draw_list, count);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawListSplitter*, ImDrawList*, void> ImDrawListSplitter_Merge_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawListSplitter*, ImDrawList*, void> ImDrawListSplitter_Merge_ptr;
 		public static void ImDrawListSplitter_Merge(ImDrawListSplitter* self, ImDrawListPtr draw_list)
 		{
 			ImDrawListSplitter_Merge_ptr(self, draw_list);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawListSplitter*, ImDrawList*, int, void> ImDrawListSplitter_SetCurrentChannel_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawListSplitter*, ImDrawList*, int, void> ImDrawListSplitter_SetCurrentChannel_ptr;
 		public static void ImDrawListSplitter_SetCurrentChannel(ImDrawListSplitter* self, ImDrawListPtr draw_list, int channel_idx)
 		{
 			ImDrawListSplitter_SetCurrentChannel_ptr(self, draw_list, channel_idx);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawListSharedData*, ImDrawList*> ImDrawList_ImDrawList_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawListSharedData*, ImDrawList*> ImDrawList_ImDrawList_ptr;
 		public static ImDrawListPtr ImDrawList_ImDrawList(ImDrawListSharedData* shared_data)
 		{
 			return ImDrawList_ImDrawList_ptr(shared_data);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList_destroy_ptr;
 		public static void ImDrawList_destroy(ImDrawListPtr self)
 		{
 			ImDrawList_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, bool, void> ImDrawList_PushClipRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, bool, void> ImDrawList_PushClipRect_ptr;
 		public static void ImDrawList_PushClipRect(ImDrawListPtr self, ImVec2 clip_rect_min, ImVec2 clip_rect_max, bool intersect_with_current_clip_rect)
 		{
 			ImDrawList_PushClipRect_ptr(self, clip_rect_min, clip_rect_max, intersect_with_current_clip_rect);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_PushClipRectFullScreen_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList_PushClipRectFullScreen_ptr;
 		public static void ImDrawList_PushClipRectFullScreen(ImDrawListPtr self)
 		{
 			ImDrawList_PushClipRectFullScreen_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_PopClipRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList_PopClipRect_ptr;
 		public static void ImDrawList_PopClipRect(ImDrawListPtr self)
 		{
 			ImDrawList_PopClipRect_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, void> ImDrawList_PushTextureID_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImTextureID, void> ImDrawList_PushTextureID_ptr;
 		public static void ImDrawList_PushTextureID(ImDrawListPtr self, ImTextureID texture_id)
 		{
 			ImDrawList_PushTextureID_ptr(self, texture_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_PopTextureID_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList_PopTextureID_ptr;
 		public static void ImDrawList_PopTextureID(ImDrawListPtr self)
 		{
 			ImDrawList_PopTextureID_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImDrawList*, void> ImDrawList_GetClipRectMin_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImDrawList*, void> ImDrawList_GetClipRectMin_ptr;
 		public static void ImDrawList_GetClipRectMin(out ImVec2 @out, ImDrawListPtr self)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -3174,7 +3174,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImDrawList*, void> ImDrawList_GetClipRectMax_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImDrawList*, void> ImDrawList_GetClipRectMax_ptr;
 		public static void ImDrawList_GetClipRectMax(out ImVec2 @out, ImDrawListPtr self)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -3183,79 +3183,79 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, void> ImDrawList_AddLine_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, float, void> ImDrawList_AddLine_ptr;
 		public static void ImDrawList_AddLine(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, uint col, float thickness)
 		{
 			ImDrawList_AddLine_ptr(self, p1, p2, col, thickness);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, float, void> ImDrawList_AddRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, float, void> ImDrawList_AddRect_ptr;
 		public static void ImDrawList_AddRect(ImDrawListPtr self, ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags, float thickness)
 		{
 			ImDrawList_AddRect_ptr(self, p_min, p_max, col, rounding, flags, thickness);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, void> ImDrawList_AddRectFilled_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, void> ImDrawList_AddRectFilled_ptr;
 		public static void ImDrawList_AddRectFilled(ImDrawListPtr self, ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags)
 		{
 			ImDrawList_AddRectFilled_ptr(self, p_min, p_max, col, rounding, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, uint, uint, uint, void> ImDrawList_AddRectFilledMultiColor_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, uint, uint, uint, void> ImDrawList_AddRectFilledMultiColor_ptr;
 		public static void ImDrawList_AddRectFilledMultiColor(ImDrawListPtr self, ImVec2 p_min, ImVec2 p_max, uint col_upr_left, uint col_upr_right, uint col_bot_right, uint col_bot_left)
 		{
 			ImDrawList_AddRectFilledMultiColor_ptr(self, p_min, p_max, col_upr_left, col_upr_right, col_bot_right, col_bot_left);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, void> ImDrawList_AddQuad_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, void> ImDrawList_AddQuad_ptr;
 		public static void ImDrawList_AddQuad(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness)
 		{
 			ImDrawList_AddQuad_ptr(self, p1, p2, p3, p4, col, thickness);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_AddQuadFilled_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_AddQuadFilled_ptr;
 		public static void ImDrawList_AddQuadFilled(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col)
 		{
 			ImDrawList_AddQuadFilled_ptr(self, p1, p2, p3, p4, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, float, void> ImDrawList_AddTriangle_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, float, void> ImDrawList_AddTriangle_ptr;
 		public static void ImDrawList_AddTriangle(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness)
 		{
 			ImDrawList_AddTriangle_ptr(self, p1, p2, p3, col, thickness);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_AddTriangleFilled_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_AddTriangleFilled_ptr;
 		public static void ImDrawList_AddTriangleFilled(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col)
 		{
 			ImDrawList_AddTriangleFilled_ptr(self, p1, p2, p3, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, float, void> ImDrawList_AddCircle_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, uint, int, float, void> ImDrawList_AddCircle_ptr;
 		public static void ImDrawList_AddCircle(ImDrawListPtr self, ImVec2 center, float radius, uint col, int num_segments, float thickness)
 		{
 			ImDrawList_AddCircle_ptr(self, center, radius, col, num_segments, thickness);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, void> ImDrawList_AddCircleFilled_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, uint, int, void> ImDrawList_AddCircleFilled_ptr;
 		public static void ImDrawList_AddCircleFilled(ImDrawListPtr self, ImVec2 center, float radius, uint col, int num_segments)
 		{
 			ImDrawList_AddCircleFilled_ptr(self, center, radius, col, num_segments);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, float, void> ImDrawList_AddNgon_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, uint, int, float, void> ImDrawList_AddNgon_ptr;
 		public static void ImDrawList_AddNgon(ImDrawListPtr self, ImVec2 center, float radius, uint col, int num_segments, float thickness)
 		{
 			ImDrawList_AddNgon_ptr(self, center, radius, col, num_segments, thickness);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, void> ImDrawList_AddNgonFilled_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, uint, int, void> ImDrawList_AddNgonFilled_ptr;
 		public static void ImDrawList_AddNgonFilled(ImDrawListPtr self, ImVec2 center, float radius, uint col, int num_segments)
 		{
 			ImDrawList_AddNgonFilled_ptr(self, center, radius, col, num_segments);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, byte*, byte*, void> ImDrawList_AddTextVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, uint, byte*, byte*, void> ImDrawList_AddTextVec2_ptr;
 		public static void ImDrawList_AddTextVec2(ImDrawListPtr self, ImVec2 pos, uint col, string text_begin, string text_end)
 		{
 			using var p_text_begin = new StringHelper(text_begin);
@@ -3263,7 +3263,7 @@ namespace SharpImGUI
 			ImDrawList_AddTextVec2_ptr(self, pos, col, p_text_begin, p_text_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImFont*, float, ImVec2, uint, byte*, byte*, float, ImVec4*, void> ImDrawList_AddTextFontPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImFont*, float, ImVec2, uint, byte*, byte*, float, ImVec4*, void> ImDrawList_AddTextFontPtr_ptr;
 		public static void ImDrawList_AddTextFontPtr(ImDrawListPtr self, ImFontPtr font, float font_size, ImVec2 pos, uint col, string text_begin, string text_end, float wrap_width, ImVec4* cpu_fine_clip_rect)
 		{
 			using var p_text_begin = new StringHelper(text_begin);
@@ -3271,325 +3271,325 @@ namespace SharpImGUI
 			ImDrawList_AddTextFontPtr_ptr(self, font, font_size, pos, col, p_text_begin, p_text_end, wrap_width, cpu_fine_clip_rect);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2*, int, uint, ImDrawFlags, float, void> ImDrawList_AddPolyline_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2*, int, uint, ImDrawFlags, float, void> ImDrawList_AddPolyline_ptr;
 		public static void ImDrawList_AddPolyline(ImDrawListPtr self, ImVec2* points, int num_points, uint col, ImDrawFlags flags, float thickness)
 		{
 			ImDrawList_AddPolyline_ptr(self, points, num_points, col, flags, thickness);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2*, int, uint, void> ImDrawList_AddConvexPolyFilled_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2*, int, uint, void> ImDrawList_AddConvexPolyFilled_ptr;
 		public static void ImDrawList_AddConvexPolyFilled(ImDrawListPtr self, ImVec2* points, int num_points, uint col)
 		{
 			ImDrawList_AddConvexPolyFilled_ptr(self, points, num_points, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, int, void> ImDrawList_AddBezierCubic_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, int, void> ImDrawList_AddBezierCubic_ptr;
 		public static void ImDrawList_AddBezierCubic(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness, int num_segments)
 		{
 			ImDrawList_AddBezierCubic_ptr(self, p1, p2, p3, p4, col, thickness, num_segments);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, float, int, void> ImDrawList_AddBezierQuadratic_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, float, int, void> ImDrawList_AddBezierQuadratic_ptr;
 		public static void ImDrawList_AddBezierQuadratic(ImDrawListPtr self, ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness, int num_segments)
 		{
 			ImDrawList_AddBezierQuadratic_ptr(self, p1, p2, p3, col, thickness, num_segments);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_AddImage_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_AddImage_ptr;
 		public static void ImDrawList_AddImage(ImDrawListPtr self, ImTextureID user_texture_id, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col)
 		{
 			ImDrawList_AddImage_ptr(self, user_texture_id, p_min, p_max, uv_min, uv_max, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_AddImageQuad_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_AddImageQuad_ptr;
 		public static void ImDrawList_AddImageQuad(ImDrawListPtr self, ImTextureID user_texture_id, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 uv1, ImVec2 uv2, ImVec2 uv3, ImVec2 uv4, uint col)
 		{
 			ImDrawList_AddImageQuad_ptr(self, user_texture_id, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, ImDrawFlags, void> ImDrawList_AddImageRounded_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, ImDrawFlags, void> ImDrawList_AddImageRounded_ptr;
 		public static void ImDrawList_AddImageRounded(ImDrawListPtr self, ImTextureID user_texture_id, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col, float rounding, ImDrawFlags flags)
 		{
 			ImDrawList_AddImageRounded_ptr(self, user_texture_id, p_min, p_max, uv_min, uv_max, col, rounding, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_PathClear_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList_PathClear_ptr;
 		public static void ImDrawList_PathClear(ImDrawListPtr self)
 		{
 			ImDrawList_PathClear_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, void> ImDrawList_PathLineTo_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, void> ImDrawList_PathLineTo_ptr;
 		public static void ImDrawList_PathLineTo(ImDrawListPtr self, ImVec2 pos)
 		{
 			ImDrawList_PathLineTo_ptr(self, pos);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, void> ImDrawList_PathLineToMergeDuplicate_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, void> ImDrawList_PathLineToMergeDuplicate_ptr;
 		public static void ImDrawList_PathLineToMergeDuplicate(ImDrawListPtr self, ImVec2 pos)
 		{
 			ImDrawList_PathLineToMergeDuplicate_ptr(self, pos);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, uint, void> ImDrawList_PathFillConvex_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, uint, void> ImDrawList_PathFillConvex_ptr;
 		public static void ImDrawList_PathFillConvex(ImDrawListPtr self, uint col)
 		{
 			ImDrawList_PathFillConvex_ptr(self, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, uint, ImDrawFlags, float, void> ImDrawList_PathStroke_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, uint, ImDrawFlags, float, void> ImDrawList_PathStroke_ptr;
 		public static void ImDrawList_PathStroke(ImDrawListPtr self, uint col, ImDrawFlags flags, float thickness)
 		{
 			ImDrawList_PathStroke_ptr(self, col, flags, thickness);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, float, float, int, void> ImDrawList_PathArcTo_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, float, float, int, void> ImDrawList_PathArcTo_ptr;
 		public static void ImDrawList_PathArcTo(ImDrawListPtr self, ImVec2 center, float radius, float a_min, float a_max, int num_segments)
 		{
 			ImDrawList_PathArcTo_ptr(self, center, radius, a_min, a_max, num_segments);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, int, int, void> ImDrawList_PathArcToFast_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, int, int, void> ImDrawList_PathArcToFast_ptr;
 		public static void ImDrawList_PathArcToFast(ImDrawListPtr self, ImVec2 center, float radius, int a_min_of_12, int a_max_of_12)
 		{
 			ImDrawList_PathArcToFast_ptr(self, center, radius, a_min_of_12, a_max_of_12);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, int, void> ImDrawList_PathBezierCubicCurveTo_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, int, void> ImDrawList_PathBezierCubicCurveTo_ptr;
 		public static void ImDrawList_PathBezierCubicCurveTo(ImDrawListPtr self, ImVec2 p2, ImVec2 p3, ImVec2 p4, int num_segments)
 		{
 			ImDrawList_PathBezierCubicCurveTo_ptr(self, p2, p3, p4, num_segments);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, int, void> ImDrawList_PathBezierQuadraticCurveTo_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, int, void> ImDrawList_PathBezierQuadraticCurveTo_ptr;
 		public static void ImDrawList_PathBezierQuadraticCurveTo(ImDrawListPtr self, ImVec2 p2, ImVec2 p3, int num_segments)
 		{
 			ImDrawList_PathBezierQuadraticCurveTo_ptr(self, p2, p3, num_segments);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, float, ImDrawFlags, void> ImDrawList_PathRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, float, ImDrawFlags, void> ImDrawList_PathRect_ptr;
 		public static void ImDrawList_PathRect(ImDrawListPtr self, ImVec2 rect_min, ImVec2 rect_max, float rounding, ImDrawFlags flags)
 		{
 			ImDrawList_PathRect_ptr(self, rect_min, rect_max, rounding, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, IntPtr, IntPtr, void> ImDrawList_AddCallback_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, IntPtr, IntPtr, void> ImDrawList_AddCallback_ptr;
 		public static void ImDrawList_AddCallback(ImDrawListPtr self, IntPtr callback, IntPtr callback_data)
 		{
 			ImDrawList_AddCallback_ptr(self, callback, callback_data);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_AddDrawCmd_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList_AddDrawCmd_ptr;
 		public static void ImDrawList_AddDrawCmd(ImDrawListPtr self)
 		{
 			ImDrawList_AddDrawCmd_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImDrawList*> ImDrawList_CloneOutput_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImDrawList*> ImDrawList_CloneOutput_ptr;
 		public static ImDrawListPtr ImDrawList_CloneOutput(ImDrawListPtr self)
 		{
 			return ImDrawList_CloneOutput_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, int, void> ImDrawList_ChannelsSplit_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, int, void> ImDrawList_ChannelsSplit_ptr;
 		public static void ImDrawList_ChannelsSplit(ImDrawListPtr self, int count)
 		{
 			ImDrawList_ChannelsSplit_ptr(self, count);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList_ChannelsMerge_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList_ChannelsMerge_ptr;
 		public static void ImDrawList_ChannelsMerge(ImDrawListPtr self)
 		{
 			ImDrawList_ChannelsMerge_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, int, void> ImDrawList_ChannelsSetCurrent_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, int, void> ImDrawList_ChannelsSetCurrent_ptr;
 		public static void ImDrawList_ChannelsSetCurrent(ImDrawListPtr self, int n)
 		{
 			ImDrawList_ChannelsSetCurrent_ptr(self, n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, int, int, void> ImDrawList_PrimReserve_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, int, int, void> ImDrawList_PrimReserve_ptr;
 		public static void ImDrawList_PrimReserve(ImDrawListPtr self, int idx_count, int vtx_count)
 		{
 			ImDrawList_PrimReserve_ptr(self, idx_count, vtx_count);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, int, int, void> ImDrawList_PrimUnreserve_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, int, int, void> ImDrawList_PrimUnreserve_ptr;
 		public static void ImDrawList_PrimUnreserve(ImDrawListPtr self, int idx_count, int vtx_count)
 		{
 			ImDrawList_PrimUnreserve_ptr(self, idx_count, vtx_count);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, void> ImDrawList_PrimRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, void> ImDrawList_PrimRect_ptr;
 		public static void ImDrawList_PrimRect(ImDrawListPtr self, ImVec2 a, ImVec2 b, uint col)
 		{
 			ImDrawList_PrimRect_ptr(self, a, b, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_PrimRectUV_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_PrimRectUV_ptr;
 		public static void ImDrawList_PrimRectUV(ImDrawListPtr self, ImVec2 a, ImVec2 b, ImVec2 uv_a, ImVec2 uv_b, uint col)
 		{
 			ImDrawList_PrimRectUV_ptr(self, a, b, uv_a, uv_b, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_PrimQuadUV_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, uint, void> ImDrawList_PrimQuadUV_ptr;
 		public static void ImDrawList_PrimQuadUV(ImDrawListPtr self, ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 d, ImVec2 uv_a, ImVec2 uv_b, ImVec2 uv_c, ImVec2 uv_d, uint col)
 		{
 			ImDrawList_PrimQuadUV_ptr(self, a, b, c, d, uv_a, uv_b, uv_c, uv_d, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, void> ImDrawList_PrimWriteVtx_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, void> ImDrawList_PrimWriteVtx_ptr;
 		public static void ImDrawList_PrimWriteVtx(ImDrawListPtr self, ImVec2 pos, ImVec2 uv, uint col)
 		{
 			ImDrawList_PrimWriteVtx_ptr(self, pos, uv, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImDrawIdx, void> ImDrawList_PrimWriteIdx_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImDrawIdx, void> ImDrawList_PrimWriteIdx_ptr;
 		public static void ImDrawList_PrimWriteIdx(ImDrawListPtr self, ImDrawIdx idx)
 		{
 			ImDrawList_PrimWriteIdx_ptr(self, idx);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, void> ImDrawList_PrimVtx_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, void> ImDrawList_PrimVtx_ptr;
 		public static void ImDrawList_PrimVtx(ImDrawListPtr self, ImVec2 pos, ImVec2 uv, uint col)
 		{
 			ImDrawList_PrimVtx_ptr(self, pos, uv, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList__ResetForNewFrame_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList__ResetForNewFrame_ptr;
 		public static void ImDrawList__ResetForNewFrame(ImDrawListPtr self)
 		{
 			ImDrawList__ResetForNewFrame_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList__ClearFreeMemory_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList__ClearFreeMemory_ptr;
 		public static void ImDrawList__ClearFreeMemory(ImDrawListPtr self)
 		{
 			ImDrawList__ClearFreeMemory_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList__PopUnusedDrawCmd_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList__PopUnusedDrawCmd_ptr;
 		public static void ImDrawList__PopUnusedDrawCmd(ImDrawListPtr self)
 		{
 			ImDrawList__PopUnusedDrawCmd_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList__OnChangedClipRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList__OnChangedClipRect_ptr;
 		public static void ImDrawList__OnChangedClipRect(ImDrawListPtr self)
 		{
 			ImDrawList__OnChangedClipRect_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList__OnChangedTextureID_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList__OnChangedTextureID_ptr;
 		public static void ImDrawList__OnChangedTextureID(ImDrawListPtr self)
 		{
 			ImDrawList__OnChangedTextureID_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, void> ImDrawList__OnChangedVtxOffset_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, void> ImDrawList__OnChangedVtxOffset_ptr;
 		public static void ImDrawList__OnChangedVtxOffset(ImDrawListPtr self)
 		{
 			ImDrawList__OnChangedVtxOffset_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, float, int> ImDrawList__CalcCircleAutoSegmentCount_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, float, int> ImDrawList__CalcCircleAutoSegmentCount_ptr;
 		public static int ImDrawList__CalcCircleAutoSegmentCount(ImDrawListPtr self, float radius)
 		{
 			return ImDrawList__CalcCircleAutoSegmentCount_ptr(self, radius);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, int, int, int, void> ImDrawList__PathArcToFastEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, int, int, int, void> ImDrawList__PathArcToFastEx_ptr;
 		public static void ImDrawList__PathArcToFastEx(ImDrawListPtr self, ImVec2 center, float radius, int a_min_sample, int a_max_sample, int a_step)
 		{
 			ImDrawList__PathArcToFastEx_ptr(self, center, radius, a_min_sample, a_max_sample, a_step);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, float, float, int, void> ImDrawList__PathArcToN_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, float, float, int, void> ImDrawList__PathArcToN_ptr;
 		public static void ImDrawList__PathArcToN(ImDrawListPtr self, ImVec2 center, float radius, float a_min, float a_max, int num_segments)
 		{
 			ImDrawList__PathArcToN_ptr(self, center, radius, a_min, a_max, num_segments);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawData*> ImDrawData_ImDrawData_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawData*> ImDrawData_ImDrawData_ptr;
 		public static ImDrawDataPtr ImDrawData_ImDrawData()
 		{
 			return ImDrawData_ImDrawData_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawData*, void> ImDrawData_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawData*, void> ImDrawData_destroy_ptr;
 		public static void ImDrawData_destroy(ImDrawDataPtr self)
 		{
 			ImDrawData_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawData*, void> ImDrawData_Clear_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawData*, void> ImDrawData_Clear_ptr;
 		public static void ImDrawData_Clear(ImDrawDataPtr self)
 		{
 			ImDrawData_Clear_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawData*, void> ImDrawData_DeIndexAllBuffers_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawData*, void> ImDrawData_DeIndexAllBuffers_ptr;
 		public static void ImDrawData_DeIndexAllBuffers(ImDrawDataPtr self)
 		{
 			ImDrawData_DeIndexAllBuffers_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawData*, ImVec2, void> ImDrawData_ScaleClipRects_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawData*, ImVec2, void> ImDrawData_ScaleClipRects_ptr;
 		public static void ImDrawData_ScaleClipRects(ImDrawDataPtr self, ImVec2 fb_scale)
 		{
 			ImDrawData_ScaleClipRects_ptr(self, fb_scale);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontConfig*> ImFontConfig_ImFontConfig_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontConfig*> ImFontConfig_ImFontConfig_ptr;
 		public static ImFontConfigPtr ImFontConfig_ImFontConfig()
 		{
 			return ImFontConfig_ImFontConfig_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontConfig*, void> ImFontConfig_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontConfig*, void> ImFontConfig_destroy_ptr;
 		public static void ImFontConfig_destroy(ImFontConfigPtr self)
 		{
 			ImFontConfig_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*> ImFontGlyphRangesBuilder_ImFontGlyphRangesBuilder_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*> ImFontGlyphRangesBuilder_ImFontGlyphRangesBuilder_ptr;
 		public static ImFontGlyphRangesBuilder* ImFontGlyphRangesBuilder_ImFontGlyphRangesBuilder()
 		{
 			return ImFontGlyphRangesBuilder_ImFontGlyphRangesBuilder_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, void> ImFontGlyphRangesBuilder_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, void> ImFontGlyphRangesBuilder_destroy_ptr;
 		public static void ImFontGlyphRangesBuilder_destroy(ImFontGlyphRangesBuilder* self)
 		{
 			ImFontGlyphRangesBuilder_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, void> ImFontGlyphRangesBuilder_Clear_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, void> ImFontGlyphRangesBuilder_Clear_ptr;
 		public static void ImFontGlyphRangesBuilder_Clear(ImFontGlyphRangesBuilder* self)
 		{
 			ImFontGlyphRangesBuilder_Clear_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, IntPtr, bool> ImFontGlyphRangesBuilder_GetBit_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, IntPtr, bool> ImFontGlyphRangesBuilder_GetBit_ptr;
 		public static bool ImFontGlyphRangesBuilder_GetBit(ImFontGlyphRangesBuilder* self, IntPtr n)
 		{
 			return ImFontGlyphRangesBuilder_GetBit_ptr(self, n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, IntPtr, void> ImFontGlyphRangesBuilder_SetBit_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, IntPtr, void> ImFontGlyphRangesBuilder_SetBit_ptr;
 		public static void ImFontGlyphRangesBuilder_SetBit(ImFontGlyphRangesBuilder* self, IntPtr n)
 		{
 			ImFontGlyphRangesBuilder_SetBit_ptr(self, n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, char, void> ImFontGlyphRangesBuilder_AddChar_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, char, void> ImFontGlyphRangesBuilder_AddChar_ptr;
 		public static void ImFontGlyphRangesBuilder_AddChar(ImFontGlyphRangesBuilder* self, char c)
 		{
 			ImFontGlyphRangesBuilder_AddChar_ptr(self, c);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, byte*, byte*, void> ImFontGlyphRangesBuilder_AddText_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, byte*, byte*, void> ImFontGlyphRangesBuilder_AddText_ptr;
 		public static void ImFontGlyphRangesBuilder_AddText(ImFontGlyphRangesBuilder* self, string text, string text_end)
 		{
 			using var p_text = new StringHelper(text);
@@ -3597,117 +3597,117 @@ namespace SharpImGUI
 			ImFontGlyphRangesBuilder_AddText_ptr(self, p_text, p_text_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, char*, void> ImFontGlyphRangesBuilder_AddRanges_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, char*, void> ImFontGlyphRangesBuilder_AddRanges_ptr;
 		public static void ImFontGlyphRangesBuilder_AddRanges(ImFontGlyphRangesBuilder* self, char* ranges)
 		{
 			ImFontGlyphRangesBuilder_AddRanges_ptr(self, ranges);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, ImVector<char>*, void> ImFontGlyphRangesBuilder_BuildRanges_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, ImVector<char>*, void> ImFontGlyphRangesBuilder_BuildRanges_ptr;
 		public static void ImFontGlyphRangesBuilder_BuildRanges(ImFontGlyphRangesBuilder* self, ImVector<char>* out_ranges)
 		{
 			ImFontGlyphRangesBuilder_BuildRanges_ptr(self, out_ranges);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlasCustomRect*> ImFontAtlasCustomRect_ImFontAtlasCustomRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlasCustomRect*> ImFontAtlasCustomRect_ImFontAtlasCustomRect_ptr;
 		public static ImFontAtlasCustomRect* ImFontAtlasCustomRect_ImFontAtlasCustomRect()
 		{
 			return ImFontAtlasCustomRect_ImFontAtlasCustomRect_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlasCustomRect*, void> ImFontAtlasCustomRect_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlasCustomRect*, void> ImFontAtlasCustomRect_destroy_ptr;
 		public static void ImFontAtlasCustomRect_destroy(ImFontAtlasCustomRect* self)
 		{
 			ImFontAtlasCustomRect_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlasCustomRect*, bool> ImFontAtlasCustomRect_IsPacked_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlasCustomRect*, bool> ImFontAtlasCustomRect_IsPacked_ptr;
 		public static bool ImFontAtlasCustomRect_IsPacked(ImFontAtlasCustomRect* self)
 		{
 			return ImFontAtlasCustomRect_IsPacked_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*> ImFontAtlas_ImFontAtlas_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*> ImFontAtlas_ImFontAtlas_ptr;
 		public static ImFontAtlasPtr ImFontAtlas_ImFontAtlas()
 		{
 			return ImFontAtlas_ImFontAtlas_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlas_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, void> ImFontAtlas_destroy_ptr;
 		public static void ImFontAtlas_destroy(ImFontAtlasPtr self)
 		{
 			ImFontAtlas_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFontConfig*, ImFont*> ImFontAtlas_AddFont_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, ImFontConfig*, ImFont*> ImFontAtlas_AddFont_ptr;
 		public static ImFontPtr ImFontAtlas_AddFont(ImFontAtlasPtr self, ImFontConfigPtr font_cfg)
 		{
 			return ImFontAtlas_AddFont_ptr(self, font_cfg);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFontConfig*, ImFont*> ImFontAtlas_AddFontDefault_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, ImFontConfig*, ImFont*> ImFontAtlas_AddFontDefault_ptr;
 		public static ImFontPtr ImFontAtlas_AddFontDefault(ImFontAtlasPtr self, ImFontConfigPtr font_cfg)
 		{
 			return ImFontAtlas_AddFontDefault_ptr(self, font_cfg);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, byte*, float, ImFontConfig*, char*, ImFont*> ImFontAtlas_AddFontFromFileTTF_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, byte*, float, ImFontConfig*, char*, ImFont*> ImFontAtlas_AddFontFromFileTTF_ptr;
 		public static ImFontPtr ImFontAtlas_AddFontFromFileTTF(ImFontAtlasPtr self, string filename, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges)
 		{
 			using var p_filename = new StringHelper(filename);
 			return ImFontAtlas_AddFontFromFileTTF_ptr(self, p_filename, size_pixels, font_cfg, glyph_ranges);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, IntPtr, int, float, ImFontConfig*, char*, ImFont*> ImFontAtlas_AddFontFromMemoryTTF_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, IntPtr, int, float, ImFontConfig*, char*, ImFont*> ImFontAtlas_AddFontFromMemoryTTF_ptr;
 		public static ImFontPtr ImFontAtlas_AddFontFromMemoryTTF(ImFontAtlasPtr self, IntPtr font_data, int font_size, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges)
 		{
 			return ImFontAtlas_AddFontFromMemoryTTF_ptr(self, font_data, font_size, size_pixels, font_cfg, glyph_ranges);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, IntPtr, int, float, ImFontConfig*, char*, ImFont*> ImFontAtlas_AddFontFromMemoryCompressedTTF_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, IntPtr, int, float, ImFontConfig*, char*, ImFont*> ImFontAtlas_AddFontFromMemoryCompressedTTF_ptr;
 		public static ImFontPtr ImFontAtlas_AddFontFromMemoryCompressedTTF(ImFontAtlasPtr self, IntPtr compressed_font_data, int compressed_font_size, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges)
 		{
 			return ImFontAtlas_AddFontFromMemoryCompressedTTF_ptr(self, compressed_font_data, compressed_font_size, size_pixels, font_cfg, glyph_ranges);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, byte*, float, ImFontConfig*, char*, ImFont*> ImFontAtlas_AddFontFromMemoryCompressedBase85TTF_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, byte*, float, ImFontConfig*, char*, ImFont*> ImFontAtlas_AddFontFromMemoryCompressedBase85TTF_ptr;
 		public static ImFontPtr ImFontAtlas_AddFontFromMemoryCompressedBase85TTF(ImFontAtlasPtr self, string compressed_font_data_base85, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges)
 		{
 			using var p_compressed_font_data_base85 = new StringHelper(compressed_font_data_base85);
 			return ImFontAtlas_AddFontFromMemoryCompressedBase85TTF_ptr(self, p_compressed_font_data_base85, size_pixels, font_cfg, glyph_ranges);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlas_ClearInputData_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, void> ImFontAtlas_ClearInputData_ptr;
 		public static void ImFontAtlas_ClearInputData(ImFontAtlasPtr self)
 		{
 			ImFontAtlas_ClearInputData_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlas_ClearTexData_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, void> ImFontAtlas_ClearTexData_ptr;
 		public static void ImFontAtlas_ClearTexData(ImFontAtlasPtr self)
 		{
 			ImFontAtlas_ClearTexData_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlas_ClearFonts_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, void> ImFontAtlas_ClearFonts_ptr;
 		public static void ImFontAtlas_ClearFonts(ImFontAtlasPtr self)
 		{
 			ImFontAtlas_ClearFonts_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlas_Clear_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, void> ImFontAtlas_Clear_ptr;
 		public static void ImFontAtlas_Clear(ImFontAtlasPtr self)
 		{
 			ImFontAtlas_Clear_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, bool> ImFontAtlas_Build_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, bool> ImFontAtlas_Build_ptr;
 		public static bool ImFontAtlas_Build(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_Build_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, byte**, int*, int*, int*, void> ImFontAtlas_GetTexDataAsAlpha8_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, byte**, int*, int*, int*, void> ImFontAtlas_GetTexDataAsAlpha8_ptr;
 		public static void ImFontAtlas_GetTexDataAsAlpha8(ImFontAtlasPtr self, out byte* out_pixels, out int out_width, out int out_height, out int out_bytes_per_pixel)
 		{
 			fixed(byte** p_out_pixels = &out_pixels)
@@ -3719,7 +3719,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, byte**, int*, int*, int*, void> ImFontAtlas_GetTexDataAsRGBA32_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, byte**, int*, int*, int*, void> ImFontAtlas_GetTexDataAsRGBA32_ptr;
 		public static void ImFontAtlas_GetTexDataAsRGBA32(ImFontAtlasPtr self, out byte* out_pixels, out int out_width, out int out_height, out int out_bytes_per_pixel)
 		{
 			fixed(byte** p_out_pixels = &out_pixels)
@@ -3731,85 +3731,85 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, bool> ImFontAtlas_IsBuilt_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, bool> ImFontAtlas_IsBuilt_ptr;
 		public static bool ImFontAtlas_IsBuilt(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_IsBuilt_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImTextureID, void> ImFontAtlas_SetTexID_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, ImTextureID, void> ImFontAtlas_SetTexID_ptr;
 		public static void ImFontAtlas_SetTexID(ImFontAtlasPtr self, ImTextureID id)
 		{
 			ImFontAtlas_SetTexID_ptr(self, id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesDefault_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesDefault_ptr;
 		public static char* ImFontAtlas_GetGlyphRangesDefault(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesDefault_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesKorean_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesKorean_ptr;
 		public static char* ImFontAtlas_GetGlyphRangesKorean(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesKorean_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesJapanese_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesJapanese_ptr;
 		public static char* ImFontAtlas_GetGlyphRangesJapanese(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesJapanese_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesChineseFull_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesChineseFull_ptr;
 		public static char* ImFontAtlas_GetGlyphRangesChineseFull(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesChineseFull_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon_ptr;
 		public static char* ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesCyrillic_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesCyrillic_ptr;
 		public static char* ImFontAtlas_GetGlyphRangesCyrillic(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesCyrillic_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesThai_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesThai_ptr;
 		public static char* ImFontAtlas_GetGlyphRangesThai(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesThai_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesVietnamese_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, char*> ImFontAtlas_GetGlyphRangesVietnamese_ptr;
 		public static char* ImFontAtlas_GetGlyphRangesVietnamese(ImFontAtlasPtr self)
 		{
 			return ImFontAtlas_GetGlyphRangesVietnamese_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, int, int, int> ImFontAtlas_AddCustomRectRegular_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, int, int, int> ImFontAtlas_AddCustomRectRegular_ptr;
 		public static int ImFontAtlas_AddCustomRectRegular(ImFontAtlasPtr self, int width, int height)
 		{
 			return ImFontAtlas_AddCustomRectRegular_ptr(self, width, height);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFont*, char, int, int, float, ImVec2, int> ImFontAtlas_AddCustomRectFontGlyph_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, ImFont*, char, int, int, float, ImVec2, int> ImFontAtlas_AddCustomRectFontGlyph_ptr;
 		public static int ImFontAtlas_AddCustomRectFontGlyph(ImFontAtlasPtr self, ImFontPtr font, char id, int width, int height, float advance_x, ImVec2 offset)
 		{
 			return ImFontAtlas_AddCustomRectFontGlyph_ptr(self, font, id, width, height, advance_x, offset);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, int, ImFontAtlasCustomRect*> ImFontAtlas_GetCustomRectByIndex_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, int, ImFontAtlasCustomRect*> ImFontAtlas_GetCustomRectByIndex_ptr;
 		public static ImFontAtlasCustomRect* ImFontAtlas_GetCustomRectByIndex(ImFontAtlasPtr self, int index)
 		{
 			return ImFontAtlas_GetCustomRectByIndex_ptr(self, index);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFontAtlasCustomRect*, ImVec2*, ImVec2*, void> ImFontAtlas_CalcCustomRectUV_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, ImFontAtlasCustomRect*, ImVec2*, ImVec2*, void> ImFontAtlas_CalcCustomRectUV_ptr;
 		public static void ImFontAtlas_CalcCustomRectUV(ImFontAtlasPtr self, ImFontAtlasCustomRect* rect, out ImVec2 out_uv_min, out ImVec2 out_uv_max)
 		{
 			fixed(ImVec2* p_out_uv_min = &out_uv_min)
@@ -3819,7 +3819,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiMouseCursor, ImVec2*, ImVec2*, ImVec2*, ImVec2*, bool> ImFontAtlas_GetMouseCursorTexData_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, ImGuiMouseCursor, ImVec2*, ImVec2*, ImVec2*, ImVec2*, bool> ImFontAtlas_GetMouseCursorTexData_ptr;
 		public static bool ImFontAtlas_GetMouseCursorTexData(ImFontAtlasPtr self, ImGuiMouseCursor cursor, out ImVec2 out_offset, out ImVec2 out_size, ImVec2* out_uv_border, ImVec2* out_uv_fill)
 		{
 			fixed(ImVec2* p_out_offset = &out_offset)
@@ -3829,49 +3829,49 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*> ImFont_ImFont_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*> ImFont_ImFont_ptr;
 		public static ImFontPtr ImFont_ImFont()
 		{
 			return ImFont_ImFont_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, void> ImFont_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, void> ImFont_destroy_ptr;
 		public static void ImFont_destroy(ImFontPtr self)
 		{
 			ImFont_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, char, ImFontGlyph*> ImFont_FindGlyph_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, char, ImFontGlyph*> ImFont_FindGlyph_ptr;
 		public static ImFontGlyph* ImFont_FindGlyph(ImFontPtr self, char c)
 		{
 			return ImFont_FindGlyph_ptr(self, c);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, char, ImFontGlyph*> ImFont_FindGlyphNoFallback_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, char, ImFontGlyph*> ImFont_FindGlyphNoFallback_ptr;
 		public static ImFontGlyph* ImFont_FindGlyphNoFallback(ImFontPtr self, char c)
 		{
 			return ImFont_FindGlyphNoFallback_ptr(self, c);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, char, float> ImFont_GetCharAdvance_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, char, float> ImFont_GetCharAdvance_ptr;
 		public static float ImFont_GetCharAdvance(ImFontPtr self, char c)
 		{
 			return ImFont_GetCharAdvance_ptr(self, c);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, bool> ImFont_IsLoaded_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, bool> ImFont_IsLoaded_ptr;
 		public static bool ImFont_IsLoaded(ImFontPtr self)
 		{
 			return ImFont_IsLoaded_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, byte*> ImFont_GetDebugName_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, byte*> ImFont_GetDebugName_ptr;
 		public static byte* ImFont_GetDebugName(ImFontPtr self)
 		{
 			return ImFont_GetDebugName_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImFont*, float, float, float, byte*, byte*, byte**, void> ImFont_CalcTextSizeA_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImFont*, float, float, float, byte*, byte*, byte**, void> ImFont_CalcTextSizeA_ptr;
 		public static void ImFont_CalcTextSizeA(out ImVec2 @out, ImFontPtr self, float size, float max_width, float wrap_width, string text_begin, string text_end, ref byte* remaining)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -3883,7 +3883,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, float, byte*, byte*, float, byte*> ImFont_CalcWordWrapPositionA_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, float, byte*, byte*, float, byte*> ImFont_CalcWordWrapPositionA_ptr;
 		public static byte* ImFont_CalcWordWrapPositionA(ImFontPtr self, float scale, string text, string text_end, float wrap_width)
 		{
 			using var p_text = new StringHelper(text);
@@ -3891,13 +3891,13 @@ namespace SharpImGUI
 			return ImFont_CalcWordWrapPositionA_ptr(self, scale, p_text, p_text_end, wrap_width);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, ImDrawList*, float, ImVec2, uint, char, void> ImFont_RenderChar_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, ImDrawList*, float, ImVec2, uint, char, void> ImFont_RenderChar_ptr;
 		public static void ImFont_RenderChar(ImFontPtr self, ImDrawListPtr draw_list, float size, ImVec2 pos, uint col, char c)
 		{
 			ImFont_RenderChar_ptr(self, draw_list, size, pos, col, c);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, ImDrawList*, float, ImVec2, uint, ImVec4, byte*, byte*, float, bool, void> ImFont_RenderText_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, ImDrawList*, float, ImVec2, uint, ImVec4, byte*, byte*, float, bool, void> ImFont_RenderText_ptr;
 		public static void ImFont_RenderText(ImFontPtr self, ImDrawListPtr draw_list, float size, ImVec2 pos, uint col, ImVec4 clip_rect, string text_begin, string text_end, float wrap_width, bool cpu_fine_clip)
 		{
 			using var p_text_begin = new StringHelper(text_begin);
@@ -3905,67 +3905,67 @@ namespace SharpImGUI
 			ImFont_RenderText_ptr(self, draw_list, size, pos, col, clip_rect, p_text_begin, p_text_end, wrap_width, cpu_fine_clip);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, void> ImFont_BuildLookupTable_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, void> ImFont_BuildLookupTable_ptr;
 		public static void ImFont_BuildLookupTable(ImFontPtr self)
 		{
 			ImFont_BuildLookupTable_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, void> ImFont_ClearOutputData_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, void> ImFont_ClearOutputData_ptr;
 		public static void ImFont_ClearOutputData(ImFontPtr self)
 		{
 			ImFont_ClearOutputData_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, int, void> ImFont_GrowIndex_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, int, void> ImFont_GrowIndex_ptr;
 		public static void ImFont_GrowIndex(ImFontPtr self, int new_size)
 		{
 			ImFont_GrowIndex_ptr(self, new_size);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, ImFontConfig*, char, float, float, float, float, float, float, float, float, float, void> ImFont_AddGlyph_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, ImFontConfig*, char, float, float, float, float, float, float, float, float, float, void> ImFont_AddGlyph_ptr;
 		public static void ImFont_AddGlyph(ImFontPtr self, ImFontConfigPtr src_cfg, char c, float x0, float y0, float x1, float y1, float u0, float v0, float u1, float v1, float advance_x)
 		{
 			ImFont_AddGlyph_ptr(self, src_cfg, c, x0, y0, x1, y1, u0, v0, u1, v1, advance_x);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, char, char, bool, void> ImFont_AddRemapChar_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, char, char, bool, void> ImFont_AddRemapChar_ptr;
 		public static void ImFont_AddRemapChar(ImFontPtr self, char dst, char src, bool overwrite_dst)
 		{
 			ImFont_AddRemapChar_ptr(self, dst, src, overwrite_dst);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, char, bool, void> ImFont_SetGlyphVisible_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, char, bool, void> ImFont_SetGlyphVisible_ptr;
 		public static void ImFont_SetGlyphVisible(ImFontPtr self, char c, bool visible)
 		{
 			ImFont_SetGlyphVisible_ptr(self, c, visible);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, char, void> ImFont_SetFallbackChar_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, char, void> ImFont_SetFallbackChar_ptr;
 		public static void ImFont_SetFallbackChar(ImFontPtr self, char c)
 		{
 			ImFont_SetFallbackChar_ptr(self, c);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, uint, uint, bool> ImFont_IsGlyphRangeUnused_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, uint, uint, bool> ImFont_IsGlyphRangeUnused_ptr;
 		public static bool ImFont_IsGlyphRangeUnused(ImFontPtr self, uint c_begin, uint c_last)
 		{
 			return ImFont_IsGlyphRangeUnused_ptr(self, c_begin, c_last);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewport*> ImGuiViewport_ImGuiViewport_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewport*> ImGuiViewport_ImGuiViewport_ptr;
 		public static ImGuiViewportPtr ImGuiViewport_ImGuiViewport()
 		{
 			return ImGuiViewport_ImGuiViewport_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewport*, void> ImGuiViewport_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewport*, void> ImGuiViewport_destroy_ptr;
 		public static void ImGuiViewport_destroy(ImGuiViewportPtr self)
 		{
 			ImGuiViewport_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiViewport*, void> ImGuiViewport_GetCenter_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiViewport*, void> ImGuiViewport_GetCenter_ptr;
 		public static void ImGuiViewport_GetCenter(out ImVec2 @out, ImGuiViewportPtr self)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -3974,7 +3974,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiViewport*, void> ImGuiViewport_GetWorkCenter_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiViewport*, void> ImGuiViewport_GetWorkCenter_ptr;
 		public static void ImGuiViewport_GetWorkCenter(out ImVec2 @out, ImGuiViewportPtr self)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -3983,68 +3983,68 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPlatformIO*> ImGuiPlatformIO_ImGuiPlatformIO_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPlatformIO*> ImGuiPlatformIO_ImGuiPlatformIO_ptr;
 		public static ImGuiPlatformIO* ImGuiPlatformIO_ImGuiPlatformIO()
 		{
 			return ImGuiPlatformIO_ImGuiPlatformIO_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPlatformIO*, void> ImGuiPlatformIO_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPlatformIO*, void> ImGuiPlatformIO_destroy_ptr;
 		public static void ImGuiPlatformIO_destroy(ImGuiPlatformIO* self)
 		{
 			ImGuiPlatformIO_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPlatformMonitor*> ImGuiPlatformMonitor_ImGuiPlatformMonitor_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPlatformMonitor*> ImGuiPlatformMonitor_ImGuiPlatformMonitor_ptr;
 		public static ImGuiPlatformMonitor* ImGuiPlatformMonitor_ImGuiPlatformMonitor()
 		{
 			return ImGuiPlatformMonitor_ImGuiPlatformMonitor_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPlatformMonitor*, void> ImGuiPlatformMonitor_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPlatformMonitor*, void> ImGuiPlatformMonitor_destroy_ptr;
 		public static void ImGuiPlatformMonitor_destroy(ImGuiPlatformMonitor* self)
 		{
 			ImGuiPlatformMonitor_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, IntPtr, uint, ImGuiID> ImHashData_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, IntPtr, uint, ImGuiID> ImHashData_ptr;
 		public static ImGuiID ImHashData(IntPtr data, IntPtr data_size, uint seed)
 		{
 			return ImHashData_ptr(data, data_size, seed);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, IntPtr, uint, ImGuiID> ImHashStr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, IntPtr, uint, ImGuiID> ImHashStr_ptr;
 		public static ImGuiID ImHashStr(string data, IntPtr data_size, uint seed)
 		{
 			using var p_data = new StringHelper(data);
 			return ImHashStr_ptr(p_data, data_size, seed);
 		}
 
-		static delegate* unmanaged[Stdcall]<uint, uint, uint> ImAlphaBlendColors_ptr;
+		static delegate* unmanaged[Cdecl]<uint, uint, uint> ImAlphaBlendColors_ptr;
 		public static uint ImAlphaBlendColors(uint col_a, uint col_b)
 		{
 			return ImAlphaBlendColors_ptr(col_a, col_b);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, bool> ImIsPowerOfTwoInt_ptr;
+		static delegate* unmanaged[Cdecl]<int, bool> ImIsPowerOfTwoInt_ptr;
 		public static bool ImIsPowerOfTwoInt(int v)
 		{
 			return ImIsPowerOfTwoInt_ptr(v);
 		}
 
-		static delegate* unmanaged[Stdcall]<ulong, bool> ImIsPowerOfTwoU64_ptr;
+		static delegate* unmanaged[Cdecl]<ulong, bool> ImIsPowerOfTwoU64_ptr;
 		public static bool ImIsPowerOfTwoU64(ulong v)
 		{
 			return ImIsPowerOfTwoU64_ptr(v);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, int> ImUpperPowerOfTwo_ptr;
+		static delegate* unmanaged[Cdecl]<int, int> ImUpperPowerOfTwo_ptr;
 		public static int ImUpperPowerOfTwo(int v)
 		{
 			return ImUpperPowerOfTwo_ptr(v);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, int> ImStricmp_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, int> ImStricmp_ptr;
 		public static int ImStricmp(string str1, string str2)
 		{
 			using var p_str1 = new StringHelper(str1);
@@ -4052,7 +4052,7 @@ namespace SharpImGUI
 			return ImStricmp_ptr(p_str1, p_str2);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr, int> ImStrnicmp_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, IntPtr, int> ImStrnicmp_ptr;
 		public static int ImStrnicmp(string str1, string str2, IntPtr count)
 		{
 			using var p_str1 = new StringHelper(str1);
@@ -4060,21 +4060,21 @@ namespace SharpImGUI
 			return ImStrnicmp_ptr(p_str1, p_str2, count);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr, void> ImStrncpy_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, IntPtr, void> ImStrncpy_ptr;
 		public static void ImStrncpy(byte* dst, string src, IntPtr count)
 		{
 			using var p_src = new StringHelper(src);
 			ImStrncpy_ptr(dst, p_src, count);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*> ImStrdup_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*> ImStrdup_ptr;
 		public static byte* ImStrdup(string str)
 		{
 			using var p_str = new StringHelper(str);
 			return ImStrdup_ptr(p_str);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, IntPtr*, byte*, byte*> ImStrdupcpy_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, IntPtr*, byte*, byte*> ImStrdupcpy_ptr;
 		public static byte* ImStrdupcpy(byte* dst, ref IntPtr p_dst_size, string str)
 		{
 			fixed(IntPtr* p_p_dst_size = &p_dst_size)
@@ -4084,7 +4084,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, byte, byte*> ImStrchrRange_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, byte, byte*> ImStrchrRange_ptr;
 		public static byte* ImStrchrRange(string str_begin, string str_end, byte c)
 		{
 			using var p_str_begin = new StringHelper(str_begin);
@@ -4092,13 +4092,13 @@ namespace SharpImGUI
 			return ImStrchrRange_ptr(p_str_begin, p_str_end, c);
 		}
 
-		static delegate* unmanaged[Stdcall]<char*, int> ImStrlenW_ptr;
+		static delegate* unmanaged[Cdecl]<char*, int> ImStrlenW_ptr;
 		public static int ImStrlenW(char* str)
 		{
 			return ImStrlenW_ptr(str);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, byte*> ImStreolRange_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, byte*> ImStreolRange_ptr;
 		public static byte* ImStreolRange(string str, string str_end)
 		{
 			using var p_str = new StringHelper(str);
@@ -4106,13 +4106,13 @@ namespace SharpImGUI
 			return ImStreolRange_ptr(p_str, p_str_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<char*, char*, char*> ImStrbolW_ptr;
+		static delegate* unmanaged[Cdecl]<char*, char*, char*> ImStrbolW_ptr;
 		public static char* ImStrbolW(char* buf_mid_line, char* buf_begin)
 		{
 			return ImStrbolW_ptr(buf_mid_line, buf_begin);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, byte*, byte*, byte*> ImStristr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, byte*, byte*, byte*> ImStristr_ptr;
 		public static byte* ImStristr(string haystack, string haystack_end, string needle, string needle_end)
 		{
 			using var p_haystack = new StringHelper(haystack);
@@ -4122,73 +4122,73 @@ namespace SharpImGUI
 			return ImStristr_ptr(p_haystack, p_haystack_end, p_needle, p_needle_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> ImStrTrimBlanks_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> ImStrTrimBlanks_ptr;
 		public static void ImStrTrimBlanks(byte* str)
 		{
 			ImStrTrimBlanks_ptr(str);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*> ImStrSkipBlank_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*> ImStrSkipBlank_ptr;
 		public static byte* ImStrSkipBlank(string str)
 		{
 			using var p_str = new StringHelper(str);
 			return ImStrSkipBlank_ptr(p_str);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, IntPtr, byte*, int> ImFormatString_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, IntPtr, byte*, int> ImFormatString_ptr;
 		public static int ImFormatString(byte* buf, IntPtr buf_size, string fmt)
 		{
 			using var p_fmt = new StringHelper(fmt);
 			return ImFormatString_ptr(buf, buf_size, p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*> ImParseFormatFindStart_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*> ImParseFormatFindStart_ptr;
 		public static byte* ImParseFormatFindStart(string format)
 		{
 			using var p_format = new StringHelper(format);
 			return ImParseFormatFindStart_ptr(p_format);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*> ImParseFormatFindEnd_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*> ImParseFormatFindEnd_ptr;
 		public static byte* ImParseFormatFindEnd(string format)
 		{
 			using var p_format = new StringHelper(format);
 			return ImParseFormatFindEnd_ptr(p_format);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr, byte*> ImParseFormatTrimDecorations_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, IntPtr, byte*> ImParseFormatTrimDecorations_ptr;
 		public static byte* ImParseFormatTrimDecorations(string format, byte* buf, IntPtr buf_size)
 		{
 			using var p_format = new StringHelper(format);
 			return ImParseFormatTrimDecorations_ptr(p_format, buf, buf_size);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, int> ImParseFormatPrecision_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int, int> ImParseFormatPrecision_ptr;
 		public static int ImParseFormatPrecision(string format, int default_value)
 		{
 			using var p_format = new StringHelper(format);
 			return ImParseFormatPrecision_ptr(p_format, default_value);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte, bool> ImCharIsBlankA_ptr;
+		static delegate* unmanaged[Cdecl]<byte, bool> ImCharIsBlankA_ptr;
 		public static bool ImCharIsBlankA(byte c)
 		{
 			return ImCharIsBlankA_ptr(c);
 		}
 
-		static delegate* unmanaged[Stdcall]<uint, bool> ImCharIsBlankW_ptr;
+		static delegate* unmanaged[Cdecl]<uint, bool> ImCharIsBlankW_ptr;
 		public static bool ImCharIsBlankW(uint c)
 		{
 			return ImCharIsBlankW_ptr(c);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, char*, char*, int> ImTextStrToUtf8_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int, char*, char*, int> ImTextStrToUtf8_ptr;
 		public static int ImTextStrToUtf8(byte* buf, int buf_size, char* in_text, char* in_text_end)
 		{
 			return ImTextStrToUtf8_ptr(buf, buf_size, in_text, in_text_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<uint*, byte*, byte*, int> ImTextCharFromUtf8_ptr;
+		static delegate* unmanaged[Cdecl]<uint*, byte*, byte*, int> ImTextCharFromUtf8_ptr;
 		public static int ImTextCharFromUtf8(out uint out_char, string in_text, string in_text_end)
 		{
 			fixed(uint* p_out_char = &out_char)
@@ -4199,7 +4199,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<char*, int, byte*, byte*, byte**, int> ImTextStrFromUtf8_ptr;
+		static delegate* unmanaged[Cdecl]<char*, int, byte*, byte*, byte**, int> ImTextStrFromUtf8_ptr;
 		public static int ImTextStrFromUtf8(ref char buf, int buf_size, string in_text, string in_text_end, ref byte* in_remaining)
 		{
 			fixed(char* p_buf = &buf)
@@ -4211,7 +4211,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, int> ImTextCountCharsFromUtf8_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, int> ImTextCountCharsFromUtf8_ptr;
 		public static int ImTextCountCharsFromUtf8(string in_text, string in_text_end)
 		{
 			using var p_in_text = new StringHelper(in_text);
@@ -4219,7 +4219,7 @@ namespace SharpImGUI
 			return ImTextCountCharsFromUtf8_ptr(p_in_text, p_in_text_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, int> ImTextCountUtf8BytesFromChar_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, int> ImTextCountUtf8BytesFromChar_ptr;
 		public static int ImTextCountUtf8BytesFromChar(string in_text, string in_text_end)
 		{
 			using var p_in_text = new StringHelper(in_text);
@@ -4227,13 +4227,13 @@ namespace SharpImGUI
 			return ImTextCountUtf8BytesFromChar_ptr(p_in_text, p_in_text_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<char*, char*, int> ImTextCountUtf8BytesFromStr_ptr;
+		static delegate* unmanaged[Cdecl]<char*, char*, int> ImTextCountUtf8BytesFromStr_ptr;
 		public static int ImTextCountUtf8BytesFromStr(char* in_text, char* in_text_end)
 		{
 			return ImTextCountUtf8BytesFromStr_ptr(in_text, in_text_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, ImFileHandle> ImFileOpen_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, ImFileHandle> ImFileOpen_ptr;
 		public static ImFileHandle ImFileOpen(string filename, string mode)
 		{
 			using var p_filename = new StringHelper(filename);
@@ -4241,31 +4241,31 @@ namespace SharpImGUI
 			return ImFileOpen_ptr(p_filename, p_mode);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFileHandle, bool> ImFileClose_ptr;
+		static delegate* unmanaged[Cdecl]<ImFileHandle, bool> ImFileClose_ptr;
 		public static bool ImFileClose(ImFileHandle file)
 		{
 			return ImFileClose_ptr(file);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFileHandle, ulong> ImFileGetSize_ptr;
+		static delegate* unmanaged[Cdecl]<ImFileHandle, ulong> ImFileGetSize_ptr;
 		public static ulong ImFileGetSize(ImFileHandle file)
 		{
 			return ImFileGetSize_ptr(file);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, ulong, ulong, ImFileHandle, ulong> ImFileRead_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, ulong, ulong, ImFileHandle, ulong> ImFileRead_ptr;
 		public static ulong ImFileRead(IntPtr data, ulong size, ulong count, ImFileHandle file)
 		{
 			return ImFileRead_ptr(data, size, count, file);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, ulong, ulong, ImFileHandle, ulong> ImFileWrite_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, ulong, ulong, ImFileHandle, ulong> ImFileWrite_ptr;
 		public static ulong ImFileWrite(IntPtr data, ulong size, ulong count, ImFileHandle file)
 		{
 			return ImFileWrite_ptr(data, size, count, file);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr*, int, IntPtr> ImFileLoadToMemory_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, IntPtr*, int, IntPtr> ImFileLoadToMemory_ptr;
 		public static IntPtr ImFileLoadToMemory(string filename, string mode, out IntPtr out_file_size, int padding_bytes)
 		{
 			fixed(IntPtr* p_out_file_size = &out_file_size)
@@ -4276,55 +4276,55 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float, float> ImPowFloat_ptr;
+		static delegate* unmanaged[Cdecl]<float, float, float> ImPowFloat_ptr;
 		public static float ImPowFloat(float x, float y)
 		{
 			return ImPowFloat_ptr(x, y);
 		}
 
-		static delegate* unmanaged[Stdcall]<double, double, double> ImPowdouble_ptr;
+		static delegate* unmanaged[Cdecl]<double, double, double> ImPowdouble_ptr;
 		public static double ImPowdouble(double x, double y)
 		{
 			return ImPowdouble_ptr(x, y);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float> ImLogFloat_ptr;
+		static delegate* unmanaged[Cdecl]<float, float> ImLogFloat_ptr;
 		public static float ImLogFloat(float x)
 		{
 			return ImLogFloat_ptr(x);
 		}
 
-		static delegate* unmanaged[Stdcall]<double, double> ImLogdouble_ptr;
+		static delegate* unmanaged[Cdecl]<double, double> ImLogdouble_ptr;
 		public static double ImLogdouble(double x)
 		{
 			return ImLogdouble_ptr(x);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float> ImAbsFloat_ptr;
+		static delegate* unmanaged[Cdecl]<float, float> ImAbsFloat_ptr;
 		public static float ImAbsFloat(float x)
 		{
 			return ImAbsFloat_ptr(x);
 		}
 
-		static delegate* unmanaged[Stdcall]<double, double> ImAbsdouble_ptr;
+		static delegate* unmanaged[Cdecl]<double, double> ImAbsdouble_ptr;
 		public static double ImAbsdouble(double x)
 		{
 			return ImAbsdouble_ptr(x);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float> ImSignFloat_ptr;
+		static delegate* unmanaged[Cdecl]<float, float> ImSignFloat_ptr;
 		public static float ImSignFloat(float x)
 		{
 			return ImSignFloat_ptr(x);
 		}
 
-		static delegate* unmanaged[Stdcall]<double, double> ImSigndouble_ptr;
+		static delegate* unmanaged[Cdecl]<double, double> ImSigndouble_ptr;
 		public static double ImSigndouble(double x)
 		{
 			return ImSigndouble_ptr(x);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, void> ImMin_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, void> ImMin_ptr;
 		public static void ImMin(out ImVec2 @out, ImVec2 lhs, ImVec2 rhs)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4333,7 +4333,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, void> ImMax_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, void> ImMax_ptr;
 		public static void ImMax(out ImVec2 @out, ImVec2 lhs, ImVec2 rhs)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4342,7 +4342,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, void> ImClamp_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, void> ImClamp_ptr;
 		public static void ImClamp(out ImVec2 @out, ImVec2 v, ImVec2 mn, ImVec2 mx)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4351,7 +4351,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, float, void> ImLerpVec2Float_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, float, void> ImLerpVec2Float_ptr;
 		public static void ImLerpVec2Float(out ImVec2 @out, ImVec2 a, ImVec2 b, float t)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4360,7 +4360,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, void> ImLerpVec2Vec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, void> ImLerpVec2Vec2_ptr;
 		public static void ImLerpVec2Vec2(out ImVec2 @out, ImVec2 a, ImVec2 b, ImVec2 t)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4369,7 +4369,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec4*, ImVec4, ImVec4, float, void> ImLerpVec4_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec4*, ImVec4, ImVec4, float, void> ImLerpVec4_ptr;
 		public static void ImLerpVec4(out ImVec4 @out, ImVec4 a, ImVec4 b, float t)
 		{
 			fixed(ImVec4* p_out = &@out)
@@ -4378,37 +4378,37 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float> ImSaturate_ptr;
+		static delegate* unmanaged[Cdecl]<float, float> ImSaturate_ptr;
 		public static float ImSaturate(float f)
 		{
 			return ImSaturate_ptr(f);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, float> ImLengthSqrVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, float> ImLengthSqrVec2_ptr;
 		public static float ImLengthSqrVec2(ImVec2 lhs)
 		{
 			return ImLengthSqrVec2_ptr(lhs);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec4, float> ImLengthSqrVec4_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec4, float> ImLengthSqrVec4_ptr;
 		public static float ImLengthSqrVec4(ImVec4 lhs)
 		{
 			return ImLengthSqrVec4_ptr(lhs);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, float, float> ImInvLength_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, float, float> ImInvLength_ptr;
 		public static float ImInvLength(ImVec2 lhs, float fail_value)
 		{
 			return ImInvLength_ptr(lhs, fail_value);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float> ImFloorFloat_ptr;
+		static delegate* unmanaged[Cdecl]<float, float> ImFloorFloat_ptr;
 		public static float ImFloorFloat(float f)
 		{
 			return ImFloorFloat_ptr(f);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, void> ImFloorVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, void> ImFloorVec2_ptr;
 		public static void ImFloorVec2(out ImVec2 @out, ImVec2 v)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4417,19 +4417,19 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<int, int, int> ImModPositive_ptr;
+		static delegate* unmanaged[Cdecl]<int, int, int> ImModPositive_ptr;
 		public static int ImModPositive(int a, int b)
 		{
 			return ImModPositive_ptr(a, b);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, float> ImDot_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, float> ImDot_ptr;
 		public static float ImDot(ImVec2 a, ImVec2 b)
 		{
 			return ImDot_ptr(a, b);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, float, float, void> ImRotate_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, float, float, void> ImRotate_ptr;
 		public static void ImRotate(out ImVec2 @out, ImVec2 v, float cos_a, float sin_a)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4438,13 +4438,13 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float, float, float> ImLinearSweep_ptr;
+		static delegate* unmanaged[Cdecl]<float, float, float, float> ImLinearSweep_ptr;
 		public static float ImLinearSweep(float current, float target, float speed)
 		{
 			return ImLinearSweep_ptr(current, target, speed);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, void> ImMul_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, void> ImMul_ptr;
 		public static void ImMul(out ImVec2 @out, ImVec2 lhs, ImVec2 rhs)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4453,7 +4453,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, float, void> ImBezierCubicCalc_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, float, void> ImBezierCubicCalc_ptr;
 		public static void ImBezierCubicCalc(out ImVec2 @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, float t)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4462,7 +4462,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, int, void> ImBezierCubicClosestPoint_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, int, void> ImBezierCubicClosestPoint_ptr;
 		public static void ImBezierCubicClosestPoint(out ImVec2 @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 p, int num_segments)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4471,7 +4471,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, float, void> ImBezierCubicClosestPointCasteljau_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, float, void> ImBezierCubicClosestPointCasteljau_ptr;
 		public static void ImBezierCubicClosestPointCasteljau(out ImVec2 @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 p, float tess_tol)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4480,7 +4480,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, float, void> ImBezierQuadraticCalc_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, float, void> ImBezierQuadraticCalc_ptr;
 		public static void ImBezierQuadraticCalc(out ImVec2 @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, float t)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4489,7 +4489,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, void> ImLineClosestPoint_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, void> ImLineClosestPoint_ptr;
 		public static void ImLineClosestPoint(out ImVec2 @out, ImVec2 a, ImVec2 b, ImVec2 p)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4498,13 +4498,13 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, ImVec2, ImVec2, bool> ImTriangleContainsPoint_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImVec2, ImVec2, bool> ImTriangleContainsPoint_ptr;
 		public static bool ImTriangleContainsPoint(ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 p)
 		{
 			return ImTriangleContainsPoint_ptr(a, b, c, p);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, void> ImTriangleClosestPoint_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, void> ImTriangleClosestPoint_ptr;
 		public static void ImTriangleClosestPoint(out ImVec2 @out, ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 p)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4513,7 +4513,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, ImVec2, ImVec2, float*, float*, float*, void> ImTriangleBarycentricCoords_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImVec2, ImVec2, float*, float*, float*, void> ImTriangleBarycentricCoords_ptr;
 		public static void ImTriangleBarycentricCoords(ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 p, out float out_u, out float out_v, out float out_w)
 		{
 			fixed(float* p_out_u = &out_u)
@@ -4524,49 +4524,49 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, ImVec2, float> ImTriangleArea_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImVec2, float> ImTriangleArea_ptr;
 		public static float ImTriangleArea(ImVec2 a, ImVec2 b, ImVec2 c)
 		{
 			return ImTriangleArea_ptr(a, b, c);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float, ImGuiDir> ImGetDirQuadrantFromDelta_ptr;
+		static delegate* unmanaged[Cdecl]<float, float, ImGuiDir> ImGetDirQuadrantFromDelta_ptr;
 		public static ImGuiDir ImGetDirQuadrantFromDelta(float dx, float dy)
 		{
 			return ImGetDirQuadrantFromDelta_ptr(dx, dy);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*> ImRect_ImRectNil_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*> ImRect_ImRectNil_ptr;
 		public static ImRect* ImRect_ImRectNil()
 		{
 			return ImRect_ImRectNil_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, void> ImRect_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, void> ImRect_destroy_ptr;
 		public static void ImRect_destroy(ImRect* self)
 		{
 			ImRect_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, ImRect*> ImRect_ImRectVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImRect*> ImRect_ImRectVec2_ptr;
 		public static ImRect* ImRect_ImRectVec2(ImVec2 min, ImVec2 max)
 		{
 			return ImRect_ImRectVec2_ptr(min, max);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec4, ImRect*> ImRect_ImRectVec4_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec4, ImRect*> ImRect_ImRectVec4_ptr;
 		public static ImRect* ImRect_ImRectVec4(ImVec4 v)
 		{
 			return ImRect_ImRectVec4_ptr(v);
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float, float, float, ImRect*> ImRect_ImRectFloat_ptr;
+		static delegate* unmanaged[Cdecl]<float, float, float, float, ImRect*> ImRect_ImRectFloat_ptr;
 		public static ImRect* ImRect_ImRectFloat(float x1, float y1, float x2, float y2)
 		{
 			return ImRect_ImRectFloat_ptr(x1, y1, x2, y2);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetCenter_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetCenter_ptr;
 		public static void ImRect_GetCenter(out ImVec2 @out, ImRect* self)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4575,7 +4575,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetSize_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetSize_ptr;
 		public static void ImRect_GetSize(out ImVec2 @out, ImRect* self)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4584,25 +4584,25 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, float> ImRect_GetWidth_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, float> ImRect_GetWidth_ptr;
 		public static float ImRect_GetWidth(ImRect* self)
 		{
 			return ImRect_GetWidth_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, float> ImRect_GetHeight_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, float> ImRect_GetHeight_ptr;
 		public static float ImRect_GetHeight(ImRect* self)
 		{
 			return ImRect_GetHeight_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, float> ImRect_GetArea_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, float> ImRect_GetArea_ptr;
 		public static float ImRect_GetArea(ImRect* self)
 		{
 			return ImRect_GetArea_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetTL_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetTL_ptr;
 		public static void ImRect_GetTL(out ImVec2 @out, ImRect* self)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4611,7 +4611,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetTR_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetTR_ptr;
 		public static void ImRect_GetTR(out ImVec2 @out, ImRect* self)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4620,7 +4620,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetBL_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetBL_ptr;
 		public static void ImRect_GetBL(out ImVec2 @out, ImRect* self)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4629,7 +4629,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void> ImRect_GetBR_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetBR_ptr;
 		public static void ImRect_GetBR(out ImVec2 @out, ImRect* self)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -4638,91 +4638,91 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImVec2, bool> ImRect_ContainsVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImVec2, bool> ImRect_ContainsVec2_ptr;
 		public static bool ImRect_ContainsVec2(ImRect* self, ImVec2 p)
 		{
 			return ImRect_ContainsVec2_ptr(self, p);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImRect, bool> ImRect_ContainsRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImRect, bool> ImRect_ContainsRect_ptr;
 		public static bool ImRect_ContainsRect(ImRect* self, ImRect r)
 		{
 			return ImRect_ContainsRect_ptr(self, r);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImRect, bool> ImRect_Overlaps_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImRect, bool> ImRect_Overlaps_ptr;
 		public static bool ImRect_Overlaps(ImRect* self, ImRect r)
 		{
 			return ImRect_Overlaps_ptr(self, r);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImVec2, void> ImRect_AddVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImVec2, void> ImRect_AddVec2_ptr;
 		public static void ImRect_AddVec2(ImRect* self, ImVec2 p)
 		{
 			ImRect_AddVec2_ptr(self, p);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImRect, void> ImRect_AddRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImRect, void> ImRect_AddRect_ptr;
 		public static void ImRect_AddRect(ImRect* self, ImRect r)
 		{
 			ImRect_AddRect_ptr(self, r);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, float, void> ImRect_ExpandFloat_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, float, void> ImRect_ExpandFloat_ptr;
 		public static void ImRect_ExpandFloat(ImRect* self, float amount)
 		{
 			ImRect_ExpandFloat_ptr(self, amount);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImVec2, void> ImRect_ExpandVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImVec2, void> ImRect_ExpandVec2_ptr;
 		public static void ImRect_ExpandVec2(ImRect* self, ImVec2 amount)
 		{
 			ImRect_ExpandVec2_ptr(self, amount);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImVec2, void> ImRect_Translate_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImVec2, void> ImRect_Translate_ptr;
 		public static void ImRect_Translate(ImRect* self, ImVec2 d)
 		{
 			ImRect_Translate_ptr(self, d);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, float, void> ImRect_TranslateX_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, float, void> ImRect_TranslateX_ptr;
 		public static void ImRect_TranslateX(ImRect* self, float dx)
 		{
 			ImRect_TranslateX_ptr(self, dx);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, float, void> ImRect_TranslateY_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, float, void> ImRect_TranslateY_ptr;
 		public static void ImRect_TranslateY(ImRect* self, float dy)
 		{
 			ImRect_TranslateY_ptr(self, dy);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImRect, void> ImRect_ClipWith_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImRect, void> ImRect_ClipWith_ptr;
 		public static void ImRect_ClipWith(ImRect* self, ImRect r)
 		{
 			ImRect_ClipWith_ptr(self, r);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImRect, void> ImRect_ClipWithFull_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImRect, void> ImRect_ClipWithFull_ptr;
 		public static void ImRect_ClipWithFull(ImRect* self, ImRect r)
 		{
 			ImRect_ClipWithFull_ptr(self, r);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, void> ImRect_Floor_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, void> ImRect_Floor_ptr;
 		public static void ImRect_Floor(ImRect* self)
 		{
 			ImRect_Floor_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, bool> ImRect_IsInverted_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, bool> ImRect_IsInverted_ptr;
 		public static bool ImRect_IsInverted(ImRect* self)
 		{
 			return ImRect_IsInverted_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec4*, ImRect*, void> ImRect_ToVec4_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec4*, ImRect*, void> ImRect_ToVec4_ptr;
 		public static void ImRect_ToVec4(out ImVec4 @out, ImRect* self)
 		{
 			fixed(ImVec4* p_out = &@out)
@@ -4731,13 +4731,13 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<uint*, int, bool> ImBitArrayTestBit_ptr;
+		static delegate* unmanaged[Cdecl]<uint*, int, bool> ImBitArrayTestBit_ptr;
 		public static bool ImBitArrayTestBit(uint* arr, int n)
 		{
 			return ImBitArrayTestBit_ptr(arr, n);
 		}
 
-		static delegate* unmanaged[Stdcall]<uint*, int, void> ImBitArrayClearBit_ptr;
+		static delegate* unmanaged[Cdecl]<uint*, int, void> ImBitArrayClearBit_ptr;
 		public static void ImBitArrayClearBit(ref uint arr, int n)
 		{
 			fixed(uint* p_arr = &arr)
@@ -4746,7 +4746,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<uint*, int, void> ImBitArraySetBit_ptr;
+		static delegate* unmanaged[Cdecl]<uint*, int, void> ImBitArraySetBit_ptr;
 		public static void ImBitArraySetBit(ref uint arr, int n)
 		{
 			fixed(uint* p_arr = &arr)
@@ -4755,7 +4755,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<uint*, int, int, void> ImBitArraySetBitRange_ptr;
+		static delegate* unmanaged[Cdecl]<uint*, int, int, void> ImBitArraySetBitRange_ptr;
 		public static void ImBitArraySetBitRange(ref uint arr, int n, int n2)
 		{
 			fixed(uint* p_arr = &arr)
@@ -4764,542 +4764,542 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImBitVector*, int, void> ImBitVector_Create_ptr;
+		static delegate* unmanaged[Cdecl]<ImBitVector*, int, void> ImBitVector_Create_ptr;
 		public static void ImBitVector_Create(ImBitVector* self, int sz)
 		{
 			ImBitVector_Create_ptr(self, sz);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImBitVector*, void> ImBitVector_Clear_ptr;
+		static delegate* unmanaged[Cdecl]<ImBitVector*, void> ImBitVector_Clear_ptr;
 		public static void ImBitVector_Clear(ImBitVector* self)
 		{
 			ImBitVector_Clear_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImBitVector*, int, bool> ImBitVector_TestBit_ptr;
+		static delegate* unmanaged[Cdecl]<ImBitVector*, int, bool> ImBitVector_TestBit_ptr;
 		public static bool ImBitVector_TestBit(ImBitVector* self, int n)
 		{
 			return ImBitVector_TestBit_ptr(self, n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImBitVector*, int, void> ImBitVector_SetBit_ptr;
+		static delegate* unmanaged[Cdecl]<ImBitVector*, int, void> ImBitVector_SetBit_ptr;
 		public static void ImBitVector_SetBit(ImBitVector* self, int n)
 		{
 			ImBitVector_SetBit_ptr(self, n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImBitVector*, int, void> ImBitVector_ClearBit_ptr;
+		static delegate* unmanaged[Cdecl]<ImBitVector*, int, void> ImBitVector_ClearBit_ptr;
 		public static void ImBitVector_ClearBit(ImBitVector* self, int n)
 		{
 			ImBitVector_ClearBit_ptr(self, n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawListSharedData*> ImDrawListSharedData_ImDrawListSharedData_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawListSharedData*> ImDrawListSharedData_ImDrawListSharedData_ptr;
 		public static ImDrawListSharedData* ImDrawListSharedData_ImDrawListSharedData()
 		{
 			return ImDrawListSharedData_ImDrawListSharedData_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawListSharedData*, void> ImDrawListSharedData_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawListSharedData*, void> ImDrawListSharedData_destroy_ptr;
 		public static void ImDrawListSharedData_destroy(ImDrawListSharedData* self)
 		{
 			ImDrawListSharedData_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawListSharedData*, float, void> ImDrawListSharedData_SetCircleTessellationMaxError_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawListSharedData*, float, void> ImDrawListSharedData_SetCircleTessellationMaxError_ptr;
 		public static void ImDrawListSharedData_SetCircleTessellationMaxError(ImDrawListSharedData* self, float max_error)
 		{
 			ImDrawListSharedData_SetCircleTessellationMaxError_ptr(self, max_error);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawDataBuilder*, void> ImDrawDataBuilder_Clear_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawDataBuilder*, void> ImDrawDataBuilder_Clear_ptr;
 		public static void ImDrawDataBuilder_Clear(ImDrawDataBuilder* self)
 		{
 			ImDrawDataBuilder_Clear_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawDataBuilder*, void> ImDrawDataBuilder_ClearFreeMemory_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawDataBuilder*, void> ImDrawDataBuilder_ClearFreeMemory_ptr;
 		public static void ImDrawDataBuilder_ClearFreeMemory(ImDrawDataBuilder* self)
 		{
 			ImDrawDataBuilder_ClearFreeMemory_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawDataBuilder*, int> ImDrawDataBuilder_GetDrawListCount_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawDataBuilder*, int> ImDrawDataBuilder_GetDrawListCount_ptr;
 		public static int ImDrawDataBuilder_GetDrawListCount(ImDrawDataBuilder* self)
 		{
 			return ImDrawDataBuilder_GetDrawListCount_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawDataBuilder*, void> ImDrawDataBuilder_FlattenIntoSingleLayer_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawDataBuilder*, void> ImDrawDataBuilder_FlattenIntoSingleLayer_ptr;
 		public static void ImDrawDataBuilder_FlattenIntoSingleLayer(ImDrawDataBuilder* self)
 		{
 			ImDrawDataBuilder_FlattenIntoSingleLayer_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyleVar, int, ImGuiStyleMod*> ImGuiStyleMod_ImGuiStyleModInt_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyleVar, int, ImGuiStyleMod*> ImGuiStyleMod_ImGuiStyleModInt_ptr;
 		public static ImGuiStyleMod* ImGuiStyleMod_ImGuiStyleModInt(ImGuiStyleVar idx, int v)
 		{
 			return ImGuiStyleMod_ImGuiStyleModInt_ptr(idx, v);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyleMod*, void> ImGuiStyleMod_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyleMod*, void> ImGuiStyleMod_destroy_ptr;
 		public static void ImGuiStyleMod_destroy(ImGuiStyleMod* self)
 		{
 			ImGuiStyleMod_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyleVar, float, ImGuiStyleMod*> ImGuiStyleMod_ImGuiStyleModFloat_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyleVar, float, ImGuiStyleMod*> ImGuiStyleMod_ImGuiStyleModFloat_ptr;
 		public static ImGuiStyleMod* ImGuiStyleMod_ImGuiStyleModFloat(ImGuiStyleVar idx, float v)
 		{
 			return ImGuiStyleMod_ImGuiStyleModFloat_ptr(idx, v);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStyleVar, ImVec2, ImGuiStyleMod*> ImGuiStyleMod_ImGuiStyleModVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStyleVar, ImVec2, ImGuiStyleMod*> ImGuiStyleMod_ImGuiStyleModVec2_ptr;
 		public static ImGuiStyleMod* ImGuiStyleMod_ImGuiStyleModVec2(ImGuiStyleVar idx, ImVec2 v)
 		{
 			return ImGuiStyleMod_ImGuiStyleModVec2_ptr(idx, v);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMenuColumns*> ImGuiMenuColumns_ImGuiMenuColumns_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMenuColumns*> ImGuiMenuColumns_ImGuiMenuColumns_ptr;
 		public static ImGuiMenuColumns* ImGuiMenuColumns_ImGuiMenuColumns()
 		{
 			return ImGuiMenuColumns_ImGuiMenuColumns_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMenuColumns*, void> ImGuiMenuColumns_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMenuColumns*, void> ImGuiMenuColumns_destroy_ptr;
 		public static void ImGuiMenuColumns_destroy(ImGuiMenuColumns* self)
 		{
 			ImGuiMenuColumns_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMenuColumns*, int, float, bool, void> ImGuiMenuColumns_Update_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMenuColumns*, int, float, bool, void> ImGuiMenuColumns_Update_ptr;
 		public static void ImGuiMenuColumns_Update(ImGuiMenuColumns* self, int count, float spacing, bool clear)
 		{
 			ImGuiMenuColumns_Update_ptr(self, count, spacing, clear);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMenuColumns*, float, float, float, float> ImGuiMenuColumns_DeclColumns_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMenuColumns*, float, float, float, float> ImGuiMenuColumns_DeclColumns_ptr;
 		public static float ImGuiMenuColumns_DeclColumns(ImGuiMenuColumns* self, float w0, float w1, float w2)
 		{
 			return ImGuiMenuColumns_DeclColumns_ptr(self, w0, w1, w2);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMenuColumns*, float, float> ImGuiMenuColumns_CalcExtraSpace_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMenuColumns*, float, float> ImGuiMenuColumns_CalcExtraSpace_ptr;
 		public static float ImGuiMenuColumns_CalcExtraSpace(ImGuiMenuColumns* self, float avail_w)
 		{
 			return ImGuiMenuColumns_CalcExtraSpace_ptr(self, avail_w);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextState*> ImGuiInputTextState_ImGuiInputTextState_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextState*> ImGuiInputTextState_ImGuiInputTextState_ptr;
 		public static ImGuiInputTextState* ImGuiInputTextState_ImGuiInputTextState()
 		{
 			return ImGuiInputTextState_ImGuiInputTextState_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void> ImGuiInputTextState_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void> ImGuiInputTextState_destroy_ptr;
 		public static void ImGuiInputTextState_destroy(ImGuiInputTextState* self)
 		{
 			ImGuiInputTextState_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void> ImGuiInputTextState_ClearText_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void> ImGuiInputTextState_ClearText_ptr;
 		public static void ImGuiInputTextState_ClearText(ImGuiInputTextState* self)
 		{
 			ImGuiInputTextState_ClearText_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void> ImGuiInputTextState_ClearFreeMemory_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void> ImGuiInputTextState_ClearFreeMemory_ptr;
 		public static void ImGuiInputTextState_ClearFreeMemory(ImGuiInputTextState* self)
 		{
 			ImGuiInputTextState_ClearFreeMemory_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextState*, int> ImGuiInputTextState_GetUndoAvailCount_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextState*, int> ImGuiInputTextState_GetUndoAvailCount_ptr;
 		public static int ImGuiInputTextState_GetUndoAvailCount(ImGuiInputTextState* self)
 		{
 			return ImGuiInputTextState_GetUndoAvailCount_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextState*, int> ImGuiInputTextState_GetRedoAvailCount_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextState*, int> ImGuiInputTextState_GetRedoAvailCount_ptr;
 		public static int ImGuiInputTextState_GetRedoAvailCount(ImGuiInputTextState* self)
 		{
 			return ImGuiInputTextState_GetRedoAvailCount_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextState*, int, void> ImGuiInputTextState_OnKeyPressed_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextState*, int, void> ImGuiInputTextState_OnKeyPressed_ptr;
 		public static void ImGuiInputTextState_OnKeyPressed(ImGuiInputTextState* self, int key)
 		{
 			ImGuiInputTextState_OnKeyPressed_ptr(self, key);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void> ImGuiInputTextState_CursorAnimReset_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void> ImGuiInputTextState_CursorAnimReset_ptr;
 		public static void ImGuiInputTextState_CursorAnimReset(ImGuiInputTextState* self)
 		{
 			ImGuiInputTextState_CursorAnimReset_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void> ImGuiInputTextState_CursorClamp_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void> ImGuiInputTextState_CursorClamp_ptr;
 		public static void ImGuiInputTextState_CursorClamp(ImGuiInputTextState* self)
 		{
 			ImGuiInputTextState_CursorClamp_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextState*, bool> ImGuiInputTextState_HasSelection_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextState*, bool> ImGuiInputTextState_HasSelection_ptr;
 		public static bool ImGuiInputTextState_HasSelection(ImGuiInputTextState* self)
 		{
 			return ImGuiInputTextState_HasSelection_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void> ImGuiInputTextState_ClearSelection_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void> ImGuiInputTextState_ClearSelection_ptr;
 		public static void ImGuiInputTextState_ClearSelection(ImGuiInputTextState* self)
 		{
 			ImGuiInputTextState_ClearSelection_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void> ImGuiInputTextState_SelectAll_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void> ImGuiInputTextState_SelectAll_ptr;
 		public static void ImGuiInputTextState_SelectAll(ImGuiInputTextState* self)
 		{
 			ImGuiInputTextState_SelectAll_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPopupData*> ImGuiPopupData_ImGuiPopupData_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPopupData*> ImGuiPopupData_ImGuiPopupData_ptr;
 		public static ImGuiPopupData* ImGuiPopupData_ImGuiPopupData()
 		{
 			return ImGuiPopupData_ImGuiPopupData_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPopupData*, void> ImGuiPopupData_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPopupData*, void> ImGuiPopupData_destroy_ptr;
 		public static void ImGuiPopupData_destroy(ImGuiPopupData* self)
 		{
 			ImGuiPopupData_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNavMoveResult*> ImGuiNavMoveResult_ImGuiNavMoveResult_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNavMoveResult*> ImGuiNavMoveResult_ImGuiNavMoveResult_ptr;
 		public static ImGuiNavMoveResult* ImGuiNavMoveResult_ImGuiNavMoveResult()
 		{
 			return ImGuiNavMoveResult_ImGuiNavMoveResult_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNavMoveResult*, void> ImGuiNavMoveResult_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNavMoveResult*, void> ImGuiNavMoveResult_destroy_ptr;
 		public static void ImGuiNavMoveResult_destroy(ImGuiNavMoveResult* self)
 		{
 			ImGuiNavMoveResult_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNavMoveResult*, void> ImGuiNavMoveResult_Clear_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNavMoveResult*, void> ImGuiNavMoveResult_Clear_ptr;
 		public static void ImGuiNavMoveResult_Clear(ImGuiNavMoveResult* self)
 		{
 			ImGuiNavMoveResult_Clear_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNextWindowData*> ImGuiNextWindowData_ImGuiNextWindowData_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNextWindowData*> ImGuiNextWindowData_ImGuiNextWindowData_ptr;
 		public static ImGuiNextWindowData* ImGuiNextWindowData_ImGuiNextWindowData()
 		{
 			return ImGuiNextWindowData_ImGuiNextWindowData_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNextWindowData*, void> ImGuiNextWindowData_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNextWindowData*, void> ImGuiNextWindowData_destroy_ptr;
 		public static void ImGuiNextWindowData_destroy(ImGuiNextWindowData* self)
 		{
 			ImGuiNextWindowData_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNextWindowData*, void> ImGuiNextWindowData_ClearFlags_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNextWindowData*, void> ImGuiNextWindowData_ClearFlags_ptr;
 		public static void ImGuiNextWindowData_ClearFlags(ImGuiNextWindowData* self)
 		{
 			ImGuiNextWindowData_ClearFlags_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNextItemData*> ImGuiNextItemData_ImGuiNextItemData_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNextItemData*> ImGuiNextItemData_ImGuiNextItemData_ptr;
 		public static ImGuiNextItemData* ImGuiNextItemData_ImGuiNextItemData()
 		{
 			return ImGuiNextItemData_ImGuiNextItemData_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNextItemData*, void> ImGuiNextItemData_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNextItemData*, void> ImGuiNextItemData_destroy_ptr;
 		public static void ImGuiNextItemData_destroy(ImGuiNextItemData* self)
 		{
 			ImGuiNextItemData_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNextItemData*, void> ImGuiNextItemData_ClearFlags_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNextItemData*, void> ImGuiNextItemData_ClearFlags_ptr;
 		public static void ImGuiNextItemData_ClearFlags(ImGuiNextItemData* self)
 		{
 			ImGuiNextItemData_ClearFlags_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, ImGuiPtrOrIndex*> ImGuiPtrOrIndex_ImGuiPtrOrIndexPtr_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, ImGuiPtrOrIndex*> ImGuiPtrOrIndex_ImGuiPtrOrIndexPtr_ptr;
 		public static ImGuiPtrOrIndex* ImGuiPtrOrIndex_ImGuiPtrOrIndexPtr(IntPtr ptr)
 		{
 			return ImGuiPtrOrIndex_ImGuiPtrOrIndexPtr_ptr(ptr);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPtrOrIndex*, void> ImGuiPtrOrIndex_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPtrOrIndex*, void> ImGuiPtrOrIndex_destroy_ptr;
 		public static void ImGuiPtrOrIndex_destroy(ImGuiPtrOrIndex* self)
 		{
 			ImGuiPtrOrIndex_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, ImGuiPtrOrIndex*> ImGuiPtrOrIndex_ImGuiPtrOrIndexInt_ptr;
+		static delegate* unmanaged[Cdecl]<int, ImGuiPtrOrIndex*> ImGuiPtrOrIndex_ImGuiPtrOrIndexInt_ptr;
 		public static ImGuiPtrOrIndex* ImGuiPtrOrIndex_ImGuiPtrOrIndexInt(int index)
 		{
 			return ImGuiPtrOrIndex_ImGuiPtrOrIndexInt_ptr(index);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiOldColumnData*> ImGuiOldColumnData_ImGuiOldColumnData_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiOldColumnData*> ImGuiOldColumnData_ImGuiOldColumnData_ptr;
 		public static ImGuiOldColumnData* ImGuiOldColumnData_ImGuiOldColumnData()
 		{
 			return ImGuiOldColumnData_ImGuiOldColumnData_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiOldColumnData*, void> ImGuiOldColumnData_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiOldColumnData*, void> ImGuiOldColumnData_destroy_ptr;
 		public static void ImGuiOldColumnData_destroy(ImGuiOldColumnData* self)
 		{
 			ImGuiOldColumnData_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiOldColumns*> ImGuiOldColumns_ImGuiOldColumns_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiOldColumns*> ImGuiOldColumns_ImGuiOldColumns_ptr;
 		public static ImGuiOldColumns* ImGuiOldColumns_ImGuiOldColumns()
 		{
 			return ImGuiOldColumns_ImGuiOldColumns_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiOldColumns*, void> ImGuiOldColumns_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiOldColumns*, void> ImGuiOldColumns_destroy_ptr;
 		public static void ImGuiOldColumns_destroy(ImGuiOldColumns* self)
 		{
 			ImGuiOldColumns_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiDockNode*> ImGuiDockNode_ImGuiDockNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiDockNode*> ImGuiDockNode_ImGuiDockNode_ptr;
 		public static ImGuiDockNode* ImGuiDockNode_ImGuiDockNode(ImGuiID id)
 		{
 			return ImGuiDockNode_ImGuiDockNode_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, void> ImGuiDockNode_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, void> ImGuiDockNode_destroy_ptr;
 		public static void ImGuiDockNode_destroy(ImGuiDockNode* self)
 		{
 			ImGuiDockNode_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool> ImGuiDockNode_IsRootNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool> ImGuiDockNode_IsRootNode_ptr;
 		public static bool ImGuiDockNode_IsRootNode(ImGuiDockNode* self)
 		{
 			return ImGuiDockNode_IsRootNode_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool> ImGuiDockNode_IsDockSpace_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool> ImGuiDockNode_IsDockSpace_ptr;
 		public static bool ImGuiDockNode_IsDockSpace(ImGuiDockNode* self)
 		{
 			return ImGuiDockNode_IsDockSpace_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool> ImGuiDockNode_IsFloatingNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool> ImGuiDockNode_IsFloatingNode_ptr;
 		public static bool ImGuiDockNode_IsFloatingNode(ImGuiDockNode* self)
 		{
 			return ImGuiDockNode_IsFloatingNode_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool> ImGuiDockNode_IsCentralNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool> ImGuiDockNode_IsCentralNode_ptr;
 		public static bool ImGuiDockNode_IsCentralNode(ImGuiDockNode* self)
 		{
 			return ImGuiDockNode_IsCentralNode_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool> ImGuiDockNode_IsHiddenTabBar_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool> ImGuiDockNode_IsHiddenTabBar_ptr;
 		public static bool ImGuiDockNode_IsHiddenTabBar(ImGuiDockNode* self)
 		{
 			return ImGuiDockNode_IsHiddenTabBar_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool> ImGuiDockNode_IsNoTabBar_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool> ImGuiDockNode_IsNoTabBar_ptr;
 		public static bool ImGuiDockNode_IsNoTabBar(ImGuiDockNode* self)
 		{
 			return ImGuiDockNode_IsNoTabBar_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool> ImGuiDockNode_IsSplitNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool> ImGuiDockNode_IsSplitNode_ptr;
 		public static bool ImGuiDockNode_IsSplitNode(ImGuiDockNode* self)
 		{
 			return ImGuiDockNode_IsSplitNode_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool> ImGuiDockNode_IsLeafNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool> ImGuiDockNode_IsLeafNode_ptr;
 		public static bool ImGuiDockNode_IsLeafNode(ImGuiDockNode* self)
 		{
 			return ImGuiDockNode_IsLeafNode_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool> ImGuiDockNode_IsEmpty_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool> ImGuiDockNode_IsEmpty_ptr;
 		public static bool ImGuiDockNode_IsEmpty(ImGuiDockNode* self)
 		{
 			return ImGuiDockNode_IsEmpty_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, ImGuiDockNodeFlags> ImGuiDockNode_GetMergedFlags_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, ImGuiDockNodeFlags> ImGuiDockNode_GetMergedFlags_ptr;
 		public static ImGuiDockNodeFlags ImGuiDockNode_GetMergedFlags(ImGuiDockNode* self)
 		{
 			return ImGuiDockNode_GetMergedFlags_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImGuiDockNode*, void> ImGuiDockNode_Rect_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiDockNode*, void> ImGuiDockNode_Rect_ptr;
 		public static void ImGuiDockNode_Rect(ImRect* @out, ImGuiDockNode* self)
 		{
 			ImGuiDockNode_Rect_ptr(@out, self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockContext*> ImGuiDockContext_ImGuiDockContext_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockContext*> ImGuiDockContext_ImGuiDockContext_ptr;
 		public static ImGuiDockContext* ImGuiDockContext_ImGuiDockContext()
 		{
 			return ImGuiDockContext_ImGuiDockContext_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockContext*, void> ImGuiDockContext_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockContext*, void> ImGuiDockContext_destroy_ptr;
 		public static void ImGuiDockContext_destroy(ImGuiDockContext* self)
 		{
 			ImGuiDockContext_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewportP*> ImGuiViewportP_ImGuiViewportP_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewportP*> ImGuiViewportP_ImGuiViewportP_ptr;
 		public static ImGuiViewportP* ImGuiViewportP_ImGuiViewportP()
 		{
 			return ImGuiViewportP_ImGuiViewportP_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewportP*, void> ImGuiViewportP_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewportP*, void> ImGuiViewportP_destroy_ptr;
 		public static void ImGuiViewportP_destroy(ImGuiViewportP* self)
 		{
 			ImGuiViewportP_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImGuiViewportP*, void> ImGuiViewportP_GetMainRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiViewportP*, void> ImGuiViewportP_GetMainRect_ptr;
 		public static void ImGuiViewportP_GetMainRect(ImRect* @out, ImGuiViewportP* self)
 		{
 			ImGuiViewportP_GetMainRect_ptr(@out, self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImGuiViewportP*, void> ImGuiViewportP_GetWorkRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiViewportP*, void> ImGuiViewportP_GetWorkRect_ptr;
 		public static void ImGuiViewportP_GetWorkRect(ImRect* @out, ImGuiViewportP* self)
 		{
 			ImGuiViewportP_GetWorkRect_ptr(@out, self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewportP*, void> ImGuiViewportP_UpdateWorkRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewportP*, void> ImGuiViewportP_UpdateWorkRect_ptr;
 		public static void ImGuiViewportP_UpdateWorkRect(ImGuiViewportP* self)
 		{
 			ImGuiViewportP_UpdateWorkRect_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewportP*, void> ImGuiViewportP_ClearRequestFlags_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewportP*, void> ImGuiViewportP_ClearRequestFlags_ptr;
 		public static void ImGuiViewportP_ClearRequestFlags(ImGuiViewportP* self)
 		{
 			ImGuiViewportP_ClearRequestFlags_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindowSettings*> ImGuiWindowSettings_ImGuiWindowSettings_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindowSettings*> ImGuiWindowSettings_ImGuiWindowSettings_ptr;
 		public static ImGuiWindowSettings* ImGuiWindowSettings_ImGuiWindowSettings()
 		{
 			return ImGuiWindowSettings_ImGuiWindowSettings_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindowSettings*, void> ImGuiWindowSettings_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindowSettings*, void> ImGuiWindowSettings_destroy_ptr;
 		public static void ImGuiWindowSettings_destroy(ImGuiWindowSettings* self)
 		{
 			ImGuiWindowSettings_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindowSettings*, byte*> ImGuiWindowSettings_GetName_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindowSettings*, byte*> ImGuiWindowSettings_GetName_ptr;
 		public static byte* ImGuiWindowSettings_GetName(ImGuiWindowSettings* self)
 		{
 			return ImGuiWindowSettings_GetName_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiSettingsHandler*> ImGuiSettingsHandler_ImGuiSettingsHandler_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiSettingsHandler*> ImGuiSettingsHandler_ImGuiSettingsHandler_ptr;
 		public static ImGuiSettingsHandler* ImGuiSettingsHandler_ImGuiSettingsHandler()
 		{
 			return ImGuiSettingsHandler_ImGuiSettingsHandler_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiSettingsHandler*, void> ImGuiSettingsHandler_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiSettingsHandler*, void> ImGuiSettingsHandler_destroy_ptr;
 		public static void ImGuiSettingsHandler_destroy(ImGuiSettingsHandler* self)
 		{
 			ImGuiSettingsHandler_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMetricsConfig*> ImGuiMetricsConfig_ImGuiMetricsConfig_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMetricsConfig*> ImGuiMetricsConfig_ImGuiMetricsConfig_ptr;
 		public static ImGuiMetricsConfig* ImGuiMetricsConfig_ImGuiMetricsConfig()
 		{
 			return ImGuiMetricsConfig_ImGuiMetricsConfig_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMetricsConfig*, void> ImGuiMetricsConfig_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMetricsConfig*, void> ImGuiMetricsConfig_destroy_ptr;
 		public static void ImGuiMetricsConfig_destroy(ImGuiMetricsConfig* self)
 		{
 			ImGuiMetricsConfig_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStackSizes*> ImGuiStackSizes_ImGuiStackSizes_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStackSizes*> ImGuiStackSizes_ImGuiStackSizes_ptr;
 		public static ImGuiStackSizes* ImGuiStackSizes_ImGuiStackSizes()
 		{
 			return ImGuiStackSizes_ImGuiStackSizes_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStackSizes*, void> ImGuiStackSizes_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStackSizes*, void> ImGuiStackSizes_destroy_ptr;
 		public static void ImGuiStackSizes_destroy(ImGuiStackSizes* self)
 		{
 			ImGuiStackSizes_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStackSizes*, void> ImGuiStackSizes_SetToCurrentState_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStackSizes*, void> ImGuiStackSizes_SetToCurrentState_ptr;
 		public static void ImGuiStackSizes_SetToCurrentState(ImGuiStackSizes* self)
 		{
 			ImGuiStackSizes_SetToCurrentState_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStackSizes*, void> ImGuiStackSizes_CompareWithCurrentState_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStackSizes*, void> ImGuiStackSizes_CompareWithCurrentState_ptr;
 		public static void ImGuiStackSizes_CompareWithCurrentState(ImGuiStackSizes* self)
 		{
 			ImGuiStackSizes_CompareWithCurrentState_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContextHook*> ImGuiContextHook_ImGuiContextHook_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContextHook*> ImGuiContextHook_ImGuiContextHook_ptr;
 		public static ImGuiContextHook* ImGuiContextHook_ImGuiContextHook()
 		{
 			return ImGuiContextHook_ImGuiContextHook_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContextHook*, void> ImGuiContextHook_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContextHook*, void> ImGuiContextHook_destroy_ptr;
 		public static void ImGuiContextHook_destroy(ImGuiContextHook* self)
 		{
 			ImGuiContextHook_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiContext*> ImGuiContext_ImGuiContext_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, ImGuiContext*> ImGuiContext_ImGuiContext_ptr;
 		public static ImGuiContext* ImGuiContext_ImGuiContext(ImFontAtlasPtr shared_font_atlas)
 		{
 			return ImGuiContext_ImGuiContext_ptr(shared_font_atlas);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, void> ImGuiContext_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> ImGuiContext_destroy_ptr;
 		public static void ImGuiContext_destroy(ImGuiContext* self)
 		{
 			ImGuiContext_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, byte*, ImGuiWindow*> ImGuiWindow_ImGuiWindow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, byte*, ImGuiWindow*> ImGuiWindow_ImGuiWindow_ptr;
 		public static ImGuiWindow* ImGuiWindow_ImGuiWindow(ImGuiContext* context, string name)
 		{
 			using var p_name = new StringHelper(name);
 			return ImGuiWindow_ImGuiWindow_ptr(context, p_name);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, void> ImGuiWindow_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> ImGuiWindow_destroy_ptr;
 		public static void ImGuiWindow_destroy(ImGuiWindow* self)
 		{
 			ImGuiWindow_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, byte*, byte*, ImGuiID> ImGuiWindow_GetIDStr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, byte*, byte*, ImGuiID> ImGuiWindow_GetIDStr_ptr;
 		public static ImGuiID ImGuiWindow_GetIDStr(ImGuiWindow* self, string str, string str_end)
 		{
 			using var p_str = new StringHelper(str);
@@ -5307,19 +5307,19 @@ namespace SharpImGUI
 			return ImGuiWindow_GetIDStr_ptr(self, p_str, p_str_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, IntPtr, ImGuiID> ImGuiWindow_GetIDPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, IntPtr, ImGuiID> ImGuiWindow_GetIDPtr_ptr;
 		public static ImGuiID ImGuiWindow_GetIDPtr(ImGuiWindow* self, IntPtr ptr)
 		{
 			return ImGuiWindow_GetIDPtr_ptr(self, ptr);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, int, ImGuiID> ImGuiWindow_GetIDInt_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, int, ImGuiID> ImGuiWindow_GetIDInt_ptr;
 		public static ImGuiID ImGuiWindow_GetIDInt(ImGuiWindow* self, int n)
 		{
 			return ImGuiWindow_GetIDInt_ptr(self, n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, byte*, byte*, ImGuiID> ImGuiWindow_GetIDNoKeepAliveStr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, byte*, byte*, ImGuiID> ImGuiWindow_GetIDNoKeepAliveStr_ptr;
 		public static ImGuiID ImGuiWindow_GetIDNoKeepAliveStr(ImGuiWindow* self, string str, string str_end)
 		{
 			using var p_str = new StringHelper(str);
@@ -5327,206 +5327,206 @@ namespace SharpImGUI
 			return ImGuiWindow_GetIDNoKeepAliveStr_ptr(self, p_str, p_str_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, IntPtr, ImGuiID> ImGuiWindow_GetIDNoKeepAlivePtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, IntPtr, ImGuiID> ImGuiWindow_GetIDNoKeepAlivePtr_ptr;
 		public static ImGuiID ImGuiWindow_GetIDNoKeepAlivePtr(ImGuiWindow* self, IntPtr ptr)
 		{
 			return ImGuiWindow_GetIDNoKeepAlivePtr_ptr(self, ptr);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, int, ImGuiID> ImGuiWindow_GetIDNoKeepAliveInt_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, int, ImGuiID> ImGuiWindow_GetIDNoKeepAliveInt_ptr;
 		public static ImGuiID ImGuiWindow_GetIDNoKeepAliveInt(ImGuiWindow* self, int n)
 		{
 			return ImGuiWindow_GetIDNoKeepAliveInt_ptr(self, n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImRect, ImGuiID> ImGuiWindow_GetIDFromRectangle_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImRect, ImGuiID> ImGuiWindow_GetIDFromRectangle_ptr;
 		public static ImGuiID ImGuiWindow_GetIDFromRectangle(ImGuiWindow* self, ImRect r_abs)
 		{
 			return ImGuiWindow_GetIDFromRectangle_ptr(self, r_abs);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImGuiWindow*, void> ImGuiWindow_Rect_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void> ImGuiWindow_Rect_ptr;
 		public static void ImGuiWindow_Rect(ImRect* @out, ImGuiWindow* self)
 		{
 			ImGuiWindow_Rect_ptr(@out, self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, float> ImGuiWindow_CalcFontSize_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float> ImGuiWindow_CalcFontSize_ptr;
 		public static float ImGuiWindow_CalcFontSize(ImGuiWindow* self)
 		{
 			return ImGuiWindow_CalcFontSize_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, float> ImGuiWindow_TitleBarHeight_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float> ImGuiWindow_TitleBarHeight_ptr;
 		public static float ImGuiWindow_TitleBarHeight(ImGuiWindow* self)
 		{
 			return ImGuiWindow_TitleBarHeight_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImGuiWindow*, void> ImGuiWindow_TitleBarRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void> ImGuiWindow_TitleBarRect_ptr;
 		public static void ImGuiWindow_TitleBarRect(ImRect* @out, ImGuiWindow* self)
 		{
 			ImGuiWindow_TitleBarRect_ptr(@out, self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, float> ImGuiWindow_MenuBarHeight_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float> ImGuiWindow_MenuBarHeight_ptr;
 		public static float ImGuiWindow_MenuBarHeight(ImGuiWindow* self)
 		{
 			return ImGuiWindow_MenuBarHeight_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImGuiWindow*, void> ImGuiWindow_MenuBarRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void> ImGuiWindow_MenuBarRect_ptr;
 		public static void ImGuiWindow_MenuBarRect(ImRect* @out, ImGuiWindow* self)
 		{
 			ImGuiWindow_MenuBarRect_ptr(@out, self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiLastItemDataBackup*> ImGuiLastItemDataBackup_ImGuiLastItemDataBackup_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiLastItemDataBackup*> ImGuiLastItemDataBackup_ImGuiLastItemDataBackup_ptr;
 		public static ImGuiLastItemDataBackup* ImGuiLastItemDataBackup_ImGuiLastItemDataBackup()
 		{
 			return ImGuiLastItemDataBackup_ImGuiLastItemDataBackup_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiLastItemDataBackup*, void> ImGuiLastItemDataBackup_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiLastItemDataBackup*, void> ImGuiLastItemDataBackup_destroy_ptr;
 		public static void ImGuiLastItemDataBackup_destroy(ImGuiLastItemDataBackup* self)
 		{
 			ImGuiLastItemDataBackup_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiLastItemDataBackup*, void> ImGuiLastItemDataBackup_Backup_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiLastItemDataBackup*, void> ImGuiLastItemDataBackup_Backup_ptr;
 		public static void ImGuiLastItemDataBackup_Backup(ImGuiLastItemDataBackup* self)
 		{
 			ImGuiLastItemDataBackup_Backup_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiLastItemDataBackup*, void> ImGuiLastItemDataBackup_Restore_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiLastItemDataBackup*, void> ImGuiLastItemDataBackup_Restore_ptr;
 		public static void ImGuiLastItemDataBackup_Restore(ImGuiLastItemDataBackup* self)
 		{
 			ImGuiLastItemDataBackup_Restore_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabItem*> ImGuiTabItem_ImGuiTabItem_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabItem*> ImGuiTabItem_ImGuiTabItem_ptr;
 		public static ImGuiTabItem* ImGuiTabItem_ImGuiTabItem()
 		{
 			return ImGuiTabItem_ImGuiTabItem_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabItem*, void> ImGuiTabItem_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabItem*, void> ImGuiTabItem_destroy_ptr;
 		public static void ImGuiTabItem_destroy(ImGuiTabItem* self)
 		{
 			ImGuiTabItem_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*> ImGuiTabBar_ImGuiTabBar_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*> ImGuiTabBar_ImGuiTabBar_ptr;
 		public static ImGuiTabBar* ImGuiTabBar_ImGuiTabBar()
 		{
 			return ImGuiTabBar_ImGuiTabBar_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, void> ImGuiTabBar_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, void> ImGuiTabBar_destroy_ptr;
 		public static void ImGuiTabBar_destroy(ImGuiTabBar* self)
 		{
 			ImGuiTabBar_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiTabItem*, int> ImGuiTabBar_GetTabOrder_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItem*, int> ImGuiTabBar_GetTabOrder_ptr;
 		public static int ImGuiTabBar_GetTabOrder(ImGuiTabBar* self, ImGuiTabItem* tab)
 		{
 			return ImGuiTabBar_GetTabOrder_ptr(self, tab);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiTabItem*, byte*> ImGuiTabBar_GetTabName_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItem*, byte*> ImGuiTabBar_GetTabName_ptr;
 		public static byte* ImGuiTabBar_GetTabName(ImGuiTabBar* self, ImGuiTabItem* tab)
 		{
 			return ImGuiTabBar_GetTabName_ptr(self, tab);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableColumn*> ImGuiTableColumn_ImGuiTableColumn_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableColumn*> ImGuiTableColumn_ImGuiTableColumn_ptr;
 		public static ImGuiTableColumn* ImGuiTableColumn_ImGuiTableColumn()
 		{
 			return ImGuiTableColumn_ImGuiTableColumn_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableColumn*, void> ImGuiTableColumn_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableColumn*, void> ImGuiTableColumn_destroy_ptr;
 		public static void ImGuiTableColumn_destroy(ImGuiTableColumn* self)
 		{
 			ImGuiTableColumn_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*> ImGuiTable_ImGuiTable_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*> ImGuiTable_ImGuiTable_ptr;
 		public static ImGuiTable* ImGuiTable_ImGuiTable()
 		{
 			return ImGuiTable_ImGuiTable_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> ImGuiTable_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> ImGuiTable_destroy_ptr;
 		public static void ImGuiTable_destroy(ImGuiTable* self)
 		{
 			ImGuiTable_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableColumnSettings*> ImGuiTableColumnSettings_ImGuiTableColumnSettings_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableColumnSettings*> ImGuiTableColumnSettings_ImGuiTableColumnSettings_ptr;
 		public static ImGuiTableColumnSettings* ImGuiTableColumnSettings_ImGuiTableColumnSettings()
 		{
 			return ImGuiTableColumnSettings_ImGuiTableColumnSettings_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableColumnSettings*, void> ImGuiTableColumnSettings_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableColumnSettings*, void> ImGuiTableColumnSettings_destroy_ptr;
 		public static void ImGuiTableColumnSettings_destroy(ImGuiTableColumnSettings* self)
 		{
 			ImGuiTableColumnSettings_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableSettings*> ImGuiTableSettings_ImGuiTableSettings_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableSettings*> ImGuiTableSettings_ImGuiTableSettings_ptr;
 		public static ImGuiTableSettings* ImGuiTableSettings_ImGuiTableSettings()
 		{
 			return ImGuiTableSettings_ImGuiTableSettings_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableSettings*, void> ImGuiTableSettings_destroy_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableSettings*, void> ImGuiTableSettings_destroy_ptr;
 		public static void ImGuiTableSettings_destroy(ImGuiTableSettings* self)
 		{
 			ImGuiTableSettings_destroy_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableSettings*, ImGuiTableColumnSettings*> ImGuiTableSettings_GetColumnSettings_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableSettings*, ImGuiTableColumnSettings*> ImGuiTableSettings_GetColumnSettings_ptr;
 		public static ImGuiTableColumnSettings* ImGuiTableSettings_GetColumnSettings(ImGuiTableSettings* self)
 		{
 			return ImGuiTableSettings_GetColumnSettings_ptr(self);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*> GetCurrentWindowRead_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*> GetCurrentWindowRead_ptr;
 		public static ImGuiWindow* GetCurrentWindowRead()
 		{
 			return GetCurrentWindowRead_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*> GetCurrentWindow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*> GetCurrentWindow_ptr;
 		public static ImGuiWindow* GetCurrentWindow()
 		{
 			return GetCurrentWindow_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiWindow*> FindWindowByID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindow*> FindWindowByID_ptr;
 		public static ImGuiWindow* FindWindowByID(ImGuiID id)
 		{
 			return FindWindowByID_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiWindow*> FindWindowByName_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiWindow*> FindWindowByName_ptr;
 		public static ImGuiWindow* FindWindowByName(string name)
 		{
 			using var p_name = new StringHelper(name);
 			return FindWindowByName_ptr(p_name);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiWindowFlags, ImGuiWindow*, void> UpdateWindowParentAndRootLinks_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindowFlags, ImGuiWindow*, void> UpdateWindowParentAndRootLinks_ptr;
 		public static void UpdateWindowParentAndRootLinks(ImGuiWindow* window, ImGuiWindowFlags flags, ImGuiWindow* parent_window)
 		{
 			UpdateWindowParentAndRootLinks_ptr(window, flags, parent_window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiWindow*, void> CalcWindowNextAutoFitSize_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiWindow*, void> CalcWindowNextAutoFitSize_ptr;
 		public static void CalcWindowNextAutoFitSize(out ImVec2 @out, ImGuiWindow* window)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -5535,262 +5535,262 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiWindow*, bool> IsWindowChildOf_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindow*, bool> IsWindowChildOf_ptr;
 		public static bool IsWindowChildOf(ImGuiWindow* window, ImGuiWindow* potential_parent)
 		{
 			return IsWindowChildOf_ptr(window, potential_parent);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiWindow*, bool> IsWindowAbove_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindow*, bool> IsWindowAbove_ptr;
 		public static bool IsWindowAbove(ImGuiWindow* potential_above, ImGuiWindow* potential_below)
 		{
 			return IsWindowAbove_ptr(potential_above, potential_below);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, bool> IsWindowNavFocusable_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, bool> IsWindowNavFocusable_ptr;
 		public static bool IsWindowNavFocusable(ImGuiWindow* window)
 		{
 			return IsWindowNavFocusable_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImGuiWindow*, void> GetWindowAllowedExtentRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void> GetWindowAllowedExtentRect_ptr;
 		public static void GetWindowAllowedExtentRect(ImRect* @out, ImGuiWindow* window)
 		{
 			GetWindowAllowedExtentRect_ptr(@out, window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImVec2, ImGuiCond, void> SetWindowPosWindowPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImVec2, ImGuiCond, void> SetWindowPosWindowPtr_ptr;
 		public static void SetWindowPosWindowPtr(ImGuiWindow* window, ImVec2 pos, ImGuiCond cond)
 		{
 			SetWindowPosWindowPtr_ptr(window, pos, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImVec2, ImGuiCond, void> SetWindowSizeWindowPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImVec2, ImGuiCond, void> SetWindowSizeWindowPtr_ptr;
 		public static void SetWindowSizeWindowPtr(ImGuiWindow* window, ImVec2 size, ImGuiCond cond)
 		{
 			SetWindowSizeWindowPtr_ptr(window, size, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, bool, ImGuiCond, void> SetWindowCollapsedWindowPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, bool, ImGuiCond, void> SetWindowCollapsedWindowPtr_ptr;
 		public static void SetWindowCollapsedWindowPtr(ImGuiWindow* window, bool collapsed, ImGuiCond cond)
 		{
 			SetWindowCollapsedWindowPtr_ptr(window, collapsed, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImVec2, ImVec2, void> SetWindowHitTestHole_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImVec2, ImVec2, void> SetWindowHitTestHole_ptr;
 		public static void SetWindowHitTestHole(ImGuiWindow* window, ImVec2 pos, ImVec2 size)
 		{
 			SetWindowHitTestHole_ptr(window, pos, size);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, void> FocusWindow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> FocusWindow_ptr;
 		public static void FocusWindow(ImGuiWindow* window)
 		{
 			FocusWindow_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiWindow*, void> FocusTopMostWindowUnderOne_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindow*, void> FocusTopMostWindowUnderOne_ptr;
 		public static void FocusTopMostWindowUnderOne(ImGuiWindow* under_this_window, ImGuiWindow* ignore_window)
 		{
 			FocusTopMostWindowUnderOne_ptr(under_this_window, ignore_window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, void> BringWindowToFocusFront_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> BringWindowToFocusFront_ptr;
 		public static void BringWindowToFocusFront(ImGuiWindow* window)
 		{
 			BringWindowToFocusFront_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, void> BringWindowToDisplayFront_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> BringWindowToDisplayFront_ptr;
 		public static void BringWindowToDisplayFront(ImGuiWindow* window)
 		{
 			BringWindowToDisplayFront_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, void> BringWindowToDisplayBack_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> BringWindowToDisplayBack_ptr;
 		public static void BringWindowToDisplayBack(ImGuiWindow* window)
 		{
 			BringWindowToDisplayBack_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*, void> SetCurrentFont_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*, void> SetCurrentFont_ptr;
 		public static void SetCurrentFont(ImFontPtr font)
 		{
 			SetCurrentFont_ptr(font);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFont*> GetDefaultFont_ptr;
+		static delegate* unmanaged[Cdecl]<ImFont*> GetDefaultFont_ptr;
 		public static ImFontPtr GetDefaultFont()
 		{
 			return GetDefaultFont_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImDrawList*> GetForegroundDrawListWindowPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImDrawList*> GetForegroundDrawListWindowPtr_ptr;
 		public static ImDrawListPtr GetForegroundDrawListWindowPtr(ImGuiWindow* window)
 		{
 			return GetForegroundDrawListWindowPtr_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, void> Initialize_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> Initialize_ptr;
 		public static void Initialize(ImGuiContext* context)
 		{
 			Initialize_ptr(context);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, void> Shutdown_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> Shutdown_ptr;
 		public static void Shutdown(ImGuiContext* context)
 		{
 			Shutdown_ptr(context);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> UpdateHoveredWindowAndCaptureFlags_ptr;
+		static delegate* unmanaged[Cdecl]<void> UpdateHoveredWindowAndCaptureFlags_ptr;
 		public static void UpdateHoveredWindowAndCaptureFlags()
 		{
 			UpdateHoveredWindowAndCaptureFlags_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, void> StartMouseMovingWindow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> StartMouseMovingWindow_ptr;
 		public static void StartMouseMovingWindow(ImGuiWindow* window)
 		{
 			StartMouseMovingWindow_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiDockNode*, bool, void> StartMouseMovingWindowOrNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiDockNode*, bool, void> StartMouseMovingWindowOrNode_ptr;
 		public static void StartMouseMovingWindowOrNode(ImGuiWindow* window, ImGuiDockNode* node, bool undock_floating_node)
 		{
 			StartMouseMovingWindowOrNode_ptr(window, node, undock_floating_node);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> UpdateMouseMovingWindowNewFrame_ptr;
+		static delegate* unmanaged[Cdecl]<void> UpdateMouseMovingWindowNewFrame_ptr;
 		public static void UpdateMouseMovingWindowNewFrame()
 		{
 			UpdateMouseMovingWindowNewFrame_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> UpdateMouseMovingWindowEndFrame_ptr;
+		static delegate* unmanaged[Cdecl]<void> UpdateMouseMovingWindowEndFrame_ptr;
 		public static void UpdateMouseMovingWindowEndFrame()
 		{
 			UpdateMouseMovingWindowEndFrame_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiContextHook*, ImGuiID> AddContextHook_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiContextHook*, ImGuiID> AddContextHook_ptr;
 		public static ImGuiID AddContextHook(ImGuiContext* context, ImGuiContextHook* hook)
 		{
 			return AddContextHook_ptr(context, hook);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiID, void> RemoveContextHook_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiID, void> RemoveContextHook_ptr;
 		public static void RemoveContextHook(ImGuiContext* context, ImGuiID hook_to_remove)
 		{
 			RemoveContextHook_ptr(context, hook_to_remove);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiContextHookType, void> CallContextHooks_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiContextHookType, void> CallContextHooks_ptr;
 		public static void CallContextHooks(ImGuiContext* context, ImGuiContextHookType type)
 		{
 			CallContextHooks_ptr(context, type);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewportP*, ImVec2, ImVec2, void> TranslateWindowsInViewport_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewportP*, ImVec2, ImVec2, void> TranslateWindowsInViewport_ptr;
 		public static void TranslateWindowsInViewport(ImGuiViewportP* viewport, ImVec2 old_pos, ImVec2 new_pos)
 		{
 			TranslateWindowsInViewport_ptr(viewport, old_pos, new_pos);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewportP*, float, void> ScaleWindowsInViewport_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewportP*, float, void> ScaleWindowsInViewport_ptr;
 		public static void ScaleWindowsInViewport(ImGuiViewportP* viewport, float scale)
 		{
 			ScaleWindowsInViewport_ptr(viewport, scale);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewportP*, void> DestroyPlatformWindow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewportP*, void> DestroyPlatformWindow_ptr;
 		public static void DestroyPlatformWindow(ImGuiViewportP* viewport)
 		{
 			DestroyPlatformWindow_ptr(viewport);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewport*, ImGuiPlatformMonitor*> GetViewportPlatformMonitor_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewport*, ImGuiPlatformMonitor*> GetViewportPlatformMonitor_ptr;
 		public static ImGuiPlatformMonitor* GetViewportPlatformMonitor(ImGuiViewportPtr viewport)
 		{
 			return GetViewportPlatformMonitor_ptr(viewport);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> MarkIniSettingsDirtyNil_ptr;
+		static delegate* unmanaged[Cdecl]<void> MarkIniSettingsDirtyNil_ptr;
 		public static void MarkIniSettingsDirtyNil()
 		{
 			MarkIniSettingsDirtyNil_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, void> MarkIniSettingsDirtyWindowPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> MarkIniSettingsDirtyWindowPtr_ptr;
 		public static void MarkIniSettingsDirtyWindowPtr(ImGuiWindow* window)
 		{
 			MarkIniSettingsDirtyWindowPtr_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> ClearIniSettings_ptr;
+		static delegate* unmanaged[Cdecl]<void> ClearIniSettings_ptr;
 		public static void ClearIniSettings()
 		{
 			ClearIniSettings_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiWindowSettings*> CreateNewWindowSettings_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiWindowSettings*> CreateNewWindowSettings_ptr;
 		public static ImGuiWindowSettings* CreateNewWindowSettings(string name)
 		{
 			using var p_name = new StringHelper(name);
 			return CreateNewWindowSettings_ptr(p_name);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiWindowSettings*> FindWindowSettings_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindowSettings*> FindWindowSettings_ptr;
 		public static ImGuiWindowSettings* FindWindowSettings(ImGuiID id)
 		{
 			return FindWindowSettings_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiWindowSettings*> FindOrCreateWindowSettings_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiWindowSettings*> FindOrCreateWindowSettings_ptr;
 		public static ImGuiWindowSettings* FindOrCreateWindowSettings(string name)
 		{
 			using var p_name = new StringHelper(name);
 			return FindOrCreateWindowSettings_ptr(p_name);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiSettingsHandler*> FindSettingsHandler_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiSettingsHandler*> FindSettingsHandler_ptr;
 		public static ImGuiSettingsHandler* FindSettingsHandler(string type_name)
 		{
 			using var p_type_name = new StringHelper(type_name);
 			return FindSettingsHandler_ptr(p_type_name);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, void> SetNextWindowScroll_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, void> SetNextWindowScroll_ptr;
 		public static void SetNextWindowScroll(ImVec2 scroll)
 		{
 			SetNextWindowScroll_ptr(scroll);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, float, void> SetScrollXWindowPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float, void> SetScrollXWindowPtr_ptr;
 		public static void SetScrollXWindowPtr(ImGuiWindow* window, float scroll_x)
 		{
 			SetScrollXWindowPtr_ptr(window, scroll_x);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, float, void> SetScrollYWindowPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float, void> SetScrollYWindowPtr_ptr;
 		public static void SetScrollYWindowPtr(ImGuiWindow* window, float scroll_y)
 		{
 			SetScrollYWindowPtr_ptr(window, scroll_y);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, float, float, void> SetScrollFromPosXWindowPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float, float, void> SetScrollFromPosXWindowPtr_ptr;
 		public static void SetScrollFromPosXWindowPtr(ImGuiWindow* window, float local_x, float center_x_ratio)
 		{
 			SetScrollFromPosXWindowPtr_ptr(window, local_x, center_x_ratio);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, float, float, void> SetScrollFromPosYWindowPtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float, float, void> SetScrollFromPosYWindowPtr_ptr;
 		public static void SetScrollFromPosYWindowPtr(ImGuiWindow* window, float local_y, float center_y_ratio)
 		{
 			SetScrollFromPosYWindowPtr_ptr(window, local_y, center_y_ratio);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiWindow*, ImRect, void> ScrollToBringRectIntoView_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiWindow*, ImRect, void> ScrollToBringRectIntoView_ptr;
 		public static void ScrollToBringRectIntoView(out ImVec2 @out, ImGuiWindow* window, ImRect item_rect)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -5799,85 +5799,85 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID> GetItemID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID> GetItemID_ptr;
 		public static ImGuiID GetItemID()
 		{
 			return GetItemID_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiItemStatusFlags> GetItemStatusFlags_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiItemStatusFlags> GetItemStatusFlags_ptr;
 		public static ImGuiItemStatusFlags GetItemStatusFlags()
 		{
 			return GetItemStatusFlags_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID> GetActiveID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID> GetActiveID_ptr;
 		public static ImGuiID GetActiveID()
 		{
 			return GetActiveID_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID> GetFocusID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID> GetFocusID_ptr;
 		public static ImGuiID GetFocusID()
 		{
 			return GetFocusID_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiItemFlags> GetItemsFlags_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiItemFlags> GetItemsFlags_ptr;
 		public static ImGuiItemFlags GetItemsFlags()
 		{
 			return GetItemsFlags_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiWindow*, void> SetActiveID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindow*, void> SetActiveID_ptr;
 		public static void SetActiveID(ImGuiID id, ImGuiWindow* window)
 		{
 			SetActiveID_ptr(id, window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiWindow*, void> SetFocusID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindow*, void> SetFocusID_ptr;
 		public static void SetFocusID(ImGuiID id, ImGuiWindow* window)
 		{
 			SetFocusID_ptr(id, window);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> ClearActiveID_ptr;
+		static delegate* unmanaged[Cdecl]<void> ClearActiveID_ptr;
 		public static void ClearActiveID()
 		{
 			ClearActiveID_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID> GetHoveredID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID> GetHoveredID_ptr;
 		public static ImGuiID GetHoveredID()
 		{
 			return GetHoveredID_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, void> SetHoveredID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, void> SetHoveredID_ptr;
 		public static void SetHoveredID(ImGuiID id)
 		{
 			SetHoveredID_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, void> KeepAliveID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, void> KeepAliveID_ptr;
 		public static void KeepAliveID(ImGuiID id)
 		{
 			KeepAliveID_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, void> MarkItemEdited_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, void> MarkItemEdited_ptr;
 		public static void MarkItemEdited(ImGuiID id)
 		{
 			MarkItemEdited_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, void> PushOverrideID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, void> PushOverrideID_ptr;
 		public static void PushOverrideID(ImGuiID id)
 		{
 			PushOverrideID_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiID, ImGuiID> GetIDWithSeed_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, ImGuiID, ImGuiID> GetIDWithSeed_ptr;
 		public static ImGuiID GetIDWithSeed(string str_id_begin, string str_id_end, ImGuiID seed)
 		{
 			using var p_str_id_begin = new StringHelper(str_id_begin);
@@ -5885,55 +5885,55 @@ namespace SharpImGUI
 			return GetIDWithSeed_ptr(p_str_id_begin, p_str_id_end, seed);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, float, void> ItemSizeVec2_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, float, void> ItemSizeVec2_ptr;
 		public static void ItemSizeVec2(ImVec2 size, float text_baseline_y)
 		{
 			ItemSizeVec2_ptr(size, text_baseline_y);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, float, void> ItemSizeRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect, float, void> ItemSizeRect_ptr;
 		public static void ItemSizeRect(ImRect bb, float text_baseline_y)
 		{
 			ItemSizeRect_ptr(bb, text_baseline_y);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImRect*, bool> ItemAdd_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, ImRect*, bool> ItemAdd_ptr;
 		public static bool ItemAdd(ImRect bb, ImGuiID id, ImRect* nav_bb)
 		{
 			return ItemAdd_ptr(bb, id, nav_bb);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, bool> ItemHoverable_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, bool> ItemHoverable_ptr;
 		public static bool ItemHoverable(ImRect bb, ImGuiID id)
 		{
 			return ItemHoverable_ptr(bb, id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, bool, bool> IsClippedEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, bool, bool> IsClippedEx_ptr;
 		public static bool IsClippedEx(ImRect bb, ImGuiID id, bool clip_even_when_logged)
 		{
 			return IsClippedEx_ptr(bb, id, clip_even_when_logged);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiID, ImGuiItemStatusFlags, ImRect, void> SetLastItemData_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiID, ImGuiItemStatusFlags, ImRect, void> SetLastItemData_ptr;
 		public static void SetLastItemData(ImGuiWindow* window, ImGuiID item_id, ImGuiItemStatusFlags status_flags, ImRect item_rect)
 		{
 			SetLastItemData_ptr(window, item_id, status_flags, item_rect);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiID, bool> FocusableItemRegister_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiID, bool> FocusableItemRegister_ptr;
 		public static bool FocusableItemRegister(ImGuiWindow* window, ImGuiID id)
 		{
 			return FocusableItemRegister_ptr(window, id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, void> FocusableItemUnregister_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> FocusableItemUnregister_ptr;
 		public static void FocusableItemUnregister(ImGuiWindow* window)
 		{
 			FocusableItemUnregister_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, float, float, void> CalcItemSize_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, float, float, void> CalcItemSize_ptr;
 		public static void CalcItemSize(out ImVec2 @out, ImVec2 size, float default_w, float default_h)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -5942,37 +5942,37 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, float, float> CalcWrapWidthForPos_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, float, float> CalcWrapWidthForPos_ptr;
 		public static float CalcWrapWidthForPos(ImVec2 pos, float wrap_pos_x)
 		{
 			return CalcWrapWidthForPos_ptr(pos, wrap_pos_x);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, float, void> PushMultiItemsWidths_ptr;
+		static delegate* unmanaged[Cdecl]<int, float, void> PushMultiItemsWidths_ptr;
 		public static void PushMultiItemsWidths(int components, float width_full)
 		{
 			PushMultiItemsWidths_ptr(components, width_full);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiItemFlags, bool, void> PushItemFlag_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiItemFlags, bool, void> PushItemFlag_ptr;
 		public static void PushItemFlag(ImGuiItemFlags option, bool enabled)
 		{
 			PushItemFlag_ptr(option, enabled);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> PopItemFlag_ptr;
+		static delegate* unmanaged[Cdecl]<void> PopItemFlag_ptr;
 		public static void PopItemFlag()
 		{
 			PopItemFlag_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsItemToggledSelection_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsItemToggledSelection_ptr;
 		public static bool IsItemToggledSelection()
 		{
 			return IsItemToggledSelection_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, void> GetContentRegionMaxAbs_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetContentRegionMaxAbs_ptr;
 		public static void GetContentRegionMaxAbs(out ImVec2 @out)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -5981,25 +5981,25 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiShrinkWidthItem*, int, float, void> ShrinkWidths_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiShrinkWidthItem*, int, float, void> ShrinkWidths_ptr;
 		public static void ShrinkWidths(ImGuiShrinkWidthItem* items, int count, float width_excess)
 		{
 			ShrinkWidths_ptr(items, count, width_excess);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiLogType, int, void> LogBegin_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiLogType, int, void> LogBegin_ptr;
 		public static void LogBegin(ImGuiLogType type, int auto_open_depth)
 		{
 			LogBegin_ptr(type, auto_open_depth);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, void> LogToBuffer_ptr;
+		static delegate* unmanaged[Cdecl]<int, void> LogToBuffer_ptr;
 		public static void LogToBuffer(int auto_open_depth)
 		{
 			LogToBuffer_ptr(auto_open_depth);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, byte*, byte*, void> LogRenderedText_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, byte*, byte*, void> LogRenderedText_ptr;
 		public static void LogRenderedText(ImVec2* ref_pos, string text, string text_end)
 		{
 			using var p_text = new StringHelper(text);
@@ -6007,7 +6007,7 @@ namespace SharpImGUI
 			LogRenderedText_ptr(ref_pos, p_text, p_text_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, void> LogSetNextTextDecoration_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, void> LogSetNextTextDecoration_ptr;
 		public static void LogSetNextTextDecoration(string prefix, string suffix)
 		{
 			using var p_prefix = new StringHelper(prefix);
@@ -6015,56 +6015,56 @@ namespace SharpImGUI
 			LogSetNextTextDecoration_ptr(p_prefix, p_suffix);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiID, ImVec2, bool, ImGuiWindowFlags, bool> BeginChildEx_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiID, ImVec2, bool, ImGuiWindowFlags, bool> BeginChildEx_ptr;
 		public static bool BeginChildEx(string name, ImGuiID id, ImVec2 size_arg, bool border, ImGuiWindowFlags flags)
 		{
 			using var p_name = new StringHelper(name);
 			return BeginChildEx_ptr(p_name, id, size_arg, border, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiPopupFlags, void> OpenPopupEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiPopupFlags, void> OpenPopupEx_ptr;
 		public static void OpenPopupEx(ImGuiID id, ImGuiPopupFlags popup_flags)
 		{
 			OpenPopupEx_ptr(id, popup_flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, bool, void> ClosePopupToLevel_ptr;
+		static delegate* unmanaged[Cdecl]<int, bool, void> ClosePopupToLevel_ptr;
 		public static void ClosePopupToLevel(int remaining, bool restore_focus_to_window_under_popup)
 		{
 			ClosePopupToLevel_ptr(remaining, restore_focus_to_window_under_popup);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, bool, void> ClosePopupsOverWindow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, bool, void> ClosePopupsOverWindow_ptr;
 		public static void ClosePopupsOverWindow(ImGuiWindow* ref_window, bool restore_focus_to_window_under_popup)
 		{
 			ClosePopupsOverWindow_ptr(ref_window, restore_focus_to_window_under_popup);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiPopupFlags, bool> IsPopupOpenID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiPopupFlags, bool> IsPopupOpenID_ptr;
 		public static bool IsPopupOpenID(ImGuiID id, ImGuiPopupFlags popup_flags)
 		{
 			return IsPopupOpenID_ptr(id, popup_flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiWindowFlags, bool> BeginPopupEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindowFlags, bool> BeginPopupEx_ptr;
 		public static bool BeginPopupEx(ImGuiID id, ImGuiWindowFlags extra_flags)
 		{
 			return BeginPopupEx_ptr(id, extra_flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindowFlags, ImGuiTooltipFlags, void> BeginTooltipEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindowFlags, ImGuiTooltipFlags, void> BeginTooltipEx_ptr;
 		public static void BeginTooltipEx(ImGuiWindowFlags extra_flags, ImGuiTooltipFlags tooltip_flags)
 		{
 			BeginTooltipEx_ptr(extra_flags, tooltip_flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*> GetTopMostPopupModal_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*> GetTopMostPopupModal_ptr;
 		public static ImGuiWindow* GetTopMostPopupModal()
 		{
 			return GetTopMostPopupModal_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiWindow*, void> FindBestWindowPosForPopup_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiWindow*, void> FindBestWindowPosForPopup_ptr;
 		public static void FindBestWindowPosForPopup(out ImVec2 @out, ImGuiWindow* window)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -6073,7 +6073,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImGuiDir*, ImRect, ImRect, ImGuiPopupPositionPolicy, void> FindBestWindowPosForPopupEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImGuiDir*, ImRect, ImRect, ImGuiPopupPositionPolicy, void> FindBestWindowPosForPopupEx_ptr;
 		public static void FindBestWindowPosForPopupEx(out ImVec2 @out, ImVec2 ref_pos, ImVec2 size, ref ImGuiDir last_dir, ImRect r_outer, ImRect r_avoid, ImGuiPopupPositionPolicy policy)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -6083,43 +6083,43 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, bool, void> NavInitWindow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, bool, void> NavInitWindow_ptr;
 		public static void NavInitWindow(ImGuiWindow* window, bool force_reinit)
 		{
 			NavInitWindow_ptr(window, force_reinit);
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> NavMoveRequestButNoResultYet_ptr;
+		static delegate* unmanaged[Cdecl]<bool> NavMoveRequestButNoResultYet_ptr;
 		public static bool NavMoveRequestButNoResultYet()
 		{
 			return NavMoveRequestButNoResultYet_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> NavMoveRequestCancel_ptr;
+		static delegate* unmanaged[Cdecl]<void> NavMoveRequestCancel_ptr;
 		public static void NavMoveRequestCancel()
 		{
 			NavMoveRequestCancel_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDir, ImGuiDir, ImRect, ImGuiNavMoveFlags, void> NavMoveRequestForward_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDir, ImGuiDir, ImRect, ImGuiNavMoveFlags, void> NavMoveRequestForward_ptr;
 		public static void NavMoveRequestForward(ImGuiDir move_dir, ImGuiDir clip_dir, ImRect bb_rel, ImGuiNavMoveFlags move_flags)
 		{
 			NavMoveRequestForward_ptr(move_dir, clip_dir, bb_rel, move_flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiNavMoveFlags, void> NavMoveRequestTryWrapping_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiNavMoveFlags, void> NavMoveRequestTryWrapping_ptr;
 		public static void NavMoveRequestTryWrapping(ImGuiWindow* window, ImGuiNavMoveFlags move_flags)
 		{
 			NavMoveRequestTryWrapping_ptr(window, move_flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNavInput, ImGuiInputReadMode, float> GetNavInputAmount_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNavInput, ImGuiInputReadMode, float> GetNavInputAmount_ptr;
 		public static float GetNavInputAmount(ImGuiNavInput n, ImGuiInputReadMode mode)
 		{
 			return GetNavInputAmount_ptr(n, mode);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, ImGuiNavDirSourceFlags, ImGuiInputReadMode, float, float, void> GetNavInputAmount2d_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiNavDirSourceFlags, ImGuiInputReadMode, float, float, void> GetNavInputAmount2d_ptr;
 		public static void GetNavInputAmount2d(out ImVec2 @out, ImGuiNavDirSourceFlags dir_sources, ImGuiInputReadMode mode, float slow_factor, float fast_factor)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -6128,163 +6128,163 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<float, float, float, float, int> CalcTypematicRepeatAmount_ptr;
+		static delegate* unmanaged[Cdecl]<float, float, float, float, int> CalcTypematicRepeatAmount_ptr;
 		public static int CalcTypematicRepeatAmount(float t0, float t1, float repeat_delay, float repeat_rate)
 		{
 			return CalcTypematicRepeatAmount_ptr(t0, t1, repeat_delay, repeat_rate);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, void> ActivateItem_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, void> ActivateItem_ptr;
 		public static void ActivateItem(ImGuiID id)
 		{
 			ActivateItem_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, int, ImGuiID, ImRect, void> SetNavID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, int, ImGuiID, ImRect, void> SetNavID_ptr;
 		public static void SetNavID(ImGuiID id, int nav_layer, ImGuiID focus_scope_id, ImRect rect_rel)
 		{
 			SetNavID_ptr(id, nav_layer, focus_scope_id, rect_rel);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, void> PushFocusScope_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, void> PushFocusScope_ptr;
 		public static void PushFocusScope(ImGuiID id)
 		{
 			PushFocusScope_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> PopFocusScope_ptr;
+		static delegate* unmanaged[Cdecl]<void> PopFocusScope_ptr;
 		public static void PopFocusScope()
 		{
 			PopFocusScope_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID> GetFocusedFocusScope_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID> GetFocusedFocusScope_ptr;
 		public static ImGuiID GetFocusedFocusScope()
 		{
 			return GetFocusedFocusScope_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID> GetFocusScope_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID> GetFocusScope_ptr;
 		public static ImGuiID GetFocusScope()
 		{
 			return GetFocusScope_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> SetItemUsingMouseWheel_ptr;
+		static delegate* unmanaged[Cdecl]<void> SetItemUsingMouseWheel_ptr;
 		public static void SetItemUsingMouseWheel()
 		{
 			SetItemUsingMouseWheel_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDir, bool> IsActiveIdUsingNavDir_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDir, bool> IsActiveIdUsingNavDir_ptr;
 		public static bool IsActiveIdUsingNavDir(ImGuiDir dir)
 		{
 			return IsActiveIdUsingNavDir_ptr(dir);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNavInput, bool> IsActiveIdUsingNavInput_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNavInput, bool> IsActiveIdUsingNavInput_ptr;
 		public static bool IsActiveIdUsingNavInput(ImGuiNavInput input)
 		{
 			return IsActiveIdUsingNavInput_ptr(input);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiKey, bool> IsActiveIdUsingKey_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiKey, bool> IsActiveIdUsingKey_ptr;
 		public static bool IsActiveIdUsingKey(ImGuiKey key)
 		{
 			return IsActiveIdUsingKey_ptr(key);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiMouseButton, float, bool> IsMouseDragPastThreshold_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiMouseButton, float, bool> IsMouseDragPastThreshold_ptr;
 		public static bool IsMouseDragPastThreshold(ImGuiMouseButton button, float lock_threshold)
 		{
 			return IsMouseDragPastThreshold_ptr(button, lock_threshold);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiKey, bool, bool> IsKeyPressedMap_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiKey, bool, bool> IsKeyPressedMap_ptr;
 		public static bool IsKeyPressedMap(ImGuiKey key, bool repeat)
 		{
 			return IsKeyPressedMap_ptr(key, repeat);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNavInput, bool> IsNavInputDown_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNavInput, bool> IsNavInputDown_ptr;
 		public static bool IsNavInputDown(ImGuiNavInput n)
 		{
 			return IsNavInputDown_ptr(n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiNavInput, ImGuiInputReadMode, bool> IsNavInputTest_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiNavInput, ImGuiInputReadMode, bool> IsNavInputTest_ptr;
 		public static bool IsNavInputTest(ImGuiNavInput n, ImGuiInputReadMode rm)
 		{
 			return IsNavInputTest_ptr(n, rm);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiKeyModFlags> GetMergedKeyModFlags_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiKeyModFlags> GetMergedKeyModFlags_ptr;
 		public static ImGuiKeyModFlags GetMergedKeyModFlags()
 		{
 			return GetMergedKeyModFlags_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, void> DockContextInitialize_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> DockContextInitialize_ptr;
 		public static void DockContextInitialize(ImGuiContext* ctx)
 		{
 			DockContextInitialize_ptr(ctx);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, void> DockContextShutdown_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> DockContextShutdown_ptr;
 		public static void DockContextShutdown(ImGuiContext* ctx)
 		{
 			DockContextShutdown_ptr(ctx);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiID, bool, void> DockContextClearNodes_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiID, bool, void> DockContextClearNodes_ptr;
 		public static void DockContextClearNodes(ImGuiContext* ctx, ImGuiID root_id, bool clear_settings_refs)
 		{
 			DockContextClearNodes_ptr(ctx, root_id, clear_settings_refs);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, void> DockContextRebuildNodes_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> DockContextRebuildNodes_ptr;
 		public static void DockContextRebuildNodes(ImGuiContext* ctx)
 		{
 			DockContextRebuildNodes_ptr(ctx);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, void> DockContextNewFrameUpdateUndocking_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> DockContextNewFrameUpdateUndocking_ptr;
 		public static void DockContextNewFrameUpdateUndocking(ImGuiContext* ctx)
 		{
 			DockContextNewFrameUpdateUndocking_ptr(ctx);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, void> DockContextNewFrameUpdateDocking_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> DockContextNewFrameUpdateDocking_ptr;
 		public static void DockContextNewFrameUpdateDocking(ImGuiContext* ctx)
 		{
 			DockContextNewFrameUpdateDocking_ptr(ctx);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiID> DockContextGenNodeID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiID> DockContextGenNodeID_ptr;
 		public static ImGuiID DockContextGenNodeID(ImGuiContext* ctx)
 		{
 			return DockContextGenNodeID_ptr(ctx);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiWindow*, ImGuiDockNode*, ImGuiWindow*, ImGuiDir, float, bool, void> DockContextQueueDock_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiWindow*, ImGuiDockNode*, ImGuiWindow*, ImGuiDir, float, bool, void> DockContextQueueDock_ptr;
 		public static void DockContextQueueDock(ImGuiContext* ctx, ImGuiWindow* target, ImGuiDockNode* target_node, ImGuiWindow* payload, ImGuiDir split_dir, float split_ratio, bool split_outer)
 		{
 			DockContextQueueDock_ptr(ctx, target, target_node, payload, split_dir, split_ratio, split_outer);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiWindow*, void> DockContextQueueUndockWindow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiWindow*, void> DockContextQueueUndockWindow_ptr;
 		public static void DockContextQueueUndockWindow(ImGuiContext* ctx, ImGuiWindow* window)
 		{
 			DockContextQueueUndockWindow_ptr(ctx, window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiDockNode*, void> DockContextQueueUndockNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiDockNode*, void> DockContextQueueUndockNode_ptr;
 		public static void DockContextQueueUndockNode(ImGuiContext* ctx, ImGuiDockNode* node)
 		{
 			DockContextQueueUndockNode_ptr(ctx, node);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiDockNode*, ImGuiWindow*, ImGuiDir, bool, ImVec2*, bool> DockContextCalcDropPosForDocking_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiDockNode*, ImGuiWindow*, ImGuiDir, bool, ImVec2*, bool> DockContextCalcDropPosForDocking_ptr;
 		public static bool DockContextCalcDropPosForDocking(ImGuiWindow* target, ImGuiDockNode* target_node, ImGuiWindow* payload, ImGuiDir split_dir, bool split_outer, out ImVec2 out_pos)
 		{
 			fixed(ImVec2* p_out_pos = &out_pos)
@@ -6293,43 +6293,43 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool> DockNodeBeginAmendTabBar_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool> DockNodeBeginAmendTabBar_ptr;
 		public static bool DockNodeBeginAmendTabBar(ImGuiDockNode* node)
 		{
 			return DockNodeBeginAmendTabBar_ptr(node);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> DockNodeEndAmendTabBar_ptr;
+		static delegate* unmanaged[Cdecl]<void> DockNodeEndAmendTabBar_ptr;
 		public static void DockNodeEndAmendTabBar()
 		{
 			DockNodeEndAmendTabBar_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, ImGuiDockNode*> DockNodeGetRootNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, ImGuiDockNode*> DockNodeGetRootNode_ptr;
 		public static ImGuiDockNode* DockNodeGetRootNode(ImGuiDockNode* node)
 		{
 			return DockNodeGetRootNode_ptr(node);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, int> DockNodeGetDepth_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, int> DockNodeGetDepth_ptr;
 		public static int DockNodeGetDepth(ImGuiDockNode* node)
 		{
 			return DockNodeGetDepth_ptr(node);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*> GetWindowDockNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*> GetWindowDockNode_ptr;
 		public static ImGuiDockNode* GetWindowDockNode()
 		{
 			return GetWindowDockNode_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, bool> GetWindowAlwaysWantOwnTabBar_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, bool> GetWindowAlwaysWantOwnTabBar_ptr;
 		public static bool GetWindowAlwaysWantOwnTabBar(ImGuiWindow* window)
 		{
 			return GetWindowAlwaysWantOwnTabBar_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, bool*, void> BeginDocked_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, bool*, void> BeginDocked_ptr;
 		public static void BeginDocked(ImGuiWindow* window, ref bool p_open)
 		{
 			fixed(bool* p_p_open = &p_open)
@@ -6338,80 +6338,80 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, void> BeginDockableDragDropSource_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> BeginDockableDragDropSource_ptr;
 		public static void BeginDockableDragDropSource(ImGuiWindow* window)
 		{
 			BeginDockableDragDropSource_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, void> BeginDockableDragDropTarget_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> BeginDockableDragDropTarget_ptr;
 		public static void BeginDockableDragDropTarget(ImGuiWindow* window)
 		{
 			BeginDockableDragDropTarget_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiID, ImGuiCond, void> SetWindowDock_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiID, ImGuiCond, void> SetWindowDock_ptr;
 		public static void SetWindowDock(ImGuiWindow* window, ImGuiID dock_id, ImGuiCond cond)
 		{
 			SetWindowDock_ptr(window, dock_id, cond);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiID, void> DockBuilderDockWindow_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiID, void> DockBuilderDockWindow_ptr;
 		public static void DockBuilderDockWindow(string window_name, ImGuiID node_id)
 		{
 			using var p_window_name = new StringHelper(window_name);
 			DockBuilderDockWindow_ptr(p_window_name, node_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiDockNode*> DockBuilderGetNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiDockNode*> DockBuilderGetNode_ptr;
 		public static ImGuiDockNode* DockBuilderGetNode(ImGuiID node_id)
 		{
 			return DockBuilderGetNode_ptr(node_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiDockNode*> DockBuilderGetCentralNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiDockNode*> DockBuilderGetCentralNode_ptr;
 		public static ImGuiDockNode* DockBuilderGetCentralNode(ImGuiID node_id)
 		{
 			return DockBuilderGetCentralNode_ptr(node_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiDockNodeFlags, ImGuiID> DockBuilderAddNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiDockNodeFlags, ImGuiID> DockBuilderAddNode_ptr;
 		public static ImGuiID DockBuilderAddNode(ImGuiID node_id, ImGuiDockNodeFlags flags)
 		{
 			return DockBuilderAddNode_ptr(node_id, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, void> DockBuilderRemoveNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, void> DockBuilderRemoveNode_ptr;
 		public static void DockBuilderRemoveNode(ImGuiID node_id)
 		{
 			DockBuilderRemoveNode_ptr(node_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, bool, void> DockBuilderRemoveNodeDockedWindows_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, bool, void> DockBuilderRemoveNodeDockedWindows_ptr;
 		public static void DockBuilderRemoveNodeDockedWindows(ImGuiID node_id, bool clear_settings_refs)
 		{
 			DockBuilderRemoveNodeDockedWindows_ptr(node_id, clear_settings_refs);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, void> DockBuilderRemoveNodeChildNodes_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, void> DockBuilderRemoveNodeChildNodes_ptr;
 		public static void DockBuilderRemoveNodeChildNodes(ImGuiID node_id)
 		{
 			DockBuilderRemoveNodeChildNodes_ptr(node_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, void> DockBuilderSetNodePos_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, void> DockBuilderSetNodePos_ptr;
 		public static void DockBuilderSetNodePos(ImGuiID node_id, ImVec2 pos)
 		{
 			DockBuilderSetNodePos_ptr(node_id, pos);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, void> DockBuilderSetNodeSize_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, void> DockBuilderSetNodeSize_ptr;
 		public static void DockBuilderSetNodeSize(ImGuiID node_id, ImVec2 size)
 		{
 			DockBuilderSetNodeSize_ptr(node_id, size);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiDir, float, ImGuiID*, ImGuiID*, ImGuiID> DockBuilderSplitNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiDir, float, ImGuiID*, ImGuiID*, ImGuiID> DockBuilderSplitNode_ptr;
 		public static ImGuiID DockBuilderSplitNode(ImGuiID node_id, ImGuiDir split_dir, float size_ratio_for_node_at_dir, out ImGuiID out_id_at_dir, out ImGuiID out_id_at_opposite_dir)
 		{
 			fixed(ImGuiID* p_out_id_at_dir = &out_id_at_dir)
@@ -6421,19 +6421,19 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiID, ImVector_const_charPtr*, void> DockBuilderCopyDockSpace_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiID, ImVector_const_charPtr*, void> DockBuilderCopyDockSpace_ptr;
 		public static void DockBuilderCopyDockSpace(ImGuiID src_dockspace_id, ImGuiID dst_dockspace_id, ImVector_const_charPtr* in_window_remap_pairs)
 		{
 			DockBuilderCopyDockSpace_ptr(src_dockspace_id, dst_dockspace_id, in_window_remap_pairs);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiID, ImVector_ImGuiID*, void> DockBuilderCopyNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiID, ImVector_ImGuiID*, void> DockBuilderCopyNode_ptr;
 		public static void DockBuilderCopyNode(ImGuiID src_node_id, ImGuiID dst_node_id, ImVector_ImGuiID* out_node_remap_pairs)
 		{
 			DockBuilderCopyNode_ptr(src_node_id, dst_node_id, out_node_remap_pairs);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, void> DockBuilderCopyWindowSettings_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, void> DockBuilderCopyWindowSettings_ptr;
 		public static void DockBuilderCopyWindowSettings(string src_name, string dst_name)
 		{
 			using var p_src_name = new StringHelper(src_name);
@@ -6441,412 +6441,412 @@ namespace SharpImGUI
 			DockBuilderCopyWindowSettings_ptr(p_src_name, p_dst_name);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, void> DockBuilderFinish_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, void> DockBuilderFinish_ptr;
 		public static void DockBuilderFinish(ImGuiID node_id)
 		{
 			DockBuilderFinish_ptr(node_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, bool> BeginDragDropTargetCustom_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, bool> BeginDragDropTargetCustom_ptr;
 		public static bool BeginDragDropTargetCustom(ImRect bb, ImGuiID id)
 		{
 			return BeginDragDropTargetCustom_ptr(bb, id);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> ClearDragDrop_ptr;
+		static delegate* unmanaged[Cdecl]<void> ClearDragDrop_ptr;
 		public static void ClearDragDrop()
 		{
 			ClearDragDrop_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<bool> IsDragDropPayloadBeingAccepted_ptr;
+		static delegate* unmanaged[Cdecl]<bool> IsDragDropPayloadBeingAccepted_ptr;
 		public static bool IsDragDropPayloadBeingAccepted()
 		{
 			return IsDragDropPayloadBeingAccepted_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImRect, void> SetWindowClipRectBeforeSetChannel_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImRect, void> SetWindowClipRectBeforeSetChannel_ptr;
 		public static void SetWindowClipRectBeforeSetChannel(ImGuiWindow* window, ImRect clip_rect)
 		{
 			SetWindowClipRectBeforeSetChannel_ptr(window, clip_rect);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, ImGuiOldColumnFlags, void> BeginColumns_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int, ImGuiOldColumnFlags, void> BeginColumns_ptr;
 		public static void BeginColumns(string str_id, int count, ImGuiOldColumnFlags flags)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			BeginColumns_ptr(p_str_id, count, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> EndColumns_ptr;
+		static delegate* unmanaged[Cdecl]<void> EndColumns_ptr;
 		public static void EndColumns()
 		{
 			EndColumns_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<int, void> PushColumnClipRect_ptr;
+		static delegate* unmanaged[Cdecl]<int, void> PushColumnClipRect_ptr;
 		public static void PushColumnClipRect(int column_index)
 		{
 			PushColumnClipRect_ptr(column_index);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> PushColumnsBackground_ptr;
+		static delegate* unmanaged[Cdecl]<void> PushColumnsBackground_ptr;
 		public static void PushColumnsBackground()
 		{
 			PushColumnsBackground_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> PopColumnsBackground_ptr;
+		static delegate* unmanaged[Cdecl]<void> PopColumnsBackground_ptr;
 		public static void PopColumnsBackground()
 		{
 			PopColumnsBackground_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, ImGuiID> GetColumnsID_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int, ImGuiID> GetColumnsID_ptr;
 		public static ImGuiID GetColumnsID(string str_id, int count)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return GetColumnsID_ptr(p_str_id, count);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiID, ImGuiOldColumns*> FindOrCreateColumns_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiID, ImGuiOldColumns*> FindOrCreateColumns_ptr;
 		public static ImGuiOldColumns* FindOrCreateColumns(ImGuiWindow* window, ImGuiID id)
 		{
 			return FindOrCreateColumns_ptr(window, id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiOldColumns*, float, float> GetColumnOffsetFromNorm_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiOldColumns*, float, float> GetColumnOffsetFromNorm_ptr;
 		public static float GetColumnOffsetFromNorm(ImGuiOldColumns* columns, float offset_norm)
 		{
 			return GetColumnOffsetFromNorm_ptr(columns, offset_norm);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiOldColumns*, float, float> GetColumnNormFromOffset_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiOldColumns*, float, float> GetColumnNormFromOffset_ptr;
 		public static float GetColumnNormFromOffset(ImGuiOldColumns* columns, float offset)
 		{
 			return GetColumnNormFromOffset_ptr(columns, offset);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, void> TableOpenContextMenu_ptr;
+		static delegate* unmanaged[Cdecl]<int, void> TableOpenContextMenu_ptr;
 		public static void TableOpenContextMenu(int column_n)
 		{
 			TableOpenContextMenu_ptr(column_n);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, bool, void> TableSetColumnEnabled_ptr;
+		static delegate* unmanaged[Cdecl]<int, bool, void> TableSetColumnEnabled_ptr;
 		public static void TableSetColumnEnabled(int column_n, bool enabled)
 		{
 			TableSetColumnEnabled_ptr(column_n, enabled);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, float, void> TableSetColumnWidth_ptr;
+		static delegate* unmanaged[Cdecl]<int, float, void> TableSetColumnWidth_ptr;
 		public static void TableSetColumnWidth(int column_n, float width)
 		{
 			TableSetColumnWidth_ptr(column_n, width);
 		}
 
-		static delegate* unmanaged[Stdcall]<int, ImGuiSortDirection, bool, void> TableSetColumnSortDirection_ptr;
+		static delegate* unmanaged[Cdecl]<int, ImGuiSortDirection, bool, void> TableSetColumnSortDirection_ptr;
 		public static void TableSetColumnSortDirection(int column_n, ImGuiSortDirection sort_direction, bool append_to_sort_specs)
 		{
 			TableSetColumnSortDirection_ptr(column_n, sort_direction, append_to_sort_specs);
 		}
 
-		static delegate* unmanaged[Stdcall]<int> TableGetHoveredColumn_ptr;
+		static delegate* unmanaged[Cdecl]<int> TableGetHoveredColumn_ptr;
 		public static int TableGetHoveredColumn()
 		{
 			return TableGetHoveredColumn_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> TableGetHeaderRowHeight_ptr;
+		static delegate* unmanaged[Cdecl]<float> TableGetHeaderRowHeight_ptr;
 		public static float TableGetHeaderRowHeight()
 		{
 			return TableGetHeaderRowHeight_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> TablePushBackgroundChannel_ptr;
+		static delegate* unmanaged[Cdecl]<void> TablePushBackgroundChannel_ptr;
 		public static void TablePushBackgroundChannel()
 		{
 			TablePushBackgroundChannel_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<void> TablePopBackgroundChannel_ptr;
+		static delegate* unmanaged[Cdecl]<void> TablePopBackgroundChannel_ptr;
 		public static void TablePopBackgroundChannel()
 		{
 			TablePopBackgroundChannel_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*> GetCurrentTable_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*> GetCurrentTable_ptr;
 		public static ImGuiTable* GetCurrentTable()
 		{
 			return GetCurrentTable_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiTable*> TableFindByID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiTable*> TableFindByID_ptr;
 		public static ImGuiTable* TableFindByID(ImGuiID id)
 		{
 			return TableFindByID_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiID, int, ImGuiTableFlags, ImVec2, float, bool> BeginTableEx_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiID, int, ImGuiTableFlags, ImVec2, float, bool> BeginTableEx_ptr;
 		public static bool BeginTableEx(string name, ImGuiID id, int columns_count, ImGuiTableFlags flags, ImVec2 outer_size, float inner_width)
 		{
 			using var p_name = new StringHelper(name);
 			return BeginTableEx_ptr(p_name, id, columns_count, flags, outer_size, inner_width);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, int, void> TableBeginInitMemory_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, int, void> TableBeginInitMemory_ptr;
 		public static void TableBeginInitMemory(ImGuiTable* table, int columns_count)
 		{
 			TableBeginInitMemory_ptr(table, columns_count);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableBeginApplyRequests_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableBeginApplyRequests_ptr;
 		public static void TableBeginApplyRequests(ImGuiTable* table)
 		{
 			TableBeginApplyRequests_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableSetupDrawChannels_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableSetupDrawChannels_ptr;
 		public static void TableSetupDrawChannels(ImGuiTable* table)
 		{
 			TableSetupDrawChannels_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableUpdateLayout_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableUpdateLayout_ptr;
 		public static void TableUpdateLayout(ImGuiTable* table)
 		{
 			TableUpdateLayout_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableUpdateBorders_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableUpdateBorders_ptr;
 		public static void TableUpdateBorders(ImGuiTable* table)
 		{
 			TableUpdateBorders_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableUpdateColumnsWeightFromWidth_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableUpdateColumnsWeightFromWidth_ptr;
 		public static void TableUpdateColumnsWeightFromWidth(ImGuiTable* table)
 		{
 			TableUpdateColumnsWeightFromWidth_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableDrawBorders_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableDrawBorders_ptr;
 		public static void TableDrawBorders(ImGuiTable* table)
 		{
 			TableDrawBorders_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableDrawContextMenu_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableDrawContextMenu_ptr;
 		public static void TableDrawContextMenu(ImGuiTable* table)
 		{
 			TableDrawContextMenu_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableMergeDrawChannels_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableMergeDrawChannels_ptr;
 		public static void TableMergeDrawChannels(ImGuiTable* table)
 		{
 			TableMergeDrawChannels_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableSortSpecsSanitize_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableSortSpecsSanitize_ptr;
 		public static void TableSortSpecsSanitize(ImGuiTable* table)
 		{
 			TableSortSpecsSanitize_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableSortSpecsBuild_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableSortSpecsBuild_ptr;
 		public static void TableSortSpecsBuild(ImGuiTable* table)
 		{
 			TableSortSpecsBuild_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableColumn*, ImGuiSortDirection> TableGetColumnNextSortDirection_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableColumn*, ImGuiSortDirection> TableGetColumnNextSortDirection_ptr;
 		public static ImGuiSortDirection TableGetColumnNextSortDirection(ImGuiTableColumn* column)
 		{
 			return TableGetColumnNextSortDirection_ptr(column);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, ImGuiTableColumn*, void> TableFixColumnSortDirection_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, ImGuiTableColumn*, void> TableFixColumnSortDirection_ptr;
 		public static void TableFixColumnSortDirection(ImGuiTable* table, ImGuiTableColumn* column)
 		{
 			TableFixColumnSortDirection_ptr(table, column);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, ImGuiTableColumn*, float> TableGetColumnWidthAuto_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, ImGuiTableColumn*, float> TableGetColumnWidthAuto_ptr;
 		public static float TableGetColumnWidthAuto(ImGuiTable* table, ImGuiTableColumn* column)
 		{
 			return TableGetColumnWidthAuto_ptr(table, column);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableBeginRow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableBeginRow_ptr;
 		public static void TableBeginRow(ImGuiTable* table)
 		{
 			TableBeginRow_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableEndRow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableEndRow_ptr;
 		public static void TableEndRow(ImGuiTable* table)
 		{
 			TableEndRow_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, int, void> TableBeginCell_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, int, void> TableBeginCell_ptr;
 		public static void TableBeginCell(ImGuiTable* table, int column_n)
 		{
 			TableBeginCell_ptr(table, column_n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableEndCell_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableEndCell_ptr;
 		public static void TableEndCell(ImGuiTable* table)
 		{
 			TableEndCell_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImGuiTable*, int, void> TableGetCellBgRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiTable*, int, void> TableGetCellBgRect_ptr;
 		public static void TableGetCellBgRect(ImRect* @out, ImGuiTable* table, int column_n)
 		{
 			TableGetCellBgRect_ptr(@out, table, column_n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, int, byte*> TableGetColumnNameTablePtr_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, int, byte*> TableGetColumnNameTablePtr_ptr;
 		public static byte* TableGetColumnNameTablePtr(ImGuiTable* table, int column_n)
 		{
 			return TableGetColumnNameTablePtr_ptr(table, column_n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, int, int, ImGuiID> TableGetColumnResizeID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, int, int, ImGuiID> TableGetColumnResizeID_ptr;
 		public static ImGuiID TableGetColumnResizeID(ImGuiTable* table, int column_n, int instance_no)
 		{
 			return TableGetColumnResizeID_ptr(table, column_n, instance_no);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, int, float> TableGetMaxColumnWidth_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, int, float> TableGetMaxColumnWidth_ptr;
 		public static float TableGetMaxColumnWidth(ImGuiTable* table, int column_n)
 		{
 			return TableGetMaxColumnWidth_ptr(table, column_n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, int, void> TableSetColumnWidthAutoSingle_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, int, void> TableSetColumnWidthAutoSingle_ptr;
 		public static void TableSetColumnWidthAutoSingle(ImGuiTable* table, int column_n)
 		{
 			TableSetColumnWidthAutoSingle_ptr(table, column_n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableSetColumnWidthAutoAll_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableSetColumnWidthAutoAll_ptr;
 		public static void TableSetColumnWidthAutoAll(ImGuiTable* table)
 		{
 			TableSetColumnWidthAutoAll_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableRemove_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableRemove_ptr;
 		public static void TableRemove(ImGuiTable* table)
 		{
 			TableRemove_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableGcCompactTransientBuffers_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableGcCompactTransientBuffers_ptr;
 		public static void TableGcCompactTransientBuffers(ImGuiTable* table)
 		{
 			TableGcCompactTransientBuffers_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> TableGcCompactSettings_ptr;
+		static delegate* unmanaged[Cdecl]<void> TableGcCompactSettings_ptr;
 		public static void TableGcCompactSettings()
 		{
 			TableGcCompactSettings_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableLoadSettings_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableLoadSettings_ptr;
 		public static void TableLoadSettings(ImGuiTable* table)
 		{
 			TableLoadSettings_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableSaveSettings_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableSaveSettings_ptr;
 		public static void TableSaveSettings(ImGuiTable* table)
 		{
 			TableSaveSettings_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> TableResetSettings_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> TableResetSettings_ptr;
 		public static void TableResetSettings(ImGuiTable* table)
 		{
 			TableResetSettings_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, ImGuiTableSettings*> TableGetBoundSettings_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, ImGuiTableSettings*> TableGetBoundSettings_ptr;
 		public static ImGuiTableSettings* TableGetBoundSettings(ImGuiTable* table)
 		{
 			return TableGetBoundSettings_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiContext*, void> TableSettingsInstallHandler_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> TableSettingsInstallHandler_ptr;
 		public static void TableSettingsInstallHandler(ImGuiContext* context)
 		{
 			TableSettingsInstallHandler_ptr(context);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, int, ImGuiTableSettings*> TableSettingsCreate_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, int, ImGuiTableSettings*> TableSettingsCreate_ptr;
 		public static ImGuiTableSettings* TableSettingsCreate(ImGuiID id, int columns_count)
 		{
 			return TableSettingsCreate_ptr(id, columns_count);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiTableSettings*> TableSettingsFindByID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiTableSettings*> TableSettingsFindByID_ptr;
 		public static ImGuiTableSettings* TableSettingsFindByID(ImGuiID id)
 		{
 			return TableSettingsFindByID_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImRect, ImGuiTabBarFlags, ImGuiDockNode*, bool> BeginTabBarEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImRect, ImGuiTabBarFlags, ImGuiDockNode*, bool> BeginTabBarEx_ptr;
 		public static bool BeginTabBarEx(ImGuiTabBar* tab_bar, ImRect bb, ImGuiTabBarFlags flags, ImGuiDockNode* dock_node)
 		{
 			return BeginTabBarEx_ptr(tab_bar, bb, flags, dock_node);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiID, ImGuiTabItem*> TabBarFindTabByID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiID, ImGuiTabItem*> TabBarFindTabByID_ptr;
 		public static ImGuiTabItem* TabBarFindTabByID(ImGuiTabBar* tab_bar, ImGuiID tab_id)
 		{
 			return TabBarFindTabByID_ptr(tab_bar, tab_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiTabItem*> TabBarFindMostRecentlySelectedTabForActiveWindow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItem*> TabBarFindMostRecentlySelectedTabForActiveWindow_ptr;
 		public static ImGuiTabItem* TabBarFindMostRecentlySelectedTabForActiveWindow(ImGuiTabBar* tab_bar)
 		{
 			return TabBarFindMostRecentlySelectedTabForActiveWindow_ptr(tab_bar);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiTabItemFlags, ImGuiWindow*, void> TabBarAddTab_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItemFlags, ImGuiWindow*, void> TabBarAddTab_ptr;
 		public static void TabBarAddTab(ImGuiTabBar* tab_bar, ImGuiTabItemFlags tab_flags, ImGuiWindow* window)
 		{
 			TabBarAddTab_ptr(tab_bar, tab_flags, window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiID, void> TabBarRemoveTab_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiID, void> TabBarRemoveTab_ptr;
 		public static void TabBarRemoveTab(ImGuiTabBar* tab_bar, ImGuiID tab_id)
 		{
 			TabBarRemoveTab_ptr(tab_bar, tab_id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiTabItem*, void> TabBarCloseTab_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItem*, void> TabBarCloseTab_ptr;
 		public static void TabBarCloseTab(ImGuiTabBar* tab_bar, ImGuiTabItem* tab)
 		{
 			TabBarCloseTab_ptr(tab_bar, tab);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiTabItem*, int, void> TabBarQueueReorder_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItem*, int, void> TabBarQueueReorder_ptr;
 		public static void TabBarQueueReorder(ImGuiTabBar* tab_bar, ImGuiTabItem* tab, int dir)
 		{
 			TabBarQueueReorder_ptr(tab_bar, tab, dir);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, bool> TabBarProcessReorder_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, bool> TabBarProcessReorder_ptr;
 		public static bool TabBarProcessReorder(ImGuiTabBar* tab_bar)
 		{
 			return TabBarProcessReorder_ptr(tab_bar);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, byte*, bool*, ImGuiTabItemFlags, ImGuiWindow*, bool> TabItemEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, byte*, bool*, ImGuiTabItemFlags, ImGuiWindow*, bool> TabItemEx_ptr;
 		public static bool TabItemEx(ImGuiTabBar* tab_bar, string label, ref bool p_open, ImGuiTabItemFlags flags, ImGuiWindow* docked_window)
 		{
 			fixed(bool* p_p_open = &p_open)
@@ -6856,7 +6856,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2*, byte*, bool, void> TabItemCalcSize_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2*, byte*, bool, void> TabItemCalcSize_ptr;
 		public static void TabItemCalcSize(out ImVec2 @out, string label, bool has_close_button)
 		{
 			fixed(ImVec2* p_out = &@out)
@@ -6866,13 +6866,13 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImRect, ImGuiTabItemFlags, uint, void> TabItemBackground_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImRect, ImGuiTabItemFlags, uint, void> TabItemBackground_ptr;
 		public static void TabItemBackground(ImDrawListPtr draw_list, ImRect bb, ImGuiTabItemFlags flags, uint col)
 		{
 			TabItemBackground_ptr(draw_list, bb, flags, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImRect, ImGuiTabItemFlags, ImVec2, byte*, ImGuiID, ImGuiID, bool, bool*, bool*, void> TabItemLabelAndCloseButton_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImRect, ImGuiTabItemFlags, ImVec2, byte*, ImGuiID, ImGuiID, bool, bool*, bool*, void> TabItemLabelAndCloseButton_ptr;
 		public static void TabItemLabelAndCloseButton(ImDrawListPtr draw_list, ImRect bb, ImGuiTabItemFlags flags, ImVec2 frame_padding, string label, ImGuiID tab_id, ImGuiID close_button_id, bool is_contents_visible, out bool out_just_closed, out bool out_text_clipped)
 		{
 			fixed(bool* p_out_just_closed = &out_just_closed)
@@ -6883,7 +6883,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, byte*, byte*, bool, void> RenderText_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, byte*, byte*, bool, void> RenderText_ptr;
 		public static void RenderText(ImVec2 pos, string text, string text_end, bool hide_text_after_hash)
 		{
 			using var p_text = new StringHelper(text);
@@ -6891,7 +6891,7 @@ namespace SharpImGUI
 			RenderText_ptr(pos, p_text, p_text_end, hide_text_after_hash);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, byte*, byte*, float, void> RenderTextWrapped_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, byte*, byte*, float, void> RenderTextWrapped_ptr;
 		public static void RenderTextWrapped(ImVec2 pos, string text, string text_end, float wrap_width)
 		{
 			using var p_text = new StringHelper(text);
@@ -6899,7 +6899,7 @@ namespace SharpImGUI
 			RenderTextWrapped_ptr(pos, p_text, p_text_end, wrap_width);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, byte*, byte*, ImVec2*, ImVec2, ImRect*, void> RenderTextClipped_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, byte*, byte*, ImVec2*, ImVec2, ImRect*, void> RenderTextClipped_ptr;
 		public static void RenderTextClipped(ImVec2 pos_min, ImVec2 pos_max, string text, string text_end, ImVec2* text_size_if_known, ImVec2 align, ImRect* clip_rect)
 		{
 			using var p_text = new StringHelper(text);
@@ -6907,7 +6907,7 @@ namespace SharpImGUI
 			RenderTextClipped_ptr(pos_min, pos_max, p_text, p_text_end, text_size_if_known, align, clip_rect);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, byte*, byte*, ImVec2*, ImVec2, ImRect*, void> RenderTextClippedEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, byte*, byte*, ImVec2*, ImVec2, ImRect*, void> RenderTextClippedEx_ptr;
 		public static void RenderTextClippedEx(ImDrawListPtr draw_list, ImVec2 pos_min, ImVec2 pos_max, string text, string text_end, ImVec2* text_size_if_known, ImVec2 align, ImRect* clip_rect)
 		{
 			using var p_text = new StringHelper(text);
@@ -6915,7 +6915,7 @@ namespace SharpImGUI
 			RenderTextClippedEx_ptr(draw_list, pos_min, pos_max, p_text, p_text_end, text_size_if_known, align, clip_rect);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, float, float, byte*, byte*, ImVec2*, void> RenderTextEllipsis_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, float, float, byte*, byte*, ImVec2*, void> RenderTextEllipsis_ptr;
 		public static void RenderTextEllipsis(ImDrawListPtr draw_list, ImVec2 pos_min, ImVec2 pos_max, float clip_max_x, float ellipsis_max_x, string text, string text_end, ImVec2* text_size_if_known)
 		{
 			using var p_text = new StringHelper(text);
@@ -6923,31 +6923,31 @@ namespace SharpImGUI
 			RenderTextEllipsis_ptr(draw_list, pos_min, pos_max, clip_max_x, ellipsis_max_x, p_text, p_text_end, text_size_if_known);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, uint, bool, float, void> RenderFrame_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, uint, bool, float, void> RenderFrame_ptr;
 		public static void RenderFrame(ImVec2 p_min, ImVec2 p_max, uint fill_col, bool border, float rounding)
 		{
 			RenderFrame_ptr(p_min, p_max, fill_col, border, rounding);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVec2, ImVec2, float, void> RenderFrameBorder_ptr;
+		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, float, void> RenderFrameBorder_ptr;
 		public static void RenderFrameBorder(ImVec2 p_min, ImVec2 p_max, float rounding)
 		{
 			RenderFrameBorder_ptr(p_min, p_max, rounding);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImVec2, float, ImDrawFlags, void> RenderColorRectWithAlphaCheckerboard_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, float, ImVec2, float, ImDrawFlags, void> RenderColorRectWithAlphaCheckerboard_ptr;
 		public static void RenderColorRectWithAlphaCheckerboard(ImDrawListPtr draw_list, ImVec2 p_min, ImVec2 p_max, uint fill_col, float grid_step, ImVec2 grid_off, float rounding, ImDrawFlags flags)
 		{
 			RenderColorRectWithAlphaCheckerboard_ptr(draw_list, p_min, p_max, fill_col, grid_step, grid_off, rounding, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiNavHighlightFlags, void> RenderNavHighlight_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, ImGuiNavHighlightFlags, void> RenderNavHighlight_ptr;
 		public static void RenderNavHighlight(ImRect bb, ImGuiID id, ImGuiNavHighlightFlags flags)
 		{
 			RenderNavHighlight_ptr(bb, id, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, byte*> FindRenderedTextEnd_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, byte*> FindRenderedTextEnd_ptr;
 		public static byte* FindRenderedTextEnd(string text, string text_end)
 		{
 			using var p_text = new StringHelper(text);
@@ -6955,55 +6955,55 @@ namespace SharpImGUI
 			return FindRenderedTextEnd_ptr(p_text, p_text_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, ImGuiDir, float, void> RenderArrow_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, uint, ImGuiDir, float, void> RenderArrow_ptr;
 		public static void RenderArrow(ImDrawListPtr draw_list, ImVec2 pos, uint col, ImGuiDir dir, float scale)
 		{
 			RenderArrow_ptr(draw_list, pos, col, dir, scale);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, void> RenderBullet_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, uint, void> RenderBullet_ptr;
 		public static void RenderBullet(ImDrawListPtr draw_list, ImVec2 pos, uint col)
 		{
 			RenderBullet_ptr(draw_list, pos, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, float, void> RenderCheckMark_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, uint, float, void> RenderCheckMark_ptr;
 		public static void RenderCheckMark(ImDrawListPtr draw_list, ImVec2 pos, uint col, float sz)
 		{
 			RenderCheckMark_ptr(draw_list, pos, col, sz);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, ImGuiMouseCursor, uint, uint, uint, void> RenderMouseCursor_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, ImGuiMouseCursor, uint, uint, uint, void> RenderMouseCursor_ptr;
 		public static void RenderMouseCursor(ImDrawListPtr draw_list, ImVec2 pos, float scale, ImGuiMouseCursor mouse_cursor, uint col_fill, uint col_border, uint col_shadow)
 		{
 			RenderMouseCursor_ptr(draw_list, pos, scale, mouse_cursor, col_fill, col_border, col_shadow);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImGuiDir, uint, void> RenderArrowPointingAt_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImGuiDir, uint, void> RenderArrowPointingAt_ptr;
 		public static void RenderArrowPointingAt(ImDrawListPtr draw_list, ImVec2 pos, ImVec2 half_sz, ImGuiDir direction, uint col)
 		{
 			RenderArrowPointingAt_ptr(draw_list, pos, half_sz, direction, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, void> RenderArrowDockMenu_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, uint, void> RenderArrowDockMenu_ptr;
 		public static void RenderArrowDockMenu(ImDrawListPtr draw_list, ImVec2 p_min, float sz, uint col)
 		{
 			RenderArrowDockMenu_ptr(draw_list, p_min, sz, col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImRect, uint, float, float, float, void> RenderRectFilledRangeH_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImRect, uint, float, float, float, void> RenderRectFilledRangeH_ptr;
 		public static void RenderRectFilledRangeH(ImDrawListPtr draw_list, ImRect rect, uint col, float x_start_norm, float x_end_norm, float rounding)
 		{
 			RenderRectFilledRangeH_ptr(draw_list, rect, col, x_start_norm, x_end_norm, rounding);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImRect, ImRect, uint, float, void> RenderRectFilledWithHole_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImRect, ImRect, uint, float, void> RenderRectFilledWithHole_ptr;
 		public static void RenderRectFilledWithHole(ImDrawListPtr draw_list, ImRect outer, ImRect inner, uint col, float rounding)
 		{
 			RenderRectFilledWithHole_ptr(draw_list, outer, inner, col, rounding);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiTextFlags, void> TextEx_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, ImGuiTextFlags, void> TextEx_ptr;
 		public static void TextEx(string text, string text_end, ImGuiTextFlags flags)
 		{
 			using var p_text = new StringHelper(text);
@@ -7011,39 +7011,39 @@ namespace SharpImGUI
 			TextEx_ptr(p_text, p_text_end, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImVec2, ImGuiButtonFlags, bool> ButtonEx_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImVec2, ImGuiButtonFlags, bool> ButtonEx_ptr;
 		public static bool ButtonEx(string label, ImVec2 size_arg, ImGuiButtonFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return ButtonEx_ptr(p_label, size_arg, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, bool> CloseButton_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, bool> CloseButton_ptr;
 		public static bool CloseButton(ImGuiID id, ImVec2 pos)
 		{
 			return CloseButton_ptr(id, pos);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, ImGuiDockNode*, bool> CollapseButton_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, ImGuiDockNode*, bool> CollapseButton_ptr;
 		public static bool CollapseButton(ImGuiID id, ImVec2 pos, ImGuiDockNode* dock_node)
 		{
 			return CollapseButton_ptr(id, pos, dock_node);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ImGuiDir, ImVec2, ImGuiButtonFlags, bool> ArrowButtonEx_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ImGuiDir, ImVec2, ImGuiButtonFlags, bool> ArrowButtonEx_ptr;
 		public static bool ArrowButtonEx(string str_id, ImGuiDir dir, ImVec2 size_arg, ImGuiButtonFlags flags)
 		{
 			using var p_str_id = new StringHelper(str_id);
 			return ArrowButtonEx_ptr(p_str_id, dir, size_arg, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiAxis, void> Scrollbar_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiAxis, void> Scrollbar_ptr;
 		public static void Scrollbar(ImGuiAxis axis)
 		{
 			Scrollbar_ptr(axis);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiAxis, float*, float, float, ImDrawFlags, bool> ScrollbarEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, ImGuiAxis, float*, float, float, ImDrawFlags, bool> ScrollbarEx_ptr;
 		public static bool ScrollbarEx(ImRect bb, ImGuiID id, ImGuiAxis axis, ref float p_scroll_v, float avail_v, float contents_v, ImDrawFlags flags)
 		{
 			fixed(float* p_p_scroll_v = &p_scroll_v)
@@ -7052,37 +7052,37 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, ImVec4, ImVec4, bool> ImageButtonEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, ImVec4, ImVec4, bool> ImageButtonEx_ptr;
 		public static bool ImageButtonEx(ImGuiID id, ImTextureID texture_id, ImVec2 size, ImVec2 uv0, ImVec2 uv1, ImVec2 padding, ImVec4 bg_col, ImVec4 tint_col)
 		{
 			return ImageButtonEx_ptr(id, texture_id, size, uv0, uv1, padding, bg_col, tint_col);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect*, ImGuiWindow*, ImGuiAxis, void> GetWindowScrollbarRect_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, ImGuiAxis, void> GetWindowScrollbarRect_ptr;
 		public static void GetWindowScrollbarRect(ImRect* @out, ImGuiWindow* window, ImGuiAxis axis)
 		{
 			GetWindowScrollbarRect_ptr(@out, window, axis);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiAxis, ImGuiID> GetWindowScrollbarID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiAxis, ImGuiID> GetWindowScrollbarID_ptr;
 		public static ImGuiID GetWindowScrollbarID(ImGuiWindow* window, ImGuiAxis axis)
 		{
 			return GetWindowScrollbarID_ptr(window, axis);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, int, ImGuiID> GetWindowResizeID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, int, ImGuiID> GetWindowResizeID_ptr;
 		public static ImGuiID GetWindowResizeID(ImGuiWindow* window, int n)
 		{
 			return GetWindowResizeID_ptr(window, n);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiSeparatorFlags, void> SeparatorEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiSeparatorFlags, void> SeparatorEx_ptr;
 		public static void SeparatorEx(ImGuiSeparatorFlags flags)
 		{
 			SeparatorEx_ptr(flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, long*, long, bool> CheckboxFlagsS64Ptr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, long*, long, bool> CheckboxFlagsS64Ptr_ptr;
 		public static bool CheckboxFlagsS64Ptr(string label, ref long flags, long flags_value)
 		{
 			fixed(long* p_flags = &flags)
@@ -7092,7 +7092,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, ulong*, ulong, bool> CheckboxFlagsU64Ptr_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, ulong*, ulong, bool> CheckboxFlagsU64Ptr_ptr;
 		public static bool CheckboxFlagsU64Ptr(string label, ref ulong flags, ulong flags_value)
 		{
 			fixed(ulong* p_flags = &flags)
@@ -7102,7 +7102,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, bool*, bool*, ImGuiButtonFlags, bool> ButtonBehavior_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, bool*, bool*, ImGuiButtonFlags, bool> ButtonBehavior_ptr;
 		public static bool ButtonBehavior(ImRect bb, ImGuiID id, out bool out_hovered, out bool out_held, ImGuiButtonFlags flags)
 		{
 			fixed(bool* p_out_hovered = &out_hovered)
@@ -7112,21 +7112,21 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiDataType, IntPtr, float, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool> DragBehavior_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiDataType, IntPtr, float, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool> DragBehavior_ptr;
 		public static bool DragBehavior(ImGuiID id, ImGuiDataType data_type, IntPtr p_v, float v_speed, IntPtr p_min, IntPtr p_max, string format, ImGuiSliderFlags flags)
 		{
 			using var p_format = new StringHelper(format);
 			return DragBehavior_ptr(id, data_type, p_v, v_speed, p_min, p_max, p_format, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, ImRect*, bool> SliderBehavior_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, ImRect*, bool> SliderBehavior_ptr;
 		public static bool SliderBehavior(ImRect bb, ImGuiID id, ImGuiDataType data_type, IntPtr p_v, IntPtr p_min, IntPtr p_max, string format, ImGuiSliderFlags flags, ImRect* out_grab_bb)
 		{
 			using var p_format = new StringHelper(format);
 			return SliderBehavior_ptr(bb, id, data_type, p_v, p_min, p_max, p_format, flags, out_grab_bb);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiAxis, float*, float*, float, float, float, float, bool> SplitterBehavior_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, ImGuiAxis, float*, float*, float, float, float, float, bool> SplitterBehavior_ptr;
 		public static bool SplitterBehavior(ImRect bb, ImGuiID id, ImGuiAxis axis, ref float size1, ref float size2, float min_size1, float min_size2, float hover_extend, float hover_visibility_delay)
 		{
 			fixed(float* p_size1 = &size1)
@@ -7136,7 +7136,7 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiTreeNodeFlags, byte*, byte*, bool> TreeNodeBehavior_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiTreeNodeFlags, byte*, byte*, bool> TreeNodeBehavior_ptr;
 		public static bool TreeNodeBehavior(ImGuiID id, ImGuiTreeNodeFlags flags, string label, string label_end)
 		{
 			using var p_label = new StringHelper(label);
@@ -7144,38 +7144,38 @@ namespace SharpImGUI
 			return TreeNodeBehavior_ptr(id, flags, p_label, p_label_end);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiTreeNodeFlags, bool> TreeNodeBehaviorIsOpen_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiTreeNodeFlags, bool> TreeNodeBehaviorIsOpen_ptr;
 		public static bool TreeNodeBehaviorIsOpen(ImGuiID id, ImGuiTreeNodeFlags flags)
 		{
 			return TreeNodeBehaviorIsOpen_ptr(id, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, void> TreePushOverrideID_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, void> TreePushOverrideID_ptr;
 		public static void TreePushOverrideID(ImGuiID id)
 		{
 			TreePushOverrideID_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDataType, ImGuiDataTypeInfo*> DataTypeGetInfo_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDataType, ImGuiDataTypeInfo*> DataTypeGetInfo_ptr;
 		public static ImGuiDataTypeInfo* DataTypeGetInfo(ImGuiDataType data_type)
 		{
 			return DataTypeGetInfo_ptr(data_type);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, int, ImGuiDataType, IntPtr, byte*, int> DataTypeFormatString_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, int, ImGuiDataType, IntPtr, byte*, int> DataTypeFormatString_ptr;
 		public static int DataTypeFormatString(byte* buf, int buf_size, ImGuiDataType data_type, IntPtr p_data, string format)
 		{
 			using var p_format = new StringHelper(format);
 			return DataTypeFormatString_ptr(buf, buf_size, data_type, p_data, p_format);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDataType, int, IntPtr, IntPtr, IntPtr, void> DataTypeApplyOp_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDataType, int, IntPtr, IntPtr, IntPtr, void> DataTypeApplyOp_ptr;
 		public static void DataTypeApplyOp(ImGuiDataType data_type, int op, IntPtr output, IntPtr arg_1, IntPtr arg_2)
 		{
 			DataTypeApplyOp_ptr(data_type, op, output, arg_1, arg_2);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiDataType, IntPtr, byte*, bool> DataTypeApplyOpFromText_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, ImGuiDataType, IntPtr, byte*, bool> DataTypeApplyOpFromText_ptr;
 		public static bool DataTypeApplyOpFromText(string buf, string initial_value_buf, ImGuiDataType data_type, IntPtr p_data, string format)
 		{
 			using var p_buf = new StringHelper(buf);
@@ -7184,19 +7184,19 @@ namespace SharpImGUI
 			return DataTypeApplyOpFromText_ptr(p_buf, p_initial_value_buf, data_type, p_data, p_format);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDataType, IntPtr, IntPtr, int> DataTypeCompare_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDataType, IntPtr, IntPtr, int> DataTypeCompare_ptr;
 		public static int DataTypeCompare(ImGuiDataType data_type, IntPtr arg_1, IntPtr arg_2)
 		{
 			return DataTypeCompare_ptr(data_type, arg_1, arg_2);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDataType, IntPtr, IntPtr, IntPtr, bool> DataTypeClamp_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDataType, IntPtr, IntPtr, IntPtr, bool> DataTypeClamp_ptr;
 		public static bool DataTypeClamp(ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max)
 		{
 			return DataTypeClamp_ptr(data_type, p_data, p_min, p_max);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, byte*, int, ImVec2, ImGuiInputTextFlags, IntPtr, IntPtr, bool> InputTextEx_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, byte*, int, ImVec2, ImGuiInputTextFlags, IntPtr, IntPtr, bool> InputTextEx_ptr;
 		public static bool InputTextEx(string label, string hint, byte* buf, int buf_size, ImVec2 size_arg, ImGuiInputTextFlags flags, IntPtr callback, IntPtr user_data)
 		{
 			using var p_label = new StringHelper(label);
@@ -7204,14 +7204,14 @@ namespace SharpImGUI
 			return InputTextEx_ptr(p_label, p_hint, buf, buf_size, size_arg, flags, callback, user_data);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, byte*, byte*, int, ImGuiInputTextFlags, bool> TempInputText_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, byte*, byte*, int, ImGuiInputTextFlags, bool> TempInputText_ptr;
 		public static bool TempInputText(ImRect bb, ImGuiID id, string label, byte* buf, int buf_size, ImGuiInputTextFlags flags)
 		{
 			using var p_label = new StringHelper(label);
 			return TempInputText_ptr(bb, id, p_label, buf, buf_size, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImRect, ImGuiID, byte*, ImGuiDataType, IntPtr, byte*, IntPtr, IntPtr, bool> TempInputScalar_ptr;
+		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, byte*, ImGuiDataType, IntPtr, byte*, IntPtr, IntPtr, bool> TempInputScalar_ptr;
 		public static bool TempInputScalar(ImRect bb, ImGuiID id, string label, ImGuiDataType data_type, IntPtr p_data, string format, IntPtr p_clamp_min, IntPtr p_clamp_max)
 		{
 			using var p_label = new StringHelper(label);
@@ -7219,38 +7219,38 @@ namespace SharpImGUI
 			return TempInputScalar_ptr(bb, id, p_label, data_type, p_data, p_format, p_clamp_min, p_clamp_max);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, bool> TempInputIsActive_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, bool> TempInputIsActive_ptr;
 		public static bool TempInputIsActive(ImGuiID id)
 		{
 			return TempInputIsActive_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiID, ImGuiInputTextState*> GetInputTextState_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiInputTextState*> GetInputTextState_ptr;
 		public static ImGuiInputTextState* GetInputTextState(ImGuiID id)
 		{
 			return GetInputTextState_ptr(id);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, void> ColorTooltip_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float*, ImGuiColorEditFlags, void> ColorTooltip_ptr;
 		public static void ColorTooltip(string text, float* col, ImGuiColorEditFlags flags)
 		{
 			using var p_text = new StringHelper(text);
 			ColorTooltip_ptr(p_text, col, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<float*, ImGuiColorEditFlags, void> ColorEditOptionsPopup_ptr;
+		static delegate* unmanaged[Cdecl]<float*, ImGuiColorEditFlags, void> ColorEditOptionsPopup_ptr;
 		public static void ColorEditOptionsPopup(float* col, ImGuiColorEditFlags flags)
 		{
 			ColorEditOptionsPopup_ptr(col, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<float*, ImGuiColorEditFlags, void> ColorPickerOptionsPopup_ptr;
+		static delegate* unmanaged[Cdecl]<float*, ImGuiColorEditFlags, void> ColorPickerOptionsPopup_ptr;
 		public static void ColorPickerOptionsPopup(float* ref_col, ImGuiColorEditFlags flags)
 		{
 			ColorPickerOptionsPopup_ptr(ref_col, flags);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiPlotType, byte*, IntPtr, IntPtr, int, int, byte*, float, float, ImVec2, int> PlotEx_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiPlotType, byte*, IntPtr, IntPtr, int, int, byte*, float, float, ImVec2, int> PlotEx_ptr;
 		public static int PlotEx(ImGuiPlotType plot_type, string label, IntPtr values_getter, IntPtr data, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, ImVec2 frame_size)
 		{
 			using var p_label = new StringHelper(label);
@@ -7258,189 +7258,189 @@ namespace SharpImGUI
 			return PlotEx_ptr(plot_type, p_label, values_getter, data, values_count, values_offset, p_overlay_text, scale_min, scale_max, frame_size);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, int, int, ImVec2, ImVec2, uint, uint, void> ShadeVertsLinearColorGradientKeepAlpha_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, int, int, ImVec2, ImVec2, uint, uint, void> ShadeVertsLinearColorGradientKeepAlpha_ptr;
 		public static void ShadeVertsLinearColorGradientKeepAlpha(ImDrawListPtr draw_list, int vert_start_idx, int vert_end_idx, ImVec2 gradient_p0, ImVec2 gradient_p1, uint col0, uint col1)
 		{
 			ShadeVertsLinearColorGradientKeepAlpha_ptr(draw_list, vert_start_idx, vert_end_idx, gradient_p0, gradient_p1, col0, col1);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, int, int, ImVec2, ImVec2, ImVec2, ImVec2, bool, void> ShadeVertsLinearUV_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, int, int, ImVec2, ImVec2, ImVec2, ImVec2, bool, void> ShadeVertsLinearUV_ptr;
 		public static void ShadeVertsLinearUV(ImDrawListPtr draw_list, int vert_start_idx, int vert_end_idx, ImVec2 a, ImVec2 b, ImVec2 uv_a, ImVec2 uv_b, bool clamp)
 		{
 			ShadeVertsLinearUV_ptr(draw_list, vert_start_idx, vert_end_idx, a, b, uv_a, uv_b, clamp);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> GcCompactTransientMiscBuffers_ptr;
+		static delegate* unmanaged[Cdecl]<void> GcCompactTransientMiscBuffers_ptr;
 		public static void GcCompactTransientMiscBuffers()
 		{
 			GcCompactTransientMiscBuffers_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, void> GcCompactTransientWindowBuffers_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> GcCompactTransientWindowBuffers_ptr;
 		public static void GcCompactTransientWindowBuffers(ImGuiWindow* window)
 		{
 			GcCompactTransientWindowBuffers_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, void> GcAwakeTransientWindowBuffers_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> GcAwakeTransientWindowBuffers_ptr;
 		public static void GcAwakeTransientWindowBuffers(ImGuiWindow* window)
 		{
 			GcAwakeTransientWindowBuffers_ptr(window);
 		}
 
-		static delegate* unmanaged[Stdcall]<IntPtr, IntPtr, void> ErrorCheckEndFrameRecover_ptr;
+		static delegate* unmanaged[Cdecl]<IntPtr, IntPtr, void> ErrorCheckEndFrameRecover_ptr;
 		public static void ErrorCheckEndFrameRecover(IntPtr log_callback, IntPtr user_data)
 		{
 			ErrorCheckEndFrameRecover_ptr(log_callback, user_data);
 		}
 
-		static delegate* unmanaged[Stdcall]<uint, void> DebugDrawItemRect_ptr;
+		static delegate* unmanaged[Cdecl]<uint, void> DebugDrawItemRect_ptr;
 		public static void DebugDrawItemRect(uint col)
 		{
 			DebugDrawItemRect_ptr(col);
 		}
 
-		static delegate* unmanaged[Stdcall]<void> DebugStartItemPicker_ptr;
+		static delegate* unmanaged[Cdecl]<void> DebugStartItemPicker_ptr;
 		public static void DebugStartItemPicker()
 		{
 			DebugStartItemPicker_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiOldColumns*, void> DebugNodeColumns_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiOldColumns*, void> DebugNodeColumns_ptr;
 		public static void DebugNodeColumns(ImGuiOldColumns* columns)
 		{
 			DebugNodeColumns_ptr(columns);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiDockNode*, byte*, void> DebugNodeDockNode_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiDockNode*, byte*, void> DebugNodeDockNode_ptr;
 		public static void DebugNodeDockNode(ImGuiDockNode* node, string label)
 		{
 			using var p_label = new StringHelper(label);
 			DebugNodeDockNode_ptr(node, p_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiViewportP*, ImDrawList*, byte*, void> DebugNodeDrawList_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiViewportP*, ImDrawList*, byte*, void> DebugNodeDrawList_ptr;
 		public static void DebugNodeDrawList(ImGuiWindow* window, ImGuiViewportP* viewport, ImDrawListPtr draw_list, string label)
 		{
 			using var p_label = new StringHelper(label);
 			DebugNodeDrawList_ptr(window, viewport, draw_list, p_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImDrawList*, ImDrawCmd*, bool, bool, void> DebugNodeDrawCmdShowMeshAndBoundingBox_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImDrawList*, ImDrawCmd*, bool, bool, void> DebugNodeDrawCmdShowMeshAndBoundingBox_ptr;
 		public static void DebugNodeDrawCmdShowMeshAndBoundingBox(ImDrawListPtr out_draw_list, ImDrawListPtr draw_list, ImDrawCmd* draw_cmd, bool show_mesh, bool show_aabb)
 		{
 			DebugNodeDrawCmdShowMeshAndBoundingBox_ptr(out_draw_list, draw_list, draw_cmd, show_mesh, show_aabb);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiStorage*, byte*, void> DebugNodeStorage_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiStorage*, byte*, void> DebugNodeStorage_ptr;
 		public static void DebugNodeStorage(ImGuiStorage* storage, string label)
 		{
 			using var p_label = new StringHelper(label);
 			DebugNodeStorage_ptr(storage, p_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTabBar*, byte*, void> DebugNodeTabBar_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, byte*, void> DebugNodeTabBar_ptr;
 		public static void DebugNodeTabBar(ImGuiTabBar* tab_bar, string label)
 		{
 			using var p_label = new StringHelper(label);
 			DebugNodeTabBar_ptr(tab_bar, p_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTable*, void> DebugNodeTable_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTable*, void> DebugNodeTable_ptr;
 		public static void DebugNodeTable(ImGuiTable* table)
 		{
 			DebugNodeTable_ptr(table);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTableSettings*, void> DebugNodeTableSettings_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTableSettings*, void> DebugNodeTableSettings_ptr;
 		public static void DebugNodeTableSettings(ImGuiTableSettings* settings)
 		{
 			DebugNodeTableSettings_ptr(settings);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindow*, byte*, void> DebugNodeWindow_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindow*, byte*, void> DebugNodeWindow_ptr;
 		public static void DebugNodeWindow(ImGuiWindow* window, string label)
 		{
 			using var p_label = new StringHelper(label);
 			DebugNodeWindow_ptr(window, p_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiWindowSettings*, void> DebugNodeWindowSettings_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiWindowSettings*, void> DebugNodeWindowSettings_ptr;
 		public static void DebugNodeWindowSettings(ImGuiWindowSettings* settings)
 		{
 			DebugNodeWindowSettings_ptr(settings);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImVector_ImGuiWindowPtr*, byte*, void> DebugNodeWindowsList_ptr;
+		static delegate* unmanaged[Cdecl]<ImVector_ImGuiWindowPtr*, byte*, void> DebugNodeWindowsList_ptr;
 		public static void DebugNodeWindowsList(ImVector_ImGuiWindowPtr* windows, string label)
 		{
 			using var p_label = new StringHelper(label);
 			DebugNodeWindowsList_ptr(windows, p_label);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiViewportP*, void> DebugNodeViewport_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiViewportP*, void> DebugNodeViewport_ptr;
 		public static void DebugNodeViewport(ImGuiViewportP* viewport)
 		{
 			DebugNodeViewport_ptr(viewport);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImDrawList*, ImGuiViewportP*, ImRect, void> DebugRenderViewportThumbnail_ptr;
+		static delegate* unmanaged[Cdecl]<ImDrawList*, ImGuiViewportP*, ImRect, void> DebugRenderViewportThumbnail_ptr;
 		public static void DebugRenderViewportThumbnail(ImDrawListPtr draw_list, ImGuiViewportP* viewport, ImRect bb)
 		{
 			DebugRenderViewportThumbnail_ptr(draw_list, viewport, bb);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontBuilderIO*> ImFontAtlasGetBuilderForStbTruetype_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontBuilderIO*> ImFontAtlasGetBuilderForStbTruetype_ptr;
 		public static ImFontBuilderIO* ImFontAtlasGetBuilderForStbTruetype()
 		{
 			return ImFontAtlasGetBuilderForStbTruetype_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlasBuildInit_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, void> ImFontAtlasBuildInit_ptr;
 		public static void ImFontAtlasBuildInit(ImFontAtlasPtr atlas)
 		{
 			ImFontAtlasBuildInit_ptr(atlas);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFont*, ImFontConfig*, float, float, void> ImFontAtlasBuildSetupFont_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, ImFont*, ImFontConfig*, float, float, void> ImFontAtlasBuildSetupFont_ptr;
 		public static void ImFontAtlasBuildSetupFont(ImFontAtlasPtr atlas, ImFontPtr font, ImFontConfigPtr font_config, float ascent, float descent)
 		{
 			ImFontAtlasBuildSetupFont_ptr(atlas, font, font_config, ascent, descent);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, IntPtr, void> ImFontAtlasBuildPackCustomRects_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, IntPtr, void> ImFontAtlasBuildPackCustomRects_ptr;
 		public static void ImFontAtlasBuildPackCustomRects(ImFontAtlasPtr atlas, IntPtr stbrp_context_opaque)
 		{
 			ImFontAtlasBuildPackCustomRects_ptr(atlas, stbrp_context_opaque);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, void> ImFontAtlasBuildFinish_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, void> ImFontAtlasBuildFinish_ptr;
 		public static void ImFontAtlasBuildFinish(ImFontAtlasPtr atlas)
 		{
 			ImFontAtlasBuildFinish_ptr(atlas);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, int, int, int, int, byte*, byte, byte, void> ImFontAtlasBuildRender8bppRectFromString_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, int, int, int, int, byte*, byte, byte, void> ImFontAtlasBuildRender8bppRectFromString_ptr;
 		public static void ImFontAtlasBuildRender8bppRectFromString(ImFontAtlasPtr atlas, int x, int y, int w, int h, string in_str, byte in_marker_char, byte in_marker_pixel_value)
 		{
 			using var p_in_str = new StringHelper(in_str);
 			ImFontAtlasBuildRender8bppRectFromString_ptr(atlas, x, y, w, h, p_in_str, in_marker_char, in_marker_pixel_value);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImFontAtlas*, int, int, int, int, byte*, byte, uint, void> ImFontAtlasBuildRender32bppRectFromString_ptr;
+		static delegate* unmanaged[Cdecl]<ImFontAtlas*, int, int, int, int, byte*, byte, uint, void> ImFontAtlasBuildRender32bppRectFromString_ptr;
 		public static void ImFontAtlasBuildRender32bppRectFromString(ImFontAtlasPtr atlas, int x, int y, int w, int h, string in_str, byte in_marker_char, uint in_marker_pixel_value)
 		{
 			using var p_in_str = new StringHelper(in_str);
 			ImFontAtlasBuildRender32bppRectFromString_ptr(atlas, x, y, w, h, p_in_str, in_marker_char, in_marker_pixel_value);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, float, void> ImFontAtlasBuildMultiplyCalcLookupTable_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, float, void> ImFontAtlasBuildMultiplyCalcLookupTable_ptr;
 		public static void ImFontAtlasBuildMultiplyCalcLookupTable(byte* out_table, float in_multiply_factor)
 		{
 			ImFontAtlasBuildMultiplyCalcLookupTable_ptr(out_table, in_multiply_factor);
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, byte*, int, int, int, int, int, void> ImFontAtlasBuildMultiplyRectAlpha8_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, byte*, int, int, int, int, int, void> ImFontAtlasBuildMultiplyRectAlpha8_ptr;
 		public static void ImFontAtlasBuildMultiplyRectAlpha8(byte* table, ref byte pixels, int x, int y, int w, int h, int stride)
 		{
 			fixed(byte* p_pixels = &pixels)
@@ -7449,27 +7449,27 @@ namespace SharpImGUI
 			}
 		}
 
-		static delegate* unmanaged[Stdcall]<byte*, void> LogText_ptr;
+		static delegate* unmanaged[Cdecl]<byte*, void> LogText_ptr;
 		public static void LogText(string fmt)
 		{
 			using var p_fmt = new StringHelper(fmt);
 			LogText_ptr(p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, byte*, void> ImGuiTextBuffer_appendf_ptr;
+		static delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, byte*, void> ImGuiTextBuffer_appendf_ptr;
 		public static void ImGuiTextBuffer_appendf(ImGuiTextBuffer* buffer, string fmt)
 		{
 			using var p_fmt = new StringHelper(fmt);
 			ImGuiTextBuffer_appendf_ptr(buffer, p_fmt);
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GET_FLT_MAX_ptr;
+		static delegate* unmanaged[Cdecl]<float> GET_FLT_MAX_ptr;
 		public static float GET_FLT_MAX()
 		{
 			return GET_FLT_MAX_ptr();
 		}
 
-		static delegate* unmanaged[Stdcall]<float> GET_FLT_MIN_ptr;
+		static delegate* unmanaged[Cdecl]<float> GET_FLT_MIN_ptr;
 		public static float GET_FLT_MIN()
 		{
 			return GET_FLT_MIN_ptr();
@@ -7477,1137 +7477,1137 @@ namespace SharpImGUI
 
 		private static void GenLoadFunctions(IntPtr context, LoadFunction load)
 		{
-			CreateContext_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiContext*>)load(context, "igCreateContext");
-			DestroyContext_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, void>)load(context, "igDestroyContext");
-			GetCurrentContext_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*>)load(context, "igGetCurrentContext");
-			SetCurrentContext_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, void>)load(context, "igSetCurrentContext");
-			GetIO_ptr = (delegate* unmanaged[Stdcall]<ImGuiIO*>)load(context, "igGetIO");
-			GetStyle_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyle*>)load(context, "igGetStyle");
-			NewFrame_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igNewFrame");
-			EndFrame_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndFrame");
-			Render_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igRender");
-			GetDrawData_ptr = (delegate* unmanaged[Stdcall]<ImDrawData*>)load(context, "igGetDrawData");
-			ShowDemoWindow_ptr = (delegate* unmanaged[Stdcall]<bool*, void>)load(context, "igShowDemoWindow");
-			ShowMetricsWindow_ptr = (delegate* unmanaged[Stdcall]<bool*, void>)load(context, "igShowMetricsWindow");
-			ShowAboutWindow_ptr = (delegate* unmanaged[Stdcall]<bool*, void>)load(context, "igShowAboutWindow");
-			ShowStyleEditor_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyle*, void>)load(context, "igShowStyleEditor");
-			ShowStyleSelector_ptr = (delegate* unmanaged[Stdcall]<byte*, bool>)load(context, "igShowStyleSelector");
-			ShowFontSelector_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igShowFontSelector");
-			ShowUserGuide_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igShowUserGuide");
-			GetVersion_ptr = (delegate* unmanaged[Stdcall]<byte*>)load(context, "igGetVersion");
-			StyleColorsDark_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyle*, void>)load(context, "igStyleColorsDark");
-			StyleColorsLight_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyle*, void>)load(context, "igStyleColorsLight");
-			StyleColorsClassic_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyle*, void>)load(context, "igStyleColorsClassic");
-			Begin_ptr = (delegate* unmanaged[Stdcall]<byte*, bool*, ImGuiWindowFlags, bool>)load(context, "igBegin");
-			End_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEnd");
-			BeginChildStr_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec2, bool, ImGuiWindowFlags, bool>)load(context, "igBeginChildStr");
-			BeginChildID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, bool, ImGuiWindowFlags, bool>)load(context, "igBeginChildID");
-			EndChild_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndChild");
-			IsWindowAppearing_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsWindowAppearing");
-			IsWindowCollapsed_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsWindowCollapsed");
-			IsWindowFocused_ptr = (delegate* unmanaged[Stdcall]<ImGuiFocusedFlags, bool>)load(context, "igIsWindowFocused");
-			IsWindowHovered_ptr = (delegate* unmanaged[Stdcall]<ImGuiHoveredFlags, bool>)load(context, "igIsWindowHovered");
-			GetWindowDrawList_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*>)load(context, "igGetWindowDrawList");
-			GetWindowDpiScale_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetWindowDpiScale");
-			GetWindowPos_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetWindowPos");
-			GetWindowSize_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetWindowSize");
-			GetWindowWidth_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetWindowWidth");
-			GetWindowHeight_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetWindowHeight");
-			GetWindowViewport_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewport*>)load(context, "igGetWindowViewport");
-			SetNextWindowPos_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImGuiCond, ImVec2, void>)load(context, "igSetNextWindowPos");
-			SetNextWindowSize_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImGuiCond, void>)load(context, "igSetNextWindowSize");
-			SetNextWindowSizeConstraints_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, IntPtr, IntPtr, void>)load(context, "igSetNextWindowSizeConstraints");
-			SetNextWindowContentSize_ptr = (delegate* unmanaged[Stdcall]<ImVec2, void>)load(context, "igSetNextWindowContentSize");
-			SetNextWindowCollapsed_ptr = (delegate* unmanaged[Stdcall]<bool, ImGuiCond, void>)load(context, "igSetNextWindowCollapsed");
-			SetNextWindowFocus_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igSetNextWindowFocus");
-			SetNextWindowBgAlpha_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igSetNextWindowBgAlpha");
-			SetNextWindowViewport_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igSetNextWindowViewport");
-			SetWindowPosVec2_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImGuiCond, void>)load(context, "igSetWindowPosVec2");
-			SetWindowSizeVec2_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImGuiCond, void>)load(context, "igSetWindowSizeVec2");
-			SetWindowCollapsedBool_ptr = (delegate* unmanaged[Stdcall]<bool, ImGuiCond, void>)load(context, "igSetWindowCollapsedBool");
-			SetWindowFocusNil_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igSetWindowFocusNil");
-			SetWindowFontScale_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igSetWindowFontScale");
-			SetWindowPosStr_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec2, ImGuiCond, void>)load(context, "igSetWindowPosStr");
-			SetWindowSizeStr_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec2, ImGuiCond, void>)load(context, "igSetWindowSizeStr");
-			SetWindowCollapsedStr_ptr = (delegate* unmanaged[Stdcall]<byte*, bool, ImGuiCond, void>)load(context, "igSetWindowCollapsedStr");
-			SetWindowFocusStr_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igSetWindowFocusStr");
-			GetContentRegionAvail_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetContentRegionAvail");
-			GetContentRegionMax_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetContentRegionMax");
-			GetWindowContentRegionMin_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetWindowContentRegionMin");
-			GetWindowContentRegionMax_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetWindowContentRegionMax");
-			GetWindowContentRegionWidth_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetWindowContentRegionWidth");
-			GetScrollX_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetScrollX");
-			GetScrollY_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetScrollY");
-			SetScrollXFloat_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igSetScrollXFloat");
-			SetScrollYFloat_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igSetScrollYFloat");
-			GetScrollMaxX_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetScrollMaxX");
-			GetScrollMaxY_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetScrollMaxY");
-			SetScrollHereX_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igSetScrollHereX");
-			SetScrollHereY_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igSetScrollHereY");
-			SetScrollFromPosXFloat_ptr = (delegate* unmanaged[Stdcall]<float, float, void>)load(context, "igSetScrollFromPosXFloat");
-			SetScrollFromPosYFloat_ptr = (delegate* unmanaged[Stdcall]<float, float, void>)load(context, "igSetScrollFromPosYFloat");
-			PushFont_ptr = (delegate* unmanaged[Stdcall]<ImFont*, void>)load(context, "igPushFont");
-			PopFont_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igPopFont");
-			PushStyleColorU32_ptr = (delegate* unmanaged[Stdcall]<ImGuiCol, uint, void>)load(context, "igPushStyleColorU32");
-			PushStyleColorVec4_ptr = (delegate* unmanaged[Stdcall]<ImGuiCol, ImVec4, void>)load(context, "igPushStyleColorVec4");
-			PopStyleColor_ptr = (delegate* unmanaged[Stdcall]<int, void>)load(context, "igPopStyleColor");
-			PushStyleVarFloat_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyleVar, float, void>)load(context, "igPushStyleVarFloat");
-			PushStyleVarVec2_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyleVar, ImVec2, void>)load(context, "igPushStyleVarVec2");
-			PopStyleVar_ptr = (delegate* unmanaged[Stdcall]<int, void>)load(context, "igPopStyleVar");
-			PushAllowKeyboardFocus_ptr = (delegate* unmanaged[Stdcall]<bool, void>)load(context, "igPushAllowKeyboardFocus");
-			PopAllowKeyboardFocus_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igPopAllowKeyboardFocus");
-			PushButtonRepeat_ptr = (delegate* unmanaged[Stdcall]<bool, void>)load(context, "igPushButtonRepeat");
-			PopButtonRepeat_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igPopButtonRepeat");
-			PushItemWidth_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igPushItemWidth");
-			PopItemWidth_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igPopItemWidth");
-			SetNextItemWidth_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igSetNextItemWidth");
-			CalcItemWidth_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igCalcItemWidth");
-			PushTextWrapPos_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igPushTextWrapPos");
-			PopTextWrapPos_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igPopTextWrapPos");
-			GetFont_ptr = (delegate* unmanaged[Stdcall]<ImFont*>)load(context, "igGetFont");
-			GetFontSize_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetFontSize");
-			GetFontTexUvWhitePixel_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetFontTexUvWhitePixel");
-			GetColorU32Col_ptr = (delegate* unmanaged[Stdcall]<ImGuiCol, float, uint>)load(context, "igGetColorU32Col");
-			GetColorU32Vec4_ptr = (delegate* unmanaged[Stdcall]<ImVec4, uint>)load(context, "igGetColorU32Vec4");
-			GetColorU32U32_ptr = (delegate* unmanaged[Stdcall]<uint, uint>)load(context, "igGetColorU32U32");
-			GetStyleColorVec4_ptr = (delegate* unmanaged[Stdcall]<ImGuiCol, ImVec4*>)load(context, "igGetStyleColorVec4");
-			Separator_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igSeparator");
-			SameLine_ptr = (delegate* unmanaged[Stdcall]<float, float, void>)load(context, "igSameLine");
-			NewLine_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igNewLine");
-			Spacing_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igSpacing");
-			Dummy_ptr = (delegate* unmanaged[Stdcall]<ImVec2, void>)load(context, "igDummy");
-			Indent_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igIndent");
-			Unindent_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igUnindent");
-			BeginGroup_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igBeginGroup");
-			EndGroup_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndGroup");
-			GetCursorPos_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetCursorPos");
-			GetCursorPosX_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetCursorPosX");
-			GetCursorPosY_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetCursorPosY");
-			SetCursorPos_ptr = (delegate* unmanaged[Stdcall]<ImVec2, void>)load(context, "igSetCursorPos");
-			SetCursorPosX_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igSetCursorPosX");
-			SetCursorPosY_ptr = (delegate* unmanaged[Stdcall]<float, void>)load(context, "igSetCursorPosY");
-			GetCursorStartPos_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetCursorStartPos");
-			GetCursorScreenPos_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetCursorScreenPos");
-			SetCursorScreenPos_ptr = (delegate* unmanaged[Stdcall]<ImVec2, void>)load(context, "igSetCursorScreenPos");
-			AlignTextToFramePadding_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igAlignTextToFramePadding");
-			GetTextLineHeight_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetTextLineHeight");
-			GetTextLineHeightWithSpacing_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetTextLineHeightWithSpacing");
-			GetFrameHeight_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetFrameHeight");
-			GetFrameHeightWithSpacing_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetFrameHeightWithSpacing");
-			PushIDStr_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igPushIDStr");
-			PushIDStrStr_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, void>)load(context, "igPushIDStrStr");
-			PushIDPtr_ptr = (delegate* unmanaged[Stdcall]<IntPtr, void>)load(context, "igPushIDPtr");
-			PushIDInt_ptr = (delegate* unmanaged[Stdcall]<int, void>)load(context, "igPushIDInt");
-			PopID_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igPopID");
-			GetIDStr_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiID>)load(context, "igGetIDStr");
-			GetIDStrStr_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiID>)load(context, "igGetIDStrStr");
-			GetIDPtr_ptr = (delegate* unmanaged[Stdcall]<IntPtr, ImGuiID>)load(context, "igGetIDPtr");
-			TextUnformatted_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, void>)load(context, "igTextUnformatted");
-			Text_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igText");
-			TextColored_ptr = (delegate* unmanaged[Stdcall]<ImVec4, byte*, void>)load(context, "igTextColored");
-			TextDisabled_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igTextDisabled");
-			TextWrapped_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igTextWrapped");
-			LabelText_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, void>)load(context, "igLabelText");
-			BulletText_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igBulletText");
-			Button_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec2, bool>)load(context, "igButton");
-			SmallButton_ptr = (delegate* unmanaged[Stdcall]<byte*, bool>)load(context, "igSmallButton");
-			InvisibleButton_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec2, ImGuiButtonFlags, bool>)load(context, "igInvisibleButton");
-			ArrowButton_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDir, bool>)load(context, "igArrowButton");
-			Image_ptr = (delegate* unmanaged[Stdcall]<ImTextureID, ImVec2, ImVec2, ImVec2, ImVec4, ImVec4, void>)load(context, "igImage");
-			ImageButton_ptr = (delegate* unmanaged[Stdcall]<ImTextureID, ImVec2, ImVec2, ImVec2, int, ImVec4, ImVec4, bool>)load(context, "igImageButton");
-			Checkbox_ptr = (delegate* unmanaged[Stdcall]<byte*, bool*, bool>)load(context, "igCheckbox");
-			CheckboxFlagsIntPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int, bool>)load(context, "igCheckboxFlagsIntPtr");
-			CheckboxFlagsUintPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, uint*, uint, bool>)load(context, "igCheckboxFlagsUintPtr");
-			RadioButtonBool_ptr = (delegate* unmanaged[Stdcall]<byte*, bool, bool>)load(context, "igRadioButtonBool");
-			RadioButtonIntPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int, bool>)load(context, "igRadioButtonIntPtr");
-			ProgressBar_ptr = (delegate* unmanaged[Stdcall]<float, ImVec2, byte*, void>)load(context, "igProgressBar");
-			Bullet_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igBullet");
-			BeginCombo_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiComboFlags, bool>)load(context, "igBeginCombo");
-			EndCombo_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndCombo");
-			ComboStr_arr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, byte**, int, int, bool>)load(context, "igComboStr_arr");
-			ComboStr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, byte*, int, bool>)load(context, "igComboStr");
-			ComboFnBoolPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, IntPtr, IntPtr, int, int, bool>)load(context, "igComboFnBoolPtr");
-			DragFloat_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat");
-			DragFloat2_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat2");
-			DragFloat3_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat3");
-			DragFloat4_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat4");
-			DragFloatRange2_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float*, float, float, float, byte*, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloatRange2");
-			DragInt_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt");
-			DragInt2_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt2");
-			DragInt3_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt3");
-			DragInt4_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt4");
-			DragIntRange2_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int*, float, int, int, byte*, byte*, ImGuiSliderFlags, bool>)load(context, "igDragIntRange2");
-			DragScalar_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, IntPtr, float, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool>)load(context, "igDragScalar");
-			DragScalarN_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, IntPtr, int, float, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool>)load(context, "igDragScalarN");
-			SliderFloat_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat");
-			SliderFloat2_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat2");
-			SliderFloat3_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat3");
-			SliderFloat4_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat4");
-			SliderAngle_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderAngle");
-			SliderInt_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt");
-			SliderInt2_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt2");
-			SliderInt3_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt3");
-			SliderInt4_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt4");
-			SliderScalar_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderScalar");
-			SliderScalarN_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, IntPtr, int, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderScalarN");
-			VSliderFloat_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec2, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igVSliderFloat");
-			VSliderInt_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec2, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igVSliderInt");
-			VSliderScalar_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec2, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool>)load(context, "igVSliderScalar");
-			InputText_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr, ImGuiInputTextFlags, IntPtr, IntPtr, bool>)load(context, "igInputText");
-			InputTextMultiline_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr, ImVec2, ImGuiInputTextFlags, IntPtr, IntPtr, bool>)load(context, "igInputTextMultiline");
-			InputTextWithHint_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, byte*, IntPtr, ImGuiInputTextFlags, IntPtr, IntPtr, bool>)load(context, "igInputTextWithHint");
-			InputFloat_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, float, float, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat");
-			InputFloat2_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat2");
-			InputFloat3_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat3");
-			InputFloat4_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat4");
-			InputInt_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, int, int, ImGuiInputTextFlags, bool>)load(context, "igInputInt");
-			InputInt2_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, ImGuiInputTextFlags, bool>)load(context, "igInputInt2");
-			InputInt3_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, ImGuiInputTextFlags, bool>)load(context, "igInputInt3");
-			InputInt4_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, ImGuiInputTextFlags, bool>)load(context, "igInputInt4");
-			InputDouble_ptr = (delegate* unmanaged[Stdcall]<byte*, double*, double, double, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputDouble");
-			InputScalar_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputScalar");
-			InputScalarN_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDataType, IntPtr, int, IntPtr, IntPtr, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputScalarN");
-			ColorEdit3_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, bool>)load(context, "igColorEdit3");
-			ColorEdit4_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, bool>)load(context, "igColorEdit4");
-			ColorPicker3_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, bool>)load(context, "igColorPicker3");
-			ColorPicker4_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, float*, bool>)load(context, "igColorPicker4");
-			ColorButton_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec4, ImGuiColorEditFlags, ImVec2, bool>)load(context, "igColorButton");
-			SetColorEditOptions_ptr = (delegate* unmanaged[Stdcall]<ImGuiColorEditFlags, void>)load(context, "igSetColorEditOptions");
-			TreeNodeStr_ptr = (delegate* unmanaged[Stdcall]<byte*, bool>)load(context, "igTreeNodeStr");
-			TreeNodeStrStr_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, bool>)load(context, "igTreeNodeStrStr");
-			TreeNodePtr_ptr = (delegate* unmanaged[Stdcall]<IntPtr, byte*, bool>)load(context, "igTreeNodePtr");
-			TreeNodeExStr_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiTreeNodeFlags, bool>)load(context, "igTreeNodeExStr");
-			TreeNodeExStrStr_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiTreeNodeFlags, byte*, bool>)load(context, "igTreeNodeExStrStr");
-			TreeNodeExPtr_ptr = (delegate* unmanaged[Stdcall]<IntPtr, ImGuiTreeNodeFlags, byte*, bool>)load(context, "igTreeNodeExPtr");
-			TreePushStr_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igTreePushStr");
-			TreePushPtr_ptr = (delegate* unmanaged[Stdcall]<IntPtr, void>)load(context, "igTreePushPtr");
-			TreePop_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igTreePop");
-			GetTreeNodeToLabelSpacing_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGetTreeNodeToLabelSpacing");
-			CollapsingHeaderTreeNodeFlags_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiTreeNodeFlags, bool>)load(context, "igCollapsingHeaderTreeNodeFlags");
-			CollapsingHeaderBoolPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, bool*, ImGuiTreeNodeFlags, bool>)load(context, "igCollapsingHeaderBoolPtr");
-			SetNextItemOpen_ptr = (delegate* unmanaged[Stdcall]<bool, ImGuiCond, void>)load(context, "igSetNextItemOpen");
-			SelectableBool_ptr = (delegate* unmanaged[Stdcall]<byte*, bool, ImGuiSelectableFlags, ImVec2, bool>)load(context, "igSelectableBool");
-			SelectableBoolPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, bool*, ImGuiSelectableFlags, ImVec2, bool>)load(context, "igSelectableBoolPtr");
-			BeginListBox_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec2, bool>)load(context, "igBeginListBox");
-			EndListBox_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndListBox");
-			ListBoxStr_arr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, byte**, int, int, bool>)load(context, "igListBoxStr_arr");
-			ListBoxFnBoolPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, int*, IntPtr, IntPtr, int, int, bool>)load(context, "igListBoxFnBoolPtr");
-			PlotLinesFloatPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, int, int, byte*, float, float, ImVec2, int, void>)load(context, "igPlotLinesFloatPtr");
-			PlotLinesFnFloatPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, IntPtr, IntPtr, int, int, byte*, float, float, ImVec2, void>)load(context, "igPlotLinesFnFloatPtr");
-			PlotHistogramFloatPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, int, int, byte*, float, float, ImVec2, int, void>)load(context, "igPlotHistogramFloatPtr");
-			PlotHistogramFnFloatPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, IntPtr, IntPtr, int, int, byte*, float, float, ImVec2, void>)load(context, "igPlotHistogramFnFloatPtr");
-			ValueBool_ptr = (delegate* unmanaged[Stdcall]<byte*, bool, void>)load(context, "igValueBool");
-			ValueInt_ptr = (delegate* unmanaged[Stdcall]<byte*, int, void>)load(context, "igValueInt");
-			ValueUint_ptr = (delegate* unmanaged[Stdcall]<byte*, uint, void>)load(context, "igValueUint");
-			ValueFloat_ptr = (delegate* unmanaged[Stdcall]<byte*, float, byte*, void>)load(context, "igValueFloat");
-			BeginMenuBar_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igBeginMenuBar");
-			EndMenuBar_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndMenuBar");
-			BeginMainMenuBar_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igBeginMainMenuBar");
-			EndMainMenuBar_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndMainMenuBar");
-			BeginMenu_ptr = (delegate* unmanaged[Stdcall]<byte*, bool, bool>)load(context, "igBeginMenu");
-			EndMenu_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndMenu");
-			MenuItemBool_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, bool, bool, bool>)load(context, "igMenuItemBool");
-			MenuItemBoolPtr_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, bool*, bool, bool>)load(context, "igMenuItemBoolPtr");
-			BeginTooltip_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igBeginTooltip");
-			EndTooltip_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndTooltip");
-			SetTooltip_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igSetTooltip");
-			BeginPopup_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiWindowFlags, bool>)load(context, "igBeginPopup");
-			BeginPopupModal_ptr = (delegate* unmanaged[Stdcall]<byte*, bool*, ImGuiWindowFlags, bool>)load(context, "igBeginPopupModal");
-			EndPopup_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndPopup");
-			OpenPopup_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiPopupFlags, void>)load(context, "igOpenPopup");
-			OpenPopupOnItemClick_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiPopupFlags, void>)load(context, "igOpenPopupOnItemClick");
-			CloseCurrentPopup_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igCloseCurrentPopup");
-			BeginPopupContextItem_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiPopupFlags, bool>)load(context, "igBeginPopupContextItem");
-			BeginPopupContextWindow_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiPopupFlags, bool>)load(context, "igBeginPopupContextWindow");
-			BeginPopupContextVoid_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiPopupFlags, bool>)load(context, "igBeginPopupContextVoid");
-			IsPopupOpenStr_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiPopupFlags, bool>)load(context, "igIsPopupOpenStr");
-			BeginTable_ptr = (delegate* unmanaged[Stdcall]<byte*, int, ImGuiTableFlags, ImVec2, float, bool>)load(context, "igBeginTable");
-			EndTable_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndTable");
-			TableNextRow_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableRowFlags, float, void>)load(context, "igTableNextRow");
-			TableNextColumn_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igTableNextColumn");
-			TableSetColumnIndex_ptr = (delegate* unmanaged[Stdcall]<int, bool>)load(context, "igTableSetColumnIndex");
-			TableSetupColumn_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiTableColumnFlags, float, ImGuiID, void>)load(context, "igTableSetupColumn");
-			TableSetupScrollFreeze_ptr = (delegate* unmanaged[Stdcall]<int, int, void>)load(context, "igTableSetupScrollFreeze");
-			TableHeadersRow_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igTableHeadersRow");
-			TableHeader_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igTableHeader");
-			TableGetSortSpecs_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableSortSpecs*>)load(context, "igTableGetSortSpecs");
-			TableGetColumnCount_ptr = (delegate* unmanaged[Stdcall]<int>)load(context, "igTableGetColumnCount");
-			TableGetColumnIndex_ptr = (delegate* unmanaged[Stdcall]<int>)load(context, "igTableGetColumnIndex");
-			TableGetRowIndex_ptr = (delegate* unmanaged[Stdcall]<int>)load(context, "igTableGetRowIndex");
-			TableGetColumnNameInt_ptr = (delegate* unmanaged[Stdcall]<int, byte*>)load(context, "igTableGetColumnNameInt");
-			TableGetColumnFlags_ptr = (delegate* unmanaged[Stdcall]<int, ImGuiTableColumnFlags>)load(context, "igTableGetColumnFlags");
-			TableSetBgColor_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableBgTarget, uint, int, void>)load(context, "igTableSetBgColor");
-			Columns_ptr = (delegate* unmanaged[Stdcall]<int, byte*, bool, void>)load(context, "igColumns");
-			NextColumn_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igNextColumn");
-			GetColumnIndex_ptr = (delegate* unmanaged[Stdcall]<int>)load(context, "igGetColumnIndex");
-			GetColumnWidth_ptr = (delegate* unmanaged[Stdcall]<int, float>)load(context, "igGetColumnWidth");
-			SetColumnWidth_ptr = (delegate* unmanaged[Stdcall]<int, float, void>)load(context, "igSetColumnWidth");
-			GetColumnOffset_ptr = (delegate* unmanaged[Stdcall]<int, float>)load(context, "igGetColumnOffset");
-			SetColumnOffset_ptr = (delegate* unmanaged[Stdcall]<int, float, void>)load(context, "igSetColumnOffset");
-			GetColumnsCount_ptr = (delegate* unmanaged[Stdcall]<int>)load(context, "igGetColumnsCount");
-			BeginTabBar_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiTabBarFlags, bool>)load(context, "igBeginTabBar");
-			EndTabBar_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndTabBar");
-			BeginTabItem_ptr = (delegate* unmanaged[Stdcall]<byte*, bool*, ImGuiTabItemFlags, bool>)load(context, "igBeginTabItem");
-			EndTabItem_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndTabItem");
-			TabItemButton_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiTabItemFlags, bool>)load(context, "igTabItemButton");
-			SetTabItemClosed_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igSetTabItemClosed");
-			DockSpace_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, ImGuiDockNodeFlags, ImGuiWindowClass*, ImGuiID>)load(context, "igDockSpace");
-			DockSpaceOverViewport_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewport*, ImGuiDockNodeFlags, ImGuiWindowClass*, ImGuiID>)load(context, "igDockSpaceOverViewport");
-			SetNextWindowDockID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiCond, void>)load(context, "igSetNextWindowDockID");
-			SetNextWindowClass_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindowClass*, void>)load(context, "igSetNextWindowClass");
-			GetWindowDockID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID>)load(context, "igGetWindowDockID");
-			IsWindowDocked_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsWindowDocked");
-			LogToTTY_ptr = (delegate* unmanaged[Stdcall]<int, void>)load(context, "igLogToTTY");
-			LogToFile_ptr = (delegate* unmanaged[Stdcall]<int, byte*, void>)load(context, "igLogToFile");
-			LogToClipboard_ptr = (delegate* unmanaged[Stdcall]<int, void>)load(context, "igLogToClipboard");
-			LogFinish_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igLogFinish");
-			LogButtons_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igLogButtons");
-			BeginDragDropSource_ptr = (delegate* unmanaged[Stdcall]<ImGuiDragDropFlags, bool>)load(context, "igBeginDragDropSource");
-			SetDragDropPayload_ptr = (delegate* unmanaged[Stdcall]<byte*, IntPtr, IntPtr, ImGuiCond, bool>)load(context, "igSetDragDropPayload");
-			EndDragDropSource_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndDragDropSource");
-			BeginDragDropTarget_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igBeginDragDropTarget");
-			AcceptDragDropPayload_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDragDropFlags, ImGuiPayload*>)load(context, "igAcceptDragDropPayload");
-			EndDragDropTarget_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndDragDropTarget");
-			GetDragDropPayload_ptr = (delegate* unmanaged[Stdcall]<ImGuiPayload*>)load(context, "igGetDragDropPayload");
-			PushClipRect_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, bool, void>)load(context, "igPushClipRect");
-			PopClipRect_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igPopClipRect");
-			SetItemDefaultFocus_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igSetItemDefaultFocus");
-			SetKeyboardFocusHere_ptr = (delegate* unmanaged[Stdcall]<int, void>)load(context, "igSetKeyboardFocusHere");
-			IsItemHovered_ptr = (delegate* unmanaged[Stdcall]<ImGuiHoveredFlags, bool>)load(context, "igIsItemHovered");
-			IsItemActive_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsItemActive");
-			IsItemFocused_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsItemFocused");
-			IsItemClicked_ptr = (delegate* unmanaged[Stdcall]<ImGuiMouseButton, bool>)load(context, "igIsItemClicked");
-			IsItemVisible_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsItemVisible");
-			IsItemEdited_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsItemEdited");
-			IsItemActivated_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsItemActivated");
-			IsItemDeactivated_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsItemDeactivated");
-			IsItemDeactivatedAfterEdit_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsItemDeactivatedAfterEdit");
-			IsItemToggledOpen_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsItemToggledOpen");
-			IsAnyItemHovered_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsAnyItemHovered");
-			IsAnyItemActive_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsAnyItemActive");
-			IsAnyItemFocused_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsAnyItemFocused");
-			GetItemRectMin_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetItemRectMin");
-			GetItemRectMax_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetItemRectMax");
-			GetItemRectSize_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetItemRectSize");
-			SetItemAllowOverlap_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igSetItemAllowOverlap");
-			GetMainViewport_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewport*>)load(context, "igGetMainViewport");
-			IsRectVisibleNil_ptr = (delegate* unmanaged[Stdcall]<ImVec2, bool>)load(context, "igIsRectVisibleNil");
-			IsRectVisibleVec2_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, bool>)load(context, "igIsRectVisibleVec2");
-			GetTime_ptr = (delegate* unmanaged[Stdcall]<double>)load(context, "igGetTime");
-			GetFrameCount_ptr = (delegate* unmanaged[Stdcall]<int>)load(context, "igGetFrameCount");
-			GetBackgroundDrawListNil_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*>)load(context, "igGetBackgroundDrawListNil");
-			GetForegroundDrawListNil_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*>)load(context, "igGetForegroundDrawListNil");
-			GetBackgroundDrawListViewportPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewport*, ImDrawList*>)load(context, "igGetBackgroundDrawListViewportPtr");
-			GetForegroundDrawListViewportPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewport*, ImDrawList*>)load(context, "igGetForegroundDrawListViewportPtr");
-			GetDrawListSharedData_ptr = (delegate* unmanaged[Stdcall]<ImDrawListSharedData*>)load(context, "igGetDrawListSharedData");
-			GetStyleColorName_ptr = (delegate* unmanaged[Stdcall]<ImGuiCol, byte*>)load(context, "igGetStyleColorName");
-			SetStateStorage_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, void>)load(context, "igSetStateStorage");
-			GetStateStorage_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*>)load(context, "igGetStateStorage");
-			CalcListClipping_ptr = (delegate* unmanaged[Stdcall]<int, float, int*, int*, void>)load(context, "igCalcListClipping");
-			BeginChildFrame_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, ImGuiWindowFlags, bool>)load(context, "igBeginChildFrame");
-			EndChildFrame_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndChildFrame");
-			CalcTextSize_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, byte*, byte*, bool, float, void>)load(context, "igCalcTextSize");
-			ColorConvertU32ToFloat4_ptr = (delegate* unmanaged[Stdcall]<ImVec4*, uint, void>)load(context, "igColorConvertU32ToFloat4");
-			ColorConvertFloat4ToU32_ptr = (delegate* unmanaged[Stdcall]<ImVec4, uint>)load(context, "igColorConvertFloat4ToU32");
-			ColorConvertRGBtoHSV_ptr = (delegate* unmanaged[Stdcall]<float, float, float, float*, float*, float*, void>)load(context, "igColorConvertRGBtoHSV");
-			ColorConvertHSVtoRGB_ptr = (delegate* unmanaged[Stdcall]<float, float, float, float*, float*, float*, void>)load(context, "igColorConvertHSVtoRGB");
-			GetKeyIndex_ptr = (delegate* unmanaged[Stdcall]<ImGuiKey, int>)load(context, "igGetKeyIndex");
-			IsKeyDown_ptr = (delegate* unmanaged[Stdcall]<int, bool>)load(context, "igIsKeyDown");
-			IsKeyPressed_ptr = (delegate* unmanaged[Stdcall]<int, bool, bool>)load(context, "igIsKeyPressed");
-			IsKeyReleased_ptr = (delegate* unmanaged[Stdcall]<int, bool>)load(context, "igIsKeyReleased");
-			GetKeyPressedAmount_ptr = (delegate* unmanaged[Stdcall]<int, float, float, int>)load(context, "igGetKeyPressedAmount");
-			CaptureKeyboardFromApp_ptr = (delegate* unmanaged[Stdcall]<bool, void>)load(context, "igCaptureKeyboardFromApp");
-			IsMouseDown_ptr = (delegate* unmanaged[Stdcall]<ImGuiMouseButton, bool>)load(context, "igIsMouseDown");
-			IsMouseClicked_ptr = (delegate* unmanaged[Stdcall]<ImGuiMouseButton, bool, bool>)load(context, "igIsMouseClicked");
-			IsMouseReleased_ptr = (delegate* unmanaged[Stdcall]<ImGuiMouseButton, bool>)load(context, "igIsMouseReleased");
-			IsMouseDoubleClicked_ptr = (delegate* unmanaged[Stdcall]<ImGuiMouseButton, bool>)load(context, "igIsMouseDoubleClicked");
-			IsMouseHoveringRect_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, bool, bool>)load(context, "igIsMouseHoveringRect");
-			IsMousePosValid_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, bool>)load(context, "igIsMousePosValid");
-			IsAnyMouseDown_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsAnyMouseDown");
-			GetMousePos_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetMousePos");
-			GetMousePosOnOpeningCurrentPopup_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetMousePosOnOpeningCurrentPopup");
-			IsMouseDragging_ptr = (delegate* unmanaged[Stdcall]<ImGuiMouseButton, float, bool>)load(context, "igIsMouseDragging");
-			GetMouseDragDelta_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImGuiMouseButton, float, void>)load(context, "igGetMouseDragDelta");
-			ResetMouseDragDelta_ptr = (delegate* unmanaged[Stdcall]<ImGuiMouseButton, void>)load(context, "igResetMouseDragDelta");
-			GetMouseCursor_ptr = (delegate* unmanaged[Stdcall]<ImGuiMouseCursor>)load(context, "igGetMouseCursor");
-			SetMouseCursor_ptr = (delegate* unmanaged[Stdcall]<ImGuiMouseCursor, void>)load(context, "igSetMouseCursor");
-			CaptureMouseFromApp_ptr = (delegate* unmanaged[Stdcall]<bool, void>)load(context, "igCaptureMouseFromApp");
-			GetClipboardText_ptr = (delegate* unmanaged[Stdcall]<byte*>)load(context, "igGetClipboardText");
-			SetClipboardText_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igSetClipboardText");
-			LoadIniSettingsFromDisk_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igLoadIniSettingsFromDisk");
-			LoadIniSettingsFromMemory_ptr = (delegate* unmanaged[Stdcall]<byte*, IntPtr, void>)load(context, "igLoadIniSettingsFromMemory");
-			SaveIniSettingsToDisk_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igSaveIniSettingsToDisk");
-			SaveIniSettingsToMemory_ptr = (delegate* unmanaged[Stdcall]<IntPtr*, byte*>)load(context, "igSaveIniSettingsToMemory");
-			DebugCheckVersionAndDataLayout_ptr = (delegate* unmanaged[Stdcall]<byte*, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, bool>)load(context, "igDebugCheckVersionAndDataLayout");
-			SetAllocatorFunctions_ptr = (delegate* unmanaged[Stdcall]<IntPtr, IntPtr, IntPtr, void>)load(context, "igSetAllocatorFunctions");
-			GetAllocatorFunctions_ptr = (delegate* unmanaged[Stdcall]<IntPtr*, IntPtr*, IntPtr*, void>)load(context, "igGetAllocatorFunctions");
-			MemAlloc_ptr = (delegate* unmanaged[Stdcall]<IntPtr, IntPtr>)load(context, "igMemAlloc");
-			MemFree_ptr = (delegate* unmanaged[Stdcall]<IntPtr, void>)load(context, "igMemFree");
-			GetPlatformIO_ptr = (delegate* unmanaged[Stdcall]<ImGuiPlatformIO*>)load(context, "igGetPlatformIO");
-			UpdatePlatformWindows_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igUpdatePlatformWindows");
-			RenderPlatformWindowsDefault_ptr = (delegate* unmanaged[Stdcall]<IntPtr, IntPtr, void>)load(context, "igRenderPlatformWindowsDefault");
-			DestroyPlatformWindows_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igDestroyPlatformWindows");
-			FindViewportByID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiViewport*>)load(context, "igFindViewportByID");
-			FindViewportByPlatformHandle_ptr = (delegate* unmanaged[Stdcall]<IntPtr, ImGuiViewport*>)load(context, "igFindViewportByPlatformHandle");
-			ImGuiStyle_ImGuiStyle_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyle*>)load(context, "ImGuiStyle_ImGuiStyle");
-			ImGuiStyle_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyle*, void>)load(context, "ImGuiStyle_destroy");
-			ImGuiStyle_ScaleAllSizes_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyle*, float, void>)load(context, "ImGuiStyle_ScaleAllSizes");
-			ImGuiIO_AddInputCharacter_ptr = (delegate* unmanaged[Stdcall]<ImGuiIO*, uint, void>)load(context, "ImGuiIO_AddInputCharacter");
-			ImGuiIO_AddInputCharacterUTF16_ptr = (delegate* unmanaged[Stdcall]<ImGuiIO*, char, void>)load(context, "ImGuiIO_AddInputCharacterUTF16");
-			ImGuiIO_AddInputCharactersUTF8_ptr = (delegate* unmanaged[Stdcall]<ImGuiIO*, byte*, void>)load(context, "ImGuiIO_AddInputCharactersUTF8");
-			ImGuiIO_ClearInputCharacters_ptr = (delegate* unmanaged[Stdcall]<ImGuiIO*, void>)load(context, "ImGuiIO_ClearInputCharacters");
-			ImGuiIO_ImGuiIO_ptr = (delegate* unmanaged[Stdcall]<ImGuiIO*>)load(context, "ImGuiIO_ImGuiIO");
-			ImGuiIO_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiIO*, void>)load(context, "ImGuiIO_destroy");
-			ImGuiInputTextCallbackData_ImGuiInputTextCallbackData_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*>)load(context, "ImGuiInputTextCallbackData_ImGuiInputTextCallbackData");
-			ImGuiInputTextCallbackData_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*, void>)load(context, "ImGuiInputTextCallbackData_destroy");
-			ImGuiInputTextCallbackData_DeleteChars_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*, int, int, void>)load(context, "ImGuiInputTextCallbackData_DeleteChars");
-			ImGuiInputTextCallbackData_InsertChars_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*, int, byte*, byte*, void>)load(context, "ImGuiInputTextCallbackData_InsertChars");
-			ImGuiInputTextCallbackData_SelectAll_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*, void>)load(context, "ImGuiInputTextCallbackData_SelectAll");
-			ImGuiInputTextCallbackData_ClearSelection_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*, void>)load(context, "ImGuiInputTextCallbackData_ClearSelection");
-			ImGuiInputTextCallbackData_HasSelection_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextCallbackData*, bool>)load(context, "ImGuiInputTextCallbackData_HasSelection");
-			ImGuiWindowClass_ImGuiWindowClass_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindowClass*>)load(context, "ImGuiWindowClass_ImGuiWindowClass");
-			ImGuiWindowClass_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindowClass*, void>)load(context, "ImGuiWindowClass_destroy");
-			ImGuiPayload_ImGuiPayload_ptr = (delegate* unmanaged[Stdcall]<ImGuiPayload*>)load(context, "ImGuiPayload_ImGuiPayload");
-			ImGuiPayload_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiPayload*, void>)load(context, "ImGuiPayload_destroy");
-			ImGuiPayload_Clear_ptr = (delegate* unmanaged[Stdcall]<ImGuiPayload*, void>)load(context, "ImGuiPayload_Clear");
-			ImGuiPayload_IsDataType_ptr = (delegate* unmanaged[Stdcall]<ImGuiPayload*, byte*, bool>)load(context, "ImGuiPayload_IsDataType");
-			ImGuiPayload_IsPreview_ptr = (delegate* unmanaged[Stdcall]<ImGuiPayload*, bool>)load(context, "ImGuiPayload_IsPreview");
-			ImGuiPayload_IsDelivery_ptr = (delegate* unmanaged[Stdcall]<ImGuiPayload*, bool>)load(context, "ImGuiPayload_IsDelivery");
-			ImGuiTableColumnSortSpecs_ImGuiTableColumnSortSpecs_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableColumnSortSpecs*>)load(context, "ImGuiTableColumnSortSpecs_ImGuiTableColumnSortSpecs");
-			ImGuiTableColumnSortSpecs_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableColumnSortSpecs*, void>)load(context, "ImGuiTableColumnSortSpecs_destroy");
-			ImGuiTableSortSpecs_ImGuiTableSortSpecs_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableSortSpecs*>)load(context, "ImGuiTableSortSpecs_ImGuiTableSortSpecs");
-			ImGuiTableSortSpecs_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableSortSpecs*, void>)load(context, "ImGuiTableSortSpecs_destroy");
-			ImGuiOnceUponAFrame_ImGuiOnceUponAFrame_ptr = (delegate* unmanaged[Stdcall]<ImGuiOnceUponAFrame*>)load(context, "ImGuiOnceUponAFrame_ImGuiOnceUponAFrame");
-			ImGuiOnceUponAFrame_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiOnceUponAFrame*, void>)load(context, "ImGuiOnceUponAFrame_destroy");
-			ImGuiTextFilter_ImGuiTextFilter_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiTextFilter*>)load(context, "ImGuiTextFilter_ImGuiTextFilter");
-			ImGuiTextFilter_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextFilter*, void>)load(context, "ImGuiTextFilter_destroy");
-			ImGuiTextFilter_Draw_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextFilter*, byte*, float, bool>)load(context, "ImGuiTextFilter_Draw");
-			ImGuiTextFilter_PassFilter_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextFilter*, byte*, byte*, bool>)load(context, "ImGuiTextFilter_PassFilter");
-			ImGuiTextFilter_Build_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextFilter*, void>)load(context, "ImGuiTextFilter_Build");
-			ImGuiTextFilter_Clear_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextFilter*, void>)load(context, "ImGuiTextFilter_Clear");
-			ImGuiTextFilter_IsActive_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextFilter*, bool>)load(context, "ImGuiTextFilter_IsActive");
-			ImGuiTextRange_ImGuiTextRangeNil_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextRange*>)load(context, "ImGuiTextRange_ImGuiTextRangeNil");
-			ImGuiTextRange_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextRange*, void>)load(context, "ImGuiTextRange_destroy");
-			ImGuiTextRange_ImGuiTextRangeStr_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiTextRange*>)load(context, "ImGuiTextRange_ImGuiTextRangeStr");
-			ImGuiTextRange_empty_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextRange*, bool>)load(context, "ImGuiTextRange_empty");
-			ImGuiTextRange_split_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextRange*, byte, ImVector_ImGuiTextRange*, void>)load(context, "ImGuiTextRange_split");
-			ImGuiTextBuffer_ImGuiTextBuffer_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*>)load(context, "ImGuiTextBuffer_ImGuiTextBuffer");
-			ImGuiTextBuffer_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, void>)load(context, "ImGuiTextBuffer_destroy");
-			ImGuiTextBuffer_begin_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, byte*>)load(context, "ImGuiTextBuffer_begin");
-			ImGuiTextBuffer_end_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, byte*>)load(context, "ImGuiTextBuffer_end");
-			ImGuiTextBuffer_size_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, int>)load(context, "ImGuiTextBuffer_size");
-			ImGuiTextBuffer_empty_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, bool>)load(context, "ImGuiTextBuffer_empty");
-			ImGuiTextBuffer_clear_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, void>)load(context, "ImGuiTextBuffer_clear");
-			ImGuiTextBuffer_reserve_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, int, void>)load(context, "ImGuiTextBuffer_reserve");
-			ImGuiTextBuffer_c_str_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, byte*>)load(context, "ImGuiTextBuffer_c_str");
-			ImGuiTextBuffer_append_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, byte*, byte*, void>)load(context, "ImGuiTextBuffer_append");
-			ImGuiStoragePair_ImGuiStoragePairInt_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, int, ImGuiStoragePair*>)load(context, "ImGuiStoragePair_ImGuiStoragePairInt");
-			ImGuiStoragePair_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiStoragePair*, void>)load(context, "ImGuiStoragePair_destroy");
-			ImGuiStoragePair_ImGuiStoragePairFloat_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, float, ImGuiStoragePair*>)load(context, "ImGuiStoragePair_ImGuiStoragePairFloat");
-			ImGuiStoragePair_ImGuiStoragePairPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, IntPtr, ImGuiStoragePair*>)load(context, "ImGuiStoragePair_ImGuiStoragePairPtr");
-			ImGuiStorage_Clear_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, void>)load(context, "ImGuiStorage_Clear");
-			ImGuiStorage_GetInt_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, int, int>)load(context, "ImGuiStorage_GetInt");
-			ImGuiStorage_SetInt_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, int, void>)load(context, "ImGuiStorage_SetInt");
-			ImGuiStorage_GetBool_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, bool, bool>)load(context, "ImGuiStorage_GetBool");
-			ImGuiStorage_SetBool_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, bool, void>)load(context, "ImGuiStorage_SetBool");
-			ImGuiStorage_GetFloat_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, float, float>)load(context, "ImGuiStorage_GetFloat");
-			ImGuiStorage_SetFloat_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, float, void>)load(context, "ImGuiStorage_SetFloat");
-			ImGuiStorage_GetVoidPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, IntPtr>)load(context, "ImGuiStorage_GetVoidPtr");
-			ImGuiStorage_SetVoidPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, IntPtr, void>)load(context, "ImGuiStorage_SetVoidPtr");
-			ImGuiStorage_GetIntRef_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, int, int*>)load(context, "ImGuiStorage_GetIntRef");
-			ImGuiStorage_GetBoolRef_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, bool, bool*>)load(context, "ImGuiStorage_GetBoolRef");
-			ImGuiStorage_GetFloatRef_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, float, float*>)load(context, "ImGuiStorage_GetFloatRef");
-			ImGuiStorage_GetVoidPtrRef_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, ImGuiID, IntPtr, IntPtr*>)load(context, "ImGuiStorage_GetVoidPtrRef");
-			ImGuiStorage_SetAllInt_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, int, void>)load(context, "ImGuiStorage_SetAllInt");
-			ImGuiStorage_BuildSortByKey_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, void>)load(context, "ImGuiStorage_BuildSortByKey");
-			ImGuiListClipper_ImGuiListClipper_ptr = (delegate* unmanaged[Stdcall]<ImGuiListClipper*>)load(context, "ImGuiListClipper_ImGuiListClipper");
-			ImGuiListClipper_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiListClipper*, void>)load(context, "ImGuiListClipper_destroy");
-			ImGuiListClipper_Begin_ptr = (delegate* unmanaged[Stdcall]<ImGuiListClipper*, int, float, void>)load(context, "ImGuiListClipper_Begin");
-			ImGuiListClipper_End_ptr = (delegate* unmanaged[Stdcall]<ImGuiListClipper*, void>)load(context, "ImGuiListClipper_End");
-			ImGuiListClipper_Step_ptr = (delegate* unmanaged[Stdcall]<ImGuiListClipper*, bool>)load(context, "ImGuiListClipper_Step");
-			ImDrawCmd_ImDrawCmd_ptr = (delegate* unmanaged[Stdcall]<ImDrawCmd*>)load(context, "ImDrawCmd_ImDrawCmd");
-			ImDrawCmd_destroy_ptr = (delegate* unmanaged[Stdcall]<ImDrawCmd*, void>)load(context, "ImDrawCmd_destroy");
-			ImDrawListSplitter_ImDrawListSplitter_ptr = (delegate* unmanaged[Stdcall]<ImDrawListSplitter*>)load(context, "ImDrawListSplitter_ImDrawListSplitter");
-			ImDrawListSplitter_destroy_ptr = (delegate* unmanaged[Stdcall]<ImDrawListSplitter*, void>)load(context, "ImDrawListSplitter_destroy");
-			ImDrawListSplitter_Clear_ptr = (delegate* unmanaged[Stdcall]<ImDrawListSplitter*, void>)load(context, "ImDrawListSplitter_Clear");
-			ImDrawListSplitter_ClearFreeMemory_ptr = (delegate* unmanaged[Stdcall]<ImDrawListSplitter*, void>)load(context, "ImDrawListSplitter_ClearFreeMemory");
-			ImDrawListSplitter_Split_ptr = (delegate* unmanaged[Stdcall]<ImDrawListSplitter*, ImDrawList*, int, void>)load(context, "ImDrawListSplitter_Split");
-			ImDrawListSplitter_Merge_ptr = (delegate* unmanaged[Stdcall]<ImDrawListSplitter*, ImDrawList*, void>)load(context, "ImDrawListSplitter_Merge");
-			ImDrawListSplitter_SetCurrentChannel_ptr = (delegate* unmanaged[Stdcall]<ImDrawListSplitter*, ImDrawList*, int, void>)load(context, "ImDrawListSplitter_SetCurrentChannel");
-			ImDrawList_ImDrawList_ptr = (delegate* unmanaged[Stdcall]<ImDrawListSharedData*, ImDrawList*>)load(context, "ImDrawList_ImDrawList");
-			ImDrawList_destroy_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList_destroy");
-			ImDrawList_PushClipRect_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, bool, void>)load(context, "ImDrawList_PushClipRect");
-			ImDrawList_PushClipRectFullScreen_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList_PushClipRectFullScreen");
-			ImDrawList_PopClipRect_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList_PopClipRect");
-			ImDrawList_PushTextureID_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, void>)load(context, "ImDrawList_PushTextureID");
-			ImDrawList_PopTextureID_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList_PopTextureID");
-			ImDrawList_GetClipRectMin_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImDrawList*, void>)load(context, "ImDrawList_GetClipRectMin");
-			ImDrawList_GetClipRectMax_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImDrawList*, void>)load(context, "ImDrawList_GetClipRectMax");
-			ImDrawList_AddLine_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, void>)load(context, "ImDrawList_AddLine");
-			ImDrawList_AddRect_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, float, void>)load(context, "ImDrawList_AddRect");
-			ImDrawList_AddRectFilled_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, void>)load(context, "ImDrawList_AddRectFilled");
-			ImDrawList_AddRectFilledMultiColor_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, uint, uint, uint, void>)load(context, "ImDrawList_AddRectFilledMultiColor");
-			ImDrawList_AddQuad_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, void>)load(context, "ImDrawList_AddQuad");
-			ImDrawList_AddQuadFilled_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_AddQuadFilled");
-			ImDrawList_AddTriangle_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, float, void>)load(context, "ImDrawList_AddTriangle");
-			ImDrawList_AddTriangleFilled_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_AddTriangleFilled");
-			ImDrawList_AddCircle_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, float, void>)load(context, "ImDrawList_AddCircle");
-			ImDrawList_AddCircleFilled_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, void>)load(context, "ImDrawList_AddCircleFilled");
-			ImDrawList_AddNgon_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, float, void>)load(context, "ImDrawList_AddNgon");
-			ImDrawList_AddNgonFilled_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, int, void>)load(context, "ImDrawList_AddNgonFilled");
-			ImDrawList_AddTextVec2_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, byte*, byte*, void>)load(context, "ImDrawList_AddTextVec2");
-			ImDrawList_AddTextFontPtr_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImFont*, float, ImVec2, uint, byte*, byte*, float, ImVec4*, void>)load(context, "ImDrawList_AddTextFontPtr");
-			ImDrawList_AddPolyline_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2*, int, uint, ImDrawFlags, float, void>)load(context, "ImDrawList_AddPolyline");
-			ImDrawList_AddConvexPolyFilled_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2*, int, uint, void>)load(context, "ImDrawList_AddConvexPolyFilled");
-			ImDrawList_AddBezierCubic_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, int, void>)load(context, "ImDrawList_AddBezierCubic");
-			ImDrawList_AddBezierQuadratic_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, float, int, void>)load(context, "ImDrawList_AddBezierQuadratic");
-			ImDrawList_AddImage_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_AddImage");
-			ImDrawList_AddImageQuad_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_AddImageQuad");
-			ImDrawList_AddImageRounded_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, ImDrawFlags, void>)load(context, "ImDrawList_AddImageRounded");
-			ImDrawList_PathClear_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList_PathClear");
-			ImDrawList_PathLineTo_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, void>)load(context, "ImDrawList_PathLineTo");
-			ImDrawList_PathLineToMergeDuplicate_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, void>)load(context, "ImDrawList_PathLineToMergeDuplicate");
-			ImDrawList_PathFillConvex_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, uint, void>)load(context, "ImDrawList_PathFillConvex");
-			ImDrawList_PathStroke_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, uint, ImDrawFlags, float, void>)load(context, "ImDrawList_PathStroke");
-			ImDrawList_PathArcTo_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, float, float, int, void>)load(context, "ImDrawList_PathArcTo");
-			ImDrawList_PathArcToFast_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, int, int, void>)load(context, "ImDrawList_PathArcToFast");
-			ImDrawList_PathBezierCubicCurveTo_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, int, void>)load(context, "ImDrawList_PathBezierCubicCurveTo");
-			ImDrawList_PathBezierQuadraticCurveTo_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, int, void>)load(context, "ImDrawList_PathBezierQuadraticCurveTo");
-			ImDrawList_PathRect_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, float, ImDrawFlags, void>)load(context, "ImDrawList_PathRect");
-			ImDrawList_AddCallback_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, IntPtr, IntPtr, void>)load(context, "ImDrawList_AddCallback");
-			ImDrawList_AddDrawCmd_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList_AddDrawCmd");
-			ImDrawList_CloneOutput_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImDrawList*>)load(context, "ImDrawList_CloneOutput");
-			ImDrawList_ChannelsSplit_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, int, void>)load(context, "ImDrawList_ChannelsSplit");
-			ImDrawList_ChannelsMerge_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList_ChannelsMerge");
-			ImDrawList_ChannelsSetCurrent_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, int, void>)load(context, "ImDrawList_ChannelsSetCurrent");
-			ImDrawList_PrimReserve_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, int, int, void>)load(context, "ImDrawList_PrimReserve");
-			ImDrawList_PrimUnreserve_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, int, int, void>)load(context, "ImDrawList_PrimUnreserve");
-			ImDrawList_PrimRect_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_PrimRect");
-			ImDrawList_PrimRectUV_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_PrimRectUV");
-			ImDrawList_PrimQuadUV_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_PrimQuadUV");
-			ImDrawList_PrimWriteVtx_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_PrimWriteVtx");
-			ImDrawList_PrimWriteIdx_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImDrawIdx, void>)load(context, "ImDrawList_PrimWriteIdx");
-			ImDrawList_PrimVtx_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_PrimVtx");
-			ImDrawList__ResetForNewFrame_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList__ResetForNewFrame");
-			ImDrawList__ClearFreeMemory_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList__ClearFreeMemory");
-			ImDrawList__PopUnusedDrawCmd_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList__PopUnusedDrawCmd");
-			ImDrawList__OnChangedClipRect_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList__OnChangedClipRect");
-			ImDrawList__OnChangedTextureID_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList__OnChangedTextureID");
-			ImDrawList__OnChangedVtxOffset_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, void>)load(context, "ImDrawList__OnChangedVtxOffset");
-			ImDrawList__CalcCircleAutoSegmentCount_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, float, int>)load(context, "ImDrawList__CalcCircleAutoSegmentCount");
-			ImDrawList__PathArcToFastEx_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, int, int, int, void>)load(context, "ImDrawList__PathArcToFastEx");
-			ImDrawList__PathArcToN_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, float, float, int, void>)load(context, "ImDrawList__PathArcToN");
-			ImDrawData_ImDrawData_ptr = (delegate* unmanaged[Stdcall]<ImDrawData*>)load(context, "ImDrawData_ImDrawData");
-			ImDrawData_destroy_ptr = (delegate* unmanaged[Stdcall]<ImDrawData*, void>)load(context, "ImDrawData_destroy");
-			ImDrawData_Clear_ptr = (delegate* unmanaged[Stdcall]<ImDrawData*, void>)load(context, "ImDrawData_Clear");
-			ImDrawData_DeIndexAllBuffers_ptr = (delegate* unmanaged[Stdcall]<ImDrawData*, void>)load(context, "ImDrawData_DeIndexAllBuffers");
-			ImDrawData_ScaleClipRects_ptr = (delegate* unmanaged[Stdcall]<ImDrawData*, ImVec2, void>)load(context, "ImDrawData_ScaleClipRects");
-			ImFontConfig_ImFontConfig_ptr = (delegate* unmanaged[Stdcall]<ImFontConfig*>)load(context, "ImFontConfig_ImFontConfig");
-			ImFontConfig_destroy_ptr = (delegate* unmanaged[Stdcall]<ImFontConfig*, void>)load(context, "ImFontConfig_destroy");
-			ImFontGlyphRangesBuilder_ImFontGlyphRangesBuilder_ptr = (delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*>)load(context, "ImFontGlyphRangesBuilder_ImFontGlyphRangesBuilder");
-			ImFontGlyphRangesBuilder_destroy_ptr = (delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, void>)load(context, "ImFontGlyphRangesBuilder_destroy");
-			ImFontGlyphRangesBuilder_Clear_ptr = (delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, void>)load(context, "ImFontGlyphRangesBuilder_Clear");
-			ImFontGlyphRangesBuilder_GetBit_ptr = (delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, IntPtr, bool>)load(context, "ImFontGlyphRangesBuilder_GetBit");
-			ImFontGlyphRangesBuilder_SetBit_ptr = (delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, IntPtr, void>)load(context, "ImFontGlyphRangesBuilder_SetBit");
-			ImFontGlyphRangesBuilder_AddChar_ptr = (delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, char, void>)load(context, "ImFontGlyphRangesBuilder_AddChar");
-			ImFontGlyphRangesBuilder_AddText_ptr = (delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, byte*, byte*, void>)load(context, "ImFontGlyphRangesBuilder_AddText");
-			ImFontGlyphRangesBuilder_AddRanges_ptr = (delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, char*, void>)load(context, "ImFontGlyphRangesBuilder_AddRanges");
-			ImFontGlyphRangesBuilder_BuildRanges_ptr = (delegate* unmanaged[Stdcall]<ImFontGlyphRangesBuilder*, ImVector<char>*, void>)load(context, "ImFontGlyphRangesBuilder_BuildRanges");
-			ImFontAtlasCustomRect_ImFontAtlasCustomRect_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlasCustomRect*>)load(context, "ImFontAtlasCustomRect_ImFontAtlasCustomRect");
-			ImFontAtlasCustomRect_destroy_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlasCustomRect*, void>)load(context, "ImFontAtlasCustomRect_destroy");
-			ImFontAtlasCustomRect_IsPacked_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlasCustomRect*, bool>)load(context, "ImFontAtlasCustomRect_IsPacked");
-			ImFontAtlas_ImFontAtlas_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*>)load(context, "ImFontAtlas_ImFontAtlas");
-			ImFontAtlas_destroy_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, void>)load(context, "ImFontAtlas_destroy");
-			ImFontAtlas_AddFont_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFontConfig*, ImFont*>)load(context, "ImFontAtlas_AddFont");
-			ImFontAtlas_AddFontDefault_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFontConfig*, ImFont*>)load(context, "ImFontAtlas_AddFontDefault");
-			ImFontAtlas_AddFontFromFileTTF_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, byte*, float, ImFontConfig*, char*, ImFont*>)load(context, "ImFontAtlas_AddFontFromFileTTF");
-			ImFontAtlas_AddFontFromMemoryTTF_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, IntPtr, int, float, ImFontConfig*, char*, ImFont*>)load(context, "ImFontAtlas_AddFontFromMemoryTTF");
-			ImFontAtlas_AddFontFromMemoryCompressedTTF_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, IntPtr, int, float, ImFontConfig*, char*, ImFont*>)load(context, "ImFontAtlas_AddFontFromMemoryCompressedTTF");
-			ImFontAtlas_AddFontFromMemoryCompressedBase85TTF_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, byte*, float, ImFontConfig*, char*, ImFont*>)load(context, "ImFontAtlas_AddFontFromMemoryCompressedBase85TTF");
-			ImFontAtlas_ClearInputData_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, void>)load(context, "ImFontAtlas_ClearInputData");
-			ImFontAtlas_ClearTexData_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, void>)load(context, "ImFontAtlas_ClearTexData");
-			ImFontAtlas_ClearFonts_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, void>)load(context, "ImFontAtlas_ClearFonts");
-			ImFontAtlas_Clear_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, void>)load(context, "ImFontAtlas_Clear");
-			ImFontAtlas_Build_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, bool>)load(context, "ImFontAtlas_Build");
-			ImFontAtlas_GetTexDataAsAlpha8_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, byte**, int*, int*, int*, void>)load(context, "ImFontAtlas_GetTexDataAsAlpha8");
-			ImFontAtlas_GetTexDataAsRGBA32_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, byte**, int*, int*, int*, void>)load(context, "ImFontAtlas_GetTexDataAsRGBA32");
-			ImFontAtlas_IsBuilt_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, bool>)load(context, "ImFontAtlas_IsBuilt");
-			ImFontAtlas_SetTexID_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImTextureID, void>)load(context, "ImFontAtlas_SetTexID");
-			ImFontAtlas_GetGlyphRangesDefault_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesDefault");
-			ImFontAtlas_GetGlyphRangesKorean_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesKorean");
-			ImFontAtlas_GetGlyphRangesJapanese_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesJapanese");
-			ImFontAtlas_GetGlyphRangesChineseFull_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesChineseFull");
-			ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon");
-			ImFontAtlas_GetGlyphRangesCyrillic_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesCyrillic");
-			ImFontAtlas_GetGlyphRangesThai_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesThai");
-			ImFontAtlas_GetGlyphRangesVietnamese_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesVietnamese");
-			ImFontAtlas_AddCustomRectRegular_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, int, int, int>)load(context, "ImFontAtlas_AddCustomRectRegular");
-			ImFontAtlas_AddCustomRectFontGlyph_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFont*, char, int, int, float, ImVec2, int>)load(context, "ImFontAtlas_AddCustomRectFontGlyph");
-			ImFontAtlas_GetCustomRectByIndex_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, int, ImFontAtlasCustomRect*>)load(context, "ImFontAtlas_GetCustomRectByIndex");
-			ImFontAtlas_CalcCustomRectUV_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFontAtlasCustomRect*, ImVec2*, ImVec2*, void>)load(context, "ImFontAtlas_CalcCustomRectUV");
-			ImFontAtlas_GetMouseCursorTexData_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiMouseCursor, ImVec2*, ImVec2*, ImVec2*, ImVec2*, bool>)load(context, "ImFontAtlas_GetMouseCursorTexData");
-			ImFont_ImFont_ptr = (delegate* unmanaged[Stdcall]<ImFont*>)load(context, "ImFont_ImFont");
-			ImFont_destroy_ptr = (delegate* unmanaged[Stdcall]<ImFont*, void>)load(context, "ImFont_destroy");
-			ImFont_FindGlyph_ptr = (delegate* unmanaged[Stdcall]<ImFont*, char, ImFontGlyph*>)load(context, "ImFont_FindGlyph");
-			ImFont_FindGlyphNoFallback_ptr = (delegate* unmanaged[Stdcall]<ImFont*, char, ImFontGlyph*>)load(context, "ImFont_FindGlyphNoFallback");
-			ImFont_GetCharAdvance_ptr = (delegate* unmanaged[Stdcall]<ImFont*, char, float>)load(context, "ImFont_GetCharAdvance");
-			ImFont_IsLoaded_ptr = (delegate* unmanaged[Stdcall]<ImFont*, bool>)load(context, "ImFont_IsLoaded");
-			ImFont_GetDebugName_ptr = (delegate* unmanaged[Stdcall]<ImFont*, byte*>)load(context, "ImFont_GetDebugName");
-			ImFont_CalcTextSizeA_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImFont*, float, float, float, byte*, byte*, byte**, void>)load(context, "ImFont_CalcTextSizeA");
-			ImFont_CalcWordWrapPositionA_ptr = (delegate* unmanaged[Stdcall]<ImFont*, float, byte*, byte*, float, byte*>)load(context, "ImFont_CalcWordWrapPositionA");
-			ImFont_RenderChar_ptr = (delegate* unmanaged[Stdcall]<ImFont*, ImDrawList*, float, ImVec2, uint, char, void>)load(context, "ImFont_RenderChar");
-			ImFont_RenderText_ptr = (delegate* unmanaged[Stdcall]<ImFont*, ImDrawList*, float, ImVec2, uint, ImVec4, byte*, byte*, float, bool, void>)load(context, "ImFont_RenderText");
-			ImFont_BuildLookupTable_ptr = (delegate* unmanaged[Stdcall]<ImFont*, void>)load(context, "ImFont_BuildLookupTable");
-			ImFont_ClearOutputData_ptr = (delegate* unmanaged[Stdcall]<ImFont*, void>)load(context, "ImFont_ClearOutputData");
-			ImFont_GrowIndex_ptr = (delegate* unmanaged[Stdcall]<ImFont*, int, void>)load(context, "ImFont_GrowIndex");
-			ImFont_AddGlyph_ptr = (delegate* unmanaged[Stdcall]<ImFont*, ImFontConfig*, char, float, float, float, float, float, float, float, float, float, void>)load(context, "ImFont_AddGlyph");
-			ImFont_AddRemapChar_ptr = (delegate* unmanaged[Stdcall]<ImFont*, char, char, bool, void>)load(context, "ImFont_AddRemapChar");
-			ImFont_SetGlyphVisible_ptr = (delegate* unmanaged[Stdcall]<ImFont*, char, bool, void>)load(context, "ImFont_SetGlyphVisible");
-			ImFont_SetFallbackChar_ptr = (delegate* unmanaged[Stdcall]<ImFont*, char, void>)load(context, "ImFont_SetFallbackChar");
-			ImFont_IsGlyphRangeUnused_ptr = (delegate* unmanaged[Stdcall]<ImFont*, uint, uint, bool>)load(context, "ImFont_IsGlyphRangeUnused");
-			ImGuiViewport_ImGuiViewport_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewport*>)load(context, "ImGuiViewport_ImGuiViewport");
-			ImGuiViewport_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewport*, void>)load(context, "ImGuiViewport_destroy");
-			ImGuiViewport_GetCenter_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImGuiViewport*, void>)load(context, "ImGuiViewport_GetCenter");
-			ImGuiViewport_GetWorkCenter_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImGuiViewport*, void>)load(context, "ImGuiViewport_GetWorkCenter");
-			ImGuiPlatformIO_ImGuiPlatformIO_ptr = (delegate* unmanaged[Stdcall]<ImGuiPlatformIO*>)load(context, "ImGuiPlatformIO_ImGuiPlatformIO");
-			ImGuiPlatformIO_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiPlatformIO*, void>)load(context, "ImGuiPlatformIO_destroy");
-			ImGuiPlatformMonitor_ImGuiPlatformMonitor_ptr = (delegate* unmanaged[Stdcall]<ImGuiPlatformMonitor*>)load(context, "ImGuiPlatformMonitor_ImGuiPlatformMonitor");
-			ImGuiPlatformMonitor_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiPlatformMonitor*, void>)load(context, "ImGuiPlatformMonitor_destroy");
-			ImHashData_ptr = (delegate* unmanaged[Stdcall]<IntPtr, IntPtr, uint, ImGuiID>)load(context, "igImHashData");
-			ImHashStr_ptr = (delegate* unmanaged[Stdcall]<byte*, IntPtr, uint, ImGuiID>)load(context, "igImHashStr");
-			ImAlphaBlendColors_ptr = (delegate* unmanaged[Stdcall]<uint, uint, uint>)load(context, "igImAlphaBlendColors");
-			ImIsPowerOfTwoInt_ptr = (delegate* unmanaged[Stdcall]<int, bool>)load(context, "igImIsPowerOfTwoInt");
-			ImIsPowerOfTwoU64_ptr = (delegate* unmanaged[Stdcall]<ulong, bool>)load(context, "igImIsPowerOfTwoU64");
-			ImUpperPowerOfTwo_ptr = (delegate* unmanaged[Stdcall]<int, int>)load(context, "igImUpperPowerOfTwo");
-			ImStricmp_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, int>)load(context, "igImStricmp");
-			ImStrnicmp_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr, int>)load(context, "igImStrnicmp");
-			ImStrncpy_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr, void>)load(context, "igImStrncpy");
-			ImStrdup_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*>)load(context, "igImStrdup");
-			ImStrdupcpy_ptr = (delegate* unmanaged[Stdcall]<byte*, IntPtr*, byte*, byte*>)load(context, "igImStrdupcpy");
-			ImStrchrRange_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, byte, byte*>)load(context, "igImStrchrRange");
-			ImStrlenW_ptr = (delegate* unmanaged[Stdcall]<char*, int>)load(context, "igImStrlenW");
-			ImStreolRange_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, byte*>)load(context, "igImStreolRange");
-			ImStrbolW_ptr = (delegate* unmanaged[Stdcall]<char*, char*, char*>)load(context, "igImStrbolW");
-			ImStristr_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, byte*, byte*, byte*>)load(context, "igImStristr");
-			ImStrTrimBlanks_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igImStrTrimBlanks");
-			ImStrSkipBlank_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*>)load(context, "igImStrSkipBlank");
-			ImFormatString_ptr = (delegate* unmanaged[Stdcall]<byte*, IntPtr, byte*, int>)load(context, "igImFormatString");
-			ImParseFormatFindStart_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*>)load(context, "igImParseFormatFindStart");
-			ImParseFormatFindEnd_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*>)load(context, "igImParseFormatFindEnd");
-			ImParseFormatTrimDecorations_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr, byte*>)load(context, "igImParseFormatTrimDecorations");
-			ImParseFormatPrecision_ptr = (delegate* unmanaged[Stdcall]<byte*, int, int>)load(context, "igImParseFormatPrecision");
-			ImCharIsBlankA_ptr = (delegate* unmanaged[Stdcall]<byte, bool>)load(context, "igImCharIsBlankA");
-			ImCharIsBlankW_ptr = (delegate* unmanaged[Stdcall]<uint, bool>)load(context, "igImCharIsBlankW");
-			ImTextStrToUtf8_ptr = (delegate* unmanaged[Stdcall]<byte*, int, char*, char*, int>)load(context, "igImTextStrToUtf8");
-			ImTextCharFromUtf8_ptr = (delegate* unmanaged[Stdcall]<uint*, byte*, byte*, int>)load(context, "igImTextCharFromUtf8");
-			ImTextStrFromUtf8_ptr = (delegate* unmanaged[Stdcall]<char*, int, byte*, byte*, byte**, int>)load(context, "igImTextStrFromUtf8");
-			ImTextCountCharsFromUtf8_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, int>)load(context, "igImTextCountCharsFromUtf8");
-			ImTextCountUtf8BytesFromChar_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, int>)load(context, "igImTextCountUtf8BytesFromChar");
-			ImTextCountUtf8BytesFromStr_ptr = (delegate* unmanaged[Stdcall]<char*, char*, int>)load(context, "igImTextCountUtf8BytesFromStr");
-			ImFileOpen_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, ImFileHandle>)load(context, "igImFileOpen");
-			ImFileClose_ptr = (delegate* unmanaged[Stdcall]<ImFileHandle, bool>)load(context, "igImFileClose");
-			ImFileGetSize_ptr = (delegate* unmanaged[Stdcall]<ImFileHandle, ulong>)load(context, "igImFileGetSize");
-			ImFileRead_ptr = (delegate* unmanaged[Stdcall]<IntPtr, ulong, ulong, ImFileHandle, ulong>)load(context, "igImFileRead");
-			ImFileWrite_ptr = (delegate* unmanaged[Stdcall]<IntPtr, ulong, ulong, ImFileHandle, ulong>)load(context, "igImFileWrite");
-			ImFileLoadToMemory_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, IntPtr*, int, IntPtr>)load(context, "igImFileLoadToMemory");
-			ImPowFloat_ptr = (delegate* unmanaged[Stdcall]<float, float, float>)load(context, "igImPowFloat");
-			ImPowdouble_ptr = (delegate* unmanaged[Stdcall]<double, double, double>)load(context, "igImPowdouble");
-			ImLogFloat_ptr = (delegate* unmanaged[Stdcall]<float, float>)load(context, "igImLogFloat");
-			ImLogdouble_ptr = (delegate* unmanaged[Stdcall]<double, double>)load(context, "igImLogdouble");
-			ImAbsFloat_ptr = (delegate* unmanaged[Stdcall]<float, float>)load(context, "igImAbsFloat");
-			ImAbsdouble_ptr = (delegate* unmanaged[Stdcall]<double, double>)load(context, "igImAbsdouble");
-			ImSignFloat_ptr = (delegate* unmanaged[Stdcall]<float, float>)load(context, "igImSignFloat");
-			ImSigndouble_ptr = (delegate* unmanaged[Stdcall]<double, double>)load(context, "igImSigndouble");
-			ImMin_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, void>)load(context, "igImMin");
-			ImMax_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, void>)load(context, "igImMax");
-			ImClamp_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, void>)load(context, "igImClamp");
-			ImLerpVec2Float_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, float, void>)load(context, "igImLerpVec2Float");
-			ImLerpVec2Vec2_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, void>)load(context, "igImLerpVec2Vec2");
-			ImLerpVec4_ptr = (delegate* unmanaged[Stdcall]<ImVec4*, ImVec4, ImVec4, float, void>)load(context, "igImLerpVec4");
-			ImSaturate_ptr = (delegate* unmanaged[Stdcall]<float, float>)load(context, "igImSaturate");
-			ImLengthSqrVec2_ptr = (delegate* unmanaged[Stdcall]<ImVec2, float>)load(context, "igImLengthSqrVec2");
-			ImLengthSqrVec4_ptr = (delegate* unmanaged[Stdcall]<ImVec4, float>)load(context, "igImLengthSqrVec4");
-			ImInvLength_ptr = (delegate* unmanaged[Stdcall]<ImVec2, float, float>)load(context, "igImInvLength");
-			ImFloorFloat_ptr = (delegate* unmanaged[Stdcall]<float, float>)load(context, "igImFloorFloat");
-			ImFloorVec2_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, void>)load(context, "igImFloorVec2");
-			ImModPositive_ptr = (delegate* unmanaged[Stdcall]<int, int, int>)load(context, "igImModPositive");
-			ImDot_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, float>)load(context, "igImDot");
-			ImRotate_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, float, float, void>)load(context, "igImRotate");
-			ImLinearSweep_ptr = (delegate* unmanaged[Stdcall]<float, float, float, float>)load(context, "igImLinearSweep");
-			ImMul_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, void>)load(context, "igImMul");
-			ImBezierCubicCalc_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, float, void>)load(context, "igImBezierCubicCalc");
-			ImBezierCubicClosestPoint_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, int, void>)load(context, "igImBezierCubicClosestPoint");
-			ImBezierCubicClosestPointCasteljau_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, float, void>)load(context, "igImBezierCubicClosestPointCasteljau");
-			ImBezierQuadraticCalc_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, float, void>)load(context, "igImBezierQuadraticCalc");
-			ImLineClosestPoint_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, void>)load(context, "igImLineClosestPoint");
-			ImTriangleContainsPoint_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, ImVec2, ImVec2, bool>)load(context, "igImTriangleContainsPoint");
-			ImTriangleClosestPoint_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, void>)load(context, "igImTriangleClosestPoint");
-			ImTriangleBarycentricCoords_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, ImVec2, ImVec2, float*, float*, float*, void>)load(context, "igImTriangleBarycentricCoords");
-			ImTriangleArea_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, ImVec2, float>)load(context, "igImTriangleArea");
-			ImGetDirQuadrantFromDelta_ptr = (delegate* unmanaged[Stdcall]<float, float, ImGuiDir>)load(context, "igImGetDirQuadrantFromDelta");
-			ImRect_ImRectNil_ptr = (delegate* unmanaged[Stdcall]<ImRect*>)load(context, "ImRect_ImRectNil");
-			ImRect_destroy_ptr = (delegate* unmanaged[Stdcall]<ImRect*, void>)load(context, "ImRect_destroy");
-			ImRect_ImRectVec2_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, ImRect*>)load(context, "ImRect_ImRectVec2");
-			ImRect_ImRectVec4_ptr = (delegate* unmanaged[Stdcall]<ImVec4, ImRect*>)load(context, "ImRect_ImRectVec4");
-			ImRect_ImRectFloat_ptr = (delegate* unmanaged[Stdcall]<float, float, float, float, ImRect*>)load(context, "ImRect_ImRectFloat");
-			ImRect_GetCenter_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetCenter");
-			ImRect_GetSize_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetSize");
-			ImRect_GetWidth_ptr = (delegate* unmanaged[Stdcall]<ImRect*, float>)load(context, "ImRect_GetWidth");
-			ImRect_GetHeight_ptr = (delegate* unmanaged[Stdcall]<ImRect*, float>)load(context, "ImRect_GetHeight");
-			ImRect_GetArea_ptr = (delegate* unmanaged[Stdcall]<ImRect*, float>)load(context, "ImRect_GetArea");
-			ImRect_GetTL_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetTL");
-			ImRect_GetTR_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetTR");
-			ImRect_GetBL_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetBL");
-			ImRect_GetBR_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetBR");
-			ImRect_ContainsVec2_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImVec2, bool>)load(context, "ImRect_ContainsVec2");
-			ImRect_ContainsRect_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImRect, bool>)load(context, "ImRect_ContainsRect");
-			ImRect_Overlaps_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImRect, bool>)load(context, "ImRect_Overlaps");
-			ImRect_AddVec2_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImVec2, void>)load(context, "ImRect_AddVec2");
-			ImRect_AddRect_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImRect, void>)load(context, "ImRect_AddRect");
-			ImRect_ExpandFloat_ptr = (delegate* unmanaged[Stdcall]<ImRect*, float, void>)load(context, "ImRect_ExpandFloat");
-			ImRect_ExpandVec2_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImVec2, void>)load(context, "ImRect_ExpandVec2");
-			ImRect_Translate_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImVec2, void>)load(context, "ImRect_Translate");
-			ImRect_TranslateX_ptr = (delegate* unmanaged[Stdcall]<ImRect*, float, void>)load(context, "ImRect_TranslateX");
-			ImRect_TranslateY_ptr = (delegate* unmanaged[Stdcall]<ImRect*, float, void>)load(context, "ImRect_TranslateY");
-			ImRect_ClipWith_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImRect, void>)load(context, "ImRect_ClipWith");
-			ImRect_ClipWithFull_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImRect, void>)load(context, "ImRect_ClipWithFull");
-			ImRect_Floor_ptr = (delegate* unmanaged[Stdcall]<ImRect*, void>)load(context, "ImRect_Floor");
-			ImRect_IsInverted_ptr = (delegate* unmanaged[Stdcall]<ImRect*, bool>)load(context, "ImRect_IsInverted");
-			ImRect_ToVec4_ptr = (delegate* unmanaged[Stdcall]<ImVec4*, ImRect*, void>)load(context, "ImRect_ToVec4");
-			ImBitArrayTestBit_ptr = (delegate* unmanaged[Stdcall]<uint*, int, bool>)load(context, "igImBitArrayTestBit");
-			ImBitArrayClearBit_ptr = (delegate* unmanaged[Stdcall]<uint*, int, void>)load(context, "igImBitArrayClearBit");
-			ImBitArraySetBit_ptr = (delegate* unmanaged[Stdcall]<uint*, int, void>)load(context, "igImBitArraySetBit");
-			ImBitArraySetBitRange_ptr = (delegate* unmanaged[Stdcall]<uint*, int, int, void>)load(context, "igImBitArraySetBitRange");
-			ImBitVector_Create_ptr = (delegate* unmanaged[Stdcall]<ImBitVector*, int, void>)load(context, "ImBitVector_Create");
-			ImBitVector_Clear_ptr = (delegate* unmanaged[Stdcall]<ImBitVector*, void>)load(context, "ImBitVector_Clear");
-			ImBitVector_TestBit_ptr = (delegate* unmanaged[Stdcall]<ImBitVector*, int, bool>)load(context, "ImBitVector_TestBit");
-			ImBitVector_SetBit_ptr = (delegate* unmanaged[Stdcall]<ImBitVector*, int, void>)load(context, "ImBitVector_SetBit");
-			ImBitVector_ClearBit_ptr = (delegate* unmanaged[Stdcall]<ImBitVector*, int, void>)load(context, "ImBitVector_ClearBit");
-			ImDrawListSharedData_ImDrawListSharedData_ptr = (delegate* unmanaged[Stdcall]<ImDrawListSharedData*>)load(context, "ImDrawListSharedData_ImDrawListSharedData");
-			ImDrawListSharedData_destroy_ptr = (delegate* unmanaged[Stdcall]<ImDrawListSharedData*, void>)load(context, "ImDrawListSharedData_destroy");
-			ImDrawListSharedData_SetCircleTessellationMaxError_ptr = (delegate* unmanaged[Stdcall]<ImDrawListSharedData*, float, void>)load(context, "ImDrawListSharedData_SetCircleTessellationMaxError");
-			ImDrawDataBuilder_Clear_ptr = (delegate* unmanaged[Stdcall]<ImDrawDataBuilder*, void>)load(context, "ImDrawDataBuilder_Clear");
-			ImDrawDataBuilder_ClearFreeMemory_ptr = (delegate* unmanaged[Stdcall]<ImDrawDataBuilder*, void>)load(context, "ImDrawDataBuilder_ClearFreeMemory");
-			ImDrawDataBuilder_GetDrawListCount_ptr = (delegate* unmanaged[Stdcall]<ImDrawDataBuilder*, int>)load(context, "ImDrawDataBuilder_GetDrawListCount");
-			ImDrawDataBuilder_FlattenIntoSingleLayer_ptr = (delegate* unmanaged[Stdcall]<ImDrawDataBuilder*, void>)load(context, "ImDrawDataBuilder_FlattenIntoSingleLayer");
-			ImGuiStyleMod_ImGuiStyleModInt_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyleVar, int, ImGuiStyleMod*>)load(context, "ImGuiStyleMod_ImGuiStyleModInt");
-			ImGuiStyleMod_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyleMod*, void>)load(context, "ImGuiStyleMod_destroy");
-			ImGuiStyleMod_ImGuiStyleModFloat_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyleVar, float, ImGuiStyleMod*>)load(context, "ImGuiStyleMod_ImGuiStyleModFloat");
-			ImGuiStyleMod_ImGuiStyleModVec2_ptr = (delegate* unmanaged[Stdcall]<ImGuiStyleVar, ImVec2, ImGuiStyleMod*>)load(context, "ImGuiStyleMod_ImGuiStyleModVec2");
-			ImGuiMenuColumns_ImGuiMenuColumns_ptr = (delegate* unmanaged[Stdcall]<ImGuiMenuColumns*>)load(context, "ImGuiMenuColumns_ImGuiMenuColumns");
-			ImGuiMenuColumns_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiMenuColumns*, void>)load(context, "ImGuiMenuColumns_destroy");
-			ImGuiMenuColumns_Update_ptr = (delegate* unmanaged[Stdcall]<ImGuiMenuColumns*, int, float, bool, void>)load(context, "ImGuiMenuColumns_Update");
-			ImGuiMenuColumns_DeclColumns_ptr = (delegate* unmanaged[Stdcall]<ImGuiMenuColumns*, float, float, float, float>)load(context, "ImGuiMenuColumns_DeclColumns");
-			ImGuiMenuColumns_CalcExtraSpace_ptr = (delegate* unmanaged[Stdcall]<ImGuiMenuColumns*, float, float>)load(context, "ImGuiMenuColumns_CalcExtraSpace");
-			ImGuiInputTextState_ImGuiInputTextState_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextState*>)load(context, "ImGuiInputTextState_ImGuiInputTextState");
-			ImGuiInputTextState_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_destroy");
-			ImGuiInputTextState_ClearText_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_ClearText");
-			ImGuiInputTextState_ClearFreeMemory_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_ClearFreeMemory");
-			ImGuiInputTextState_GetUndoAvailCount_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextState*, int>)load(context, "ImGuiInputTextState_GetUndoAvailCount");
-			ImGuiInputTextState_GetRedoAvailCount_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextState*, int>)load(context, "ImGuiInputTextState_GetRedoAvailCount");
-			ImGuiInputTextState_OnKeyPressed_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextState*, int, void>)load(context, "ImGuiInputTextState_OnKeyPressed");
-			ImGuiInputTextState_CursorAnimReset_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_CursorAnimReset");
-			ImGuiInputTextState_CursorClamp_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_CursorClamp");
-			ImGuiInputTextState_HasSelection_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextState*, bool>)load(context, "ImGuiInputTextState_HasSelection");
-			ImGuiInputTextState_ClearSelection_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_ClearSelection");
-			ImGuiInputTextState_SelectAll_ptr = (delegate* unmanaged[Stdcall]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_SelectAll");
-			ImGuiPopupData_ImGuiPopupData_ptr = (delegate* unmanaged[Stdcall]<ImGuiPopupData*>)load(context, "ImGuiPopupData_ImGuiPopupData");
-			ImGuiPopupData_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiPopupData*, void>)load(context, "ImGuiPopupData_destroy");
-			ImGuiNavMoveResult_ImGuiNavMoveResult_ptr = (delegate* unmanaged[Stdcall]<ImGuiNavMoveResult*>)load(context, "ImGuiNavMoveResult_ImGuiNavMoveResult");
-			ImGuiNavMoveResult_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiNavMoveResult*, void>)load(context, "ImGuiNavMoveResult_destroy");
-			ImGuiNavMoveResult_Clear_ptr = (delegate* unmanaged[Stdcall]<ImGuiNavMoveResult*, void>)load(context, "ImGuiNavMoveResult_Clear");
-			ImGuiNextWindowData_ImGuiNextWindowData_ptr = (delegate* unmanaged[Stdcall]<ImGuiNextWindowData*>)load(context, "ImGuiNextWindowData_ImGuiNextWindowData");
-			ImGuiNextWindowData_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiNextWindowData*, void>)load(context, "ImGuiNextWindowData_destroy");
-			ImGuiNextWindowData_ClearFlags_ptr = (delegate* unmanaged[Stdcall]<ImGuiNextWindowData*, void>)load(context, "ImGuiNextWindowData_ClearFlags");
-			ImGuiNextItemData_ImGuiNextItemData_ptr = (delegate* unmanaged[Stdcall]<ImGuiNextItemData*>)load(context, "ImGuiNextItemData_ImGuiNextItemData");
-			ImGuiNextItemData_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiNextItemData*, void>)load(context, "ImGuiNextItemData_destroy");
-			ImGuiNextItemData_ClearFlags_ptr = (delegate* unmanaged[Stdcall]<ImGuiNextItemData*, void>)load(context, "ImGuiNextItemData_ClearFlags");
-			ImGuiPtrOrIndex_ImGuiPtrOrIndexPtr_ptr = (delegate* unmanaged[Stdcall]<IntPtr, ImGuiPtrOrIndex*>)load(context, "ImGuiPtrOrIndex_ImGuiPtrOrIndexPtr");
-			ImGuiPtrOrIndex_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiPtrOrIndex*, void>)load(context, "ImGuiPtrOrIndex_destroy");
-			ImGuiPtrOrIndex_ImGuiPtrOrIndexInt_ptr = (delegate* unmanaged[Stdcall]<int, ImGuiPtrOrIndex*>)load(context, "ImGuiPtrOrIndex_ImGuiPtrOrIndexInt");
-			ImGuiOldColumnData_ImGuiOldColumnData_ptr = (delegate* unmanaged[Stdcall]<ImGuiOldColumnData*>)load(context, "ImGuiOldColumnData_ImGuiOldColumnData");
-			ImGuiOldColumnData_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiOldColumnData*, void>)load(context, "ImGuiOldColumnData_destroy");
-			ImGuiOldColumns_ImGuiOldColumns_ptr = (delegate* unmanaged[Stdcall]<ImGuiOldColumns*>)load(context, "ImGuiOldColumns_ImGuiOldColumns");
-			ImGuiOldColumns_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiOldColumns*, void>)load(context, "ImGuiOldColumns_destroy");
-			ImGuiDockNode_ImGuiDockNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiDockNode*>)load(context, "ImGuiDockNode_ImGuiDockNode");
-			ImGuiDockNode_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, void>)load(context, "ImGuiDockNode_destroy");
-			ImGuiDockNode_IsRootNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsRootNode");
-			ImGuiDockNode_IsDockSpace_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsDockSpace");
-			ImGuiDockNode_IsFloatingNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsFloatingNode");
-			ImGuiDockNode_IsCentralNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsCentralNode");
-			ImGuiDockNode_IsHiddenTabBar_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsHiddenTabBar");
-			ImGuiDockNode_IsNoTabBar_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsNoTabBar");
-			ImGuiDockNode_IsSplitNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsSplitNode");
-			ImGuiDockNode_IsLeafNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsLeafNode");
-			ImGuiDockNode_IsEmpty_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsEmpty");
-			ImGuiDockNode_GetMergedFlags_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, ImGuiDockNodeFlags>)load(context, "ImGuiDockNode_GetMergedFlags");
-			ImGuiDockNode_Rect_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImGuiDockNode*, void>)load(context, "ImGuiDockNode_Rect");
-			ImGuiDockContext_ImGuiDockContext_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockContext*>)load(context, "ImGuiDockContext_ImGuiDockContext");
-			ImGuiDockContext_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockContext*, void>)load(context, "ImGuiDockContext_destroy");
-			ImGuiViewportP_ImGuiViewportP_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewportP*>)load(context, "ImGuiViewportP_ImGuiViewportP");
-			ImGuiViewportP_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewportP*, void>)load(context, "ImGuiViewportP_destroy");
-			ImGuiViewportP_GetMainRect_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImGuiViewportP*, void>)load(context, "ImGuiViewportP_GetMainRect");
-			ImGuiViewportP_GetWorkRect_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImGuiViewportP*, void>)load(context, "ImGuiViewportP_GetWorkRect");
-			ImGuiViewportP_UpdateWorkRect_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewportP*, void>)load(context, "ImGuiViewportP_UpdateWorkRect");
-			ImGuiViewportP_ClearRequestFlags_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewportP*, void>)load(context, "ImGuiViewportP_ClearRequestFlags");
-			ImGuiWindowSettings_ImGuiWindowSettings_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindowSettings*>)load(context, "ImGuiWindowSettings_ImGuiWindowSettings");
-			ImGuiWindowSettings_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindowSettings*, void>)load(context, "ImGuiWindowSettings_destroy");
-			ImGuiWindowSettings_GetName_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindowSettings*, byte*>)load(context, "ImGuiWindowSettings_GetName");
-			ImGuiSettingsHandler_ImGuiSettingsHandler_ptr = (delegate* unmanaged[Stdcall]<ImGuiSettingsHandler*>)load(context, "ImGuiSettingsHandler_ImGuiSettingsHandler");
-			ImGuiSettingsHandler_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiSettingsHandler*, void>)load(context, "ImGuiSettingsHandler_destroy");
-			ImGuiMetricsConfig_ImGuiMetricsConfig_ptr = (delegate* unmanaged[Stdcall]<ImGuiMetricsConfig*>)load(context, "ImGuiMetricsConfig_ImGuiMetricsConfig");
-			ImGuiMetricsConfig_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiMetricsConfig*, void>)load(context, "ImGuiMetricsConfig_destroy");
-			ImGuiStackSizes_ImGuiStackSizes_ptr = (delegate* unmanaged[Stdcall]<ImGuiStackSizes*>)load(context, "ImGuiStackSizes_ImGuiStackSizes");
-			ImGuiStackSizes_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiStackSizes*, void>)load(context, "ImGuiStackSizes_destroy");
-			ImGuiStackSizes_SetToCurrentState_ptr = (delegate* unmanaged[Stdcall]<ImGuiStackSizes*, void>)load(context, "ImGuiStackSizes_SetToCurrentState");
-			ImGuiStackSizes_CompareWithCurrentState_ptr = (delegate* unmanaged[Stdcall]<ImGuiStackSizes*, void>)load(context, "ImGuiStackSizes_CompareWithCurrentState");
-			ImGuiContextHook_ImGuiContextHook_ptr = (delegate* unmanaged[Stdcall]<ImGuiContextHook*>)load(context, "ImGuiContextHook_ImGuiContextHook");
-			ImGuiContextHook_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiContextHook*, void>)load(context, "ImGuiContextHook_destroy");
-			ImGuiContext_ImGuiContext_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImGuiContext*>)load(context, "ImGuiContext_ImGuiContext");
-			ImGuiContext_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, void>)load(context, "ImGuiContext_destroy");
-			ImGuiWindow_ImGuiWindow_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, byte*, ImGuiWindow*>)load(context, "ImGuiWindow_ImGuiWindow");
-			ImGuiWindow_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "ImGuiWindow_destroy");
-			ImGuiWindow_GetIDStr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, byte*, byte*, ImGuiID>)load(context, "ImGuiWindow_GetIDStr");
-			ImGuiWindow_GetIDPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, IntPtr, ImGuiID>)load(context, "ImGuiWindow_GetIDPtr");
-			ImGuiWindow_GetIDInt_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, int, ImGuiID>)load(context, "ImGuiWindow_GetIDInt");
-			ImGuiWindow_GetIDNoKeepAliveStr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, byte*, byte*, ImGuiID>)load(context, "ImGuiWindow_GetIDNoKeepAliveStr");
-			ImGuiWindow_GetIDNoKeepAlivePtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, IntPtr, ImGuiID>)load(context, "ImGuiWindow_GetIDNoKeepAlivePtr");
-			ImGuiWindow_GetIDNoKeepAliveInt_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, int, ImGuiID>)load(context, "ImGuiWindow_GetIDNoKeepAliveInt");
-			ImGuiWindow_GetIDFromRectangle_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImRect, ImGuiID>)load(context, "ImGuiWindow_GetIDFromRectangle");
-			ImGuiWindow_Rect_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImGuiWindow*, void>)load(context, "ImGuiWindow_Rect");
-			ImGuiWindow_CalcFontSize_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, float>)load(context, "ImGuiWindow_CalcFontSize");
-			ImGuiWindow_TitleBarHeight_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, float>)load(context, "ImGuiWindow_TitleBarHeight");
-			ImGuiWindow_TitleBarRect_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImGuiWindow*, void>)load(context, "ImGuiWindow_TitleBarRect");
-			ImGuiWindow_MenuBarHeight_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, float>)load(context, "ImGuiWindow_MenuBarHeight");
-			ImGuiWindow_MenuBarRect_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImGuiWindow*, void>)load(context, "ImGuiWindow_MenuBarRect");
-			ImGuiLastItemDataBackup_ImGuiLastItemDataBackup_ptr = (delegate* unmanaged[Stdcall]<ImGuiLastItemDataBackup*>)load(context, "ImGuiLastItemDataBackup_ImGuiLastItemDataBackup");
-			ImGuiLastItemDataBackup_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiLastItemDataBackup*, void>)load(context, "ImGuiLastItemDataBackup_destroy");
-			ImGuiLastItemDataBackup_Backup_ptr = (delegate* unmanaged[Stdcall]<ImGuiLastItemDataBackup*, void>)load(context, "ImGuiLastItemDataBackup_Backup");
-			ImGuiLastItemDataBackup_Restore_ptr = (delegate* unmanaged[Stdcall]<ImGuiLastItemDataBackup*, void>)load(context, "ImGuiLastItemDataBackup_Restore");
-			ImGuiTabItem_ImGuiTabItem_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabItem*>)load(context, "ImGuiTabItem_ImGuiTabItem");
-			ImGuiTabItem_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabItem*, void>)load(context, "ImGuiTabItem_destroy");
-			ImGuiTabBar_ImGuiTabBar_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*>)load(context, "ImGuiTabBar_ImGuiTabBar");
-			ImGuiTabBar_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, void>)load(context, "ImGuiTabBar_destroy");
-			ImGuiTabBar_GetTabOrder_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiTabItem*, int>)load(context, "ImGuiTabBar_GetTabOrder");
-			ImGuiTabBar_GetTabName_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiTabItem*, byte*>)load(context, "ImGuiTabBar_GetTabName");
-			ImGuiTableColumn_ImGuiTableColumn_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableColumn*>)load(context, "ImGuiTableColumn_ImGuiTableColumn");
-			ImGuiTableColumn_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableColumn*, void>)load(context, "ImGuiTableColumn_destroy");
-			ImGuiTable_ImGuiTable_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*>)load(context, "ImGuiTable_ImGuiTable");
-			ImGuiTable_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "ImGuiTable_destroy");
-			ImGuiTableColumnSettings_ImGuiTableColumnSettings_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableColumnSettings*>)load(context, "ImGuiTableColumnSettings_ImGuiTableColumnSettings");
-			ImGuiTableColumnSettings_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableColumnSettings*, void>)load(context, "ImGuiTableColumnSettings_destroy");
-			ImGuiTableSettings_ImGuiTableSettings_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableSettings*>)load(context, "ImGuiTableSettings_ImGuiTableSettings");
-			ImGuiTableSettings_destroy_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableSettings*, void>)load(context, "ImGuiTableSettings_destroy");
-			ImGuiTableSettings_GetColumnSettings_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableSettings*, ImGuiTableColumnSettings*>)load(context, "ImGuiTableSettings_GetColumnSettings");
-			GetCurrentWindowRead_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*>)load(context, "igGetCurrentWindowRead");
-			GetCurrentWindow_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*>)load(context, "igGetCurrentWindow");
-			FindWindowByID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiWindow*>)load(context, "igFindWindowByID");
-			FindWindowByName_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiWindow*>)load(context, "igFindWindowByName");
-			UpdateWindowParentAndRootLinks_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiWindowFlags, ImGuiWindow*, void>)load(context, "igUpdateWindowParentAndRootLinks");
-			CalcWindowNextAutoFitSize_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImGuiWindow*, void>)load(context, "igCalcWindowNextAutoFitSize");
-			IsWindowChildOf_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiWindow*, bool>)load(context, "igIsWindowChildOf");
-			IsWindowAbove_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiWindow*, bool>)load(context, "igIsWindowAbove");
-			IsWindowNavFocusable_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, bool>)load(context, "igIsWindowNavFocusable");
-			GetWindowAllowedExtentRect_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImGuiWindow*, void>)load(context, "igGetWindowAllowedExtentRect");
-			SetWindowPosWindowPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImVec2, ImGuiCond, void>)load(context, "igSetWindowPosWindowPtr");
-			SetWindowSizeWindowPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImVec2, ImGuiCond, void>)load(context, "igSetWindowSizeWindowPtr");
-			SetWindowCollapsedWindowPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, bool, ImGuiCond, void>)load(context, "igSetWindowCollapsedWindowPtr");
-			SetWindowHitTestHole_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImVec2, ImVec2, void>)load(context, "igSetWindowHitTestHole");
-			FocusWindow_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "igFocusWindow");
-			FocusTopMostWindowUnderOne_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiWindow*, void>)load(context, "igFocusTopMostWindowUnderOne");
-			BringWindowToFocusFront_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "igBringWindowToFocusFront");
-			BringWindowToDisplayFront_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "igBringWindowToDisplayFront");
-			BringWindowToDisplayBack_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "igBringWindowToDisplayBack");
-			SetCurrentFont_ptr = (delegate* unmanaged[Stdcall]<ImFont*, void>)load(context, "igSetCurrentFont");
-			GetDefaultFont_ptr = (delegate* unmanaged[Stdcall]<ImFont*>)load(context, "igGetDefaultFont");
-			GetForegroundDrawListWindowPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImDrawList*>)load(context, "igGetForegroundDrawListWindowPtr");
-			Initialize_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, void>)load(context, "igInitialize");
-			Shutdown_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, void>)load(context, "igShutdown");
-			UpdateHoveredWindowAndCaptureFlags_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igUpdateHoveredWindowAndCaptureFlags");
-			StartMouseMovingWindow_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "igStartMouseMovingWindow");
-			StartMouseMovingWindowOrNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiDockNode*, bool, void>)load(context, "igStartMouseMovingWindowOrNode");
-			UpdateMouseMovingWindowNewFrame_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igUpdateMouseMovingWindowNewFrame");
-			UpdateMouseMovingWindowEndFrame_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igUpdateMouseMovingWindowEndFrame");
-			AddContextHook_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiContextHook*, ImGuiID>)load(context, "igAddContextHook");
-			RemoveContextHook_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiID, void>)load(context, "igRemoveContextHook");
-			CallContextHooks_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiContextHookType, void>)load(context, "igCallContextHooks");
-			TranslateWindowsInViewport_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewportP*, ImVec2, ImVec2, void>)load(context, "igTranslateWindowsInViewport");
-			ScaleWindowsInViewport_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewportP*, float, void>)load(context, "igScaleWindowsInViewport");
-			DestroyPlatformWindow_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewportP*, void>)load(context, "igDestroyPlatformWindow");
-			GetViewportPlatformMonitor_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewport*, ImGuiPlatformMonitor*>)load(context, "igGetViewportPlatformMonitor");
-			MarkIniSettingsDirtyNil_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igMarkIniSettingsDirtyNil");
-			MarkIniSettingsDirtyWindowPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "igMarkIniSettingsDirtyWindowPtr");
-			ClearIniSettings_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igClearIniSettings");
-			CreateNewWindowSettings_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiWindowSettings*>)load(context, "igCreateNewWindowSettings");
-			FindWindowSettings_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiWindowSettings*>)load(context, "igFindWindowSettings");
-			FindOrCreateWindowSettings_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiWindowSettings*>)load(context, "igFindOrCreateWindowSettings");
-			FindSettingsHandler_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiSettingsHandler*>)load(context, "igFindSettingsHandler");
-			SetNextWindowScroll_ptr = (delegate* unmanaged[Stdcall]<ImVec2, void>)load(context, "igSetNextWindowScroll");
-			SetScrollXWindowPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, float, void>)load(context, "igSetScrollXWindowPtr");
-			SetScrollYWindowPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, float, void>)load(context, "igSetScrollYWindowPtr");
-			SetScrollFromPosXWindowPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, float, float, void>)load(context, "igSetScrollFromPosXWindowPtr");
-			SetScrollFromPosYWindowPtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, float, float, void>)load(context, "igSetScrollFromPosYWindowPtr");
-			ScrollToBringRectIntoView_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImGuiWindow*, ImRect, void>)load(context, "igScrollToBringRectIntoView");
-			GetItemID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID>)load(context, "igGetItemID");
-			GetItemStatusFlags_ptr = (delegate* unmanaged[Stdcall]<ImGuiItemStatusFlags>)load(context, "igGetItemStatusFlags");
-			GetActiveID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID>)load(context, "igGetActiveID");
-			GetFocusID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID>)load(context, "igGetFocusID");
-			GetItemsFlags_ptr = (delegate* unmanaged[Stdcall]<ImGuiItemFlags>)load(context, "igGetItemsFlags");
-			SetActiveID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiWindow*, void>)load(context, "igSetActiveID");
-			SetFocusID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiWindow*, void>)load(context, "igSetFocusID");
-			ClearActiveID_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igClearActiveID");
-			GetHoveredID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID>)load(context, "igGetHoveredID");
-			SetHoveredID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igSetHoveredID");
-			KeepAliveID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igKeepAliveID");
-			MarkItemEdited_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igMarkItemEdited");
-			PushOverrideID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igPushOverrideID");
-			GetIDWithSeed_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiID, ImGuiID>)load(context, "igGetIDWithSeed");
-			ItemSizeVec2_ptr = (delegate* unmanaged[Stdcall]<ImVec2, float, void>)load(context, "igItemSizeVec2");
-			ItemSizeRect_ptr = (delegate* unmanaged[Stdcall]<ImRect, float, void>)load(context, "igItemSizeRect");
-			ItemAdd_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImRect*, bool>)load(context, "igItemAdd");
-			ItemHoverable_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, bool>)load(context, "igItemHoverable");
-			IsClippedEx_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, bool, bool>)load(context, "igIsClippedEx");
-			SetLastItemData_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiID, ImGuiItemStatusFlags, ImRect, void>)load(context, "igSetLastItemData");
-			FocusableItemRegister_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiID, bool>)load(context, "igFocusableItemRegister");
-			FocusableItemUnregister_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "igFocusableItemUnregister");
-			CalcItemSize_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, float, float, void>)load(context, "igCalcItemSize");
-			CalcWrapWidthForPos_ptr = (delegate* unmanaged[Stdcall]<ImVec2, float, float>)load(context, "igCalcWrapWidthForPos");
-			PushMultiItemsWidths_ptr = (delegate* unmanaged[Stdcall]<int, float, void>)load(context, "igPushMultiItemsWidths");
-			PushItemFlag_ptr = (delegate* unmanaged[Stdcall]<ImGuiItemFlags, bool, void>)load(context, "igPushItemFlag");
-			PopItemFlag_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igPopItemFlag");
-			IsItemToggledSelection_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsItemToggledSelection");
-			GetContentRegionMaxAbs_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, void>)load(context, "igGetContentRegionMaxAbs");
-			ShrinkWidths_ptr = (delegate* unmanaged[Stdcall]<ImGuiShrinkWidthItem*, int, float, void>)load(context, "igShrinkWidths");
-			LogBegin_ptr = (delegate* unmanaged[Stdcall]<ImGuiLogType, int, void>)load(context, "igLogBegin");
-			LogToBuffer_ptr = (delegate* unmanaged[Stdcall]<int, void>)load(context, "igLogToBuffer");
-			LogRenderedText_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, byte*, byte*, void>)load(context, "igLogRenderedText");
-			LogSetNextTextDecoration_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, void>)load(context, "igLogSetNextTextDecoration");
-			BeginChildEx_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiID, ImVec2, bool, ImGuiWindowFlags, bool>)load(context, "igBeginChildEx");
-			OpenPopupEx_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiPopupFlags, void>)load(context, "igOpenPopupEx");
-			ClosePopupToLevel_ptr = (delegate* unmanaged[Stdcall]<int, bool, void>)load(context, "igClosePopupToLevel");
-			ClosePopupsOverWindow_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, bool, void>)load(context, "igClosePopupsOverWindow");
-			IsPopupOpenID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiPopupFlags, bool>)load(context, "igIsPopupOpenID");
-			BeginPopupEx_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiWindowFlags, bool>)load(context, "igBeginPopupEx");
-			BeginTooltipEx_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindowFlags, ImGuiTooltipFlags, void>)load(context, "igBeginTooltipEx");
-			GetTopMostPopupModal_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*>)load(context, "igGetTopMostPopupModal");
-			FindBestWindowPosForPopup_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImGuiWindow*, void>)load(context, "igFindBestWindowPosForPopup");
-			FindBestWindowPosForPopupEx_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImVec2, ImVec2, ImGuiDir*, ImRect, ImRect, ImGuiPopupPositionPolicy, void>)load(context, "igFindBestWindowPosForPopupEx");
-			NavInitWindow_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, bool, void>)load(context, "igNavInitWindow");
-			NavMoveRequestButNoResultYet_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igNavMoveRequestButNoResultYet");
-			NavMoveRequestCancel_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igNavMoveRequestCancel");
-			NavMoveRequestForward_ptr = (delegate* unmanaged[Stdcall]<ImGuiDir, ImGuiDir, ImRect, ImGuiNavMoveFlags, void>)load(context, "igNavMoveRequestForward");
-			NavMoveRequestTryWrapping_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiNavMoveFlags, void>)load(context, "igNavMoveRequestTryWrapping");
-			GetNavInputAmount_ptr = (delegate* unmanaged[Stdcall]<ImGuiNavInput, ImGuiInputReadMode, float>)load(context, "igGetNavInputAmount");
-			GetNavInputAmount2d_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, ImGuiNavDirSourceFlags, ImGuiInputReadMode, float, float, void>)load(context, "igGetNavInputAmount2d");
-			CalcTypematicRepeatAmount_ptr = (delegate* unmanaged[Stdcall]<float, float, float, float, int>)load(context, "igCalcTypematicRepeatAmount");
-			ActivateItem_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igActivateItem");
-			SetNavID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, int, ImGuiID, ImRect, void>)load(context, "igSetNavID");
-			PushFocusScope_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igPushFocusScope");
-			PopFocusScope_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igPopFocusScope");
-			GetFocusedFocusScope_ptr = (delegate* unmanaged[Stdcall]<ImGuiID>)load(context, "igGetFocusedFocusScope");
-			GetFocusScope_ptr = (delegate* unmanaged[Stdcall]<ImGuiID>)load(context, "igGetFocusScope");
-			SetItemUsingMouseWheel_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igSetItemUsingMouseWheel");
-			IsActiveIdUsingNavDir_ptr = (delegate* unmanaged[Stdcall]<ImGuiDir, bool>)load(context, "igIsActiveIdUsingNavDir");
-			IsActiveIdUsingNavInput_ptr = (delegate* unmanaged[Stdcall]<ImGuiNavInput, bool>)load(context, "igIsActiveIdUsingNavInput");
-			IsActiveIdUsingKey_ptr = (delegate* unmanaged[Stdcall]<ImGuiKey, bool>)load(context, "igIsActiveIdUsingKey");
-			IsMouseDragPastThreshold_ptr = (delegate* unmanaged[Stdcall]<ImGuiMouseButton, float, bool>)load(context, "igIsMouseDragPastThreshold");
-			IsKeyPressedMap_ptr = (delegate* unmanaged[Stdcall]<ImGuiKey, bool, bool>)load(context, "igIsKeyPressedMap");
-			IsNavInputDown_ptr = (delegate* unmanaged[Stdcall]<ImGuiNavInput, bool>)load(context, "igIsNavInputDown");
-			IsNavInputTest_ptr = (delegate* unmanaged[Stdcall]<ImGuiNavInput, ImGuiInputReadMode, bool>)load(context, "igIsNavInputTest");
-			GetMergedKeyModFlags_ptr = (delegate* unmanaged[Stdcall]<ImGuiKeyModFlags>)load(context, "igGetMergedKeyModFlags");
-			DockContextInitialize_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, void>)load(context, "igDockContextInitialize");
-			DockContextShutdown_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, void>)load(context, "igDockContextShutdown");
-			DockContextClearNodes_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiID, bool, void>)load(context, "igDockContextClearNodes");
-			DockContextRebuildNodes_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, void>)load(context, "igDockContextRebuildNodes");
-			DockContextNewFrameUpdateUndocking_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, void>)load(context, "igDockContextNewFrameUpdateUndocking");
-			DockContextNewFrameUpdateDocking_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, void>)load(context, "igDockContextNewFrameUpdateDocking");
-			DockContextGenNodeID_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiID>)load(context, "igDockContextGenNodeID");
-			DockContextQueueDock_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiWindow*, ImGuiDockNode*, ImGuiWindow*, ImGuiDir, float, bool, void>)load(context, "igDockContextQueueDock");
-			DockContextQueueUndockWindow_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiWindow*, void>)load(context, "igDockContextQueueUndockWindow");
-			DockContextQueueUndockNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, ImGuiDockNode*, void>)load(context, "igDockContextQueueUndockNode");
-			DockContextCalcDropPosForDocking_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiDockNode*, ImGuiWindow*, ImGuiDir, bool, ImVec2*, bool>)load(context, "igDockContextCalcDropPosForDocking");
-			DockNodeBeginAmendTabBar_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, bool>)load(context, "igDockNodeBeginAmendTabBar");
-			DockNodeEndAmendTabBar_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igDockNodeEndAmendTabBar");
-			DockNodeGetRootNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, ImGuiDockNode*>)load(context, "igDockNodeGetRootNode");
-			DockNodeGetDepth_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, int>)load(context, "igDockNodeGetDepth");
-			GetWindowDockNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*>)load(context, "igGetWindowDockNode");
-			GetWindowAlwaysWantOwnTabBar_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, bool>)load(context, "igGetWindowAlwaysWantOwnTabBar");
-			BeginDocked_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, bool*, void>)load(context, "igBeginDocked");
-			BeginDockableDragDropSource_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "igBeginDockableDragDropSource");
-			BeginDockableDragDropTarget_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "igBeginDockableDragDropTarget");
-			SetWindowDock_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiID, ImGuiCond, void>)load(context, "igSetWindowDock");
-			DockBuilderDockWindow_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiID, void>)load(context, "igDockBuilderDockWindow");
-			DockBuilderGetNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiDockNode*>)load(context, "igDockBuilderGetNode");
-			DockBuilderGetCentralNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiDockNode*>)load(context, "igDockBuilderGetCentralNode");
-			DockBuilderAddNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiDockNodeFlags, ImGuiID>)load(context, "igDockBuilderAddNode");
-			DockBuilderRemoveNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igDockBuilderRemoveNode");
-			DockBuilderRemoveNodeDockedWindows_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, bool, void>)load(context, "igDockBuilderRemoveNodeDockedWindows");
-			DockBuilderRemoveNodeChildNodes_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igDockBuilderRemoveNodeChildNodes");
-			DockBuilderSetNodePos_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, void>)load(context, "igDockBuilderSetNodePos");
-			DockBuilderSetNodeSize_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, void>)load(context, "igDockBuilderSetNodeSize");
-			DockBuilderSplitNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiDir, float, ImGuiID*, ImGuiID*, ImGuiID>)load(context, "igDockBuilderSplitNode");
-			DockBuilderCopyDockSpace_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiID, ImVector_const_charPtr*, void>)load(context, "igDockBuilderCopyDockSpace");
-			DockBuilderCopyNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiID, ImVector_ImGuiID*, void>)load(context, "igDockBuilderCopyNode");
-			DockBuilderCopyWindowSettings_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, void>)load(context, "igDockBuilderCopyWindowSettings");
-			DockBuilderFinish_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igDockBuilderFinish");
-			BeginDragDropTargetCustom_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, bool>)load(context, "igBeginDragDropTargetCustom");
-			ClearDragDrop_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igClearDragDrop");
-			IsDragDropPayloadBeingAccepted_ptr = (delegate* unmanaged[Stdcall]<bool>)load(context, "igIsDragDropPayloadBeingAccepted");
-			SetWindowClipRectBeforeSetChannel_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImRect, void>)load(context, "igSetWindowClipRectBeforeSetChannel");
-			BeginColumns_ptr = (delegate* unmanaged[Stdcall]<byte*, int, ImGuiOldColumnFlags, void>)load(context, "igBeginColumns");
-			EndColumns_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igEndColumns");
-			PushColumnClipRect_ptr = (delegate* unmanaged[Stdcall]<int, void>)load(context, "igPushColumnClipRect");
-			PushColumnsBackground_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igPushColumnsBackground");
-			PopColumnsBackground_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igPopColumnsBackground");
-			GetColumnsID_ptr = (delegate* unmanaged[Stdcall]<byte*, int, ImGuiID>)load(context, "igGetColumnsID");
-			FindOrCreateColumns_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiID, ImGuiOldColumns*>)load(context, "igFindOrCreateColumns");
-			GetColumnOffsetFromNorm_ptr = (delegate* unmanaged[Stdcall]<ImGuiOldColumns*, float, float>)load(context, "igGetColumnOffsetFromNorm");
-			GetColumnNormFromOffset_ptr = (delegate* unmanaged[Stdcall]<ImGuiOldColumns*, float, float>)load(context, "igGetColumnNormFromOffset");
-			TableOpenContextMenu_ptr = (delegate* unmanaged[Stdcall]<int, void>)load(context, "igTableOpenContextMenu");
-			TableSetColumnEnabled_ptr = (delegate* unmanaged[Stdcall]<int, bool, void>)load(context, "igTableSetColumnEnabled");
-			TableSetColumnWidth_ptr = (delegate* unmanaged[Stdcall]<int, float, void>)load(context, "igTableSetColumnWidth");
-			TableSetColumnSortDirection_ptr = (delegate* unmanaged[Stdcall]<int, ImGuiSortDirection, bool, void>)load(context, "igTableSetColumnSortDirection");
-			TableGetHoveredColumn_ptr = (delegate* unmanaged[Stdcall]<int>)load(context, "igTableGetHoveredColumn");
-			TableGetHeaderRowHeight_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igTableGetHeaderRowHeight");
-			TablePushBackgroundChannel_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igTablePushBackgroundChannel");
-			TablePopBackgroundChannel_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igTablePopBackgroundChannel");
-			GetCurrentTable_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*>)load(context, "igGetCurrentTable");
-			TableFindByID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiTable*>)load(context, "igTableFindByID");
-			BeginTableEx_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiID, int, ImGuiTableFlags, ImVec2, float, bool>)load(context, "igBeginTableEx");
-			TableBeginInitMemory_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, int, void>)load(context, "igTableBeginInitMemory");
-			TableBeginApplyRequests_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableBeginApplyRequests");
-			TableSetupDrawChannels_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableSetupDrawChannels");
-			TableUpdateLayout_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableUpdateLayout");
-			TableUpdateBorders_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableUpdateBorders");
-			TableUpdateColumnsWeightFromWidth_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableUpdateColumnsWeightFromWidth");
-			TableDrawBorders_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableDrawBorders");
-			TableDrawContextMenu_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableDrawContextMenu");
-			TableMergeDrawChannels_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableMergeDrawChannels");
-			TableSortSpecsSanitize_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableSortSpecsSanitize");
-			TableSortSpecsBuild_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableSortSpecsBuild");
-			TableGetColumnNextSortDirection_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableColumn*, ImGuiSortDirection>)load(context, "igTableGetColumnNextSortDirection");
-			TableFixColumnSortDirection_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, ImGuiTableColumn*, void>)load(context, "igTableFixColumnSortDirection");
-			TableGetColumnWidthAuto_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, ImGuiTableColumn*, float>)load(context, "igTableGetColumnWidthAuto");
-			TableBeginRow_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableBeginRow");
-			TableEndRow_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableEndRow");
-			TableBeginCell_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, int, void>)load(context, "igTableBeginCell");
-			TableEndCell_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableEndCell");
-			TableGetCellBgRect_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImGuiTable*, int, void>)load(context, "igTableGetCellBgRect");
-			TableGetColumnNameTablePtr_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, int, byte*>)load(context, "igTableGetColumnNameTablePtr");
-			TableGetColumnResizeID_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, int, int, ImGuiID>)load(context, "igTableGetColumnResizeID");
-			TableGetMaxColumnWidth_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, int, float>)load(context, "igTableGetMaxColumnWidth");
-			TableSetColumnWidthAutoSingle_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, int, void>)load(context, "igTableSetColumnWidthAutoSingle");
-			TableSetColumnWidthAutoAll_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableSetColumnWidthAutoAll");
-			TableRemove_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableRemove");
-			TableGcCompactTransientBuffers_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableGcCompactTransientBuffers");
-			TableGcCompactSettings_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igTableGcCompactSettings");
-			TableLoadSettings_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableLoadSettings");
-			TableSaveSettings_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableSaveSettings");
-			TableResetSettings_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igTableResetSettings");
-			TableGetBoundSettings_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, ImGuiTableSettings*>)load(context, "igTableGetBoundSettings");
-			TableSettingsInstallHandler_ptr = (delegate* unmanaged[Stdcall]<ImGuiContext*, void>)load(context, "igTableSettingsInstallHandler");
-			TableSettingsCreate_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, int, ImGuiTableSettings*>)load(context, "igTableSettingsCreate");
-			TableSettingsFindByID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiTableSettings*>)load(context, "igTableSettingsFindByID");
-			BeginTabBarEx_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImRect, ImGuiTabBarFlags, ImGuiDockNode*, bool>)load(context, "igBeginTabBarEx");
-			TabBarFindTabByID_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiID, ImGuiTabItem*>)load(context, "igTabBarFindTabByID");
-			TabBarFindMostRecentlySelectedTabForActiveWindow_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiTabItem*>)load(context, "igTabBarFindMostRecentlySelectedTabForActiveWindow");
-			TabBarAddTab_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiTabItemFlags, ImGuiWindow*, void>)load(context, "igTabBarAddTab");
-			TabBarRemoveTab_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiID, void>)load(context, "igTabBarRemoveTab");
-			TabBarCloseTab_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiTabItem*, void>)load(context, "igTabBarCloseTab");
-			TabBarQueueReorder_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, ImGuiTabItem*, int, void>)load(context, "igTabBarQueueReorder");
-			TabBarProcessReorder_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, bool>)load(context, "igTabBarProcessReorder");
-			TabItemEx_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, byte*, bool*, ImGuiTabItemFlags, ImGuiWindow*, bool>)load(context, "igTabItemEx");
-			TabItemCalcSize_ptr = (delegate* unmanaged[Stdcall]<ImVec2*, byte*, bool, void>)load(context, "igTabItemCalcSize");
-			TabItemBackground_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImRect, ImGuiTabItemFlags, uint, void>)load(context, "igTabItemBackground");
-			TabItemLabelAndCloseButton_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImRect, ImGuiTabItemFlags, ImVec2, byte*, ImGuiID, ImGuiID, bool, bool*, bool*, void>)load(context, "igTabItemLabelAndCloseButton");
-			RenderText_ptr = (delegate* unmanaged[Stdcall]<ImVec2, byte*, byte*, bool, void>)load(context, "igRenderText");
-			RenderTextWrapped_ptr = (delegate* unmanaged[Stdcall]<ImVec2, byte*, byte*, float, void>)load(context, "igRenderTextWrapped");
-			RenderTextClipped_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, byte*, byte*, ImVec2*, ImVec2, ImRect*, void>)load(context, "igRenderTextClipped");
-			RenderTextClippedEx_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, byte*, byte*, ImVec2*, ImVec2, ImRect*, void>)load(context, "igRenderTextClippedEx");
-			RenderTextEllipsis_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, float, float, byte*, byte*, ImVec2*, void>)load(context, "igRenderTextEllipsis");
-			RenderFrame_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, uint, bool, float, void>)load(context, "igRenderFrame");
-			RenderFrameBorder_ptr = (delegate* unmanaged[Stdcall]<ImVec2, ImVec2, float, void>)load(context, "igRenderFrameBorder");
-			RenderColorRectWithAlphaCheckerboard_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, uint, float, ImVec2, float, ImDrawFlags, void>)load(context, "igRenderColorRectWithAlphaCheckerboard");
-			RenderNavHighlight_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiNavHighlightFlags, void>)load(context, "igRenderNavHighlight");
-			FindRenderedTextEnd_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, byte*>)load(context, "igFindRenderedTextEnd");
-			RenderArrow_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, ImGuiDir, float, void>)load(context, "igRenderArrow");
-			RenderBullet_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, void>)load(context, "igRenderBullet");
-			RenderCheckMark_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, uint, float, void>)load(context, "igRenderCheckMark");
-			RenderMouseCursor_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, ImGuiMouseCursor, uint, uint, uint, void>)load(context, "igRenderMouseCursor");
-			RenderArrowPointingAt_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, ImVec2, ImGuiDir, uint, void>)load(context, "igRenderArrowPointingAt");
-			RenderArrowDockMenu_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImVec2, float, uint, void>)load(context, "igRenderArrowDockMenu");
-			RenderRectFilledRangeH_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImRect, uint, float, float, float, void>)load(context, "igRenderRectFilledRangeH");
-			RenderRectFilledWithHole_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImRect, ImRect, uint, float, void>)load(context, "igRenderRectFilledWithHole");
-			TextEx_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiTextFlags, void>)load(context, "igTextEx");
-			ButtonEx_ptr = (delegate* unmanaged[Stdcall]<byte*, ImVec2, ImGuiButtonFlags, bool>)load(context, "igButtonEx");
-			CloseButton_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, bool>)load(context, "igCloseButton");
-			CollapseButton_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImVec2, ImGuiDockNode*, bool>)load(context, "igCollapseButton");
-			ArrowButtonEx_ptr = (delegate* unmanaged[Stdcall]<byte*, ImGuiDir, ImVec2, ImGuiButtonFlags, bool>)load(context, "igArrowButtonEx");
-			Scrollbar_ptr = (delegate* unmanaged[Stdcall]<ImGuiAxis, void>)load(context, "igScrollbar");
-			ScrollbarEx_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiAxis, float*, float, float, ImDrawFlags, bool>)load(context, "igScrollbarEx");
-			ImageButtonEx_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, ImVec4, ImVec4, bool>)load(context, "igImageButtonEx");
-			GetWindowScrollbarRect_ptr = (delegate* unmanaged[Stdcall]<ImRect*, ImGuiWindow*, ImGuiAxis, void>)load(context, "igGetWindowScrollbarRect");
-			GetWindowScrollbarID_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiAxis, ImGuiID>)load(context, "igGetWindowScrollbarID");
-			GetWindowResizeID_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, int, ImGuiID>)load(context, "igGetWindowResizeID");
-			SeparatorEx_ptr = (delegate* unmanaged[Stdcall]<ImGuiSeparatorFlags, void>)load(context, "igSeparatorEx");
-			CheckboxFlagsS64Ptr_ptr = (delegate* unmanaged[Stdcall]<byte*, long*, long, bool>)load(context, "igCheckboxFlagsS64Ptr");
-			CheckboxFlagsU64Ptr_ptr = (delegate* unmanaged[Stdcall]<byte*, ulong*, ulong, bool>)load(context, "igCheckboxFlagsU64Ptr");
-			ButtonBehavior_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, bool*, bool*, ImGuiButtonFlags, bool>)load(context, "igButtonBehavior");
-			DragBehavior_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiDataType, IntPtr, float, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool>)load(context, "igDragBehavior");
-			SliderBehavior_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, ImRect*, bool>)load(context, "igSliderBehavior");
-			SplitterBehavior_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, ImGuiAxis, float*, float*, float, float, float, float, bool>)load(context, "igSplitterBehavior");
-			TreeNodeBehavior_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiTreeNodeFlags, byte*, byte*, bool>)load(context, "igTreeNodeBehavior");
-			TreeNodeBehaviorIsOpen_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiTreeNodeFlags, bool>)load(context, "igTreeNodeBehaviorIsOpen");
-			TreePushOverrideID_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, void>)load(context, "igTreePushOverrideID");
-			DataTypeGetInfo_ptr = (delegate* unmanaged[Stdcall]<ImGuiDataType, ImGuiDataTypeInfo*>)load(context, "igDataTypeGetInfo");
-			DataTypeFormatString_ptr = (delegate* unmanaged[Stdcall]<byte*, int, ImGuiDataType, IntPtr, byte*, int>)load(context, "igDataTypeFormatString");
-			DataTypeApplyOp_ptr = (delegate* unmanaged[Stdcall]<ImGuiDataType, int, IntPtr, IntPtr, IntPtr, void>)load(context, "igDataTypeApplyOp");
-			DataTypeApplyOpFromText_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, ImGuiDataType, IntPtr, byte*, bool>)load(context, "igDataTypeApplyOpFromText");
-			DataTypeCompare_ptr = (delegate* unmanaged[Stdcall]<ImGuiDataType, IntPtr, IntPtr, int>)load(context, "igDataTypeCompare");
-			DataTypeClamp_ptr = (delegate* unmanaged[Stdcall]<ImGuiDataType, IntPtr, IntPtr, IntPtr, bool>)load(context, "igDataTypeClamp");
-			InputTextEx_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, byte*, int, ImVec2, ImGuiInputTextFlags, IntPtr, IntPtr, bool>)load(context, "igInputTextEx");
-			TempInputText_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, byte*, byte*, int, ImGuiInputTextFlags, bool>)load(context, "igTempInputText");
-			TempInputScalar_ptr = (delegate* unmanaged[Stdcall]<ImRect, ImGuiID, byte*, ImGuiDataType, IntPtr, byte*, IntPtr, IntPtr, bool>)load(context, "igTempInputScalar");
-			TempInputIsActive_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, bool>)load(context, "igTempInputIsActive");
-			GetInputTextState_ptr = (delegate* unmanaged[Stdcall]<ImGuiID, ImGuiInputTextState*>)load(context, "igGetInputTextState");
-			ColorTooltip_ptr = (delegate* unmanaged[Stdcall]<byte*, float*, ImGuiColorEditFlags, void>)load(context, "igColorTooltip");
-			ColorEditOptionsPopup_ptr = (delegate* unmanaged[Stdcall]<float*, ImGuiColorEditFlags, void>)load(context, "igColorEditOptionsPopup");
-			ColorPickerOptionsPopup_ptr = (delegate* unmanaged[Stdcall]<float*, ImGuiColorEditFlags, void>)load(context, "igColorPickerOptionsPopup");
-			PlotEx_ptr = (delegate* unmanaged[Stdcall]<ImGuiPlotType, byte*, IntPtr, IntPtr, int, int, byte*, float, float, ImVec2, int>)load(context, "igPlotEx");
-			ShadeVertsLinearColorGradientKeepAlpha_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, int, int, ImVec2, ImVec2, uint, uint, void>)load(context, "igShadeVertsLinearColorGradientKeepAlpha");
-			ShadeVertsLinearUV_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, int, int, ImVec2, ImVec2, ImVec2, ImVec2, bool, void>)load(context, "igShadeVertsLinearUV");
-			GcCompactTransientMiscBuffers_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igGcCompactTransientMiscBuffers");
-			GcCompactTransientWindowBuffers_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "igGcCompactTransientWindowBuffers");
-			GcAwakeTransientWindowBuffers_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, void>)load(context, "igGcAwakeTransientWindowBuffers");
-			ErrorCheckEndFrameRecover_ptr = (delegate* unmanaged[Stdcall]<IntPtr, IntPtr, void>)load(context, "igErrorCheckEndFrameRecover");
-			DebugDrawItemRect_ptr = (delegate* unmanaged[Stdcall]<uint, void>)load(context, "igDebugDrawItemRect");
-			DebugStartItemPicker_ptr = (delegate* unmanaged[Stdcall]<void>)load(context, "igDebugStartItemPicker");
-			DebugNodeColumns_ptr = (delegate* unmanaged[Stdcall]<ImGuiOldColumns*, void>)load(context, "igDebugNodeColumns");
-			DebugNodeDockNode_ptr = (delegate* unmanaged[Stdcall]<ImGuiDockNode*, byte*, void>)load(context, "igDebugNodeDockNode");
-			DebugNodeDrawList_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, ImGuiViewportP*, ImDrawList*, byte*, void>)load(context, "igDebugNodeDrawList");
-			DebugNodeDrawCmdShowMeshAndBoundingBox_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImDrawList*, ImDrawCmd*, bool, bool, void>)load(context, "igDebugNodeDrawCmdShowMeshAndBoundingBox");
-			DebugNodeStorage_ptr = (delegate* unmanaged[Stdcall]<ImGuiStorage*, byte*, void>)load(context, "igDebugNodeStorage");
-			DebugNodeTabBar_ptr = (delegate* unmanaged[Stdcall]<ImGuiTabBar*, byte*, void>)load(context, "igDebugNodeTabBar");
-			DebugNodeTable_ptr = (delegate* unmanaged[Stdcall]<ImGuiTable*, void>)load(context, "igDebugNodeTable");
-			DebugNodeTableSettings_ptr = (delegate* unmanaged[Stdcall]<ImGuiTableSettings*, void>)load(context, "igDebugNodeTableSettings");
-			DebugNodeWindow_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindow*, byte*, void>)load(context, "igDebugNodeWindow");
-			DebugNodeWindowSettings_ptr = (delegate* unmanaged[Stdcall]<ImGuiWindowSettings*, void>)load(context, "igDebugNodeWindowSettings");
-			DebugNodeWindowsList_ptr = (delegate* unmanaged[Stdcall]<ImVector_ImGuiWindowPtr*, byte*, void>)load(context, "igDebugNodeWindowsList");
-			DebugNodeViewport_ptr = (delegate* unmanaged[Stdcall]<ImGuiViewportP*, void>)load(context, "igDebugNodeViewport");
-			DebugRenderViewportThumbnail_ptr = (delegate* unmanaged[Stdcall]<ImDrawList*, ImGuiViewportP*, ImRect, void>)load(context, "igDebugRenderViewportThumbnail");
-			ImFontAtlasGetBuilderForStbTruetype_ptr = (delegate* unmanaged[Stdcall]<ImFontBuilderIO*>)load(context, "igImFontAtlasGetBuilderForStbTruetype");
-			ImFontAtlasBuildInit_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, void>)load(context, "igImFontAtlasBuildInit");
-			ImFontAtlasBuildSetupFont_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, ImFont*, ImFontConfig*, float, float, void>)load(context, "igImFontAtlasBuildSetupFont");
-			ImFontAtlasBuildPackCustomRects_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, IntPtr, void>)load(context, "igImFontAtlasBuildPackCustomRects");
-			ImFontAtlasBuildFinish_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, void>)load(context, "igImFontAtlasBuildFinish");
-			ImFontAtlasBuildRender8bppRectFromString_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, int, int, int, int, byte*, byte, byte, void>)load(context, "igImFontAtlasBuildRender8bppRectFromString");
-			ImFontAtlasBuildRender32bppRectFromString_ptr = (delegate* unmanaged[Stdcall]<ImFontAtlas*, int, int, int, int, byte*, byte, uint, void>)load(context, "igImFontAtlasBuildRender32bppRectFromString");
-			ImFontAtlasBuildMultiplyCalcLookupTable_ptr = (delegate* unmanaged[Stdcall]<byte*, float, void>)load(context, "igImFontAtlasBuildMultiplyCalcLookupTable");
-			ImFontAtlasBuildMultiplyRectAlpha8_ptr = (delegate* unmanaged[Stdcall]<byte*, byte*, int, int, int, int, int, void>)load(context, "igImFontAtlasBuildMultiplyRectAlpha8");
-			LogText_ptr = (delegate* unmanaged[Stdcall]<byte*, void>)load(context, "igLogText");
-			ImGuiTextBuffer_appendf_ptr = (delegate* unmanaged[Stdcall]<ImGuiTextBuffer*, byte*, void>)load(context, "ImGuiTextBuffer_appendf");
-			GET_FLT_MAX_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGET_FLT_MAX");
-			GET_FLT_MIN_ptr = (delegate* unmanaged[Stdcall]<float>)load(context, "igGET_FLT_MIN");
+			CreateContext_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, ImGuiContext*>)load(context, "igCreateContext");
+			DestroyContext_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, void>)load(context, "igDestroyContext");
+			GetCurrentContext_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*>)load(context, "igGetCurrentContext");
+			SetCurrentContext_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, void>)load(context, "igSetCurrentContext");
+			GetIO_ptr = (delegate* unmanaged[Cdecl]<ImGuiIO*>)load(context, "igGetIO");
+			GetStyle_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyle*>)load(context, "igGetStyle");
+			NewFrame_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igNewFrame");
+			EndFrame_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndFrame");
+			Render_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igRender");
+			GetDrawData_ptr = (delegate* unmanaged[Cdecl]<ImDrawData*>)load(context, "igGetDrawData");
+			ShowDemoWindow_ptr = (delegate* unmanaged[Cdecl]<bool*, void>)load(context, "igShowDemoWindow");
+			ShowMetricsWindow_ptr = (delegate* unmanaged[Cdecl]<bool*, void>)load(context, "igShowMetricsWindow");
+			ShowAboutWindow_ptr = (delegate* unmanaged[Cdecl]<bool*, void>)load(context, "igShowAboutWindow");
+			ShowStyleEditor_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyle*, void>)load(context, "igShowStyleEditor");
+			ShowStyleSelector_ptr = (delegate* unmanaged[Cdecl]<byte*, bool>)load(context, "igShowStyleSelector");
+			ShowFontSelector_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igShowFontSelector");
+			ShowUserGuide_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igShowUserGuide");
+			GetVersion_ptr = (delegate* unmanaged[Cdecl]<byte*>)load(context, "igGetVersion");
+			StyleColorsDark_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyle*, void>)load(context, "igStyleColorsDark");
+			StyleColorsLight_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyle*, void>)load(context, "igStyleColorsLight");
+			StyleColorsClassic_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyle*, void>)load(context, "igStyleColorsClassic");
+			Begin_ptr = (delegate* unmanaged[Cdecl]<byte*, bool*, ImGuiWindowFlags, bool>)load(context, "igBegin");
+			End_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEnd");
+			BeginChildStr_ptr = (delegate* unmanaged[Cdecl]<byte*, ImVec2, bool, ImGuiWindowFlags, bool>)load(context, "igBeginChildStr");
+			BeginChildID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, bool, ImGuiWindowFlags, bool>)load(context, "igBeginChildID");
+			EndChild_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndChild");
+			IsWindowAppearing_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsWindowAppearing");
+			IsWindowCollapsed_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsWindowCollapsed");
+			IsWindowFocused_ptr = (delegate* unmanaged[Cdecl]<ImGuiFocusedFlags, bool>)load(context, "igIsWindowFocused");
+			IsWindowHovered_ptr = (delegate* unmanaged[Cdecl]<ImGuiHoveredFlags, bool>)load(context, "igIsWindowHovered");
+			GetWindowDrawList_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*>)load(context, "igGetWindowDrawList");
+			GetWindowDpiScale_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetWindowDpiScale");
+			GetWindowPos_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetWindowPos");
+			GetWindowSize_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetWindowSize");
+			GetWindowWidth_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetWindowWidth");
+			GetWindowHeight_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetWindowHeight");
+			GetWindowViewport_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewport*>)load(context, "igGetWindowViewport");
+			SetNextWindowPos_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImGuiCond, ImVec2, void>)load(context, "igSetNextWindowPos");
+			SetNextWindowSize_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImGuiCond, void>)load(context, "igSetNextWindowSize");
+			SetNextWindowSizeConstraints_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, IntPtr, IntPtr, void>)load(context, "igSetNextWindowSizeConstraints");
+			SetNextWindowContentSize_ptr = (delegate* unmanaged[Cdecl]<ImVec2, void>)load(context, "igSetNextWindowContentSize");
+			SetNextWindowCollapsed_ptr = (delegate* unmanaged[Cdecl]<bool, ImGuiCond, void>)load(context, "igSetNextWindowCollapsed");
+			SetNextWindowFocus_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igSetNextWindowFocus");
+			SetNextWindowBgAlpha_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igSetNextWindowBgAlpha");
+			SetNextWindowViewport_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, void>)load(context, "igSetNextWindowViewport");
+			SetWindowPosVec2_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImGuiCond, void>)load(context, "igSetWindowPosVec2");
+			SetWindowSizeVec2_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImGuiCond, void>)load(context, "igSetWindowSizeVec2");
+			SetWindowCollapsedBool_ptr = (delegate* unmanaged[Cdecl]<bool, ImGuiCond, void>)load(context, "igSetWindowCollapsedBool");
+			SetWindowFocusNil_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igSetWindowFocusNil");
+			SetWindowFontScale_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igSetWindowFontScale");
+			SetWindowPosStr_ptr = (delegate* unmanaged[Cdecl]<byte*, ImVec2, ImGuiCond, void>)load(context, "igSetWindowPosStr");
+			SetWindowSizeStr_ptr = (delegate* unmanaged[Cdecl]<byte*, ImVec2, ImGuiCond, void>)load(context, "igSetWindowSizeStr");
+			SetWindowCollapsedStr_ptr = (delegate* unmanaged[Cdecl]<byte*, bool, ImGuiCond, void>)load(context, "igSetWindowCollapsedStr");
+			SetWindowFocusStr_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igSetWindowFocusStr");
+			GetContentRegionAvail_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetContentRegionAvail");
+			GetContentRegionMax_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetContentRegionMax");
+			GetWindowContentRegionMin_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetWindowContentRegionMin");
+			GetWindowContentRegionMax_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetWindowContentRegionMax");
+			GetWindowContentRegionWidth_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetWindowContentRegionWidth");
+			GetScrollX_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetScrollX");
+			GetScrollY_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetScrollY");
+			SetScrollXFloat_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igSetScrollXFloat");
+			SetScrollYFloat_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igSetScrollYFloat");
+			GetScrollMaxX_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetScrollMaxX");
+			GetScrollMaxY_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetScrollMaxY");
+			SetScrollHereX_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igSetScrollHereX");
+			SetScrollHereY_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igSetScrollHereY");
+			SetScrollFromPosXFloat_ptr = (delegate* unmanaged[Cdecl]<float, float, void>)load(context, "igSetScrollFromPosXFloat");
+			SetScrollFromPosYFloat_ptr = (delegate* unmanaged[Cdecl]<float, float, void>)load(context, "igSetScrollFromPosYFloat");
+			PushFont_ptr = (delegate* unmanaged[Cdecl]<ImFont*, void>)load(context, "igPushFont");
+			PopFont_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igPopFont");
+			PushStyleColorU32_ptr = (delegate* unmanaged[Cdecl]<ImGuiCol, uint, void>)load(context, "igPushStyleColorU32");
+			PushStyleColorVec4_ptr = (delegate* unmanaged[Cdecl]<ImGuiCol, ImVec4, void>)load(context, "igPushStyleColorVec4");
+			PopStyleColor_ptr = (delegate* unmanaged[Cdecl]<int, void>)load(context, "igPopStyleColor");
+			PushStyleVarFloat_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyleVar, float, void>)load(context, "igPushStyleVarFloat");
+			PushStyleVarVec2_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyleVar, ImVec2, void>)load(context, "igPushStyleVarVec2");
+			PopStyleVar_ptr = (delegate* unmanaged[Cdecl]<int, void>)load(context, "igPopStyleVar");
+			PushAllowKeyboardFocus_ptr = (delegate* unmanaged[Cdecl]<bool, void>)load(context, "igPushAllowKeyboardFocus");
+			PopAllowKeyboardFocus_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igPopAllowKeyboardFocus");
+			PushButtonRepeat_ptr = (delegate* unmanaged[Cdecl]<bool, void>)load(context, "igPushButtonRepeat");
+			PopButtonRepeat_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igPopButtonRepeat");
+			PushItemWidth_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igPushItemWidth");
+			PopItemWidth_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igPopItemWidth");
+			SetNextItemWidth_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igSetNextItemWidth");
+			CalcItemWidth_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igCalcItemWidth");
+			PushTextWrapPos_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igPushTextWrapPos");
+			PopTextWrapPos_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igPopTextWrapPos");
+			GetFont_ptr = (delegate* unmanaged[Cdecl]<ImFont*>)load(context, "igGetFont");
+			GetFontSize_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetFontSize");
+			GetFontTexUvWhitePixel_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetFontTexUvWhitePixel");
+			GetColorU32Col_ptr = (delegate* unmanaged[Cdecl]<ImGuiCol, float, uint>)load(context, "igGetColorU32Col");
+			GetColorU32Vec4_ptr = (delegate* unmanaged[Cdecl]<ImVec4, uint>)load(context, "igGetColorU32Vec4");
+			GetColorU32U32_ptr = (delegate* unmanaged[Cdecl]<uint, uint>)load(context, "igGetColorU32U32");
+			GetStyleColorVec4_ptr = (delegate* unmanaged[Cdecl]<ImGuiCol, ImVec4*>)load(context, "igGetStyleColorVec4");
+			Separator_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igSeparator");
+			SameLine_ptr = (delegate* unmanaged[Cdecl]<float, float, void>)load(context, "igSameLine");
+			NewLine_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igNewLine");
+			Spacing_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igSpacing");
+			Dummy_ptr = (delegate* unmanaged[Cdecl]<ImVec2, void>)load(context, "igDummy");
+			Indent_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igIndent");
+			Unindent_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igUnindent");
+			BeginGroup_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igBeginGroup");
+			EndGroup_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndGroup");
+			GetCursorPos_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetCursorPos");
+			GetCursorPosX_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetCursorPosX");
+			GetCursorPosY_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetCursorPosY");
+			SetCursorPos_ptr = (delegate* unmanaged[Cdecl]<ImVec2, void>)load(context, "igSetCursorPos");
+			SetCursorPosX_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igSetCursorPosX");
+			SetCursorPosY_ptr = (delegate* unmanaged[Cdecl]<float, void>)load(context, "igSetCursorPosY");
+			GetCursorStartPos_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetCursorStartPos");
+			GetCursorScreenPos_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetCursorScreenPos");
+			SetCursorScreenPos_ptr = (delegate* unmanaged[Cdecl]<ImVec2, void>)load(context, "igSetCursorScreenPos");
+			AlignTextToFramePadding_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igAlignTextToFramePadding");
+			GetTextLineHeight_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetTextLineHeight");
+			GetTextLineHeightWithSpacing_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetTextLineHeightWithSpacing");
+			GetFrameHeight_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetFrameHeight");
+			GetFrameHeightWithSpacing_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetFrameHeightWithSpacing");
+			PushIDStr_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igPushIDStr");
+			PushIDStrStr_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, void>)load(context, "igPushIDStrStr");
+			PushIDPtr_ptr = (delegate* unmanaged[Cdecl]<IntPtr, void>)load(context, "igPushIDPtr");
+			PushIDInt_ptr = (delegate* unmanaged[Cdecl]<int, void>)load(context, "igPushIDInt");
+			PopID_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igPopID");
+			GetIDStr_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiID>)load(context, "igGetIDStr");
+			GetIDStrStr_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, ImGuiID>)load(context, "igGetIDStrStr");
+			GetIDPtr_ptr = (delegate* unmanaged[Cdecl]<IntPtr, ImGuiID>)load(context, "igGetIDPtr");
+			TextUnformatted_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, void>)load(context, "igTextUnformatted");
+			Text_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igText");
+			TextColored_ptr = (delegate* unmanaged[Cdecl]<ImVec4, byte*, void>)load(context, "igTextColored");
+			TextDisabled_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igTextDisabled");
+			TextWrapped_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igTextWrapped");
+			LabelText_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, void>)load(context, "igLabelText");
+			BulletText_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igBulletText");
+			Button_ptr = (delegate* unmanaged[Cdecl]<byte*, ImVec2, bool>)load(context, "igButton");
+			SmallButton_ptr = (delegate* unmanaged[Cdecl]<byte*, bool>)load(context, "igSmallButton");
+			InvisibleButton_ptr = (delegate* unmanaged[Cdecl]<byte*, ImVec2, ImGuiButtonFlags, bool>)load(context, "igInvisibleButton");
+			ArrowButton_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiDir, bool>)load(context, "igArrowButton");
+			Image_ptr = (delegate* unmanaged[Cdecl]<ImTextureID, ImVec2, ImVec2, ImVec2, ImVec4, ImVec4, void>)load(context, "igImage");
+			ImageButton_ptr = (delegate* unmanaged[Cdecl]<ImTextureID, ImVec2, ImVec2, ImVec2, int, ImVec4, ImVec4, bool>)load(context, "igImageButton");
+			Checkbox_ptr = (delegate* unmanaged[Cdecl]<byte*, bool*, bool>)load(context, "igCheckbox");
+			CheckboxFlagsIntPtr_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, int, bool>)load(context, "igCheckboxFlagsIntPtr");
+			CheckboxFlagsUintPtr_ptr = (delegate* unmanaged[Cdecl]<byte*, uint*, uint, bool>)load(context, "igCheckboxFlagsUintPtr");
+			RadioButtonBool_ptr = (delegate* unmanaged[Cdecl]<byte*, bool, bool>)load(context, "igRadioButtonBool");
+			RadioButtonIntPtr_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, int, bool>)load(context, "igRadioButtonIntPtr");
+			ProgressBar_ptr = (delegate* unmanaged[Cdecl]<float, ImVec2, byte*, void>)load(context, "igProgressBar");
+			Bullet_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igBullet");
+			BeginCombo_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, ImGuiComboFlags, bool>)load(context, "igBeginCombo");
+			EndCombo_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndCombo");
+			ComboStr_arr_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, byte**, int, int, bool>)load(context, "igComboStr_arr");
+			ComboStr_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, byte*, int, bool>)load(context, "igComboStr");
+			ComboFnBoolPtr_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, IntPtr, IntPtr, int, int, bool>)load(context, "igComboFnBoolPtr");
+			DragFloat_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat");
+			DragFloat2_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat2");
+			DragFloat3_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat3");
+			DragFloat4_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, float, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloat4");
+			DragFloatRange2_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, float*, float, float, float, byte*, byte*, ImGuiSliderFlags, bool>)load(context, "igDragFloatRange2");
+			DragInt_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt");
+			DragInt2_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt2");
+			DragInt3_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt3");
+			DragInt4_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, float, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igDragInt4");
+			DragIntRange2_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, int*, float, int, int, byte*, byte*, ImGuiSliderFlags, bool>)load(context, "igDragIntRange2");
+			DragScalar_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiDataType, IntPtr, float, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool>)load(context, "igDragScalar");
+			DragScalarN_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiDataType, IntPtr, int, float, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool>)load(context, "igDragScalarN");
+			SliderFloat_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat");
+			SliderFloat2_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat2");
+			SliderFloat3_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat3");
+			SliderFloat4_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderFloat4");
+			SliderAngle_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderAngle");
+			SliderInt_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt");
+			SliderInt2_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt2");
+			SliderInt3_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt3");
+			SliderInt4_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderInt4");
+			SliderScalar_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderScalar");
+			SliderScalarN_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiDataType, IntPtr, int, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool>)load(context, "igSliderScalarN");
+			VSliderFloat_ptr = (delegate* unmanaged[Cdecl]<byte*, ImVec2, float*, float, float, byte*, ImGuiSliderFlags, bool>)load(context, "igVSliderFloat");
+			VSliderInt_ptr = (delegate* unmanaged[Cdecl]<byte*, ImVec2, int*, int, int, byte*, ImGuiSliderFlags, bool>)load(context, "igVSliderInt");
+			VSliderScalar_ptr = (delegate* unmanaged[Cdecl]<byte*, ImVec2, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool>)load(context, "igVSliderScalar");
+			InputText_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, IntPtr, ImGuiInputTextFlags, IntPtr, IntPtr, bool>)load(context, "igInputText");
+			InputTextMultiline_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, IntPtr, ImVec2, ImGuiInputTextFlags, IntPtr, IntPtr, bool>)load(context, "igInputTextMultiline");
+			InputTextWithHint_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, byte*, IntPtr, ImGuiInputTextFlags, IntPtr, IntPtr, bool>)load(context, "igInputTextWithHint");
+			InputFloat_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, float, float, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat");
+			InputFloat2_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat2");
+			InputFloat3_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat3");
+			InputFloat4_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputFloat4");
+			InputInt_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, int, int, ImGuiInputTextFlags, bool>)load(context, "igInputInt");
+			InputInt2_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, ImGuiInputTextFlags, bool>)load(context, "igInputInt2");
+			InputInt3_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, ImGuiInputTextFlags, bool>)load(context, "igInputInt3");
+			InputInt4_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, ImGuiInputTextFlags, bool>)load(context, "igInputInt4");
+			InputDouble_ptr = (delegate* unmanaged[Cdecl]<byte*, double*, double, double, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputDouble");
+			InputScalar_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputScalar");
+			InputScalarN_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiDataType, IntPtr, int, IntPtr, IntPtr, byte*, ImGuiInputTextFlags, bool>)load(context, "igInputScalarN");
+			ColorEdit3_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, ImGuiColorEditFlags, bool>)load(context, "igColorEdit3");
+			ColorEdit4_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, ImGuiColorEditFlags, bool>)load(context, "igColorEdit4");
+			ColorPicker3_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, ImGuiColorEditFlags, bool>)load(context, "igColorPicker3");
+			ColorPicker4_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, ImGuiColorEditFlags, float*, bool>)load(context, "igColorPicker4");
+			ColorButton_ptr = (delegate* unmanaged[Cdecl]<byte*, ImVec4, ImGuiColorEditFlags, ImVec2, bool>)load(context, "igColorButton");
+			SetColorEditOptions_ptr = (delegate* unmanaged[Cdecl]<ImGuiColorEditFlags, void>)load(context, "igSetColorEditOptions");
+			TreeNodeStr_ptr = (delegate* unmanaged[Cdecl]<byte*, bool>)load(context, "igTreeNodeStr");
+			TreeNodeStrStr_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, bool>)load(context, "igTreeNodeStrStr");
+			TreeNodePtr_ptr = (delegate* unmanaged[Cdecl]<IntPtr, byte*, bool>)load(context, "igTreeNodePtr");
+			TreeNodeExStr_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiTreeNodeFlags, bool>)load(context, "igTreeNodeExStr");
+			TreeNodeExStrStr_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiTreeNodeFlags, byte*, bool>)load(context, "igTreeNodeExStrStr");
+			TreeNodeExPtr_ptr = (delegate* unmanaged[Cdecl]<IntPtr, ImGuiTreeNodeFlags, byte*, bool>)load(context, "igTreeNodeExPtr");
+			TreePushStr_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igTreePushStr");
+			TreePushPtr_ptr = (delegate* unmanaged[Cdecl]<IntPtr, void>)load(context, "igTreePushPtr");
+			TreePop_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igTreePop");
+			GetTreeNodeToLabelSpacing_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGetTreeNodeToLabelSpacing");
+			CollapsingHeaderTreeNodeFlags_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiTreeNodeFlags, bool>)load(context, "igCollapsingHeaderTreeNodeFlags");
+			CollapsingHeaderBoolPtr_ptr = (delegate* unmanaged[Cdecl]<byte*, bool*, ImGuiTreeNodeFlags, bool>)load(context, "igCollapsingHeaderBoolPtr");
+			SetNextItemOpen_ptr = (delegate* unmanaged[Cdecl]<bool, ImGuiCond, void>)load(context, "igSetNextItemOpen");
+			SelectableBool_ptr = (delegate* unmanaged[Cdecl]<byte*, bool, ImGuiSelectableFlags, ImVec2, bool>)load(context, "igSelectableBool");
+			SelectableBoolPtr_ptr = (delegate* unmanaged[Cdecl]<byte*, bool*, ImGuiSelectableFlags, ImVec2, bool>)load(context, "igSelectableBoolPtr");
+			BeginListBox_ptr = (delegate* unmanaged[Cdecl]<byte*, ImVec2, bool>)load(context, "igBeginListBox");
+			EndListBox_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndListBox");
+			ListBoxStr_arr_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, byte**, int, int, bool>)load(context, "igListBoxStr_arr");
+			ListBoxFnBoolPtr_ptr = (delegate* unmanaged[Cdecl]<byte*, int*, IntPtr, IntPtr, int, int, bool>)load(context, "igListBoxFnBoolPtr");
+			PlotLinesFloatPtr_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, int, int, byte*, float, float, ImVec2, int, void>)load(context, "igPlotLinesFloatPtr");
+			PlotLinesFnFloatPtr_ptr = (delegate* unmanaged[Cdecl]<byte*, IntPtr, IntPtr, int, int, byte*, float, float, ImVec2, void>)load(context, "igPlotLinesFnFloatPtr");
+			PlotHistogramFloatPtr_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, int, int, byte*, float, float, ImVec2, int, void>)load(context, "igPlotHistogramFloatPtr");
+			PlotHistogramFnFloatPtr_ptr = (delegate* unmanaged[Cdecl]<byte*, IntPtr, IntPtr, int, int, byte*, float, float, ImVec2, void>)load(context, "igPlotHistogramFnFloatPtr");
+			ValueBool_ptr = (delegate* unmanaged[Cdecl]<byte*, bool, void>)load(context, "igValueBool");
+			ValueInt_ptr = (delegate* unmanaged[Cdecl]<byte*, int, void>)load(context, "igValueInt");
+			ValueUint_ptr = (delegate* unmanaged[Cdecl]<byte*, uint, void>)load(context, "igValueUint");
+			ValueFloat_ptr = (delegate* unmanaged[Cdecl]<byte*, float, byte*, void>)load(context, "igValueFloat");
+			BeginMenuBar_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igBeginMenuBar");
+			EndMenuBar_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndMenuBar");
+			BeginMainMenuBar_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igBeginMainMenuBar");
+			EndMainMenuBar_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndMainMenuBar");
+			BeginMenu_ptr = (delegate* unmanaged[Cdecl]<byte*, bool, bool>)load(context, "igBeginMenu");
+			EndMenu_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndMenu");
+			MenuItemBool_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, bool, bool, bool>)load(context, "igMenuItemBool");
+			MenuItemBoolPtr_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, bool*, bool, bool>)load(context, "igMenuItemBoolPtr");
+			BeginTooltip_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igBeginTooltip");
+			EndTooltip_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndTooltip");
+			SetTooltip_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igSetTooltip");
+			BeginPopup_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiWindowFlags, bool>)load(context, "igBeginPopup");
+			BeginPopupModal_ptr = (delegate* unmanaged[Cdecl]<byte*, bool*, ImGuiWindowFlags, bool>)load(context, "igBeginPopupModal");
+			EndPopup_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndPopup");
+			OpenPopup_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiPopupFlags, void>)load(context, "igOpenPopup");
+			OpenPopupOnItemClick_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiPopupFlags, void>)load(context, "igOpenPopupOnItemClick");
+			CloseCurrentPopup_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igCloseCurrentPopup");
+			BeginPopupContextItem_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiPopupFlags, bool>)load(context, "igBeginPopupContextItem");
+			BeginPopupContextWindow_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiPopupFlags, bool>)load(context, "igBeginPopupContextWindow");
+			BeginPopupContextVoid_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiPopupFlags, bool>)load(context, "igBeginPopupContextVoid");
+			IsPopupOpenStr_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiPopupFlags, bool>)load(context, "igIsPopupOpenStr");
+			BeginTable_ptr = (delegate* unmanaged[Cdecl]<byte*, int, ImGuiTableFlags, ImVec2, float, bool>)load(context, "igBeginTable");
+			EndTable_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndTable");
+			TableNextRow_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableRowFlags, float, void>)load(context, "igTableNextRow");
+			TableNextColumn_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igTableNextColumn");
+			TableSetColumnIndex_ptr = (delegate* unmanaged[Cdecl]<int, bool>)load(context, "igTableSetColumnIndex");
+			TableSetupColumn_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiTableColumnFlags, float, ImGuiID, void>)load(context, "igTableSetupColumn");
+			TableSetupScrollFreeze_ptr = (delegate* unmanaged[Cdecl]<int, int, void>)load(context, "igTableSetupScrollFreeze");
+			TableHeadersRow_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igTableHeadersRow");
+			TableHeader_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igTableHeader");
+			TableGetSortSpecs_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableSortSpecs*>)load(context, "igTableGetSortSpecs");
+			TableGetColumnCount_ptr = (delegate* unmanaged[Cdecl]<int>)load(context, "igTableGetColumnCount");
+			TableGetColumnIndex_ptr = (delegate* unmanaged[Cdecl]<int>)load(context, "igTableGetColumnIndex");
+			TableGetRowIndex_ptr = (delegate* unmanaged[Cdecl]<int>)load(context, "igTableGetRowIndex");
+			TableGetColumnNameInt_ptr = (delegate* unmanaged[Cdecl]<int, byte*>)load(context, "igTableGetColumnNameInt");
+			TableGetColumnFlags_ptr = (delegate* unmanaged[Cdecl]<int, ImGuiTableColumnFlags>)load(context, "igTableGetColumnFlags");
+			TableSetBgColor_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableBgTarget, uint, int, void>)load(context, "igTableSetBgColor");
+			Columns_ptr = (delegate* unmanaged[Cdecl]<int, byte*, bool, void>)load(context, "igColumns");
+			NextColumn_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igNextColumn");
+			GetColumnIndex_ptr = (delegate* unmanaged[Cdecl]<int>)load(context, "igGetColumnIndex");
+			GetColumnWidth_ptr = (delegate* unmanaged[Cdecl]<int, float>)load(context, "igGetColumnWidth");
+			SetColumnWidth_ptr = (delegate* unmanaged[Cdecl]<int, float, void>)load(context, "igSetColumnWidth");
+			GetColumnOffset_ptr = (delegate* unmanaged[Cdecl]<int, float>)load(context, "igGetColumnOffset");
+			SetColumnOffset_ptr = (delegate* unmanaged[Cdecl]<int, float, void>)load(context, "igSetColumnOffset");
+			GetColumnsCount_ptr = (delegate* unmanaged[Cdecl]<int>)load(context, "igGetColumnsCount");
+			BeginTabBar_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiTabBarFlags, bool>)load(context, "igBeginTabBar");
+			EndTabBar_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndTabBar");
+			BeginTabItem_ptr = (delegate* unmanaged[Cdecl]<byte*, bool*, ImGuiTabItemFlags, bool>)load(context, "igBeginTabItem");
+			EndTabItem_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndTabItem");
+			TabItemButton_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiTabItemFlags, bool>)load(context, "igTabItemButton");
+			SetTabItemClosed_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igSetTabItemClosed");
+			DockSpace_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, ImGuiDockNodeFlags, ImGuiWindowClass*, ImGuiID>)load(context, "igDockSpace");
+			DockSpaceOverViewport_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewport*, ImGuiDockNodeFlags, ImGuiWindowClass*, ImGuiID>)load(context, "igDockSpaceOverViewport");
+			SetNextWindowDockID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiCond, void>)load(context, "igSetNextWindowDockID");
+			SetNextWindowClass_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindowClass*, void>)load(context, "igSetNextWindowClass");
+			GetWindowDockID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID>)load(context, "igGetWindowDockID");
+			IsWindowDocked_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsWindowDocked");
+			LogToTTY_ptr = (delegate* unmanaged[Cdecl]<int, void>)load(context, "igLogToTTY");
+			LogToFile_ptr = (delegate* unmanaged[Cdecl]<int, byte*, void>)load(context, "igLogToFile");
+			LogToClipboard_ptr = (delegate* unmanaged[Cdecl]<int, void>)load(context, "igLogToClipboard");
+			LogFinish_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igLogFinish");
+			LogButtons_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igLogButtons");
+			BeginDragDropSource_ptr = (delegate* unmanaged[Cdecl]<ImGuiDragDropFlags, bool>)load(context, "igBeginDragDropSource");
+			SetDragDropPayload_ptr = (delegate* unmanaged[Cdecl]<byte*, IntPtr, IntPtr, ImGuiCond, bool>)load(context, "igSetDragDropPayload");
+			EndDragDropSource_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndDragDropSource");
+			BeginDragDropTarget_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igBeginDragDropTarget");
+			AcceptDragDropPayload_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiDragDropFlags, ImGuiPayload*>)load(context, "igAcceptDragDropPayload");
+			EndDragDropTarget_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndDragDropTarget");
+			GetDragDropPayload_ptr = (delegate* unmanaged[Cdecl]<ImGuiPayload*>)load(context, "igGetDragDropPayload");
+			PushClipRect_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, bool, void>)load(context, "igPushClipRect");
+			PopClipRect_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igPopClipRect");
+			SetItemDefaultFocus_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igSetItemDefaultFocus");
+			SetKeyboardFocusHere_ptr = (delegate* unmanaged[Cdecl]<int, void>)load(context, "igSetKeyboardFocusHere");
+			IsItemHovered_ptr = (delegate* unmanaged[Cdecl]<ImGuiHoveredFlags, bool>)load(context, "igIsItemHovered");
+			IsItemActive_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsItemActive");
+			IsItemFocused_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsItemFocused");
+			IsItemClicked_ptr = (delegate* unmanaged[Cdecl]<ImGuiMouseButton, bool>)load(context, "igIsItemClicked");
+			IsItemVisible_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsItemVisible");
+			IsItemEdited_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsItemEdited");
+			IsItemActivated_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsItemActivated");
+			IsItemDeactivated_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsItemDeactivated");
+			IsItemDeactivatedAfterEdit_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsItemDeactivatedAfterEdit");
+			IsItemToggledOpen_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsItemToggledOpen");
+			IsAnyItemHovered_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsAnyItemHovered");
+			IsAnyItemActive_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsAnyItemActive");
+			IsAnyItemFocused_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsAnyItemFocused");
+			GetItemRectMin_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetItemRectMin");
+			GetItemRectMax_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetItemRectMax");
+			GetItemRectSize_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetItemRectSize");
+			SetItemAllowOverlap_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igSetItemAllowOverlap");
+			GetMainViewport_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewport*>)load(context, "igGetMainViewport");
+			IsRectVisibleNil_ptr = (delegate* unmanaged[Cdecl]<ImVec2, bool>)load(context, "igIsRectVisibleNil");
+			IsRectVisibleVec2_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, bool>)load(context, "igIsRectVisibleVec2");
+			GetTime_ptr = (delegate* unmanaged[Cdecl]<double>)load(context, "igGetTime");
+			GetFrameCount_ptr = (delegate* unmanaged[Cdecl]<int>)load(context, "igGetFrameCount");
+			GetBackgroundDrawListNil_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*>)load(context, "igGetBackgroundDrawListNil");
+			GetForegroundDrawListNil_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*>)load(context, "igGetForegroundDrawListNil");
+			GetBackgroundDrawListViewportPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewport*, ImDrawList*>)load(context, "igGetBackgroundDrawListViewportPtr");
+			GetForegroundDrawListViewportPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewport*, ImDrawList*>)load(context, "igGetForegroundDrawListViewportPtr");
+			GetDrawListSharedData_ptr = (delegate* unmanaged[Cdecl]<ImDrawListSharedData*>)load(context, "igGetDrawListSharedData");
+			GetStyleColorName_ptr = (delegate* unmanaged[Cdecl]<ImGuiCol, byte*>)load(context, "igGetStyleColorName");
+			SetStateStorage_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, void>)load(context, "igSetStateStorage");
+			GetStateStorage_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*>)load(context, "igGetStateStorage");
+			CalcListClipping_ptr = (delegate* unmanaged[Cdecl]<int, float, int*, int*, void>)load(context, "igCalcListClipping");
+			BeginChildFrame_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, ImGuiWindowFlags, bool>)load(context, "igBeginChildFrame");
+			EndChildFrame_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndChildFrame");
+			CalcTextSize_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, byte*, byte*, bool, float, void>)load(context, "igCalcTextSize");
+			ColorConvertU32ToFloat4_ptr = (delegate* unmanaged[Cdecl]<ImVec4*, uint, void>)load(context, "igColorConvertU32ToFloat4");
+			ColorConvertFloat4ToU32_ptr = (delegate* unmanaged[Cdecl]<ImVec4, uint>)load(context, "igColorConvertFloat4ToU32");
+			ColorConvertRGBtoHSV_ptr = (delegate* unmanaged[Cdecl]<float, float, float, float*, float*, float*, void>)load(context, "igColorConvertRGBtoHSV");
+			ColorConvertHSVtoRGB_ptr = (delegate* unmanaged[Cdecl]<float, float, float, float*, float*, float*, void>)load(context, "igColorConvertHSVtoRGB");
+			GetKeyIndex_ptr = (delegate* unmanaged[Cdecl]<ImGuiKey, int>)load(context, "igGetKeyIndex");
+			IsKeyDown_ptr = (delegate* unmanaged[Cdecl]<int, bool>)load(context, "igIsKeyDown");
+			IsKeyPressed_ptr = (delegate* unmanaged[Cdecl]<int, bool, bool>)load(context, "igIsKeyPressed");
+			IsKeyReleased_ptr = (delegate* unmanaged[Cdecl]<int, bool>)load(context, "igIsKeyReleased");
+			GetKeyPressedAmount_ptr = (delegate* unmanaged[Cdecl]<int, float, float, int>)load(context, "igGetKeyPressedAmount");
+			CaptureKeyboardFromApp_ptr = (delegate* unmanaged[Cdecl]<bool, void>)load(context, "igCaptureKeyboardFromApp");
+			IsMouseDown_ptr = (delegate* unmanaged[Cdecl]<ImGuiMouseButton, bool>)load(context, "igIsMouseDown");
+			IsMouseClicked_ptr = (delegate* unmanaged[Cdecl]<ImGuiMouseButton, bool, bool>)load(context, "igIsMouseClicked");
+			IsMouseReleased_ptr = (delegate* unmanaged[Cdecl]<ImGuiMouseButton, bool>)load(context, "igIsMouseReleased");
+			IsMouseDoubleClicked_ptr = (delegate* unmanaged[Cdecl]<ImGuiMouseButton, bool>)load(context, "igIsMouseDoubleClicked");
+			IsMouseHoveringRect_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, bool, bool>)load(context, "igIsMouseHoveringRect");
+			IsMousePosValid_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, bool>)load(context, "igIsMousePosValid");
+			IsAnyMouseDown_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsAnyMouseDown");
+			GetMousePos_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetMousePos");
+			GetMousePosOnOpeningCurrentPopup_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetMousePosOnOpeningCurrentPopup");
+			IsMouseDragging_ptr = (delegate* unmanaged[Cdecl]<ImGuiMouseButton, float, bool>)load(context, "igIsMouseDragging");
+			GetMouseDragDelta_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImGuiMouseButton, float, void>)load(context, "igGetMouseDragDelta");
+			ResetMouseDragDelta_ptr = (delegate* unmanaged[Cdecl]<ImGuiMouseButton, void>)load(context, "igResetMouseDragDelta");
+			GetMouseCursor_ptr = (delegate* unmanaged[Cdecl]<ImGuiMouseCursor>)load(context, "igGetMouseCursor");
+			SetMouseCursor_ptr = (delegate* unmanaged[Cdecl]<ImGuiMouseCursor, void>)load(context, "igSetMouseCursor");
+			CaptureMouseFromApp_ptr = (delegate* unmanaged[Cdecl]<bool, void>)load(context, "igCaptureMouseFromApp");
+			GetClipboardText_ptr = (delegate* unmanaged[Cdecl]<byte*>)load(context, "igGetClipboardText");
+			SetClipboardText_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igSetClipboardText");
+			LoadIniSettingsFromDisk_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igLoadIniSettingsFromDisk");
+			LoadIniSettingsFromMemory_ptr = (delegate* unmanaged[Cdecl]<byte*, IntPtr, void>)load(context, "igLoadIniSettingsFromMemory");
+			SaveIniSettingsToDisk_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igSaveIniSettingsToDisk");
+			SaveIniSettingsToMemory_ptr = (delegate* unmanaged[Cdecl]<IntPtr*, byte*>)load(context, "igSaveIniSettingsToMemory");
+			DebugCheckVersionAndDataLayout_ptr = (delegate* unmanaged[Cdecl]<byte*, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, IntPtr, bool>)load(context, "igDebugCheckVersionAndDataLayout");
+			SetAllocatorFunctions_ptr = (delegate* unmanaged[Cdecl]<IntPtr, IntPtr, IntPtr, void>)load(context, "igSetAllocatorFunctions");
+			GetAllocatorFunctions_ptr = (delegate* unmanaged[Cdecl]<IntPtr*, IntPtr*, IntPtr*, void>)load(context, "igGetAllocatorFunctions");
+			MemAlloc_ptr = (delegate* unmanaged[Cdecl]<IntPtr, IntPtr>)load(context, "igMemAlloc");
+			MemFree_ptr = (delegate* unmanaged[Cdecl]<IntPtr, void>)load(context, "igMemFree");
+			GetPlatformIO_ptr = (delegate* unmanaged[Cdecl]<ImGuiPlatformIO*>)load(context, "igGetPlatformIO");
+			UpdatePlatformWindows_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igUpdatePlatformWindows");
+			RenderPlatformWindowsDefault_ptr = (delegate* unmanaged[Cdecl]<IntPtr, IntPtr, void>)load(context, "igRenderPlatformWindowsDefault");
+			DestroyPlatformWindows_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igDestroyPlatformWindows");
+			FindViewportByID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiViewport*>)load(context, "igFindViewportByID");
+			FindViewportByPlatformHandle_ptr = (delegate* unmanaged[Cdecl]<IntPtr, ImGuiViewport*>)load(context, "igFindViewportByPlatformHandle");
+			ImGuiStyle_ImGuiStyle_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyle*>)load(context, "ImGuiStyle_ImGuiStyle");
+			ImGuiStyle_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyle*, void>)load(context, "ImGuiStyle_destroy");
+			ImGuiStyle_ScaleAllSizes_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyle*, float, void>)load(context, "ImGuiStyle_ScaleAllSizes");
+			ImGuiIO_AddInputCharacter_ptr = (delegate* unmanaged[Cdecl]<ImGuiIO*, uint, void>)load(context, "ImGuiIO_AddInputCharacter");
+			ImGuiIO_AddInputCharacterUTF16_ptr = (delegate* unmanaged[Cdecl]<ImGuiIO*, char, void>)load(context, "ImGuiIO_AddInputCharacterUTF16");
+			ImGuiIO_AddInputCharactersUTF8_ptr = (delegate* unmanaged[Cdecl]<ImGuiIO*, byte*, void>)load(context, "ImGuiIO_AddInputCharactersUTF8");
+			ImGuiIO_ClearInputCharacters_ptr = (delegate* unmanaged[Cdecl]<ImGuiIO*, void>)load(context, "ImGuiIO_ClearInputCharacters");
+			ImGuiIO_ImGuiIO_ptr = (delegate* unmanaged[Cdecl]<ImGuiIO*>)load(context, "ImGuiIO_ImGuiIO");
+			ImGuiIO_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiIO*, void>)load(context, "ImGuiIO_destroy");
+			ImGuiInputTextCallbackData_ImGuiInputTextCallbackData_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*>)load(context, "ImGuiInputTextCallbackData_ImGuiInputTextCallbackData");
+			ImGuiInputTextCallbackData_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*, void>)load(context, "ImGuiInputTextCallbackData_destroy");
+			ImGuiInputTextCallbackData_DeleteChars_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*, int, int, void>)load(context, "ImGuiInputTextCallbackData_DeleteChars");
+			ImGuiInputTextCallbackData_InsertChars_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*, int, byte*, byte*, void>)load(context, "ImGuiInputTextCallbackData_InsertChars");
+			ImGuiInputTextCallbackData_SelectAll_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*, void>)load(context, "ImGuiInputTextCallbackData_SelectAll");
+			ImGuiInputTextCallbackData_ClearSelection_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*, void>)load(context, "ImGuiInputTextCallbackData_ClearSelection");
+			ImGuiInputTextCallbackData_HasSelection_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextCallbackData*, bool>)load(context, "ImGuiInputTextCallbackData_HasSelection");
+			ImGuiWindowClass_ImGuiWindowClass_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindowClass*>)load(context, "ImGuiWindowClass_ImGuiWindowClass");
+			ImGuiWindowClass_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindowClass*, void>)load(context, "ImGuiWindowClass_destroy");
+			ImGuiPayload_ImGuiPayload_ptr = (delegate* unmanaged[Cdecl]<ImGuiPayload*>)load(context, "ImGuiPayload_ImGuiPayload");
+			ImGuiPayload_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiPayload*, void>)load(context, "ImGuiPayload_destroy");
+			ImGuiPayload_Clear_ptr = (delegate* unmanaged[Cdecl]<ImGuiPayload*, void>)load(context, "ImGuiPayload_Clear");
+			ImGuiPayload_IsDataType_ptr = (delegate* unmanaged[Cdecl]<ImGuiPayload*, byte*, bool>)load(context, "ImGuiPayload_IsDataType");
+			ImGuiPayload_IsPreview_ptr = (delegate* unmanaged[Cdecl]<ImGuiPayload*, bool>)load(context, "ImGuiPayload_IsPreview");
+			ImGuiPayload_IsDelivery_ptr = (delegate* unmanaged[Cdecl]<ImGuiPayload*, bool>)load(context, "ImGuiPayload_IsDelivery");
+			ImGuiTableColumnSortSpecs_ImGuiTableColumnSortSpecs_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableColumnSortSpecs*>)load(context, "ImGuiTableColumnSortSpecs_ImGuiTableColumnSortSpecs");
+			ImGuiTableColumnSortSpecs_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableColumnSortSpecs*, void>)load(context, "ImGuiTableColumnSortSpecs_destroy");
+			ImGuiTableSortSpecs_ImGuiTableSortSpecs_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableSortSpecs*>)load(context, "ImGuiTableSortSpecs_ImGuiTableSortSpecs");
+			ImGuiTableSortSpecs_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableSortSpecs*, void>)load(context, "ImGuiTableSortSpecs_destroy");
+			ImGuiOnceUponAFrame_ImGuiOnceUponAFrame_ptr = (delegate* unmanaged[Cdecl]<ImGuiOnceUponAFrame*>)load(context, "ImGuiOnceUponAFrame_ImGuiOnceUponAFrame");
+			ImGuiOnceUponAFrame_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiOnceUponAFrame*, void>)load(context, "ImGuiOnceUponAFrame_destroy");
+			ImGuiTextFilter_ImGuiTextFilter_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiTextFilter*>)load(context, "ImGuiTextFilter_ImGuiTextFilter");
+			ImGuiTextFilter_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextFilter*, void>)load(context, "ImGuiTextFilter_destroy");
+			ImGuiTextFilter_Draw_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextFilter*, byte*, float, bool>)load(context, "ImGuiTextFilter_Draw");
+			ImGuiTextFilter_PassFilter_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextFilter*, byte*, byte*, bool>)load(context, "ImGuiTextFilter_PassFilter");
+			ImGuiTextFilter_Build_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextFilter*, void>)load(context, "ImGuiTextFilter_Build");
+			ImGuiTextFilter_Clear_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextFilter*, void>)load(context, "ImGuiTextFilter_Clear");
+			ImGuiTextFilter_IsActive_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextFilter*, bool>)load(context, "ImGuiTextFilter_IsActive");
+			ImGuiTextRange_ImGuiTextRangeNil_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextRange*>)load(context, "ImGuiTextRange_ImGuiTextRangeNil");
+			ImGuiTextRange_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextRange*, void>)load(context, "ImGuiTextRange_destroy");
+			ImGuiTextRange_ImGuiTextRangeStr_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, ImGuiTextRange*>)load(context, "ImGuiTextRange_ImGuiTextRangeStr");
+			ImGuiTextRange_empty_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextRange*, bool>)load(context, "ImGuiTextRange_empty");
+			ImGuiTextRange_split_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextRange*, byte, ImVector_ImGuiTextRange*, void>)load(context, "ImGuiTextRange_split");
+			ImGuiTextBuffer_ImGuiTextBuffer_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextBuffer*>)load(context, "ImGuiTextBuffer_ImGuiTextBuffer");
+			ImGuiTextBuffer_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, void>)load(context, "ImGuiTextBuffer_destroy");
+			ImGuiTextBuffer_begin_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, byte*>)load(context, "ImGuiTextBuffer_begin");
+			ImGuiTextBuffer_end_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, byte*>)load(context, "ImGuiTextBuffer_end");
+			ImGuiTextBuffer_size_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, int>)load(context, "ImGuiTextBuffer_size");
+			ImGuiTextBuffer_empty_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, bool>)load(context, "ImGuiTextBuffer_empty");
+			ImGuiTextBuffer_clear_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, void>)load(context, "ImGuiTextBuffer_clear");
+			ImGuiTextBuffer_reserve_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, int, void>)load(context, "ImGuiTextBuffer_reserve");
+			ImGuiTextBuffer_c_str_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, byte*>)load(context, "ImGuiTextBuffer_c_str");
+			ImGuiTextBuffer_append_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, byte*, byte*, void>)load(context, "ImGuiTextBuffer_append");
+			ImGuiStoragePair_ImGuiStoragePairInt_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, int, ImGuiStoragePair*>)load(context, "ImGuiStoragePair_ImGuiStoragePairInt");
+			ImGuiStoragePair_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiStoragePair*, void>)load(context, "ImGuiStoragePair_destroy");
+			ImGuiStoragePair_ImGuiStoragePairFloat_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, float, ImGuiStoragePair*>)load(context, "ImGuiStoragePair_ImGuiStoragePairFloat");
+			ImGuiStoragePair_ImGuiStoragePairPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, IntPtr, ImGuiStoragePair*>)load(context, "ImGuiStoragePair_ImGuiStoragePairPtr");
+			ImGuiStorage_Clear_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, void>)load(context, "ImGuiStorage_Clear");
+			ImGuiStorage_GetInt_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, int, int>)load(context, "ImGuiStorage_GetInt");
+			ImGuiStorage_SetInt_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, int, void>)load(context, "ImGuiStorage_SetInt");
+			ImGuiStorage_GetBool_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, bool, bool>)load(context, "ImGuiStorage_GetBool");
+			ImGuiStorage_SetBool_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, bool, void>)load(context, "ImGuiStorage_SetBool");
+			ImGuiStorage_GetFloat_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, float, float>)load(context, "ImGuiStorage_GetFloat");
+			ImGuiStorage_SetFloat_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, float, void>)load(context, "ImGuiStorage_SetFloat");
+			ImGuiStorage_GetVoidPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, IntPtr>)load(context, "ImGuiStorage_GetVoidPtr");
+			ImGuiStorage_SetVoidPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, IntPtr, void>)load(context, "ImGuiStorage_SetVoidPtr");
+			ImGuiStorage_GetIntRef_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, int, int*>)load(context, "ImGuiStorage_GetIntRef");
+			ImGuiStorage_GetBoolRef_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, bool, bool*>)load(context, "ImGuiStorage_GetBoolRef");
+			ImGuiStorage_GetFloatRef_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, float, float*>)load(context, "ImGuiStorage_GetFloatRef");
+			ImGuiStorage_GetVoidPtrRef_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, IntPtr, IntPtr*>)load(context, "ImGuiStorage_GetVoidPtrRef");
+			ImGuiStorage_SetAllInt_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, int, void>)load(context, "ImGuiStorage_SetAllInt");
+			ImGuiStorage_BuildSortByKey_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, void>)load(context, "ImGuiStorage_BuildSortByKey");
+			ImGuiListClipper_ImGuiListClipper_ptr = (delegate* unmanaged[Cdecl]<ImGuiListClipper*>)load(context, "ImGuiListClipper_ImGuiListClipper");
+			ImGuiListClipper_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiListClipper*, void>)load(context, "ImGuiListClipper_destroy");
+			ImGuiListClipper_Begin_ptr = (delegate* unmanaged[Cdecl]<ImGuiListClipper*, int, float, void>)load(context, "ImGuiListClipper_Begin");
+			ImGuiListClipper_End_ptr = (delegate* unmanaged[Cdecl]<ImGuiListClipper*, void>)load(context, "ImGuiListClipper_End");
+			ImGuiListClipper_Step_ptr = (delegate* unmanaged[Cdecl]<ImGuiListClipper*, bool>)load(context, "ImGuiListClipper_Step");
+			ImDrawCmd_ImDrawCmd_ptr = (delegate* unmanaged[Cdecl]<ImDrawCmd*>)load(context, "ImDrawCmd_ImDrawCmd");
+			ImDrawCmd_destroy_ptr = (delegate* unmanaged[Cdecl]<ImDrawCmd*, void>)load(context, "ImDrawCmd_destroy");
+			ImDrawListSplitter_ImDrawListSplitter_ptr = (delegate* unmanaged[Cdecl]<ImDrawListSplitter*>)load(context, "ImDrawListSplitter_ImDrawListSplitter");
+			ImDrawListSplitter_destroy_ptr = (delegate* unmanaged[Cdecl]<ImDrawListSplitter*, void>)load(context, "ImDrawListSplitter_destroy");
+			ImDrawListSplitter_Clear_ptr = (delegate* unmanaged[Cdecl]<ImDrawListSplitter*, void>)load(context, "ImDrawListSplitter_Clear");
+			ImDrawListSplitter_ClearFreeMemory_ptr = (delegate* unmanaged[Cdecl]<ImDrawListSplitter*, void>)load(context, "ImDrawListSplitter_ClearFreeMemory");
+			ImDrawListSplitter_Split_ptr = (delegate* unmanaged[Cdecl]<ImDrawListSplitter*, ImDrawList*, int, void>)load(context, "ImDrawListSplitter_Split");
+			ImDrawListSplitter_Merge_ptr = (delegate* unmanaged[Cdecl]<ImDrawListSplitter*, ImDrawList*, void>)load(context, "ImDrawListSplitter_Merge");
+			ImDrawListSplitter_SetCurrentChannel_ptr = (delegate* unmanaged[Cdecl]<ImDrawListSplitter*, ImDrawList*, int, void>)load(context, "ImDrawListSplitter_SetCurrentChannel");
+			ImDrawList_ImDrawList_ptr = (delegate* unmanaged[Cdecl]<ImDrawListSharedData*, ImDrawList*>)load(context, "ImDrawList_ImDrawList");
+			ImDrawList_destroy_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList_destroy");
+			ImDrawList_PushClipRect_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, bool, void>)load(context, "ImDrawList_PushClipRect");
+			ImDrawList_PushClipRectFullScreen_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList_PushClipRectFullScreen");
+			ImDrawList_PopClipRect_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList_PopClipRect");
+			ImDrawList_PushTextureID_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImTextureID, void>)load(context, "ImDrawList_PushTextureID");
+			ImDrawList_PopTextureID_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList_PopTextureID");
+			ImDrawList_GetClipRectMin_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImDrawList*, void>)load(context, "ImDrawList_GetClipRectMin");
+			ImDrawList_GetClipRectMax_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImDrawList*, void>)load(context, "ImDrawList_GetClipRectMax");
+			ImDrawList_AddLine_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, float, void>)load(context, "ImDrawList_AddLine");
+			ImDrawList_AddRect_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, float, void>)load(context, "ImDrawList_AddRect");
+			ImDrawList_AddRectFilled_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, float, ImDrawFlags, void>)load(context, "ImDrawList_AddRectFilled");
+			ImDrawList_AddRectFilledMultiColor_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, uint, uint, uint, void>)load(context, "ImDrawList_AddRectFilledMultiColor");
+			ImDrawList_AddQuad_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, void>)load(context, "ImDrawList_AddQuad");
+			ImDrawList_AddQuadFilled_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_AddQuadFilled");
+			ImDrawList_AddTriangle_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, float, void>)load(context, "ImDrawList_AddTriangle");
+			ImDrawList_AddTriangleFilled_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_AddTriangleFilled");
+			ImDrawList_AddCircle_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, uint, int, float, void>)load(context, "ImDrawList_AddCircle");
+			ImDrawList_AddCircleFilled_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, uint, int, void>)load(context, "ImDrawList_AddCircleFilled");
+			ImDrawList_AddNgon_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, uint, int, float, void>)load(context, "ImDrawList_AddNgon");
+			ImDrawList_AddNgonFilled_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, uint, int, void>)load(context, "ImDrawList_AddNgonFilled");
+			ImDrawList_AddTextVec2_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, uint, byte*, byte*, void>)load(context, "ImDrawList_AddTextVec2");
+			ImDrawList_AddTextFontPtr_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImFont*, float, ImVec2, uint, byte*, byte*, float, ImVec4*, void>)load(context, "ImDrawList_AddTextFontPtr");
+			ImDrawList_AddPolyline_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2*, int, uint, ImDrawFlags, float, void>)load(context, "ImDrawList_AddPolyline");
+			ImDrawList_AddConvexPolyFilled_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2*, int, uint, void>)load(context, "ImDrawList_AddConvexPolyFilled");
+			ImDrawList_AddBezierCubic_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, int, void>)load(context, "ImDrawList_AddBezierCubic");
+			ImDrawList_AddBezierQuadratic_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, uint, float, int, void>)load(context, "ImDrawList_AddBezierQuadratic");
+			ImDrawList_AddImage_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_AddImage");
+			ImDrawList_AddImageQuad_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_AddImageQuad");
+			ImDrawList_AddImageRounded_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, uint, float, ImDrawFlags, void>)load(context, "ImDrawList_AddImageRounded");
+			ImDrawList_PathClear_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList_PathClear");
+			ImDrawList_PathLineTo_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, void>)load(context, "ImDrawList_PathLineTo");
+			ImDrawList_PathLineToMergeDuplicate_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, void>)load(context, "ImDrawList_PathLineToMergeDuplicate");
+			ImDrawList_PathFillConvex_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, uint, void>)load(context, "ImDrawList_PathFillConvex");
+			ImDrawList_PathStroke_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, uint, ImDrawFlags, float, void>)load(context, "ImDrawList_PathStroke");
+			ImDrawList_PathArcTo_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, float, float, int, void>)load(context, "ImDrawList_PathArcTo");
+			ImDrawList_PathArcToFast_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, int, int, void>)load(context, "ImDrawList_PathArcToFast");
+			ImDrawList_PathBezierCubicCurveTo_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, int, void>)load(context, "ImDrawList_PathBezierCubicCurveTo");
+			ImDrawList_PathBezierQuadraticCurveTo_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, int, void>)load(context, "ImDrawList_PathBezierQuadraticCurveTo");
+			ImDrawList_PathRect_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, float, ImDrawFlags, void>)load(context, "ImDrawList_PathRect");
+			ImDrawList_AddCallback_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, IntPtr, IntPtr, void>)load(context, "ImDrawList_AddCallback");
+			ImDrawList_AddDrawCmd_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList_AddDrawCmd");
+			ImDrawList_CloneOutput_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImDrawList*>)load(context, "ImDrawList_CloneOutput");
+			ImDrawList_ChannelsSplit_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, int, void>)load(context, "ImDrawList_ChannelsSplit");
+			ImDrawList_ChannelsMerge_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList_ChannelsMerge");
+			ImDrawList_ChannelsSetCurrent_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, int, void>)load(context, "ImDrawList_ChannelsSetCurrent");
+			ImDrawList_PrimReserve_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, int, int, void>)load(context, "ImDrawList_PrimReserve");
+			ImDrawList_PrimUnreserve_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, int, int, void>)load(context, "ImDrawList_PrimUnreserve");
+			ImDrawList_PrimRect_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_PrimRect");
+			ImDrawList_PrimRectUV_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_PrimRectUV");
+			ImDrawList_PrimQuadUV_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_PrimQuadUV");
+			ImDrawList_PrimWriteVtx_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_PrimWriteVtx");
+			ImDrawList_PrimWriteIdx_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImDrawIdx, void>)load(context, "ImDrawList_PrimWriteIdx");
+			ImDrawList_PrimVtx_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, void>)load(context, "ImDrawList_PrimVtx");
+			ImDrawList__ResetForNewFrame_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList__ResetForNewFrame");
+			ImDrawList__ClearFreeMemory_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList__ClearFreeMemory");
+			ImDrawList__PopUnusedDrawCmd_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList__PopUnusedDrawCmd");
+			ImDrawList__OnChangedClipRect_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList__OnChangedClipRect");
+			ImDrawList__OnChangedTextureID_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList__OnChangedTextureID");
+			ImDrawList__OnChangedVtxOffset_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, void>)load(context, "ImDrawList__OnChangedVtxOffset");
+			ImDrawList__CalcCircleAutoSegmentCount_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, float, int>)load(context, "ImDrawList__CalcCircleAutoSegmentCount");
+			ImDrawList__PathArcToFastEx_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, int, int, int, void>)load(context, "ImDrawList__PathArcToFastEx");
+			ImDrawList__PathArcToN_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, float, float, int, void>)load(context, "ImDrawList__PathArcToN");
+			ImDrawData_ImDrawData_ptr = (delegate* unmanaged[Cdecl]<ImDrawData*>)load(context, "ImDrawData_ImDrawData");
+			ImDrawData_destroy_ptr = (delegate* unmanaged[Cdecl]<ImDrawData*, void>)load(context, "ImDrawData_destroy");
+			ImDrawData_Clear_ptr = (delegate* unmanaged[Cdecl]<ImDrawData*, void>)load(context, "ImDrawData_Clear");
+			ImDrawData_DeIndexAllBuffers_ptr = (delegate* unmanaged[Cdecl]<ImDrawData*, void>)load(context, "ImDrawData_DeIndexAllBuffers");
+			ImDrawData_ScaleClipRects_ptr = (delegate* unmanaged[Cdecl]<ImDrawData*, ImVec2, void>)load(context, "ImDrawData_ScaleClipRects");
+			ImFontConfig_ImFontConfig_ptr = (delegate* unmanaged[Cdecl]<ImFontConfig*>)load(context, "ImFontConfig_ImFontConfig");
+			ImFontConfig_destroy_ptr = (delegate* unmanaged[Cdecl]<ImFontConfig*, void>)load(context, "ImFontConfig_destroy");
+			ImFontGlyphRangesBuilder_ImFontGlyphRangesBuilder_ptr = (delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*>)load(context, "ImFontGlyphRangesBuilder_ImFontGlyphRangesBuilder");
+			ImFontGlyphRangesBuilder_destroy_ptr = (delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, void>)load(context, "ImFontGlyphRangesBuilder_destroy");
+			ImFontGlyphRangesBuilder_Clear_ptr = (delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, void>)load(context, "ImFontGlyphRangesBuilder_Clear");
+			ImFontGlyphRangesBuilder_GetBit_ptr = (delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, IntPtr, bool>)load(context, "ImFontGlyphRangesBuilder_GetBit");
+			ImFontGlyphRangesBuilder_SetBit_ptr = (delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, IntPtr, void>)load(context, "ImFontGlyphRangesBuilder_SetBit");
+			ImFontGlyphRangesBuilder_AddChar_ptr = (delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, char, void>)load(context, "ImFontGlyphRangesBuilder_AddChar");
+			ImFontGlyphRangesBuilder_AddText_ptr = (delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, byte*, byte*, void>)load(context, "ImFontGlyphRangesBuilder_AddText");
+			ImFontGlyphRangesBuilder_AddRanges_ptr = (delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, char*, void>)load(context, "ImFontGlyphRangesBuilder_AddRanges");
+			ImFontGlyphRangesBuilder_BuildRanges_ptr = (delegate* unmanaged[Cdecl]<ImFontGlyphRangesBuilder*, ImVector<char>*, void>)load(context, "ImFontGlyphRangesBuilder_BuildRanges");
+			ImFontAtlasCustomRect_ImFontAtlasCustomRect_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlasCustomRect*>)load(context, "ImFontAtlasCustomRect_ImFontAtlasCustomRect");
+			ImFontAtlasCustomRect_destroy_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlasCustomRect*, void>)load(context, "ImFontAtlasCustomRect_destroy");
+			ImFontAtlasCustomRect_IsPacked_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlasCustomRect*, bool>)load(context, "ImFontAtlasCustomRect_IsPacked");
+			ImFontAtlas_ImFontAtlas_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*>)load(context, "ImFontAtlas_ImFontAtlas");
+			ImFontAtlas_destroy_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, void>)load(context, "ImFontAtlas_destroy");
+			ImFontAtlas_AddFont_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, ImFontConfig*, ImFont*>)load(context, "ImFontAtlas_AddFont");
+			ImFontAtlas_AddFontDefault_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, ImFontConfig*, ImFont*>)load(context, "ImFontAtlas_AddFontDefault");
+			ImFontAtlas_AddFontFromFileTTF_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, byte*, float, ImFontConfig*, char*, ImFont*>)load(context, "ImFontAtlas_AddFontFromFileTTF");
+			ImFontAtlas_AddFontFromMemoryTTF_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, IntPtr, int, float, ImFontConfig*, char*, ImFont*>)load(context, "ImFontAtlas_AddFontFromMemoryTTF");
+			ImFontAtlas_AddFontFromMemoryCompressedTTF_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, IntPtr, int, float, ImFontConfig*, char*, ImFont*>)load(context, "ImFontAtlas_AddFontFromMemoryCompressedTTF");
+			ImFontAtlas_AddFontFromMemoryCompressedBase85TTF_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, byte*, float, ImFontConfig*, char*, ImFont*>)load(context, "ImFontAtlas_AddFontFromMemoryCompressedBase85TTF");
+			ImFontAtlas_ClearInputData_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, void>)load(context, "ImFontAtlas_ClearInputData");
+			ImFontAtlas_ClearTexData_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, void>)load(context, "ImFontAtlas_ClearTexData");
+			ImFontAtlas_ClearFonts_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, void>)load(context, "ImFontAtlas_ClearFonts");
+			ImFontAtlas_Clear_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, void>)load(context, "ImFontAtlas_Clear");
+			ImFontAtlas_Build_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, bool>)load(context, "ImFontAtlas_Build");
+			ImFontAtlas_GetTexDataAsAlpha8_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, byte**, int*, int*, int*, void>)load(context, "ImFontAtlas_GetTexDataAsAlpha8");
+			ImFontAtlas_GetTexDataAsRGBA32_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, byte**, int*, int*, int*, void>)load(context, "ImFontAtlas_GetTexDataAsRGBA32");
+			ImFontAtlas_IsBuilt_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, bool>)load(context, "ImFontAtlas_IsBuilt");
+			ImFontAtlas_SetTexID_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, ImTextureID, void>)load(context, "ImFontAtlas_SetTexID");
+			ImFontAtlas_GetGlyphRangesDefault_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesDefault");
+			ImFontAtlas_GetGlyphRangesKorean_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesKorean");
+			ImFontAtlas_GetGlyphRangesJapanese_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesJapanese");
+			ImFontAtlas_GetGlyphRangesChineseFull_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesChineseFull");
+			ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon");
+			ImFontAtlas_GetGlyphRangesCyrillic_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesCyrillic");
+			ImFontAtlas_GetGlyphRangesThai_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesThai");
+			ImFontAtlas_GetGlyphRangesVietnamese_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, char*>)load(context, "ImFontAtlas_GetGlyphRangesVietnamese");
+			ImFontAtlas_AddCustomRectRegular_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, int, int, int>)load(context, "ImFontAtlas_AddCustomRectRegular");
+			ImFontAtlas_AddCustomRectFontGlyph_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, ImFont*, char, int, int, float, ImVec2, int>)load(context, "ImFontAtlas_AddCustomRectFontGlyph");
+			ImFontAtlas_GetCustomRectByIndex_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, int, ImFontAtlasCustomRect*>)load(context, "ImFontAtlas_GetCustomRectByIndex");
+			ImFontAtlas_CalcCustomRectUV_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, ImFontAtlasCustomRect*, ImVec2*, ImVec2*, void>)load(context, "ImFontAtlas_CalcCustomRectUV");
+			ImFontAtlas_GetMouseCursorTexData_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, ImGuiMouseCursor, ImVec2*, ImVec2*, ImVec2*, ImVec2*, bool>)load(context, "ImFontAtlas_GetMouseCursorTexData");
+			ImFont_ImFont_ptr = (delegate* unmanaged[Cdecl]<ImFont*>)load(context, "ImFont_ImFont");
+			ImFont_destroy_ptr = (delegate* unmanaged[Cdecl]<ImFont*, void>)load(context, "ImFont_destroy");
+			ImFont_FindGlyph_ptr = (delegate* unmanaged[Cdecl]<ImFont*, char, ImFontGlyph*>)load(context, "ImFont_FindGlyph");
+			ImFont_FindGlyphNoFallback_ptr = (delegate* unmanaged[Cdecl]<ImFont*, char, ImFontGlyph*>)load(context, "ImFont_FindGlyphNoFallback");
+			ImFont_GetCharAdvance_ptr = (delegate* unmanaged[Cdecl]<ImFont*, char, float>)load(context, "ImFont_GetCharAdvance");
+			ImFont_IsLoaded_ptr = (delegate* unmanaged[Cdecl]<ImFont*, bool>)load(context, "ImFont_IsLoaded");
+			ImFont_GetDebugName_ptr = (delegate* unmanaged[Cdecl]<ImFont*, byte*>)load(context, "ImFont_GetDebugName");
+			ImFont_CalcTextSizeA_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImFont*, float, float, float, byte*, byte*, byte**, void>)load(context, "ImFont_CalcTextSizeA");
+			ImFont_CalcWordWrapPositionA_ptr = (delegate* unmanaged[Cdecl]<ImFont*, float, byte*, byte*, float, byte*>)load(context, "ImFont_CalcWordWrapPositionA");
+			ImFont_RenderChar_ptr = (delegate* unmanaged[Cdecl]<ImFont*, ImDrawList*, float, ImVec2, uint, char, void>)load(context, "ImFont_RenderChar");
+			ImFont_RenderText_ptr = (delegate* unmanaged[Cdecl]<ImFont*, ImDrawList*, float, ImVec2, uint, ImVec4, byte*, byte*, float, bool, void>)load(context, "ImFont_RenderText");
+			ImFont_BuildLookupTable_ptr = (delegate* unmanaged[Cdecl]<ImFont*, void>)load(context, "ImFont_BuildLookupTable");
+			ImFont_ClearOutputData_ptr = (delegate* unmanaged[Cdecl]<ImFont*, void>)load(context, "ImFont_ClearOutputData");
+			ImFont_GrowIndex_ptr = (delegate* unmanaged[Cdecl]<ImFont*, int, void>)load(context, "ImFont_GrowIndex");
+			ImFont_AddGlyph_ptr = (delegate* unmanaged[Cdecl]<ImFont*, ImFontConfig*, char, float, float, float, float, float, float, float, float, float, void>)load(context, "ImFont_AddGlyph");
+			ImFont_AddRemapChar_ptr = (delegate* unmanaged[Cdecl]<ImFont*, char, char, bool, void>)load(context, "ImFont_AddRemapChar");
+			ImFont_SetGlyphVisible_ptr = (delegate* unmanaged[Cdecl]<ImFont*, char, bool, void>)load(context, "ImFont_SetGlyphVisible");
+			ImFont_SetFallbackChar_ptr = (delegate* unmanaged[Cdecl]<ImFont*, char, void>)load(context, "ImFont_SetFallbackChar");
+			ImFont_IsGlyphRangeUnused_ptr = (delegate* unmanaged[Cdecl]<ImFont*, uint, uint, bool>)load(context, "ImFont_IsGlyphRangeUnused");
+			ImGuiViewport_ImGuiViewport_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewport*>)load(context, "ImGuiViewport_ImGuiViewport");
+			ImGuiViewport_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewport*, void>)load(context, "ImGuiViewport_destroy");
+			ImGuiViewport_GetCenter_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImGuiViewport*, void>)load(context, "ImGuiViewport_GetCenter");
+			ImGuiViewport_GetWorkCenter_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImGuiViewport*, void>)load(context, "ImGuiViewport_GetWorkCenter");
+			ImGuiPlatformIO_ImGuiPlatformIO_ptr = (delegate* unmanaged[Cdecl]<ImGuiPlatformIO*>)load(context, "ImGuiPlatformIO_ImGuiPlatformIO");
+			ImGuiPlatformIO_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiPlatformIO*, void>)load(context, "ImGuiPlatformIO_destroy");
+			ImGuiPlatformMonitor_ImGuiPlatformMonitor_ptr = (delegate* unmanaged[Cdecl]<ImGuiPlatformMonitor*>)load(context, "ImGuiPlatformMonitor_ImGuiPlatformMonitor");
+			ImGuiPlatformMonitor_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiPlatformMonitor*, void>)load(context, "ImGuiPlatformMonitor_destroy");
+			ImHashData_ptr = (delegate* unmanaged[Cdecl]<IntPtr, IntPtr, uint, ImGuiID>)load(context, "igImHashData");
+			ImHashStr_ptr = (delegate* unmanaged[Cdecl]<byte*, IntPtr, uint, ImGuiID>)load(context, "igImHashStr");
+			ImAlphaBlendColors_ptr = (delegate* unmanaged[Cdecl]<uint, uint, uint>)load(context, "igImAlphaBlendColors");
+			ImIsPowerOfTwoInt_ptr = (delegate* unmanaged[Cdecl]<int, bool>)load(context, "igImIsPowerOfTwoInt");
+			ImIsPowerOfTwoU64_ptr = (delegate* unmanaged[Cdecl]<ulong, bool>)load(context, "igImIsPowerOfTwoU64");
+			ImUpperPowerOfTwo_ptr = (delegate* unmanaged[Cdecl]<int, int>)load(context, "igImUpperPowerOfTwo");
+			ImStricmp_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, int>)load(context, "igImStricmp");
+			ImStrnicmp_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, IntPtr, int>)load(context, "igImStrnicmp");
+			ImStrncpy_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, IntPtr, void>)load(context, "igImStrncpy");
+			ImStrdup_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*>)load(context, "igImStrdup");
+			ImStrdupcpy_ptr = (delegate* unmanaged[Cdecl]<byte*, IntPtr*, byte*, byte*>)load(context, "igImStrdupcpy");
+			ImStrchrRange_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, byte, byte*>)load(context, "igImStrchrRange");
+			ImStrlenW_ptr = (delegate* unmanaged[Cdecl]<char*, int>)load(context, "igImStrlenW");
+			ImStreolRange_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, byte*>)load(context, "igImStreolRange");
+			ImStrbolW_ptr = (delegate* unmanaged[Cdecl]<char*, char*, char*>)load(context, "igImStrbolW");
+			ImStristr_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, byte*, byte*, byte*>)load(context, "igImStristr");
+			ImStrTrimBlanks_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igImStrTrimBlanks");
+			ImStrSkipBlank_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*>)load(context, "igImStrSkipBlank");
+			ImFormatString_ptr = (delegate* unmanaged[Cdecl]<byte*, IntPtr, byte*, int>)load(context, "igImFormatString");
+			ImParseFormatFindStart_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*>)load(context, "igImParseFormatFindStart");
+			ImParseFormatFindEnd_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*>)load(context, "igImParseFormatFindEnd");
+			ImParseFormatTrimDecorations_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, IntPtr, byte*>)load(context, "igImParseFormatTrimDecorations");
+			ImParseFormatPrecision_ptr = (delegate* unmanaged[Cdecl]<byte*, int, int>)load(context, "igImParseFormatPrecision");
+			ImCharIsBlankA_ptr = (delegate* unmanaged[Cdecl]<byte, bool>)load(context, "igImCharIsBlankA");
+			ImCharIsBlankW_ptr = (delegate* unmanaged[Cdecl]<uint, bool>)load(context, "igImCharIsBlankW");
+			ImTextStrToUtf8_ptr = (delegate* unmanaged[Cdecl]<byte*, int, char*, char*, int>)load(context, "igImTextStrToUtf8");
+			ImTextCharFromUtf8_ptr = (delegate* unmanaged[Cdecl]<uint*, byte*, byte*, int>)load(context, "igImTextCharFromUtf8");
+			ImTextStrFromUtf8_ptr = (delegate* unmanaged[Cdecl]<char*, int, byte*, byte*, byte**, int>)load(context, "igImTextStrFromUtf8");
+			ImTextCountCharsFromUtf8_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, int>)load(context, "igImTextCountCharsFromUtf8");
+			ImTextCountUtf8BytesFromChar_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, int>)load(context, "igImTextCountUtf8BytesFromChar");
+			ImTextCountUtf8BytesFromStr_ptr = (delegate* unmanaged[Cdecl]<char*, char*, int>)load(context, "igImTextCountUtf8BytesFromStr");
+			ImFileOpen_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, ImFileHandle>)load(context, "igImFileOpen");
+			ImFileClose_ptr = (delegate* unmanaged[Cdecl]<ImFileHandle, bool>)load(context, "igImFileClose");
+			ImFileGetSize_ptr = (delegate* unmanaged[Cdecl]<ImFileHandle, ulong>)load(context, "igImFileGetSize");
+			ImFileRead_ptr = (delegate* unmanaged[Cdecl]<IntPtr, ulong, ulong, ImFileHandle, ulong>)load(context, "igImFileRead");
+			ImFileWrite_ptr = (delegate* unmanaged[Cdecl]<IntPtr, ulong, ulong, ImFileHandle, ulong>)load(context, "igImFileWrite");
+			ImFileLoadToMemory_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, IntPtr*, int, IntPtr>)load(context, "igImFileLoadToMemory");
+			ImPowFloat_ptr = (delegate* unmanaged[Cdecl]<float, float, float>)load(context, "igImPowFloat");
+			ImPowdouble_ptr = (delegate* unmanaged[Cdecl]<double, double, double>)load(context, "igImPowdouble");
+			ImLogFloat_ptr = (delegate* unmanaged[Cdecl]<float, float>)load(context, "igImLogFloat");
+			ImLogdouble_ptr = (delegate* unmanaged[Cdecl]<double, double>)load(context, "igImLogdouble");
+			ImAbsFloat_ptr = (delegate* unmanaged[Cdecl]<float, float>)load(context, "igImAbsFloat");
+			ImAbsdouble_ptr = (delegate* unmanaged[Cdecl]<double, double>)load(context, "igImAbsdouble");
+			ImSignFloat_ptr = (delegate* unmanaged[Cdecl]<float, float>)load(context, "igImSignFloat");
+			ImSigndouble_ptr = (delegate* unmanaged[Cdecl]<double, double>)load(context, "igImSigndouble");
+			ImMin_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, void>)load(context, "igImMin");
+			ImMax_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, void>)load(context, "igImMax");
+			ImClamp_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, void>)load(context, "igImClamp");
+			ImLerpVec2Float_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, float, void>)load(context, "igImLerpVec2Float");
+			ImLerpVec2Vec2_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, void>)load(context, "igImLerpVec2Vec2");
+			ImLerpVec4_ptr = (delegate* unmanaged[Cdecl]<ImVec4*, ImVec4, ImVec4, float, void>)load(context, "igImLerpVec4");
+			ImSaturate_ptr = (delegate* unmanaged[Cdecl]<float, float>)load(context, "igImSaturate");
+			ImLengthSqrVec2_ptr = (delegate* unmanaged[Cdecl]<ImVec2, float>)load(context, "igImLengthSqrVec2");
+			ImLengthSqrVec4_ptr = (delegate* unmanaged[Cdecl]<ImVec4, float>)load(context, "igImLengthSqrVec4");
+			ImInvLength_ptr = (delegate* unmanaged[Cdecl]<ImVec2, float, float>)load(context, "igImInvLength");
+			ImFloorFloat_ptr = (delegate* unmanaged[Cdecl]<float, float>)load(context, "igImFloorFloat");
+			ImFloorVec2_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, void>)load(context, "igImFloorVec2");
+			ImModPositive_ptr = (delegate* unmanaged[Cdecl]<int, int, int>)load(context, "igImModPositive");
+			ImDot_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, float>)load(context, "igImDot");
+			ImRotate_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, float, float, void>)load(context, "igImRotate");
+			ImLinearSweep_ptr = (delegate* unmanaged[Cdecl]<float, float, float, float>)load(context, "igImLinearSweep");
+			ImMul_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, void>)load(context, "igImMul");
+			ImBezierCubicCalc_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, float, void>)load(context, "igImBezierCubicCalc");
+			ImBezierCubicClosestPoint_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, int, void>)load(context, "igImBezierCubicClosestPoint");
+			ImBezierCubicClosestPointCasteljau_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, float, void>)load(context, "igImBezierCubicClosestPointCasteljau");
+			ImBezierQuadraticCalc_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, float, void>)load(context, "igImBezierQuadraticCalc");
+			ImLineClosestPoint_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, void>)load(context, "igImLineClosestPoint");
+			ImTriangleContainsPoint_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImVec2, ImVec2, bool>)load(context, "igImTriangleContainsPoint");
+			ImTriangleClosestPoint_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, void>)load(context, "igImTriangleClosestPoint");
+			ImTriangleBarycentricCoords_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImVec2, ImVec2, float*, float*, float*, void>)load(context, "igImTriangleBarycentricCoords");
+			ImTriangleArea_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImVec2, float>)load(context, "igImTriangleArea");
+			ImGetDirQuadrantFromDelta_ptr = (delegate* unmanaged[Cdecl]<float, float, ImGuiDir>)load(context, "igImGetDirQuadrantFromDelta");
+			ImRect_ImRectNil_ptr = (delegate* unmanaged[Cdecl]<ImRect*>)load(context, "ImRect_ImRectNil");
+			ImRect_destroy_ptr = (delegate* unmanaged[Cdecl]<ImRect*, void>)load(context, "ImRect_destroy");
+			ImRect_ImRectVec2_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImRect*>)load(context, "ImRect_ImRectVec2");
+			ImRect_ImRectVec4_ptr = (delegate* unmanaged[Cdecl]<ImVec4, ImRect*>)load(context, "ImRect_ImRectVec4");
+			ImRect_ImRectFloat_ptr = (delegate* unmanaged[Cdecl]<float, float, float, float, ImRect*>)load(context, "ImRect_ImRectFloat");
+			ImRect_GetCenter_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetCenter");
+			ImRect_GetSize_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetSize");
+			ImRect_GetWidth_ptr = (delegate* unmanaged[Cdecl]<ImRect*, float>)load(context, "ImRect_GetWidth");
+			ImRect_GetHeight_ptr = (delegate* unmanaged[Cdecl]<ImRect*, float>)load(context, "ImRect_GetHeight");
+			ImRect_GetArea_ptr = (delegate* unmanaged[Cdecl]<ImRect*, float>)load(context, "ImRect_GetArea");
+			ImRect_GetTL_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetTL");
+			ImRect_GetTR_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetTR");
+			ImRect_GetBL_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetBL");
+			ImRect_GetBR_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetBR");
+			ImRect_ContainsVec2_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImVec2, bool>)load(context, "ImRect_ContainsVec2");
+			ImRect_ContainsRect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImRect, bool>)load(context, "ImRect_ContainsRect");
+			ImRect_Overlaps_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImRect, bool>)load(context, "ImRect_Overlaps");
+			ImRect_AddVec2_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImVec2, void>)load(context, "ImRect_AddVec2");
+			ImRect_AddRect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImRect, void>)load(context, "ImRect_AddRect");
+			ImRect_ExpandFloat_ptr = (delegate* unmanaged[Cdecl]<ImRect*, float, void>)load(context, "ImRect_ExpandFloat");
+			ImRect_ExpandVec2_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImVec2, void>)load(context, "ImRect_ExpandVec2");
+			ImRect_Translate_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImVec2, void>)load(context, "ImRect_Translate");
+			ImRect_TranslateX_ptr = (delegate* unmanaged[Cdecl]<ImRect*, float, void>)load(context, "ImRect_TranslateX");
+			ImRect_TranslateY_ptr = (delegate* unmanaged[Cdecl]<ImRect*, float, void>)load(context, "ImRect_TranslateY");
+			ImRect_ClipWith_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImRect, void>)load(context, "ImRect_ClipWith");
+			ImRect_ClipWithFull_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImRect, void>)load(context, "ImRect_ClipWithFull");
+			ImRect_Floor_ptr = (delegate* unmanaged[Cdecl]<ImRect*, void>)load(context, "ImRect_Floor");
+			ImRect_IsInverted_ptr = (delegate* unmanaged[Cdecl]<ImRect*, bool>)load(context, "ImRect_IsInverted");
+			ImRect_ToVec4_ptr = (delegate* unmanaged[Cdecl]<ImVec4*, ImRect*, void>)load(context, "ImRect_ToVec4");
+			ImBitArrayTestBit_ptr = (delegate* unmanaged[Cdecl]<uint*, int, bool>)load(context, "igImBitArrayTestBit");
+			ImBitArrayClearBit_ptr = (delegate* unmanaged[Cdecl]<uint*, int, void>)load(context, "igImBitArrayClearBit");
+			ImBitArraySetBit_ptr = (delegate* unmanaged[Cdecl]<uint*, int, void>)load(context, "igImBitArraySetBit");
+			ImBitArraySetBitRange_ptr = (delegate* unmanaged[Cdecl]<uint*, int, int, void>)load(context, "igImBitArraySetBitRange");
+			ImBitVector_Create_ptr = (delegate* unmanaged[Cdecl]<ImBitVector*, int, void>)load(context, "ImBitVector_Create");
+			ImBitVector_Clear_ptr = (delegate* unmanaged[Cdecl]<ImBitVector*, void>)load(context, "ImBitVector_Clear");
+			ImBitVector_TestBit_ptr = (delegate* unmanaged[Cdecl]<ImBitVector*, int, bool>)load(context, "ImBitVector_TestBit");
+			ImBitVector_SetBit_ptr = (delegate* unmanaged[Cdecl]<ImBitVector*, int, void>)load(context, "ImBitVector_SetBit");
+			ImBitVector_ClearBit_ptr = (delegate* unmanaged[Cdecl]<ImBitVector*, int, void>)load(context, "ImBitVector_ClearBit");
+			ImDrawListSharedData_ImDrawListSharedData_ptr = (delegate* unmanaged[Cdecl]<ImDrawListSharedData*>)load(context, "ImDrawListSharedData_ImDrawListSharedData");
+			ImDrawListSharedData_destroy_ptr = (delegate* unmanaged[Cdecl]<ImDrawListSharedData*, void>)load(context, "ImDrawListSharedData_destroy");
+			ImDrawListSharedData_SetCircleTessellationMaxError_ptr = (delegate* unmanaged[Cdecl]<ImDrawListSharedData*, float, void>)load(context, "ImDrawListSharedData_SetCircleTessellationMaxError");
+			ImDrawDataBuilder_Clear_ptr = (delegate* unmanaged[Cdecl]<ImDrawDataBuilder*, void>)load(context, "ImDrawDataBuilder_Clear");
+			ImDrawDataBuilder_ClearFreeMemory_ptr = (delegate* unmanaged[Cdecl]<ImDrawDataBuilder*, void>)load(context, "ImDrawDataBuilder_ClearFreeMemory");
+			ImDrawDataBuilder_GetDrawListCount_ptr = (delegate* unmanaged[Cdecl]<ImDrawDataBuilder*, int>)load(context, "ImDrawDataBuilder_GetDrawListCount");
+			ImDrawDataBuilder_FlattenIntoSingleLayer_ptr = (delegate* unmanaged[Cdecl]<ImDrawDataBuilder*, void>)load(context, "ImDrawDataBuilder_FlattenIntoSingleLayer");
+			ImGuiStyleMod_ImGuiStyleModInt_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyleVar, int, ImGuiStyleMod*>)load(context, "ImGuiStyleMod_ImGuiStyleModInt");
+			ImGuiStyleMod_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyleMod*, void>)load(context, "ImGuiStyleMod_destroy");
+			ImGuiStyleMod_ImGuiStyleModFloat_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyleVar, float, ImGuiStyleMod*>)load(context, "ImGuiStyleMod_ImGuiStyleModFloat");
+			ImGuiStyleMod_ImGuiStyleModVec2_ptr = (delegate* unmanaged[Cdecl]<ImGuiStyleVar, ImVec2, ImGuiStyleMod*>)load(context, "ImGuiStyleMod_ImGuiStyleModVec2");
+			ImGuiMenuColumns_ImGuiMenuColumns_ptr = (delegate* unmanaged[Cdecl]<ImGuiMenuColumns*>)load(context, "ImGuiMenuColumns_ImGuiMenuColumns");
+			ImGuiMenuColumns_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiMenuColumns*, void>)load(context, "ImGuiMenuColumns_destroy");
+			ImGuiMenuColumns_Update_ptr = (delegate* unmanaged[Cdecl]<ImGuiMenuColumns*, int, float, bool, void>)load(context, "ImGuiMenuColumns_Update");
+			ImGuiMenuColumns_DeclColumns_ptr = (delegate* unmanaged[Cdecl]<ImGuiMenuColumns*, float, float, float, float>)load(context, "ImGuiMenuColumns_DeclColumns");
+			ImGuiMenuColumns_CalcExtraSpace_ptr = (delegate* unmanaged[Cdecl]<ImGuiMenuColumns*, float, float>)load(context, "ImGuiMenuColumns_CalcExtraSpace");
+			ImGuiInputTextState_ImGuiInputTextState_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextState*>)load(context, "ImGuiInputTextState_ImGuiInputTextState");
+			ImGuiInputTextState_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_destroy");
+			ImGuiInputTextState_ClearText_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_ClearText");
+			ImGuiInputTextState_ClearFreeMemory_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_ClearFreeMemory");
+			ImGuiInputTextState_GetUndoAvailCount_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextState*, int>)load(context, "ImGuiInputTextState_GetUndoAvailCount");
+			ImGuiInputTextState_GetRedoAvailCount_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextState*, int>)load(context, "ImGuiInputTextState_GetRedoAvailCount");
+			ImGuiInputTextState_OnKeyPressed_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextState*, int, void>)load(context, "ImGuiInputTextState_OnKeyPressed");
+			ImGuiInputTextState_CursorAnimReset_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_CursorAnimReset");
+			ImGuiInputTextState_CursorClamp_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_CursorClamp");
+			ImGuiInputTextState_HasSelection_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextState*, bool>)load(context, "ImGuiInputTextState_HasSelection");
+			ImGuiInputTextState_ClearSelection_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_ClearSelection");
+			ImGuiInputTextState_SelectAll_ptr = (delegate* unmanaged[Cdecl]<ImGuiInputTextState*, void>)load(context, "ImGuiInputTextState_SelectAll");
+			ImGuiPopupData_ImGuiPopupData_ptr = (delegate* unmanaged[Cdecl]<ImGuiPopupData*>)load(context, "ImGuiPopupData_ImGuiPopupData");
+			ImGuiPopupData_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiPopupData*, void>)load(context, "ImGuiPopupData_destroy");
+			ImGuiNavMoveResult_ImGuiNavMoveResult_ptr = (delegate* unmanaged[Cdecl]<ImGuiNavMoveResult*>)load(context, "ImGuiNavMoveResult_ImGuiNavMoveResult");
+			ImGuiNavMoveResult_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiNavMoveResult*, void>)load(context, "ImGuiNavMoveResult_destroy");
+			ImGuiNavMoveResult_Clear_ptr = (delegate* unmanaged[Cdecl]<ImGuiNavMoveResult*, void>)load(context, "ImGuiNavMoveResult_Clear");
+			ImGuiNextWindowData_ImGuiNextWindowData_ptr = (delegate* unmanaged[Cdecl]<ImGuiNextWindowData*>)load(context, "ImGuiNextWindowData_ImGuiNextWindowData");
+			ImGuiNextWindowData_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiNextWindowData*, void>)load(context, "ImGuiNextWindowData_destroy");
+			ImGuiNextWindowData_ClearFlags_ptr = (delegate* unmanaged[Cdecl]<ImGuiNextWindowData*, void>)load(context, "ImGuiNextWindowData_ClearFlags");
+			ImGuiNextItemData_ImGuiNextItemData_ptr = (delegate* unmanaged[Cdecl]<ImGuiNextItemData*>)load(context, "ImGuiNextItemData_ImGuiNextItemData");
+			ImGuiNextItemData_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiNextItemData*, void>)load(context, "ImGuiNextItemData_destroy");
+			ImGuiNextItemData_ClearFlags_ptr = (delegate* unmanaged[Cdecl]<ImGuiNextItemData*, void>)load(context, "ImGuiNextItemData_ClearFlags");
+			ImGuiPtrOrIndex_ImGuiPtrOrIndexPtr_ptr = (delegate* unmanaged[Cdecl]<IntPtr, ImGuiPtrOrIndex*>)load(context, "ImGuiPtrOrIndex_ImGuiPtrOrIndexPtr");
+			ImGuiPtrOrIndex_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiPtrOrIndex*, void>)load(context, "ImGuiPtrOrIndex_destroy");
+			ImGuiPtrOrIndex_ImGuiPtrOrIndexInt_ptr = (delegate* unmanaged[Cdecl]<int, ImGuiPtrOrIndex*>)load(context, "ImGuiPtrOrIndex_ImGuiPtrOrIndexInt");
+			ImGuiOldColumnData_ImGuiOldColumnData_ptr = (delegate* unmanaged[Cdecl]<ImGuiOldColumnData*>)load(context, "ImGuiOldColumnData_ImGuiOldColumnData");
+			ImGuiOldColumnData_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiOldColumnData*, void>)load(context, "ImGuiOldColumnData_destroy");
+			ImGuiOldColumns_ImGuiOldColumns_ptr = (delegate* unmanaged[Cdecl]<ImGuiOldColumns*>)load(context, "ImGuiOldColumns_ImGuiOldColumns");
+			ImGuiOldColumns_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiOldColumns*, void>)load(context, "ImGuiOldColumns_destroy");
+			ImGuiDockNode_ImGuiDockNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiDockNode*>)load(context, "ImGuiDockNode_ImGuiDockNode");
+			ImGuiDockNode_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, void>)load(context, "ImGuiDockNode_destroy");
+			ImGuiDockNode_IsRootNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsRootNode");
+			ImGuiDockNode_IsDockSpace_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsDockSpace");
+			ImGuiDockNode_IsFloatingNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsFloatingNode");
+			ImGuiDockNode_IsCentralNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsCentralNode");
+			ImGuiDockNode_IsHiddenTabBar_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsHiddenTabBar");
+			ImGuiDockNode_IsNoTabBar_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsNoTabBar");
+			ImGuiDockNode_IsSplitNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsSplitNode");
+			ImGuiDockNode_IsLeafNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsLeafNode");
+			ImGuiDockNode_IsEmpty_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool>)load(context, "ImGuiDockNode_IsEmpty");
+			ImGuiDockNode_GetMergedFlags_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, ImGuiDockNodeFlags>)load(context, "ImGuiDockNode_GetMergedFlags");
+			ImGuiDockNode_Rect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImGuiDockNode*, void>)load(context, "ImGuiDockNode_Rect");
+			ImGuiDockContext_ImGuiDockContext_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockContext*>)load(context, "ImGuiDockContext_ImGuiDockContext");
+			ImGuiDockContext_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockContext*, void>)load(context, "ImGuiDockContext_destroy");
+			ImGuiViewportP_ImGuiViewportP_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewportP*>)load(context, "ImGuiViewportP_ImGuiViewportP");
+			ImGuiViewportP_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewportP*, void>)load(context, "ImGuiViewportP_destroy");
+			ImGuiViewportP_GetMainRect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImGuiViewportP*, void>)load(context, "ImGuiViewportP_GetMainRect");
+			ImGuiViewportP_GetWorkRect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImGuiViewportP*, void>)load(context, "ImGuiViewportP_GetWorkRect");
+			ImGuiViewportP_UpdateWorkRect_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewportP*, void>)load(context, "ImGuiViewportP_UpdateWorkRect");
+			ImGuiViewportP_ClearRequestFlags_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewportP*, void>)load(context, "ImGuiViewportP_ClearRequestFlags");
+			ImGuiWindowSettings_ImGuiWindowSettings_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindowSettings*>)load(context, "ImGuiWindowSettings_ImGuiWindowSettings");
+			ImGuiWindowSettings_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindowSettings*, void>)load(context, "ImGuiWindowSettings_destroy");
+			ImGuiWindowSettings_GetName_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindowSettings*, byte*>)load(context, "ImGuiWindowSettings_GetName");
+			ImGuiSettingsHandler_ImGuiSettingsHandler_ptr = (delegate* unmanaged[Cdecl]<ImGuiSettingsHandler*>)load(context, "ImGuiSettingsHandler_ImGuiSettingsHandler");
+			ImGuiSettingsHandler_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiSettingsHandler*, void>)load(context, "ImGuiSettingsHandler_destroy");
+			ImGuiMetricsConfig_ImGuiMetricsConfig_ptr = (delegate* unmanaged[Cdecl]<ImGuiMetricsConfig*>)load(context, "ImGuiMetricsConfig_ImGuiMetricsConfig");
+			ImGuiMetricsConfig_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiMetricsConfig*, void>)load(context, "ImGuiMetricsConfig_destroy");
+			ImGuiStackSizes_ImGuiStackSizes_ptr = (delegate* unmanaged[Cdecl]<ImGuiStackSizes*>)load(context, "ImGuiStackSizes_ImGuiStackSizes");
+			ImGuiStackSizes_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiStackSizes*, void>)load(context, "ImGuiStackSizes_destroy");
+			ImGuiStackSizes_SetToCurrentState_ptr = (delegate* unmanaged[Cdecl]<ImGuiStackSizes*, void>)load(context, "ImGuiStackSizes_SetToCurrentState");
+			ImGuiStackSizes_CompareWithCurrentState_ptr = (delegate* unmanaged[Cdecl]<ImGuiStackSizes*, void>)load(context, "ImGuiStackSizes_CompareWithCurrentState");
+			ImGuiContextHook_ImGuiContextHook_ptr = (delegate* unmanaged[Cdecl]<ImGuiContextHook*>)load(context, "ImGuiContextHook_ImGuiContextHook");
+			ImGuiContextHook_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiContextHook*, void>)load(context, "ImGuiContextHook_destroy");
+			ImGuiContext_ImGuiContext_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, ImGuiContext*>)load(context, "ImGuiContext_ImGuiContext");
+			ImGuiContext_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, void>)load(context, "ImGuiContext_destroy");
+			ImGuiWindow_ImGuiWindow_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, byte*, ImGuiWindow*>)load(context, "ImGuiWindow_ImGuiWindow");
+			ImGuiWindow_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, void>)load(context, "ImGuiWindow_destroy");
+			ImGuiWindow_GetIDStr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, byte*, byte*, ImGuiID>)load(context, "ImGuiWindow_GetIDStr");
+			ImGuiWindow_GetIDPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, IntPtr, ImGuiID>)load(context, "ImGuiWindow_GetIDPtr");
+			ImGuiWindow_GetIDInt_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, int, ImGuiID>)load(context, "ImGuiWindow_GetIDInt");
+			ImGuiWindow_GetIDNoKeepAliveStr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, byte*, byte*, ImGuiID>)load(context, "ImGuiWindow_GetIDNoKeepAliveStr");
+			ImGuiWindow_GetIDNoKeepAlivePtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, IntPtr, ImGuiID>)load(context, "ImGuiWindow_GetIDNoKeepAlivePtr");
+			ImGuiWindow_GetIDNoKeepAliveInt_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, int, ImGuiID>)load(context, "ImGuiWindow_GetIDNoKeepAliveInt");
+			ImGuiWindow_GetIDFromRectangle_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImRect, ImGuiID>)load(context, "ImGuiWindow_GetIDFromRectangle");
+			ImGuiWindow_Rect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void>)load(context, "ImGuiWindow_Rect");
+			ImGuiWindow_CalcFontSize_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, float>)load(context, "ImGuiWindow_CalcFontSize");
+			ImGuiWindow_TitleBarHeight_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, float>)load(context, "ImGuiWindow_TitleBarHeight");
+			ImGuiWindow_TitleBarRect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void>)load(context, "ImGuiWindow_TitleBarRect");
+			ImGuiWindow_MenuBarHeight_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, float>)load(context, "ImGuiWindow_MenuBarHeight");
+			ImGuiWindow_MenuBarRect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void>)load(context, "ImGuiWindow_MenuBarRect");
+			ImGuiLastItemDataBackup_ImGuiLastItemDataBackup_ptr = (delegate* unmanaged[Cdecl]<ImGuiLastItemDataBackup*>)load(context, "ImGuiLastItemDataBackup_ImGuiLastItemDataBackup");
+			ImGuiLastItemDataBackup_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiLastItemDataBackup*, void>)load(context, "ImGuiLastItemDataBackup_destroy");
+			ImGuiLastItemDataBackup_Backup_ptr = (delegate* unmanaged[Cdecl]<ImGuiLastItemDataBackup*, void>)load(context, "ImGuiLastItemDataBackup_Backup");
+			ImGuiLastItemDataBackup_Restore_ptr = (delegate* unmanaged[Cdecl]<ImGuiLastItemDataBackup*, void>)load(context, "ImGuiLastItemDataBackup_Restore");
+			ImGuiTabItem_ImGuiTabItem_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabItem*>)load(context, "ImGuiTabItem_ImGuiTabItem");
+			ImGuiTabItem_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabItem*, void>)load(context, "ImGuiTabItem_destroy");
+			ImGuiTabBar_ImGuiTabBar_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*>)load(context, "ImGuiTabBar_ImGuiTabBar");
+			ImGuiTabBar_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, void>)load(context, "ImGuiTabBar_destroy");
+			ImGuiTabBar_GetTabOrder_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItem*, int>)load(context, "ImGuiTabBar_GetTabOrder");
+			ImGuiTabBar_GetTabName_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItem*, byte*>)load(context, "ImGuiTabBar_GetTabName");
+			ImGuiTableColumn_ImGuiTableColumn_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableColumn*>)load(context, "ImGuiTableColumn_ImGuiTableColumn");
+			ImGuiTableColumn_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableColumn*, void>)load(context, "ImGuiTableColumn_destroy");
+			ImGuiTable_ImGuiTable_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*>)load(context, "ImGuiTable_ImGuiTable");
+			ImGuiTable_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "ImGuiTable_destroy");
+			ImGuiTableColumnSettings_ImGuiTableColumnSettings_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableColumnSettings*>)load(context, "ImGuiTableColumnSettings_ImGuiTableColumnSettings");
+			ImGuiTableColumnSettings_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableColumnSettings*, void>)load(context, "ImGuiTableColumnSettings_destroy");
+			ImGuiTableSettings_ImGuiTableSettings_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableSettings*>)load(context, "ImGuiTableSettings_ImGuiTableSettings");
+			ImGuiTableSettings_destroy_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableSettings*, void>)load(context, "ImGuiTableSettings_destroy");
+			ImGuiTableSettings_GetColumnSettings_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableSettings*, ImGuiTableColumnSettings*>)load(context, "ImGuiTableSettings_GetColumnSettings");
+			GetCurrentWindowRead_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*>)load(context, "igGetCurrentWindowRead");
+			GetCurrentWindow_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*>)load(context, "igGetCurrentWindow");
+			FindWindowByID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindow*>)load(context, "igFindWindowByID");
+			FindWindowByName_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiWindow*>)load(context, "igFindWindowByName");
+			UpdateWindowParentAndRootLinks_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindowFlags, ImGuiWindow*, void>)load(context, "igUpdateWindowParentAndRootLinks");
+			CalcWindowNextAutoFitSize_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImGuiWindow*, void>)load(context, "igCalcWindowNextAutoFitSize");
+			IsWindowChildOf_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindow*, bool>)load(context, "igIsWindowChildOf");
+			IsWindowAbove_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindow*, bool>)load(context, "igIsWindowAbove");
+			IsWindowNavFocusable_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, bool>)load(context, "igIsWindowNavFocusable");
+			GetWindowAllowedExtentRect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void>)load(context, "igGetWindowAllowedExtentRect");
+			SetWindowPosWindowPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImVec2, ImGuiCond, void>)load(context, "igSetWindowPosWindowPtr");
+			SetWindowSizeWindowPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImVec2, ImGuiCond, void>)load(context, "igSetWindowSizeWindowPtr");
+			SetWindowCollapsedWindowPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, bool, ImGuiCond, void>)load(context, "igSetWindowCollapsedWindowPtr");
+			SetWindowHitTestHole_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImVec2, ImVec2, void>)load(context, "igSetWindowHitTestHole");
+			FocusWindow_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, void>)load(context, "igFocusWindow");
+			FocusTopMostWindowUnderOne_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindow*, void>)load(context, "igFocusTopMostWindowUnderOne");
+			BringWindowToFocusFront_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, void>)load(context, "igBringWindowToFocusFront");
+			BringWindowToDisplayFront_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, void>)load(context, "igBringWindowToDisplayFront");
+			BringWindowToDisplayBack_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, void>)load(context, "igBringWindowToDisplayBack");
+			SetCurrentFont_ptr = (delegate* unmanaged[Cdecl]<ImFont*, void>)load(context, "igSetCurrentFont");
+			GetDefaultFont_ptr = (delegate* unmanaged[Cdecl]<ImFont*>)load(context, "igGetDefaultFont");
+			GetForegroundDrawListWindowPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImDrawList*>)load(context, "igGetForegroundDrawListWindowPtr");
+			Initialize_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, void>)load(context, "igInitialize");
+			Shutdown_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, void>)load(context, "igShutdown");
+			UpdateHoveredWindowAndCaptureFlags_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igUpdateHoveredWindowAndCaptureFlags");
+			StartMouseMovingWindow_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, void>)load(context, "igStartMouseMovingWindow");
+			StartMouseMovingWindowOrNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiDockNode*, bool, void>)load(context, "igStartMouseMovingWindowOrNode");
+			UpdateMouseMovingWindowNewFrame_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igUpdateMouseMovingWindowNewFrame");
+			UpdateMouseMovingWindowEndFrame_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igUpdateMouseMovingWindowEndFrame");
+			AddContextHook_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiContextHook*, ImGuiID>)load(context, "igAddContextHook");
+			RemoveContextHook_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiID, void>)load(context, "igRemoveContextHook");
+			CallContextHooks_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiContextHookType, void>)load(context, "igCallContextHooks");
+			TranslateWindowsInViewport_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewportP*, ImVec2, ImVec2, void>)load(context, "igTranslateWindowsInViewport");
+			ScaleWindowsInViewport_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewportP*, float, void>)load(context, "igScaleWindowsInViewport");
+			DestroyPlatformWindow_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewportP*, void>)load(context, "igDestroyPlatformWindow");
+			GetViewportPlatformMonitor_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewport*, ImGuiPlatformMonitor*>)load(context, "igGetViewportPlatformMonitor");
+			MarkIniSettingsDirtyNil_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igMarkIniSettingsDirtyNil");
+			MarkIniSettingsDirtyWindowPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, void>)load(context, "igMarkIniSettingsDirtyWindowPtr");
+			ClearIniSettings_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igClearIniSettings");
+			CreateNewWindowSettings_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiWindowSettings*>)load(context, "igCreateNewWindowSettings");
+			FindWindowSettings_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindowSettings*>)load(context, "igFindWindowSettings");
+			FindOrCreateWindowSettings_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiWindowSettings*>)load(context, "igFindOrCreateWindowSettings");
+			FindSettingsHandler_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiSettingsHandler*>)load(context, "igFindSettingsHandler");
+			SetNextWindowScroll_ptr = (delegate* unmanaged[Cdecl]<ImVec2, void>)load(context, "igSetNextWindowScroll");
+			SetScrollXWindowPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, float, void>)load(context, "igSetScrollXWindowPtr");
+			SetScrollYWindowPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, float, void>)load(context, "igSetScrollYWindowPtr");
+			SetScrollFromPosXWindowPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, float, float, void>)load(context, "igSetScrollFromPosXWindowPtr");
+			SetScrollFromPosYWindowPtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, float, float, void>)load(context, "igSetScrollFromPosYWindowPtr");
+			ScrollToBringRectIntoView_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImGuiWindow*, ImRect, void>)load(context, "igScrollToBringRectIntoView");
+			GetItemID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID>)load(context, "igGetItemID");
+			GetItemStatusFlags_ptr = (delegate* unmanaged[Cdecl]<ImGuiItemStatusFlags>)load(context, "igGetItemStatusFlags");
+			GetActiveID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID>)load(context, "igGetActiveID");
+			GetFocusID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID>)load(context, "igGetFocusID");
+			GetItemsFlags_ptr = (delegate* unmanaged[Cdecl]<ImGuiItemFlags>)load(context, "igGetItemsFlags");
+			SetActiveID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindow*, void>)load(context, "igSetActiveID");
+			SetFocusID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindow*, void>)load(context, "igSetFocusID");
+			ClearActiveID_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igClearActiveID");
+			GetHoveredID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID>)load(context, "igGetHoveredID");
+			SetHoveredID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, void>)load(context, "igSetHoveredID");
+			KeepAliveID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, void>)load(context, "igKeepAliveID");
+			MarkItemEdited_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, void>)load(context, "igMarkItemEdited");
+			PushOverrideID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, void>)load(context, "igPushOverrideID");
+			GetIDWithSeed_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, ImGuiID, ImGuiID>)load(context, "igGetIDWithSeed");
+			ItemSizeVec2_ptr = (delegate* unmanaged[Cdecl]<ImVec2, float, void>)load(context, "igItemSizeVec2");
+			ItemSizeRect_ptr = (delegate* unmanaged[Cdecl]<ImRect, float, void>)load(context, "igItemSizeRect");
+			ItemAdd_ptr = (delegate* unmanaged[Cdecl]<ImRect, ImGuiID, ImRect*, bool>)load(context, "igItemAdd");
+			ItemHoverable_ptr = (delegate* unmanaged[Cdecl]<ImRect, ImGuiID, bool>)load(context, "igItemHoverable");
+			IsClippedEx_ptr = (delegate* unmanaged[Cdecl]<ImRect, ImGuiID, bool, bool>)load(context, "igIsClippedEx");
+			SetLastItemData_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiID, ImGuiItemStatusFlags, ImRect, void>)load(context, "igSetLastItemData");
+			FocusableItemRegister_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiID, bool>)load(context, "igFocusableItemRegister");
+			FocusableItemUnregister_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, void>)load(context, "igFocusableItemUnregister");
+			CalcItemSize_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, float, float, void>)load(context, "igCalcItemSize");
+			CalcWrapWidthForPos_ptr = (delegate* unmanaged[Cdecl]<ImVec2, float, float>)load(context, "igCalcWrapWidthForPos");
+			PushMultiItemsWidths_ptr = (delegate* unmanaged[Cdecl]<int, float, void>)load(context, "igPushMultiItemsWidths");
+			PushItemFlag_ptr = (delegate* unmanaged[Cdecl]<ImGuiItemFlags, bool, void>)load(context, "igPushItemFlag");
+			PopItemFlag_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igPopItemFlag");
+			IsItemToggledSelection_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsItemToggledSelection");
+			GetContentRegionMaxAbs_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, void>)load(context, "igGetContentRegionMaxAbs");
+			ShrinkWidths_ptr = (delegate* unmanaged[Cdecl]<ImGuiShrinkWidthItem*, int, float, void>)load(context, "igShrinkWidths");
+			LogBegin_ptr = (delegate* unmanaged[Cdecl]<ImGuiLogType, int, void>)load(context, "igLogBegin");
+			LogToBuffer_ptr = (delegate* unmanaged[Cdecl]<int, void>)load(context, "igLogToBuffer");
+			LogRenderedText_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, byte*, byte*, void>)load(context, "igLogRenderedText");
+			LogSetNextTextDecoration_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, void>)load(context, "igLogSetNextTextDecoration");
+			BeginChildEx_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiID, ImVec2, bool, ImGuiWindowFlags, bool>)load(context, "igBeginChildEx");
+			OpenPopupEx_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiPopupFlags, void>)load(context, "igOpenPopupEx");
+			ClosePopupToLevel_ptr = (delegate* unmanaged[Cdecl]<int, bool, void>)load(context, "igClosePopupToLevel");
+			ClosePopupsOverWindow_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, bool, void>)load(context, "igClosePopupsOverWindow");
+			IsPopupOpenID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiPopupFlags, bool>)load(context, "igIsPopupOpenID");
+			BeginPopupEx_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindowFlags, bool>)load(context, "igBeginPopupEx");
+			BeginTooltipEx_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindowFlags, ImGuiTooltipFlags, void>)load(context, "igBeginTooltipEx");
+			GetTopMostPopupModal_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*>)load(context, "igGetTopMostPopupModal");
+			FindBestWindowPosForPopup_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImGuiWindow*, void>)load(context, "igFindBestWindowPosForPopup");
+			FindBestWindowPosForPopupEx_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImGuiDir*, ImRect, ImRect, ImGuiPopupPositionPolicy, void>)load(context, "igFindBestWindowPosForPopupEx");
+			NavInitWindow_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, bool, void>)load(context, "igNavInitWindow");
+			NavMoveRequestButNoResultYet_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igNavMoveRequestButNoResultYet");
+			NavMoveRequestCancel_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igNavMoveRequestCancel");
+			NavMoveRequestForward_ptr = (delegate* unmanaged[Cdecl]<ImGuiDir, ImGuiDir, ImRect, ImGuiNavMoveFlags, void>)load(context, "igNavMoveRequestForward");
+			NavMoveRequestTryWrapping_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiNavMoveFlags, void>)load(context, "igNavMoveRequestTryWrapping");
+			GetNavInputAmount_ptr = (delegate* unmanaged[Cdecl]<ImGuiNavInput, ImGuiInputReadMode, float>)load(context, "igGetNavInputAmount");
+			GetNavInputAmount2d_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImGuiNavDirSourceFlags, ImGuiInputReadMode, float, float, void>)load(context, "igGetNavInputAmount2d");
+			CalcTypematicRepeatAmount_ptr = (delegate* unmanaged[Cdecl]<float, float, float, float, int>)load(context, "igCalcTypematicRepeatAmount");
+			ActivateItem_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, void>)load(context, "igActivateItem");
+			SetNavID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, int, ImGuiID, ImRect, void>)load(context, "igSetNavID");
+			PushFocusScope_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, void>)load(context, "igPushFocusScope");
+			PopFocusScope_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igPopFocusScope");
+			GetFocusedFocusScope_ptr = (delegate* unmanaged[Cdecl]<ImGuiID>)load(context, "igGetFocusedFocusScope");
+			GetFocusScope_ptr = (delegate* unmanaged[Cdecl]<ImGuiID>)load(context, "igGetFocusScope");
+			SetItemUsingMouseWheel_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igSetItemUsingMouseWheel");
+			IsActiveIdUsingNavDir_ptr = (delegate* unmanaged[Cdecl]<ImGuiDir, bool>)load(context, "igIsActiveIdUsingNavDir");
+			IsActiveIdUsingNavInput_ptr = (delegate* unmanaged[Cdecl]<ImGuiNavInput, bool>)load(context, "igIsActiveIdUsingNavInput");
+			IsActiveIdUsingKey_ptr = (delegate* unmanaged[Cdecl]<ImGuiKey, bool>)load(context, "igIsActiveIdUsingKey");
+			IsMouseDragPastThreshold_ptr = (delegate* unmanaged[Cdecl]<ImGuiMouseButton, float, bool>)load(context, "igIsMouseDragPastThreshold");
+			IsKeyPressedMap_ptr = (delegate* unmanaged[Cdecl]<ImGuiKey, bool, bool>)load(context, "igIsKeyPressedMap");
+			IsNavInputDown_ptr = (delegate* unmanaged[Cdecl]<ImGuiNavInput, bool>)load(context, "igIsNavInputDown");
+			IsNavInputTest_ptr = (delegate* unmanaged[Cdecl]<ImGuiNavInput, ImGuiInputReadMode, bool>)load(context, "igIsNavInputTest");
+			GetMergedKeyModFlags_ptr = (delegate* unmanaged[Cdecl]<ImGuiKeyModFlags>)load(context, "igGetMergedKeyModFlags");
+			DockContextInitialize_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, void>)load(context, "igDockContextInitialize");
+			DockContextShutdown_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, void>)load(context, "igDockContextShutdown");
+			DockContextClearNodes_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiID, bool, void>)load(context, "igDockContextClearNodes");
+			DockContextRebuildNodes_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, void>)load(context, "igDockContextRebuildNodes");
+			DockContextNewFrameUpdateUndocking_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, void>)load(context, "igDockContextNewFrameUpdateUndocking");
+			DockContextNewFrameUpdateDocking_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, void>)load(context, "igDockContextNewFrameUpdateDocking");
+			DockContextGenNodeID_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiID>)load(context, "igDockContextGenNodeID");
+			DockContextQueueDock_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiWindow*, ImGuiDockNode*, ImGuiWindow*, ImGuiDir, float, bool, void>)load(context, "igDockContextQueueDock");
+			DockContextQueueUndockWindow_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiWindow*, void>)load(context, "igDockContextQueueUndockWindow");
+			DockContextQueueUndockNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiDockNode*, void>)load(context, "igDockContextQueueUndockNode");
+			DockContextCalcDropPosForDocking_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiDockNode*, ImGuiWindow*, ImGuiDir, bool, ImVec2*, bool>)load(context, "igDockContextCalcDropPosForDocking");
+			DockNodeBeginAmendTabBar_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, bool>)load(context, "igDockNodeBeginAmendTabBar");
+			DockNodeEndAmendTabBar_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igDockNodeEndAmendTabBar");
+			DockNodeGetRootNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, ImGuiDockNode*>)load(context, "igDockNodeGetRootNode");
+			DockNodeGetDepth_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, int>)load(context, "igDockNodeGetDepth");
+			GetWindowDockNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*>)load(context, "igGetWindowDockNode");
+			GetWindowAlwaysWantOwnTabBar_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, bool>)load(context, "igGetWindowAlwaysWantOwnTabBar");
+			BeginDocked_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, bool*, void>)load(context, "igBeginDocked");
+			BeginDockableDragDropSource_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, void>)load(context, "igBeginDockableDragDropSource");
+			BeginDockableDragDropTarget_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, void>)load(context, "igBeginDockableDragDropTarget");
+			SetWindowDock_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiID, ImGuiCond, void>)load(context, "igSetWindowDock");
+			DockBuilderDockWindow_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiID, void>)load(context, "igDockBuilderDockWindow");
+			DockBuilderGetNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiDockNode*>)load(context, "igDockBuilderGetNode");
+			DockBuilderGetCentralNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiDockNode*>)load(context, "igDockBuilderGetCentralNode");
+			DockBuilderAddNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiDockNodeFlags, ImGuiID>)load(context, "igDockBuilderAddNode");
+			DockBuilderRemoveNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, void>)load(context, "igDockBuilderRemoveNode");
+			DockBuilderRemoveNodeDockedWindows_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, bool, void>)load(context, "igDockBuilderRemoveNodeDockedWindows");
+			DockBuilderRemoveNodeChildNodes_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, void>)load(context, "igDockBuilderRemoveNodeChildNodes");
+			DockBuilderSetNodePos_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, void>)load(context, "igDockBuilderSetNodePos");
+			DockBuilderSetNodeSize_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, void>)load(context, "igDockBuilderSetNodeSize");
+			DockBuilderSplitNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiDir, float, ImGuiID*, ImGuiID*, ImGuiID>)load(context, "igDockBuilderSplitNode");
+			DockBuilderCopyDockSpace_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiID, ImVector_const_charPtr*, void>)load(context, "igDockBuilderCopyDockSpace");
+			DockBuilderCopyNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiID, ImVector_ImGuiID*, void>)load(context, "igDockBuilderCopyNode");
+			DockBuilderCopyWindowSettings_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, void>)load(context, "igDockBuilderCopyWindowSettings");
+			DockBuilderFinish_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, void>)load(context, "igDockBuilderFinish");
+			BeginDragDropTargetCustom_ptr = (delegate* unmanaged[Cdecl]<ImRect, ImGuiID, bool>)load(context, "igBeginDragDropTargetCustom");
+			ClearDragDrop_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igClearDragDrop");
+			IsDragDropPayloadBeingAccepted_ptr = (delegate* unmanaged[Cdecl]<bool>)load(context, "igIsDragDropPayloadBeingAccepted");
+			SetWindowClipRectBeforeSetChannel_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImRect, void>)load(context, "igSetWindowClipRectBeforeSetChannel");
+			BeginColumns_ptr = (delegate* unmanaged[Cdecl]<byte*, int, ImGuiOldColumnFlags, void>)load(context, "igBeginColumns");
+			EndColumns_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igEndColumns");
+			PushColumnClipRect_ptr = (delegate* unmanaged[Cdecl]<int, void>)load(context, "igPushColumnClipRect");
+			PushColumnsBackground_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igPushColumnsBackground");
+			PopColumnsBackground_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igPopColumnsBackground");
+			GetColumnsID_ptr = (delegate* unmanaged[Cdecl]<byte*, int, ImGuiID>)load(context, "igGetColumnsID");
+			FindOrCreateColumns_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiID, ImGuiOldColumns*>)load(context, "igFindOrCreateColumns");
+			GetColumnOffsetFromNorm_ptr = (delegate* unmanaged[Cdecl]<ImGuiOldColumns*, float, float>)load(context, "igGetColumnOffsetFromNorm");
+			GetColumnNormFromOffset_ptr = (delegate* unmanaged[Cdecl]<ImGuiOldColumns*, float, float>)load(context, "igGetColumnNormFromOffset");
+			TableOpenContextMenu_ptr = (delegate* unmanaged[Cdecl]<int, void>)load(context, "igTableOpenContextMenu");
+			TableSetColumnEnabled_ptr = (delegate* unmanaged[Cdecl]<int, bool, void>)load(context, "igTableSetColumnEnabled");
+			TableSetColumnWidth_ptr = (delegate* unmanaged[Cdecl]<int, float, void>)load(context, "igTableSetColumnWidth");
+			TableSetColumnSortDirection_ptr = (delegate* unmanaged[Cdecl]<int, ImGuiSortDirection, bool, void>)load(context, "igTableSetColumnSortDirection");
+			TableGetHoveredColumn_ptr = (delegate* unmanaged[Cdecl]<int>)load(context, "igTableGetHoveredColumn");
+			TableGetHeaderRowHeight_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igTableGetHeaderRowHeight");
+			TablePushBackgroundChannel_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igTablePushBackgroundChannel");
+			TablePopBackgroundChannel_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igTablePopBackgroundChannel");
+			GetCurrentTable_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*>)load(context, "igGetCurrentTable");
+			TableFindByID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiTable*>)load(context, "igTableFindByID");
+			BeginTableEx_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiID, int, ImGuiTableFlags, ImVec2, float, bool>)load(context, "igBeginTableEx");
+			TableBeginInitMemory_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, int, void>)load(context, "igTableBeginInitMemory");
+			TableBeginApplyRequests_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableBeginApplyRequests");
+			TableSetupDrawChannels_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableSetupDrawChannels");
+			TableUpdateLayout_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableUpdateLayout");
+			TableUpdateBorders_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableUpdateBorders");
+			TableUpdateColumnsWeightFromWidth_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableUpdateColumnsWeightFromWidth");
+			TableDrawBorders_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableDrawBorders");
+			TableDrawContextMenu_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableDrawContextMenu");
+			TableMergeDrawChannels_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableMergeDrawChannels");
+			TableSortSpecsSanitize_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableSortSpecsSanitize");
+			TableSortSpecsBuild_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableSortSpecsBuild");
+			TableGetColumnNextSortDirection_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableColumn*, ImGuiSortDirection>)load(context, "igTableGetColumnNextSortDirection");
+			TableFixColumnSortDirection_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, ImGuiTableColumn*, void>)load(context, "igTableFixColumnSortDirection");
+			TableGetColumnWidthAuto_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, ImGuiTableColumn*, float>)load(context, "igTableGetColumnWidthAuto");
+			TableBeginRow_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableBeginRow");
+			TableEndRow_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableEndRow");
+			TableBeginCell_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, int, void>)load(context, "igTableBeginCell");
+			TableEndCell_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableEndCell");
+			TableGetCellBgRect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImGuiTable*, int, void>)load(context, "igTableGetCellBgRect");
+			TableGetColumnNameTablePtr_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, int, byte*>)load(context, "igTableGetColumnNameTablePtr");
+			TableGetColumnResizeID_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, int, int, ImGuiID>)load(context, "igTableGetColumnResizeID");
+			TableGetMaxColumnWidth_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, int, float>)load(context, "igTableGetMaxColumnWidth");
+			TableSetColumnWidthAutoSingle_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, int, void>)load(context, "igTableSetColumnWidthAutoSingle");
+			TableSetColumnWidthAutoAll_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableSetColumnWidthAutoAll");
+			TableRemove_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableRemove");
+			TableGcCompactTransientBuffers_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableGcCompactTransientBuffers");
+			TableGcCompactSettings_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igTableGcCompactSettings");
+			TableLoadSettings_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableLoadSettings");
+			TableSaveSettings_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableSaveSettings");
+			TableResetSettings_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igTableResetSettings");
+			TableGetBoundSettings_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, ImGuiTableSettings*>)load(context, "igTableGetBoundSettings");
+			TableSettingsInstallHandler_ptr = (delegate* unmanaged[Cdecl]<ImGuiContext*, void>)load(context, "igTableSettingsInstallHandler");
+			TableSettingsCreate_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, int, ImGuiTableSettings*>)load(context, "igTableSettingsCreate");
+			TableSettingsFindByID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiTableSettings*>)load(context, "igTableSettingsFindByID");
+			BeginTabBarEx_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImRect, ImGuiTabBarFlags, ImGuiDockNode*, bool>)load(context, "igBeginTabBarEx");
+			TabBarFindTabByID_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiID, ImGuiTabItem*>)load(context, "igTabBarFindTabByID");
+			TabBarFindMostRecentlySelectedTabForActiveWindow_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItem*>)load(context, "igTabBarFindMostRecentlySelectedTabForActiveWindow");
+			TabBarAddTab_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItemFlags, ImGuiWindow*, void>)load(context, "igTabBarAddTab");
+			TabBarRemoveTab_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiID, void>)load(context, "igTabBarRemoveTab");
+			TabBarCloseTab_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItem*, void>)load(context, "igTabBarCloseTab");
+			TabBarQueueReorder_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItem*, int, void>)load(context, "igTabBarQueueReorder");
+			TabBarProcessReorder_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, bool>)load(context, "igTabBarProcessReorder");
+			TabItemEx_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, byte*, bool*, ImGuiTabItemFlags, ImGuiWindow*, bool>)load(context, "igTabItemEx");
+			TabItemCalcSize_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, byte*, bool, void>)load(context, "igTabItemCalcSize");
+			TabItemBackground_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImRect, ImGuiTabItemFlags, uint, void>)load(context, "igTabItemBackground");
+			TabItemLabelAndCloseButton_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImRect, ImGuiTabItemFlags, ImVec2, byte*, ImGuiID, ImGuiID, bool, bool*, bool*, void>)load(context, "igTabItemLabelAndCloseButton");
+			RenderText_ptr = (delegate* unmanaged[Cdecl]<ImVec2, byte*, byte*, bool, void>)load(context, "igRenderText");
+			RenderTextWrapped_ptr = (delegate* unmanaged[Cdecl]<ImVec2, byte*, byte*, float, void>)load(context, "igRenderTextWrapped");
+			RenderTextClipped_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, byte*, byte*, ImVec2*, ImVec2, ImRect*, void>)load(context, "igRenderTextClipped");
+			RenderTextClippedEx_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, byte*, byte*, ImVec2*, ImVec2, ImRect*, void>)load(context, "igRenderTextClippedEx");
+			RenderTextEllipsis_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, float, float, byte*, byte*, ImVec2*, void>)load(context, "igRenderTextEllipsis");
+			RenderFrame_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, uint, bool, float, void>)load(context, "igRenderFrame");
+			RenderFrameBorder_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, float, void>)load(context, "igRenderFrameBorder");
+			RenderColorRectWithAlphaCheckerboard_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, float, ImVec2, float, ImDrawFlags, void>)load(context, "igRenderColorRectWithAlphaCheckerboard");
+			RenderNavHighlight_ptr = (delegate* unmanaged[Cdecl]<ImRect, ImGuiID, ImGuiNavHighlightFlags, void>)load(context, "igRenderNavHighlight");
+			FindRenderedTextEnd_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, byte*>)load(context, "igFindRenderedTextEnd");
+			RenderArrow_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, uint, ImGuiDir, float, void>)load(context, "igRenderArrow");
+			RenderBullet_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, uint, void>)load(context, "igRenderBullet");
+			RenderCheckMark_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, uint, float, void>)load(context, "igRenderCheckMark");
+			RenderMouseCursor_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, ImGuiMouseCursor, uint, uint, uint, void>)load(context, "igRenderMouseCursor");
+			RenderArrowPointingAt_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, ImGuiDir, uint, void>)load(context, "igRenderArrowPointingAt");
+			RenderArrowDockMenu_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, float, uint, void>)load(context, "igRenderArrowDockMenu");
+			RenderRectFilledRangeH_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImRect, uint, float, float, float, void>)load(context, "igRenderRectFilledRangeH");
+			RenderRectFilledWithHole_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImRect, ImRect, uint, float, void>)load(context, "igRenderRectFilledWithHole");
+			TextEx_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, ImGuiTextFlags, void>)load(context, "igTextEx");
+			ButtonEx_ptr = (delegate* unmanaged[Cdecl]<byte*, ImVec2, ImGuiButtonFlags, bool>)load(context, "igButtonEx");
+			CloseButton_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, bool>)load(context, "igCloseButton");
+			CollapseButton_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImVec2, ImGuiDockNode*, bool>)load(context, "igCollapseButton");
+			ArrowButtonEx_ptr = (delegate* unmanaged[Cdecl]<byte*, ImGuiDir, ImVec2, ImGuiButtonFlags, bool>)load(context, "igArrowButtonEx");
+			Scrollbar_ptr = (delegate* unmanaged[Cdecl]<ImGuiAxis, void>)load(context, "igScrollbar");
+			ScrollbarEx_ptr = (delegate* unmanaged[Cdecl]<ImRect, ImGuiID, ImGuiAxis, float*, float, float, ImDrawFlags, bool>)load(context, "igScrollbarEx");
+			ImageButtonEx_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImTextureID, ImVec2, ImVec2, ImVec2, ImVec2, ImVec4, ImVec4, bool>)load(context, "igImageButtonEx");
+			GetWindowScrollbarRect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, ImGuiAxis, void>)load(context, "igGetWindowScrollbarRect");
+			GetWindowScrollbarID_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiAxis, ImGuiID>)load(context, "igGetWindowScrollbarID");
+			GetWindowResizeID_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, int, ImGuiID>)load(context, "igGetWindowResizeID");
+			SeparatorEx_ptr = (delegate* unmanaged[Cdecl]<ImGuiSeparatorFlags, void>)load(context, "igSeparatorEx");
+			CheckboxFlagsS64Ptr_ptr = (delegate* unmanaged[Cdecl]<byte*, long*, long, bool>)load(context, "igCheckboxFlagsS64Ptr");
+			CheckboxFlagsU64Ptr_ptr = (delegate* unmanaged[Cdecl]<byte*, ulong*, ulong, bool>)load(context, "igCheckboxFlagsU64Ptr");
+			ButtonBehavior_ptr = (delegate* unmanaged[Cdecl]<ImRect, ImGuiID, bool*, bool*, ImGuiButtonFlags, bool>)load(context, "igButtonBehavior");
+			DragBehavior_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiDataType, IntPtr, float, IntPtr, IntPtr, byte*, ImGuiSliderFlags, bool>)load(context, "igDragBehavior");
+			SliderBehavior_ptr = (delegate* unmanaged[Cdecl]<ImRect, ImGuiID, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, ImRect*, bool>)load(context, "igSliderBehavior");
+			SplitterBehavior_ptr = (delegate* unmanaged[Cdecl]<ImRect, ImGuiID, ImGuiAxis, float*, float*, float, float, float, float, bool>)load(context, "igSplitterBehavior");
+			TreeNodeBehavior_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiTreeNodeFlags, byte*, byte*, bool>)load(context, "igTreeNodeBehavior");
+			TreeNodeBehaviorIsOpen_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiTreeNodeFlags, bool>)load(context, "igTreeNodeBehaviorIsOpen");
+			TreePushOverrideID_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, void>)load(context, "igTreePushOverrideID");
+			DataTypeGetInfo_ptr = (delegate* unmanaged[Cdecl]<ImGuiDataType, ImGuiDataTypeInfo*>)load(context, "igDataTypeGetInfo");
+			DataTypeFormatString_ptr = (delegate* unmanaged[Cdecl]<byte*, int, ImGuiDataType, IntPtr, byte*, int>)load(context, "igDataTypeFormatString");
+			DataTypeApplyOp_ptr = (delegate* unmanaged[Cdecl]<ImGuiDataType, int, IntPtr, IntPtr, IntPtr, void>)load(context, "igDataTypeApplyOp");
+			DataTypeApplyOpFromText_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, ImGuiDataType, IntPtr, byte*, bool>)load(context, "igDataTypeApplyOpFromText");
+			DataTypeCompare_ptr = (delegate* unmanaged[Cdecl]<ImGuiDataType, IntPtr, IntPtr, int>)load(context, "igDataTypeCompare");
+			DataTypeClamp_ptr = (delegate* unmanaged[Cdecl]<ImGuiDataType, IntPtr, IntPtr, IntPtr, bool>)load(context, "igDataTypeClamp");
+			InputTextEx_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, byte*, int, ImVec2, ImGuiInputTextFlags, IntPtr, IntPtr, bool>)load(context, "igInputTextEx");
+			TempInputText_ptr = (delegate* unmanaged[Cdecl]<ImRect, ImGuiID, byte*, byte*, int, ImGuiInputTextFlags, bool>)load(context, "igTempInputText");
+			TempInputScalar_ptr = (delegate* unmanaged[Cdecl]<ImRect, ImGuiID, byte*, ImGuiDataType, IntPtr, byte*, IntPtr, IntPtr, bool>)load(context, "igTempInputScalar");
+			TempInputIsActive_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, bool>)load(context, "igTempInputIsActive");
+			GetInputTextState_ptr = (delegate* unmanaged[Cdecl]<ImGuiID, ImGuiInputTextState*>)load(context, "igGetInputTextState");
+			ColorTooltip_ptr = (delegate* unmanaged[Cdecl]<byte*, float*, ImGuiColorEditFlags, void>)load(context, "igColorTooltip");
+			ColorEditOptionsPopup_ptr = (delegate* unmanaged[Cdecl]<float*, ImGuiColorEditFlags, void>)load(context, "igColorEditOptionsPopup");
+			ColorPickerOptionsPopup_ptr = (delegate* unmanaged[Cdecl]<float*, ImGuiColorEditFlags, void>)load(context, "igColorPickerOptionsPopup");
+			PlotEx_ptr = (delegate* unmanaged[Cdecl]<ImGuiPlotType, byte*, IntPtr, IntPtr, int, int, byte*, float, float, ImVec2, int>)load(context, "igPlotEx");
+			ShadeVertsLinearColorGradientKeepAlpha_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, int, int, ImVec2, ImVec2, uint, uint, void>)load(context, "igShadeVertsLinearColorGradientKeepAlpha");
+			ShadeVertsLinearUV_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, int, int, ImVec2, ImVec2, ImVec2, ImVec2, bool, void>)load(context, "igShadeVertsLinearUV");
+			GcCompactTransientMiscBuffers_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igGcCompactTransientMiscBuffers");
+			GcCompactTransientWindowBuffers_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, void>)load(context, "igGcCompactTransientWindowBuffers");
+			GcAwakeTransientWindowBuffers_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, void>)load(context, "igGcAwakeTransientWindowBuffers");
+			ErrorCheckEndFrameRecover_ptr = (delegate* unmanaged[Cdecl]<IntPtr, IntPtr, void>)load(context, "igErrorCheckEndFrameRecover");
+			DebugDrawItemRect_ptr = (delegate* unmanaged[Cdecl]<uint, void>)load(context, "igDebugDrawItemRect");
+			DebugStartItemPicker_ptr = (delegate* unmanaged[Cdecl]<void>)load(context, "igDebugStartItemPicker");
+			DebugNodeColumns_ptr = (delegate* unmanaged[Cdecl]<ImGuiOldColumns*, void>)load(context, "igDebugNodeColumns");
+			DebugNodeDockNode_ptr = (delegate* unmanaged[Cdecl]<ImGuiDockNode*, byte*, void>)load(context, "igDebugNodeDockNode");
+			DebugNodeDrawList_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiViewportP*, ImDrawList*, byte*, void>)load(context, "igDebugNodeDrawList");
+			DebugNodeDrawCmdShowMeshAndBoundingBox_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImDrawList*, ImDrawCmd*, bool, bool, void>)load(context, "igDebugNodeDrawCmdShowMeshAndBoundingBox");
+			DebugNodeStorage_ptr = (delegate* unmanaged[Cdecl]<ImGuiStorage*, byte*, void>)load(context, "igDebugNodeStorage");
+			DebugNodeTabBar_ptr = (delegate* unmanaged[Cdecl]<ImGuiTabBar*, byte*, void>)load(context, "igDebugNodeTabBar");
+			DebugNodeTable_ptr = (delegate* unmanaged[Cdecl]<ImGuiTable*, void>)load(context, "igDebugNodeTable");
+			DebugNodeTableSettings_ptr = (delegate* unmanaged[Cdecl]<ImGuiTableSettings*, void>)load(context, "igDebugNodeTableSettings");
+			DebugNodeWindow_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindow*, byte*, void>)load(context, "igDebugNodeWindow");
+			DebugNodeWindowSettings_ptr = (delegate* unmanaged[Cdecl]<ImGuiWindowSettings*, void>)load(context, "igDebugNodeWindowSettings");
+			DebugNodeWindowsList_ptr = (delegate* unmanaged[Cdecl]<ImVector_ImGuiWindowPtr*, byte*, void>)load(context, "igDebugNodeWindowsList");
+			DebugNodeViewport_ptr = (delegate* unmanaged[Cdecl]<ImGuiViewportP*, void>)load(context, "igDebugNodeViewport");
+			DebugRenderViewportThumbnail_ptr = (delegate* unmanaged[Cdecl]<ImDrawList*, ImGuiViewportP*, ImRect, void>)load(context, "igDebugRenderViewportThumbnail");
+			ImFontAtlasGetBuilderForStbTruetype_ptr = (delegate* unmanaged[Cdecl]<ImFontBuilderIO*>)load(context, "igImFontAtlasGetBuilderForStbTruetype");
+			ImFontAtlasBuildInit_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, void>)load(context, "igImFontAtlasBuildInit");
+			ImFontAtlasBuildSetupFont_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, ImFont*, ImFontConfig*, float, float, void>)load(context, "igImFontAtlasBuildSetupFont");
+			ImFontAtlasBuildPackCustomRects_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, IntPtr, void>)load(context, "igImFontAtlasBuildPackCustomRects");
+			ImFontAtlasBuildFinish_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, void>)load(context, "igImFontAtlasBuildFinish");
+			ImFontAtlasBuildRender8bppRectFromString_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, int, int, int, int, byte*, byte, byte, void>)load(context, "igImFontAtlasBuildRender8bppRectFromString");
+			ImFontAtlasBuildRender32bppRectFromString_ptr = (delegate* unmanaged[Cdecl]<ImFontAtlas*, int, int, int, int, byte*, byte, uint, void>)load(context, "igImFontAtlasBuildRender32bppRectFromString");
+			ImFontAtlasBuildMultiplyCalcLookupTable_ptr = (delegate* unmanaged[Cdecl]<byte*, float, void>)load(context, "igImFontAtlasBuildMultiplyCalcLookupTable");
+			ImFontAtlasBuildMultiplyRectAlpha8_ptr = (delegate* unmanaged[Cdecl]<byte*, byte*, int, int, int, int, int, void>)load(context, "igImFontAtlasBuildMultiplyRectAlpha8");
+			LogText_ptr = (delegate* unmanaged[Cdecl]<byte*, void>)load(context, "igLogText");
+			ImGuiTextBuffer_appendf_ptr = (delegate* unmanaged[Cdecl]<ImGuiTextBuffer*, byte*, void>)load(context, "ImGuiTextBuffer_appendf");
+			GET_FLT_MAX_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGET_FLT_MAX");
+			GET_FLT_MIN_ptr = (delegate* unmanaged[Cdecl]<float>)load(context, "igGET_FLT_MIN");
 		}
 	}
 }
