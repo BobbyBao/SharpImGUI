@@ -101,12 +101,12 @@ namespace SharpImGUI
         public static bool BeginCombo(string label, string preview_value) => BeginCombo(label, preview_value, default);
         public static bool DragFloat(string label, ref float v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")
             => DragFloat(label, ref v, v_speed, v_min, v_max, format, default);
-        public static bool DragFloat2(string label, ref ImVec2 v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")
-            => DragFloat2(label, (float*)Unsafe.AsPointer(ref v.X), v_speed, v_min, v_max, format, default);
-        public static bool DragFloat3(string label, ref ImVec3 v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")
-            => DragFloat3(label, (float*)Unsafe.AsPointer(ref v.X), v_speed, v_min, v_max, format, default);
-        public static bool DragFloat4(string label, ref ImVec4 v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")
-            => DragFloat4(label, (float*)Unsafe.AsPointer(ref v.X), v_speed, v_min, v_max, format, default);
+        public static bool DragFloat2(string label, ref float v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")
+            => DragFloat2(label, (float*)Unsafe.AsPointer(ref v), v_speed, v_min, v_max, format, default);
+        public static bool DragFloat3(string label, ref float v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")
+            => DragFloat3(label, (float*)Unsafe.AsPointer(ref v), v_speed, v_min, v_max, format, default);
+        public static bool DragFloat4(string label, ref float v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")
+            => DragFloat4(label, (float*)Unsafe.AsPointer(ref v), v_speed, v_min, v_max, format, default);
         public static bool DragFloatRange2(string label, ref float v_current_min, ref float v_current_max, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f", string format_max = null)
             => DragFloatRange2(label, ref v_current_min, ref v_current_max, v_speed, v_min, v_max, format, format_max, ImGuiSliderFlags.None);
         public static bool DragInt(string label, ref int v, float v_speed = 1.0f, int v_min = 0, int v_max = 0, string format = "%d")
