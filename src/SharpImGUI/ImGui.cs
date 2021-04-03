@@ -82,6 +82,10 @@ namespace SharpImGUI
         public static void PopStyleColor() => PopStyleColor(1);
         public static void PopStyleVar() => PopStyleVar(1);
         public static bool Begin(string name, ref bool p_open) => Begin(name, ref p_open, default);
+        public static bool BeginChild(string str_id, ImVec2 size = default, bool border = false, ImGuiWindowFlags flags = 0)
+            => BeginChildStr(str_id, size, border, flags);
+        public static bool BeginChild(ImGuiID id, ImVec2 size = default, bool border = false, ImGuiWindowFlags flags = 0)
+            => BeginChildID(id, size, border, flags);
         public static bool Button(string label) => Button(label, default);
         public static bool InvisibleButton(string str_id, ImVec2 size) => InvisibleButton(str_id, size, ImGuiButtonFlags.None);
         public static void SameLine(float offset_from_start_x = 0.0f) => SameLine(offset_from_start_x, -1.0f);

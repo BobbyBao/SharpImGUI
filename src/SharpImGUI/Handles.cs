@@ -33,9 +33,14 @@ namespace SharpImGUI
 
         public ref ImGuiWindowTempData DC => ref self->DC;
 
+
+        public ImDrawListPtr DrawList => self->DrawList;
+
         public ImGuiID GetID(string str, string str_end = null) => ImGui.ImGuiWindow_GetIDStr(self, str, str_end);
         public ImGuiID GetID(nint ptr) => ImGui.ImGuiWindow_GetIDPtr(self, ptr); 
         public ImGuiID GetID(int n) => ImGui.ImGuiWindow_GetIDInt(self, n);
+
+
     }
         
     public unsafe partial struct ImGuiIOPtr
@@ -76,5 +81,7 @@ namespace SharpImGUI
 
     public unsafe partial struct ImDrawListPtr
     {
+        public void AddRectFilled(ImVec2 p_min, ImVec2 p_max, uint col, float rounding = 0.0f, ImDrawFlags flags = 0)
+            => ImGui.ImDrawList_AddRectFilled(self, p_min, p_max, col, rounding, flags);
     }
 }
