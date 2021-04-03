@@ -229,21 +229,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetWindowPos_ptr;
-		public static void GetWindowPos(out ImVec2 @out)
+		public static ImVec2 GetWindowPos()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetWindowPos_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetWindowPos_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetWindowSize_ptr;
-		public static void GetWindowSize(out ImVec2 @out)
+		public static ImVec2 GetWindowSize()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetWindowSize_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetWindowSize_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<float> GetWindowWidth_ptr;
@@ -371,39 +369,35 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetContentRegionAvail_ptr;
-		public static void GetContentRegionAvail(out ImVec2 @out)
+		public static ImVec2 GetContentRegionAvail()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetContentRegionAvail_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetContentRegionAvail_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetContentRegionMax_ptr;
-		public static void GetContentRegionMax(out ImVec2 @out)
+		public static ImVec2 GetContentRegionMax()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetContentRegionMax_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetContentRegionMax_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetWindowContentRegionMin_ptr;
-		public static void GetWindowContentRegionMin(out ImVec2 @out)
+		public static ImVec2 GetWindowContentRegionMin()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetWindowContentRegionMin_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetWindowContentRegionMin_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetWindowContentRegionMax_ptr;
-		public static void GetWindowContentRegionMax(out ImVec2 @out)
+		public static ImVec2 GetWindowContentRegionMax()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetWindowContentRegionMax_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetWindowContentRegionMax_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<float> GetWindowContentRegionWidth_ptr;
@@ -593,12 +587,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetFontTexUvWhitePixel_ptr;
-		public static void GetFontTexUvWhitePixel(out ImVec2 @out)
+		public static ImVec2 GetFontTexUvWhitePixel()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetFontTexUvWhitePixel_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetFontTexUvWhitePixel_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiCol, float, uint> GetColorU32Col_ptr;
@@ -680,12 +673,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetCursorPos_ptr;
-		public static void GetCursorPos(out ImVec2 @out)
+		public static ImVec2 GetCursorPos()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetCursorPos_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetCursorPos_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<float> GetCursorPosX_ptr;
@@ -719,21 +711,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetCursorStartPos_ptr;
-		public static void GetCursorStartPos(out ImVec2 @out)
+		public static ImVec2 GetCursorStartPos()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetCursorStartPos_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetCursorStartPos_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetCursorScreenPos_ptr;
-		public static void GetCursorScreenPos(out ImVec2 @out)
+		public static ImVec2 GetCursorScreenPos()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetCursorScreenPos_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetCursorScreenPos_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2, void> SetCursorScreenPos_ptr;
@@ -2171,30 +2161,27 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetItemRectMin_ptr;
-		public static void GetItemRectMin(out ImVec2 @out)
+		public static ImVec2 GetItemRectMin()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetItemRectMin_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetItemRectMin_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetItemRectMax_ptr;
-		public static void GetItemRectMax(out ImVec2 @out)
+		public static ImVec2 GetItemRectMax()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetItemRectMax_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetItemRectMax_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetItemRectSize_ptr;
-		public static void GetItemRectSize(out ImVec2 @out)
+		public static ImVec2 GetItemRectSize()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetItemRectSize_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetItemRectSize_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<void> SetItemAllowOverlap_ptr;
@@ -2304,23 +2291,21 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, byte*, byte*, bool, float, void> CalcTextSize_ptr;
-		public static void CalcTextSize(out ImVec2 @out, string text, string text_end, bool hide_text_after_double_hash, float wrap_width)
+		public static ImVec2 CalcTextSize(string text, string text_end, bool hide_text_after_double_hash, float wrap_width)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				using var p_text = new StringHelper(text);
-				using var p_text_end = new StringHelper(text_end);
-				CalcTextSize_ptr(p_out, p_text, p_text_end, hide_text_after_double_hash, wrap_width);
-			}
+			ImVec2 @out = default;
+			using var p_text = new StringHelper(text);
+			using var p_text_end = new StringHelper(text_end);
+			CalcTextSize_ptr(&@out, p_text, p_text_end, hide_text_after_double_hash, wrap_width);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec4*, uint, void> ColorConvertU32ToFloat4_ptr;
-		public static void ColorConvertU32ToFloat4(out ImVec4 @out, uint @in)
+		public static ImVec4 ColorConvertU32ToFloat4(uint @in)
 		{
-			fixed(ImVec4* p_out = &@out)
-			{
-				ColorConvertU32ToFloat4_ptr(p_out, @in);
-			}
+			ImVec4 @out = default;
+			ColorConvertU32ToFloat4_ptr(&@out, @in);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec4, uint> ColorConvertFloat4ToU32_ptr;
@@ -2430,21 +2415,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetMousePos_ptr;
-		public static void GetMousePos(out ImVec2 @out)
+		public static ImVec2 GetMousePos()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetMousePos_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetMousePos_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetMousePosOnOpeningCurrentPopup_ptr;
-		public static void GetMousePosOnOpeningCurrentPopup(out ImVec2 @out)
+		public static ImVec2 GetMousePosOnOpeningCurrentPopup()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetMousePosOnOpeningCurrentPopup_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetMousePosOnOpeningCurrentPopup_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiMouseButton, float, bool> IsMouseDragging_ptr;
@@ -2454,12 +2437,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiMouseButton, float, void> GetMouseDragDelta_ptr;
-		public static void GetMouseDragDelta(out ImVec2 @out, ImGuiMouseButton button, float lock_threshold)
+		public static ImVec2 GetMouseDragDelta(ImGuiMouseButton button, float lock_threshold)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetMouseDragDelta_ptr(p_out, button, lock_threshold);
-			}
+			ImVec2 @out = default;
+			GetMouseDragDelta_ptr(&@out, button, lock_threshold);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiMouseButton, void> ResetMouseDragDelta_ptr;
@@ -3166,21 +3148,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImDrawList*, void> ImDrawList_GetClipRectMin_ptr;
-		public static void ImDrawList_GetClipRectMin(out ImVec2 @out, ImDrawListPtr self)
+		public static ImVec2 ImDrawList_GetClipRectMin(ImDrawListPtr self)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImDrawList_GetClipRectMin_ptr(p_out, self);
-			}
+			ImVec2 @out = default;
+			ImDrawList_GetClipRectMin_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImDrawList*, void> ImDrawList_GetClipRectMax_ptr;
-		public static void ImDrawList_GetClipRectMax(out ImVec2 @out, ImDrawListPtr self)
+		public static ImVec2 ImDrawList_GetClipRectMax(ImDrawListPtr self)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImDrawList_GetClipRectMax_ptr(p_out, self);
-			}
+			ImVec2 @out = default;
+			ImDrawList_GetClipRectMax_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImDrawList*, ImVec2, ImVec2, uint, float, void> ImDrawList_AddLine_ptr;
@@ -3872,14 +3852,15 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImFont*, float, float, float, byte*, byte*, byte**, void> ImFont_CalcTextSizeA_ptr;
-		public static void ImFont_CalcTextSizeA(out ImVec2 @out, ImFontPtr self, float size, float max_width, float wrap_width, string text_begin, string text_end, ref byte* remaining)
+		public static ImVec2 ImFont_CalcTextSizeA(ImFontPtr self, float size, float max_width, float wrap_width, string text_begin, string text_end, ref byte* remaining)
 		{
-			fixed(ImVec2* p_out = &@out)
 			fixed(byte** p_remaining = &remaining)
 			{
+				ImVec2 @out = default;
 				using var p_text_begin = new StringHelper(text_begin);
 				using var p_text_end = new StringHelper(text_end);
-				ImFont_CalcTextSizeA_ptr(p_out, self, size, max_width, wrap_width, p_text_begin, p_text_end, p_remaining);
+				ImFont_CalcTextSizeA_ptr(&@out, self, size, max_width, wrap_width, p_text_begin, p_text_end, p_remaining);
+				return @out;
 			}
 		}
 
@@ -3966,21 +3947,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiViewport*, void> ImGuiViewport_GetCenter_ptr;
-		public static void ImGuiViewport_GetCenter(out ImVec2 @out, ImGuiViewportPtr self)
+		public static ImVec2 ImGuiViewport_GetCenter(ImGuiViewportPtr self)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImGuiViewport_GetCenter_ptr(p_out, self);
-			}
+			ImVec2 @out = default;
+			ImGuiViewport_GetCenter_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiViewport*, void> ImGuiViewport_GetWorkCenter_ptr;
-		public static void ImGuiViewport_GetWorkCenter(out ImVec2 @out, ImGuiViewportPtr self)
+		public static ImVec2 ImGuiViewport_GetWorkCenter(ImGuiViewportPtr self)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImGuiViewport_GetWorkCenter_ptr(p_out, self);
-			}
+			ImVec2 @out = default;
+			ImGuiViewport_GetWorkCenter_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiPlatformIO*> ImGuiPlatformIO_ImGuiPlatformIO_ptr;
@@ -4325,57 +4304,51 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, void> ImMin_ptr;
-		public static void ImMin(out ImVec2 @out, ImVec2 lhs, ImVec2 rhs)
+		public static ImVec2 ImMin(ImVec2 lhs, ImVec2 rhs)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImMin_ptr(p_out, lhs, rhs);
-			}
+			ImVec2 @out = default;
+			ImMin_ptr(&@out, lhs, rhs);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, void> ImMax_ptr;
-		public static void ImMax(out ImVec2 @out, ImVec2 lhs, ImVec2 rhs)
+		public static ImVec2 ImMax(ImVec2 lhs, ImVec2 rhs)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImMax_ptr(p_out, lhs, rhs);
-			}
+			ImVec2 @out = default;
+			ImMax_ptr(&@out, lhs, rhs);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, void> ImClamp_ptr;
-		public static void ImClamp(out ImVec2 @out, ImVec2 v, ImVec2 mn, ImVec2 mx)
+		public static ImVec2 ImClamp(ImVec2 v, ImVec2 mn, ImVec2 mx)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImClamp_ptr(p_out, v, mn, mx);
-			}
+			ImVec2 @out = default;
+			ImClamp_ptr(&@out, v, mn, mx);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, float, void> ImLerpVec2Float_ptr;
-		public static void ImLerpVec2Float(out ImVec2 @out, ImVec2 a, ImVec2 b, float t)
+		public static ImVec2 ImLerpVec2Float(ImVec2 a, ImVec2 b, float t)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImLerpVec2Float_ptr(p_out, a, b, t);
-			}
+			ImVec2 @out = default;
+			ImLerpVec2Float_ptr(&@out, a, b, t);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, void> ImLerpVec2Vec2_ptr;
-		public static void ImLerpVec2Vec2(out ImVec2 @out, ImVec2 a, ImVec2 b, ImVec2 t)
+		public static ImVec2 ImLerpVec2Vec2(ImVec2 a, ImVec2 b, ImVec2 t)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImLerpVec2Vec2_ptr(p_out, a, b, t);
-			}
+			ImVec2 @out = default;
+			ImLerpVec2Vec2_ptr(&@out, a, b, t);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec4*, ImVec4, ImVec4, float, void> ImLerpVec4_ptr;
-		public static void ImLerpVec4(out ImVec4 @out, ImVec4 a, ImVec4 b, float t)
+		public static ImVec4 ImLerpVec4(ImVec4 a, ImVec4 b, float t)
 		{
-			fixed(ImVec4* p_out = &@out)
-			{
-				ImLerpVec4_ptr(p_out, a, b, t);
-			}
+			ImVec4 @out = default;
+			ImLerpVec4_ptr(&@out, a, b, t);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<float, float> ImSaturate_ptr;
@@ -4409,12 +4382,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, void> ImFloorVec2_ptr;
-		public static void ImFloorVec2(out ImVec2 @out, ImVec2 v)
+		public static ImVec2 ImFloorVec2(ImVec2 v)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImFloorVec2_ptr(p_out, v);
-			}
+			ImVec2 @out = default;
+			ImFloorVec2_ptr(&@out, v);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<int, int, int> ImModPositive_ptr;
@@ -4430,12 +4402,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, float, float, void> ImRotate_ptr;
-		public static void ImRotate(out ImVec2 @out, ImVec2 v, float cos_a, float sin_a)
+		public static ImVec2 ImRotate(ImVec2 v, float cos_a, float sin_a)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImRotate_ptr(p_out, v, cos_a, sin_a);
-			}
+			ImVec2 @out = default;
+			ImRotate_ptr(&@out, v, cos_a, sin_a);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<float, float, float, float> ImLinearSweep_ptr;
@@ -4445,57 +4416,51 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, void> ImMul_ptr;
-		public static void ImMul(out ImVec2 @out, ImVec2 lhs, ImVec2 rhs)
+		public static ImVec2 ImMul(ImVec2 lhs, ImVec2 rhs)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImMul_ptr(p_out, lhs, rhs);
-			}
+			ImVec2 @out = default;
+			ImMul_ptr(&@out, lhs, rhs);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, float, void> ImBezierCubicCalc_ptr;
-		public static void ImBezierCubicCalc(out ImVec2 @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, float t)
+		public static ImVec2 ImBezierCubicCalc(ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, float t)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImBezierCubicCalc_ptr(p_out, p1, p2, p3, p4, t);
-			}
+			ImVec2 @out = default;
+			ImBezierCubicCalc_ptr(&@out, p1, p2, p3, p4, t);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, int, void> ImBezierCubicClosestPoint_ptr;
-		public static void ImBezierCubicClosestPoint(out ImVec2 @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 p, int num_segments)
+		public static ImVec2 ImBezierCubicClosestPoint(ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 p, int num_segments)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImBezierCubicClosestPoint_ptr(p_out, p1, p2, p3, p4, p, num_segments);
-			}
+			ImVec2 @out = default;
+			ImBezierCubicClosestPoint_ptr(&@out, p1, p2, p3, p4, p, num_segments);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, ImVec2, float, void> ImBezierCubicClosestPointCasteljau_ptr;
-		public static void ImBezierCubicClosestPointCasteljau(out ImVec2 @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 p, float tess_tol)
+		public static ImVec2 ImBezierCubicClosestPointCasteljau(ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 p, float tess_tol)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImBezierCubicClosestPointCasteljau_ptr(p_out, p1, p2, p3, p4, p, tess_tol);
-			}
+			ImVec2 @out = default;
+			ImBezierCubicClosestPointCasteljau_ptr(&@out, p1, p2, p3, p4, p, tess_tol);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, float, void> ImBezierQuadraticCalc_ptr;
-		public static void ImBezierQuadraticCalc(out ImVec2 @out, ImVec2 p1, ImVec2 p2, ImVec2 p3, float t)
+		public static ImVec2 ImBezierQuadraticCalc(ImVec2 p1, ImVec2 p2, ImVec2 p3, float t)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImBezierQuadraticCalc_ptr(p_out, p1, p2, p3, t);
-			}
+			ImVec2 @out = default;
+			ImBezierQuadraticCalc_ptr(&@out, p1, p2, p3, t);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, void> ImLineClosestPoint_ptr;
-		public static void ImLineClosestPoint(out ImVec2 @out, ImVec2 a, ImVec2 b, ImVec2 p)
+		public static ImVec2 ImLineClosestPoint(ImVec2 a, ImVec2 b, ImVec2 p)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImLineClosestPoint_ptr(p_out, a, b, p);
-			}
+			ImVec2 @out = default;
+			ImLineClosestPoint_ptr(&@out, a, b, p);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImVec2, ImVec2, bool> ImTriangleContainsPoint_ptr;
@@ -4505,12 +4470,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImVec2, ImVec2, void> ImTriangleClosestPoint_ptr;
-		public static void ImTriangleClosestPoint(out ImVec2 @out, ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 p)
+		public static ImVec2 ImTriangleClosestPoint(ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 p)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImTriangleClosestPoint_ptr(p_out, a, b, c, p);
-			}
+			ImVec2 @out = default;
+			ImTriangleClosestPoint_ptr(&@out, a, b, c, p);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImVec2, ImVec2, float*, float*, float*, void> ImTriangleBarycentricCoords_ptr;
@@ -4567,21 +4531,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetCenter_ptr;
-		public static void ImRect_GetCenter(out ImVec2 @out, ImRect* self)
+		public static ImVec2 ImRect_GetCenter(ImRect* self)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImRect_GetCenter_ptr(p_out, self);
-			}
+			ImVec2 @out = default;
+			ImRect_GetCenter_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetSize_ptr;
-		public static void ImRect_GetSize(out ImVec2 @out, ImRect* self)
+		public static ImVec2 ImRect_GetSize(ImRect* self)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImRect_GetSize_ptr(p_out, self);
-			}
+			ImVec2 @out = default;
+			ImRect_GetSize_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, float> ImRect_GetWidth_ptr;
@@ -4603,39 +4565,35 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetTL_ptr;
-		public static void ImRect_GetTL(out ImVec2 @out, ImRect* self)
+		public static ImVec2 ImRect_GetTL(ImRect* self)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImRect_GetTL_ptr(p_out, self);
-			}
+			ImVec2 @out = default;
+			ImRect_GetTL_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetTR_ptr;
-		public static void ImRect_GetTR(out ImVec2 @out, ImRect* self)
+		public static ImVec2 ImRect_GetTR(ImRect* self)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImRect_GetTR_ptr(p_out, self);
-			}
+			ImVec2 @out = default;
+			ImRect_GetTR_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetBL_ptr;
-		public static void ImRect_GetBL(out ImVec2 @out, ImRect* self)
+		public static ImVec2 ImRect_GetBL(ImRect* self)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImRect_GetBL_ptr(p_out, self);
-			}
+			ImVec2 @out = default;
+			ImRect_GetBL_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetBR_ptr;
-		public static void ImRect_GetBR(out ImVec2 @out, ImRect* self)
+		public static ImVec2 ImRect_GetBR(ImRect* self)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ImRect_GetBR_ptr(p_out, self);
-			}
+			ImVec2 @out = default;
+			ImRect_GetBR_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImVec2, bool> ImRect_ContainsVec2_ptr;
@@ -4723,12 +4681,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec4*, ImRect*, void> ImRect_ToVec4_ptr;
-		public static void ImRect_ToVec4(out ImVec4 @out, ImRect* self)
+		public static ImVec4 ImRect_ToVec4(ImRect* self)
 		{
-			fixed(ImVec4* p_out = &@out)
-			{
-				ImRect_ToVec4_ptr(p_out, self);
-			}
+			ImVec4 @out = default;
+			ImRect_ToVec4_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<uint*, int, bool> ImBitArrayTestBit_ptr;
@@ -5143,9 +5100,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiDockNode*, void> ImGuiDockNode_Rect_ptr;
-		public static void ImGuiDockNode_Rect(ImRect* @out, ImGuiDockNode* self)
+		public static ImRect ImGuiDockNode_Rect(ImGuiDockNode* self)
 		{
-			ImGuiDockNode_Rect_ptr(@out, self);
+			ImRect @out = default;
+			ImGuiDockNode_Rect_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiDockContext*> ImGuiDockContext_ImGuiDockContext_ptr;
@@ -5173,15 +5132,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiViewportP*, void> ImGuiViewportP_GetMainRect_ptr;
-		public static void ImGuiViewportP_GetMainRect(ImRect* @out, ImGuiViewportP* self)
+		public static ImRect ImGuiViewportP_GetMainRect(ImGuiViewportP* self)
 		{
-			ImGuiViewportP_GetMainRect_ptr(@out, self);
+			ImRect @out = default;
+			ImGuiViewportP_GetMainRect_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiViewportP*, void> ImGuiViewportP_GetWorkRect_ptr;
-		public static void ImGuiViewportP_GetWorkRect(ImRect* @out, ImGuiViewportP* self)
+		public static ImRect ImGuiViewportP_GetWorkRect(ImGuiViewportP* self)
 		{
-			ImGuiViewportP_GetWorkRect_ptr(@out, self);
+			ImRect @out = default;
+			ImGuiViewportP_GetWorkRect_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiViewportP*, void> ImGuiViewportP_UpdateWorkRect_ptr;
@@ -5346,9 +5309,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void> ImGuiWindow_Rect_ptr;
-		public static void ImGuiWindow_Rect(ImRect* @out, ImGuiWindowPtr self)
+		public static ImRect ImGuiWindow_Rect(ImGuiWindowPtr self)
 		{
-			ImGuiWindow_Rect_ptr(@out, self);
+			ImRect @out = default;
+			ImGuiWindow_Rect_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float> ImGuiWindow_CalcFontSize_ptr;
@@ -5364,9 +5329,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void> ImGuiWindow_TitleBarRect_ptr;
-		public static void ImGuiWindow_TitleBarRect(ImRect* @out, ImGuiWindowPtr self)
+		public static ImRect ImGuiWindow_TitleBarRect(ImGuiWindowPtr self)
 		{
-			ImGuiWindow_TitleBarRect_ptr(@out, self);
+			ImRect @out = default;
+			ImGuiWindow_TitleBarRect_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float> ImGuiWindow_MenuBarHeight_ptr;
@@ -5376,9 +5343,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void> ImGuiWindow_MenuBarRect_ptr;
-		public static void ImGuiWindow_MenuBarRect(ImRect* @out, ImGuiWindowPtr self)
+		public static ImRect ImGuiWindow_MenuBarRect(ImGuiWindowPtr self)
 		{
-			ImGuiWindow_MenuBarRect_ptr(@out, self);
+			ImRect @out = default;
+			ImGuiWindow_MenuBarRect_ptr(&@out, self);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiLastItemDataBackup*> ImGuiLastItemDataBackup_ImGuiLastItemDataBackup_ptr;
@@ -5527,12 +5496,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiWindow*, void> CalcWindowNextAutoFitSize_ptr;
-		public static void CalcWindowNextAutoFitSize(out ImVec2 @out, ImGuiWindowPtr window)
+		public static ImVec2 CalcWindowNextAutoFitSize(ImGuiWindowPtr window)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				CalcWindowNextAutoFitSize_ptr(p_out, window);
-			}
+			ImVec2 @out = default;
+			CalcWindowNextAutoFitSize_ptr(&@out, window);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindow*, bool> IsWindowChildOf_ptr;
@@ -5554,9 +5522,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void> GetWindowAllowedExtentRect_ptr;
-		public static void GetWindowAllowedExtentRect(ImRect* @out, ImGuiWindowPtr window)
+		public static ImRect GetWindowAllowedExtentRect(ImGuiWindowPtr window)
 		{
-			GetWindowAllowedExtentRect_ptr(@out, window);
+			ImRect @out = default;
+			GetWindowAllowedExtentRect_ptr(&@out, window);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImVec2, ImGuiCond, void> SetWindowPosWindowPtr_ptr;
@@ -5791,12 +5761,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiWindow*, ImRect, void> ScrollToBringRectIntoView_ptr;
-		public static void ScrollToBringRectIntoView(out ImVec2 @out, ImGuiWindowPtr window, ImRect item_rect)
+		public static ImVec2 ScrollToBringRectIntoView(ImGuiWindowPtr window, ImRect item_rect)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				ScrollToBringRectIntoView_ptr(p_out, window, item_rect);
-			}
+			ImVec2 @out = default;
+			ScrollToBringRectIntoView_ptr(&@out, window, item_rect);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiID> GetItemID_ptr;
@@ -5934,12 +5903,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, float, float, void> CalcItemSize_ptr;
-		public static void CalcItemSize(out ImVec2 @out, ImVec2 size, float default_w, float default_h)
+		public static ImVec2 CalcItemSize(ImVec2 size, float default_w, float default_h)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				CalcItemSize_ptr(p_out, size, default_w, default_h);
-			}
+			ImVec2 @out = default;
+			CalcItemSize_ptr(&@out, size, default_w, default_h);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2, float, float> CalcWrapWidthForPos_ptr;
@@ -5973,12 +5941,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, void> GetContentRegionMaxAbs_ptr;
-		public static void GetContentRegionMaxAbs(out ImVec2 @out)
+		public static ImVec2 GetContentRegionMaxAbs()
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetContentRegionMaxAbs_ptr(p_out);
-			}
+			ImVec2 @out = default;
+			GetContentRegionMaxAbs_ptr(&@out);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiShrinkWidthItem*, int, float, void> ShrinkWidths_ptr;
@@ -6065,21 +6032,21 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiWindow*, void> FindBestWindowPosForPopup_ptr;
-		public static void FindBestWindowPosForPopup(out ImVec2 @out, ImGuiWindowPtr window)
+		public static ImVec2 FindBestWindowPosForPopup(ImGuiWindowPtr window)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				FindBestWindowPosForPopup_ptr(p_out, window);
-			}
+			ImVec2 @out = default;
+			FindBestWindowPosForPopup_ptr(&@out, window);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImVec2, ImVec2, ImGuiDir*, ImRect, ImRect, ImGuiPopupPositionPolicy, void> FindBestWindowPosForPopupEx_ptr;
-		public static void FindBestWindowPosForPopupEx(out ImVec2 @out, ImVec2 ref_pos, ImVec2 size, ref ImGuiDir last_dir, ImRect r_outer, ImRect r_avoid, ImGuiPopupPositionPolicy policy)
+		public static ImVec2 FindBestWindowPosForPopupEx(ImVec2 ref_pos, ImVec2 size, ref ImGuiDir last_dir, ImRect r_outer, ImRect r_avoid, ImGuiPopupPositionPolicy policy)
 		{
-			fixed(ImVec2* p_out = &@out)
 			fixed(ImGuiDir* p_last_dir = &last_dir)
 			{
-				FindBestWindowPosForPopupEx_ptr(p_out, ref_pos, size, p_last_dir, r_outer, r_avoid, policy);
+				ImVec2 @out = default;
+				FindBestWindowPosForPopupEx_ptr(&@out, ref_pos, size, p_last_dir, r_outer, r_avoid, policy);
+				return @out;
 			}
 		}
 
@@ -6120,12 +6087,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiNavDirSourceFlags, ImGuiInputReadMode, float, float, void> GetNavInputAmount2d_ptr;
-		public static void GetNavInputAmount2d(out ImVec2 @out, ImGuiNavDirSourceFlags dir_sources, ImGuiInputReadMode mode, float slow_factor, float fast_factor)
+		public static ImVec2 GetNavInputAmount2d(ImGuiNavDirSourceFlags dir_sources, ImGuiInputReadMode mode, float slow_factor, float fast_factor)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				GetNavInputAmount2d_ptr(p_out, dir_sources, mode, slow_factor, fast_factor);
-			}
+			ImVec2 @out = default;
+			GetNavInputAmount2d_ptr(&@out, dir_sources, mode, slow_factor, fast_factor);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<float, float, float, float, int> CalcTypematicRepeatAmount_ptr;
@@ -6703,9 +6669,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiTable*, int, void> TableGetCellBgRect_ptr;
-		public static void TableGetCellBgRect(ImRect* @out, ImGuiTable* table, int column_n)
+		public static ImRect TableGetCellBgRect(ImGuiTable* table, int column_n)
 		{
-			TableGetCellBgRect_ptr(@out, table, column_n);
+			ImRect @out = default;
+			TableGetCellBgRect_ptr(&@out, table, column_n);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiTable*, int, byte*> TableGetColumnNameTablePtr_ptr;
@@ -6857,13 +6825,12 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, byte*, bool, void> TabItemCalcSize_ptr;
-		public static void TabItemCalcSize(out ImVec2 @out, string label, bool has_close_button)
+		public static ImVec2 TabItemCalcSize(string label, bool has_close_button)
 		{
-			fixed(ImVec2* p_out = &@out)
-			{
-				using var p_label = new StringHelper(label);
-				TabItemCalcSize_ptr(p_out, p_label, has_close_button);
-			}
+			ImVec2 @out = default;
+			using var p_label = new StringHelper(label);
+			TabItemCalcSize_ptr(&@out, p_label, has_close_button);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImDrawList*, ImRect, ImGuiTabItemFlags, uint, void> TabItemBackground_ptr;
@@ -7059,9 +7026,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, ImGuiAxis, void> GetWindowScrollbarRect_ptr;
-		public static void GetWindowScrollbarRect(ImRect* @out, ImGuiWindowPtr window, ImGuiAxis axis)
+		public static ImRect GetWindowScrollbarRect(ImGuiWindowPtr window, ImGuiAxis axis)
 		{
-			GetWindowScrollbarRect_ptr(@out, window, axis);
+			ImRect @out = default;
+			GetWindowScrollbarRect_ptr(&@out, window, axis);
+			return @out;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiAxis, ImGuiID> GetWindowScrollbarID_ptr;
@@ -7327,9 +7296,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImDrawList*, ImDrawList*, ImDrawCmd*, bool, bool, void> DebugNodeDrawCmdShowMeshAndBoundingBox_ptr;
-		public static void DebugNodeDrawCmdShowMeshAndBoundingBox(ImDrawListPtr out_draw_list, ImDrawListPtr draw_list, ImDrawCmd* draw_cmd, bool show_mesh, bool show_aabb)
+		public static ImDrawList DebugNodeDrawCmdShowMeshAndBoundingBox(ImDrawListPtr draw_list, ImDrawCmd* draw_cmd, bool show_mesh, bool show_aabb)
 		{
-			DebugNodeDrawCmdShowMeshAndBoundingBox_ptr(out_draw_list, draw_list, draw_cmd, show_mesh, show_aabb);
+			ImDrawList out_draw_list = default;
+			DebugNodeDrawCmdShowMeshAndBoundingBox_ptr(&out_draw_list, draw_list, draw_cmd, show_mesh, show_aabb);
+			return out_draw_list;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, byte*, void> DebugNodeStorage_ptr;
@@ -7435,9 +7406,11 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<byte*, float, void> ImFontAtlasBuildMultiplyCalcLookupTable_ptr;
-		public static void ImFontAtlasBuildMultiplyCalcLookupTable(byte* out_table, float in_multiply_factor)
+		public static byte ImFontAtlasBuildMultiplyCalcLookupTable(float in_multiply_factor)
 		{
-			ImFontAtlasBuildMultiplyCalcLookupTable_ptr(out_table, in_multiply_factor);
+			byte out_table = default;
+			ImFontAtlasBuildMultiplyCalcLookupTable_ptr(&out_table, in_multiply_factor);
+			return out_table;
 		}
 
 		static delegate* unmanaged[Cdecl]<byte*, byte*, int, int, int, int, int, void> ImFontAtlasBuildMultiplyRectAlpha8_ptr;

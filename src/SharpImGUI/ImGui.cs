@@ -64,44 +64,12 @@ namespace SharpImGUI
 
         public static ImGuiIOPtr IO => GetIO();
         public static ImGuiStylePtr Style => GetStyle();
-        public static ImVec2 WindowPos
-        {
-            get
-            {
-                GetWindowPos(out var pos);
-                return pos;
-            }
-        }
-
-        public static ImVec2 WindowSize
-        {
-            get
-            {
-                GetWindowSize(out var sz);
-                return sz;
-            }
-        }
 
         public static float WindowWidth => GetWindowWidth();
         public static float WindowHeight => GetWindowHeight();
 
-        public static ImVec2 GetCursorStartPos()
-        {
-            GetCursorStartPos(out ImVec2 @out);
-            return @out;
-        }
-
-        public static ImVec2 GetCursorScreenPos()
-        {
-            GetCursorScreenPos(out ImVec2 @out);
-            return @out;
-        }
-
-        public static ImVec2 CalcTextSize(string text, string text_end = null, bool hide_text_after_double_hash = false, float wrap_width = -1.0f)
-        { 
-            CalcTextSize(out ImVec2 @out, text, text_end, hide_text_after_double_hash, wrap_width);
-            return @out;
-        }
+        public static ImVec2 CalcTextSize(string text, string text_end = null, bool hide_text_after_double_hash = false)
+            => CalcTextSize(text, text_end, hide_text_after_double_hash, -1.0f);        
 
         public static void PushID(string str_id) => PushIDStr(str_id);
         public static void PushID(string str_id_begin, string str_id_end) => PushIDStrStr(str_id_begin, str_id_end);

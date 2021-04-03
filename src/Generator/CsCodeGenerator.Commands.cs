@@ -10,10 +10,6 @@ namespace Generator
 {
     public static partial class CsCodeGenerator
     {
-        private static readonly HashSet<string> s_outReturnFunctions = new HashSet<string>
-        {
-        };
-
         static string[] paramentNames = new string[256];
         static List<string> stringParaments = new List<string>();
         private static void GenerateCommands(CppCompilation compilation, string outputPath)
@@ -94,8 +90,24 @@ namespace Generator
                         returnType = handleName;
                     }
 
-                    bool canUseOut = s_outReturnFunctions.Contains(cppFunction.Name);
-                    var argumentsString = GetParameterSignature(cppFunction, canUseOut);
+                    var argumentsString = "";
+
+                    bool voidRet = returnType == "void";
+
+                    bool outToReturn = false;
+                    string declStr = "";
+                    string retStr = "";
+                    if (voidRet && GetOutParameterToReturn(cppFunction, out var retType, out declStr, out retStr))
+                    { 
+                        outToReturn = true;                                
+                        returnType = retType;
+                        argumentsString = GetParameterSignature(cppFunction, 1);
+                    }
+                    else
+                    {
+                         argumentsString = GetParameterSignature(cppFunction);
+
+                    }
 
                     System.Array.Clear(paramentNames, 0, paramentNames.Length);
                     stringParaments.Clear();
@@ -106,6 +118,12 @@ namespace Generator
                         var index = 0;
                         foreach (var cppParameter in cppFunction.Parameters)
                         {
+                            if(index == 0 && outToReturn)
+                            {
+                                index++;
+                                continue;
+                            }
+
                             var paramCsTypeName = GetCsTypeName(cppParameter.Type, false);
                             var paramCsName = GetParameterName(cppParameter.Name);
 
@@ -137,12 +155,17 @@ namespace Generator
                             block = writer.PushBlock("", false);
                         }
 
+                        if(outToReturn)
+                        {
+                            writer.WriteLine(declStr);
+                        }
+
                         foreach (var str in stringParaments)
                         {
                             writer.WriteLine($"using var p_{str} = new StringHelper({str});");                            
                         }
 
-                        if (returnType != "void")
+                        if (returnType != "void" && !outToReturn)
                         {
                             writer.Write("return ");
                         }
@@ -153,14 +176,15 @@ namespace Generator
                         foreach (var cppParameter in cppFunction.Parameters)
                         {
                             var paramCsName = paramentNames[index] ?? GetParameterName(cppParameter.Name);
-
-                            if (canUseOut && CanBeUsedAsOutput(cppParameter.Type, out var cppTypeDeclaration))
+                            if(index == 0 && outToReturn)
                             {
-                                writer.Write("out ");
+                                writer.Write($"&{paramCsName}");
+                            }
+                            else
+                            {
+                                writer.Write($"{paramCsName}");
                             }
 
-
-                            writer.Write($"{paramCsName}");
                             if (index < cppFunction.Parameters.Count - 1)
                             {
                                 writer.Write(", ");
@@ -170,6 +194,11 @@ namespace Generator
                         }
 
                         writer.WriteLine($");");
+
+                        if(outToReturn)
+                        {
+                            writer.WriteLine(retStr);
+                        }
 
                         block?.Dispose();
 
@@ -223,22 +252,57 @@ namespace Generator
             return sb.ToString();
         }
 
-        public static string GetParameterSignature(CppFunction cppFunction, bool canUseOut)
+        public static bool GetOutParameterToReturn(CppFunction cppFunction, out string retType, out string declStr, out string retStr)
+        {
+            if(cppFunction.Parameters.Count > 0)
+            {
+                var cppParameter = cppFunction.Parameters[0];
+                var paramCsTypeName = GetCsTypeName(cppParameter.Type, false);
+                var paramCsName = GetParameterName(cppParameter.Name);
+
+                if (paramCsTypeName.EndsWith("*"))
+                {
+                    if (paramCsName.StartsWith("out") || paramCsName.StartsWith("@out"))
+                    {
+                        retType = paramCsTypeName.Substring(0, paramCsTypeName.Length - 1);
+                        declStr = $"{retType} {paramCsName} = default;";
+                        retStr = $"return {paramCsName};";
+                        return true;
+                    }
+
+                }
+            }
+
+            retType = "";
+            declStr = "";
+            retStr = "";
+            return false;
+
+        }
+
+
+        public static string GetParameterSignature(CppFunction cppFunction, int start = 0)
         {
             var argumentBuilder = new StringBuilder();
             var index = 0;
 
             foreach (var cppParameter in cppFunction.Parameters)
             {
+                if(index < start)
+                {
+                    index++;
+                    continue;
+                }
+
                 var direction = string.Empty;
                 var paramCsTypeName = GetCsTypeName(cppParameter.Type, false);
                 var paramCsName = GetParameterName(cppParameter.Name);
-
-                if (canUseOut && CanBeUsedAsOutput(cppParameter.Type, out CppTypeDeclaration? cppTypeDeclaration))
-                {
-                    argumentBuilder.Append("out ");
-                    paramCsTypeName = GetCsTypeName(cppTypeDeclaration, false);
-                }
+// 
+//                 if (CanBeUsedAsOutput(cppParameter.Type, out CppTypeDeclaration? cppTypeDeclaration))
+//                 {
+//                     argumentBuilder.Append("out ");
+//                     paramCsTypeName = GetCsTypeName(cppTypeDeclaration, false);
+//                 }
 
                 if(cppParameter.Type.GetDisplayName() == "const char*")
                 {
