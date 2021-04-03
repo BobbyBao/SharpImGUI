@@ -9,6 +9,7 @@ using ImVec2 = System.Numerics.Vector2;
 using ImVec3 = System.Numerics.Vector3;
 using ImVec4 = System.Numerics.Vector4;
 using ImColor = System.Numerics.Vector4;
+using ImGuiID = System.UInt32;
 
 namespace SharpImGUI
 {
@@ -83,6 +84,24 @@ namespace SharpImGUI
 
         public static float WindowWidth => GetWindowWidth();
         public static float WindowHeight => GetWindowHeight();
+
+        public static ImVec2 GetCursorStartPos()
+        {
+            GetCursorStartPos(out ImVec2 @out);
+            return @out;
+        }
+
+        public static ImVec2 GetCursorScreenPos()
+        {
+            GetCursorScreenPos(out ImVec2 @out);
+            return @out;
+        }
+
+        public static ImVec2 CalcTextSize(string text, string text_end = null, bool hide_text_after_double_hash = false, float wrap_width = -1.0f)
+        { 
+            CalcTextSize(out ImVec2 @out, text, text_end, hide_text_after_double_hash, wrap_width);
+            return @out;
+        }
 
         public static void PushID(string str_id) => PushIDStr(str_id);
         public static void PushID(string str_id_begin, string str_id_end) => PushIDStrStr(str_id_begin, str_id_end);
@@ -202,6 +221,9 @@ namespace SharpImGUI
             return ListBoxFnBoolPtr(label, ref current_item, (IntPtr)items_getter, data, items_count, height_in_items);
         }
 
+        public static void ItemSize(ImRect bb, float text_baseline_y = -1.0f) => ItemSizeRect(bb, text_baseline_y);
+        public static void ItemSize(ImVec2 size, float text_baseline_y = -1.0f) => ItemSizeVec2(size, text_baseline_y);
+        public static bool ItemAdd(ImRect bb, ImGuiID id) => ItemAdd(bb, id, null);
         public static void Value(string prefix, bool v) => ValueBool(prefix, v);
         public static void Value(string prefix, int v) => ValueInt(prefix, v);
         public static void Value(string prefix, uint v) => ValueUint(prefix, v);

@@ -25,7 +25,8 @@ namespace SharpImGUI
         }
 
         public static implicit operator RangeAccessor<T>(T* native) => new RangeAccessor<T>(native);
-        public ref T this[int index] => ref Data[index];
+        public ref T this[int index] => ref Data[index]; 
+        public ref T this[ImGuiCol index] => ref Data[(int)index];
     }
 
     public unsafe ref struct StringHelper
@@ -34,14 +35,16 @@ namespace SharpImGUI
 
         private readonly nint utf8Str;
         private fixed byte bytes[MAX_STACK_SIZE];
+        private bool isNull;
         public StringHelper(string str)
         {
             if(str == null)
             {
-                utf8Str = 0;
+                utf8Str = 0; 
+                isNull = true;
                 return;
             }
-
+            isNull = false;
             int count = Encoding.UTF8.GetByteCount(str);
             if (count < MAX_STACK_SIZE)
             {
@@ -77,7 +80,8 @@ namespace SharpImGUI
                 return IntPtr.Zero;
         }
 
-        public unsafe static implicit operator byte*(StringHelper self) => self.utf8Str == 0 ? (byte*)Unsafe.AsPointer(ref self.bytes[0]) : (byte*)self.utf8Str;
+        public unsafe static implicit operator byte*(StringHelper self) => self.utf8Str == 0 ?
+            self.isNull ? null : (byte*)Unsafe.AsPointer(ref self.bytes[0]) : (byte*)self.utf8Str;
 
         public void Dispose()
         {

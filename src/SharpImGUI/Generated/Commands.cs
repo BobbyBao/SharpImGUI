@@ -5287,20 +5287,20 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, byte*, ImGuiWindow*> ImGuiWindow_ImGuiWindow_ptr;
-		public static ImGuiWindow* ImGuiWindow_ImGuiWindow(ImGuiContext* context, string name)
+		public static ImGuiWindowPtr ImGuiWindow_ImGuiWindow(ImGuiContext* context, string name)
 		{
 			using var p_name = new StringHelper(name);
 			return ImGuiWindow_ImGuiWindow_ptr(context, p_name);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> ImGuiWindow_destroy_ptr;
-		public static void ImGuiWindow_destroy(ImGuiWindow* self)
+		public static void ImGuiWindow_destroy(ImGuiWindowPtr self)
 		{
 			ImGuiWindow_destroy_ptr(self);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, byte*, byte*, ImGuiID> ImGuiWindow_GetIDStr_ptr;
-		public static ImGuiID ImGuiWindow_GetIDStr(ImGuiWindow* self, string str, string str_end)
+		public static ImGuiID ImGuiWindow_GetIDStr(ImGuiWindowPtr self, string str, string str_end)
 		{
 			using var p_str = new StringHelper(str);
 			using var p_str_end = new StringHelper(str_end);
@@ -5308,19 +5308,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, IntPtr, ImGuiID> ImGuiWindow_GetIDPtr_ptr;
-		public static ImGuiID ImGuiWindow_GetIDPtr(ImGuiWindow* self, IntPtr ptr)
+		public static ImGuiID ImGuiWindow_GetIDPtr(ImGuiWindowPtr self, IntPtr ptr)
 		{
 			return ImGuiWindow_GetIDPtr_ptr(self, ptr);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, int, ImGuiID> ImGuiWindow_GetIDInt_ptr;
-		public static ImGuiID ImGuiWindow_GetIDInt(ImGuiWindow* self, int n)
+		public static ImGuiID ImGuiWindow_GetIDInt(ImGuiWindowPtr self, int n)
 		{
 			return ImGuiWindow_GetIDInt_ptr(self, n);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, byte*, byte*, ImGuiID> ImGuiWindow_GetIDNoKeepAliveStr_ptr;
-		public static ImGuiID ImGuiWindow_GetIDNoKeepAliveStr(ImGuiWindow* self, string str, string str_end)
+		public static ImGuiID ImGuiWindow_GetIDNoKeepAliveStr(ImGuiWindowPtr self, string str, string str_end)
 		{
 			using var p_str = new StringHelper(str);
 			using var p_str_end = new StringHelper(str_end);
@@ -5328,55 +5328,55 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, IntPtr, ImGuiID> ImGuiWindow_GetIDNoKeepAlivePtr_ptr;
-		public static ImGuiID ImGuiWindow_GetIDNoKeepAlivePtr(ImGuiWindow* self, IntPtr ptr)
+		public static ImGuiID ImGuiWindow_GetIDNoKeepAlivePtr(ImGuiWindowPtr self, IntPtr ptr)
 		{
 			return ImGuiWindow_GetIDNoKeepAlivePtr_ptr(self, ptr);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, int, ImGuiID> ImGuiWindow_GetIDNoKeepAliveInt_ptr;
-		public static ImGuiID ImGuiWindow_GetIDNoKeepAliveInt(ImGuiWindow* self, int n)
+		public static ImGuiID ImGuiWindow_GetIDNoKeepAliveInt(ImGuiWindowPtr self, int n)
 		{
 			return ImGuiWindow_GetIDNoKeepAliveInt_ptr(self, n);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImRect, ImGuiID> ImGuiWindow_GetIDFromRectangle_ptr;
-		public static ImGuiID ImGuiWindow_GetIDFromRectangle(ImGuiWindow* self, ImRect r_abs)
+		public static ImGuiID ImGuiWindow_GetIDFromRectangle(ImGuiWindowPtr self, ImRect r_abs)
 		{
 			return ImGuiWindow_GetIDFromRectangle_ptr(self, r_abs);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void> ImGuiWindow_Rect_ptr;
-		public static void ImGuiWindow_Rect(ImRect* @out, ImGuiWindow* self)
+		public static void ImGuiWindow_Rect(ImRect* @out, ImGuiWindowPtr self)
 		{
 			ImGuiWindow_Rect_ptr(@out, self);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float> ImGuiWindow_CalcFontSize_ptr;
-		public static float ImGuiWindow_CalcFontSize(ImGuiWindow* self)
+		public static float ImGuiWindow_CalcFontSize(ImGuiWindowPtr self)
 		{
 			return ImGuiWindow_CalcFontSize_ptr(self);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float> ImGuiWindow_TitleBarHeight_ptr;
-		public static float ImGuiWindow_TitleBarHeight(ImGuiWindow* self)
+		public static float ImGuiWindow_TitleBarHeight(ImGuiWindowPtr self)
 		{
 			return ImGuiWindow_TitleBarHeight_ptr(self);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void> ImGuiWindow_TitleBarRect_ptr;
-		public static void ImGuiWindow_TitleBarRect(ImRect* @out, ImGuiWindow* self)
+		public static void ImGuiWindow_TitleBarRect(ImRect* @out, ImGuiWindowPtr self)
 		{
 			ImGuiWindow_TitleBarRect_ptr(@out, self);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float> ImGuiWindow_MenuBarHeight_ptr;
-		public static float ImGuiWindow_MenuBarHeight(ImGuiWindow* self)
+		public static float ImGuiWindow_MenuBarHeight(ImGuiWindowPtr self)
 		{
 			return ImGuiWindow_MenuBarHeight_ptr(self);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void> ImGuiWindow_MenuBarRect_ptr;
-		public static void ImGuiWindow_MenuBarRect(ImRect* @out, ImGuiWindow* self)
+		public static void ImGuiWindow_MenuBarRect(ImRect* @out, ImGuiWindowPtr self)
 		{
 			ImGuiWindow_MenuBarRect_ptr(@out, self);
 		}
@@ -5496,38 +5496,38 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*> GetCurrentWindowRead_ptr;
-		public static ImGuiWindow* GetCurrentWindowRead()
+		public static ImGuiWindowPtr GetCurrentWindowRead()
 		{
 			return GetCurrentWindowRead_ptr();
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*> GetCurrentWindow_ptr;
-		public static ImGuiWindow* GetCurrentWindow()
+		public static ImGuiWindowPtr GetCurrentWindow()
 		{
 			return GetCurrentWindow_ptr();
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindow*> FindWindowByID_ptr;
-		public static ImGuiWindow* FindWindowByID(ImGuiID id)
+		public static ImGuiWindowPtr FindWindowByID(ImGuiID id)
 		{
 			return FindWindowByID_ptr(id);
 		}
 
 		static delegate* unmanaged[Cdecl]<byte*, ImGuiWindow*> FindWindowByName_ptr;
-		public static ImGuiWindow* FindWindowByName(string name)
+		public static ImGuiWindowPtr FindWindowByName(string name)
 		{
 			using var p_name = new StringHelper(name);
 			return FindWindowByName_ptr(p_name);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindowFlags, ImGuiWindow*, void> UpdateWindowParentAndRootLinks_ptr;
-		public static void UpdateWindowParentAndRootLinks(ImGuiWindow* window, ImGuiWindowFlags flags, ImGuiWindow* parent_window)
+		public static void UpdateWindowParentAndRootLinks(ImGuiWindowPtr window, ImGuiWindowFlags flags, ImGuiWindowPtr parent_window)
 		{
 			UpdateWindowParentAndRootLinks_ptr(window, flags, parent_window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiWindow*, void> CalcWindowNextAutoFitSize_ptr;
-		public static void CalcWindowNextAutoFitSize(out ImVec2 @out, ImGuiWindow* window)
+		public static void CalcWindowNextAutoFitSize(out ImVec2 @out, ImGuiWindowPtr window)
 		{
 			fixed(ImVec2* p_out = &@out)
 			{
@@ -5536,79 +5536,79 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindow*, bool> IsWindowChildOf_ptr;
-		public static bool IsWindowChildOf(ImGuiWindow* window, ImGuiWindow* potential_parent)
+		public static bool IsWindowChildOf(ImGuiWindowPtr window, ImGuiWindowPtr potential_parent)
 		{
 			return IsWindowChildOf_ptr(window, potential_parent);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindow*, bool> IsWindowAbove_ptr;
-		public static bool IsWindowAbove(ImGuiWindow* potential_above, ImGuiWindow* potential_below)
+		public static bool IsWindowAbove(ImGuiWindowPtr potential_above, ImGuiWindowPtr potential_below)
 		{
 			return IsWindowAbove_ptr(potential_above, potential_below);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, bool> IsWindowNavFocusable_ptr;
-		public static bool IsWindowNavFocusable(ImGuiWindow* window)
+		public static bool IsWindowNavFocusable(ImGuiWindowPtr window)
 		{
 			return IsWindowNavFocusable_ptr(window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, void> GetWindowAllowedExtentRect_ptr;
-		public static void GetWindowAllowedExtentRect(ImRect* @out, ImGuiWindow* window)
+		public static void GetWindowAllowedExtentRect(ImRect* @out, ImGuiWindowPtr window)
 		{
 			GetWindowAllowedExtentRect_ptr(@out, window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImVec2, ImGuiCond, void> SetWindowPosWindowPtr_ptr;
-		public static void SetWindowPosWindowPtr(ImGuiWindow* window, ImVec2 pos, ImGuiCond cond)
+		public static void SetWindowPosWindowPtr(ImGuiWindowPtr window, ImVec2 pos, ImGuiCond cond)
 		{
 			SetWindowPosWindowPtr_ptr(window, pos, cond);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImVec2, ImGuiCond, void> SetWindowSizeWindowPtr_ptr;
-		public static void SetWindowSizeWindowPtr(ImGuiWindow* window, ImVec2 size, ImGuiCond cond)
+		public static void SetWindowSizeWindowPtr(ImGuiWindowPtr window, ImVec2 size, ImGuiCond cond)
 		{
 			SetWindowSizeWindowPtr_ptr(window, size, cond);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, bool, ImGuiCond, void> SetWindowCollapsedWindowPtr_ptr;
-		public static void SetWindowCollapsedWindowPtr(ImGuiWindow* window, bool collapsed, ImGuiCond cond)
+		public static void SetWindowCollapsedWindowPtr(ImGuiWindowPtr window, bool collapsed, ImGuiCond cond)
 		{
 			SetWindowCollapsedWindowPtr_ptr(window, collapsed, cond);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImVec2, ImVec2, void> SetWindowHitTestHole_ptr;
-		public static void SetWindowHitTestHole(ImGuiWindow* window, ImVec2 pos, ImVec2 size)
+		public static void SetWindowHitTestHole(ImGuiWindowPtr window, ImVec2 pos, ImVec2 size)
 		{
 			SetWindowHitTestHole_ptr(window, pos, size);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> FocusWindow_ptr;
-		public static void FocusWindow(ImGuiWindow* window)
+		public static void FocusWindow(ImGuiWindowPtr window)
 		{
 			FocusWindow_ptr(window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiWindow*, void> FocusTopMostWindowUnderOne_ptr;
-		public static void FocusTopMostWindowUnderOne(ImGuiWindow* under_this_window, ImGuiWindow* ignore_window)
+		public static void FocusTopMostWindowUnderOne(ImGuiWindowPtr under_this_window, ImGuiWindowPtr ignore_window)
 		{
 			FocusTopMostWindowUnderOne_ptr(under_this_window, ignore_window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> BringWindowToFocusFront_ptr;
-		public static void BringWindowToFocusFront(ImGuiWindow* window)
+		public static void BringWindowToFocusFront(ImGuiWindowPtr window)
 		{
 			BringWindowToFocusFront_ptr(window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> BringWindowToDisplayFront_ptr;
-		public static void BringWindowToDisplayFront(ImGuiWindow* window)
+		public static void BringWindowToDisplayFront(ImGuiWindowPtr window)
 		{
 			BringWindowToDisplayFront_ptr(window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> BringWindowToDisplayBack_ptr;
-		public static void BringWindowToDisplayBack(ImGuiWindow* window)
+		public static void BringWindowToDisplayBack(ImGuiWindowPtr window)
 		{
 			BringWindowToDisplayBack_ptr(window);
 		}
@@ -5626,7 +5626,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImDrawList*> GetForegroundDrawListWindowPtr_ptr;
-		public static ImDrawListPtr GetForegroundDrawListWindowPtr(ImGuiWindow* window)
+		public static ImDrawListPtr GetForegroundDrawListWindowPtr(ImGuiWindowPtr window)
 		{
 			return GetForegroundDrawListWindowPtr_ptr(window);
 		}
@@ -5650,13 +5650,13 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> StartMouseMovingWindow_ptr;
-		public static void StartMouseMovingWindow(ImGuiWindow* window)
+		public static void StartMouseMovingWindow(ImGuiWindowPtr window)
 		{
 			StartMouseMovingWindow_ptr(window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiDockNode*, bool, void> StartMouseMovingWindowOrNode_ptr;
-		public static void StartMouseMovingWindowOrNode(ImGuiWindow* window, ImGuiDockNode* node, bool undock_floating_node)
+		public static void StartMouseMovingWindowOrNode(ImGuiWindowPtr window, ImGuiDockNode* node, bool undock_floating_node)
 		{
 			StartMouseMovingWindowOrNode_ptr(window, node, undock_floating_node);
 		}
@@ -5722,7 +5722,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> MarkIniSettingsDirtyWindowPtr_ptr;
-		public static void MarkIniSettingsDirtyWindowPtr(ImGuiWindow* window)
+		public static void MarkIniSettingsDirtyWindowPtr(ImGuiWindowPtr window)
 		{
 			MarkIniSettingsDirtyWindowPtr_ptr(window);
 		}
@@ -5767,31 +5767,31 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float, void> SetScrollXWindowPtr_ptr;
-		public static void SetScrollXWindowPtr(ImGuiWindow* window, float scroll_x)
+		public static void SetScrollXWindowPtr(ImGuiWindowPtr window, float scroll_x)
 		{
 			SetScrollXWindowPtr_ptr(window, scroll_x);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float, void> SetScrollYWindowPtr_ptr;
-		public static void SetScrollYWindowPtr(ImGuiWindow* window, float scroll_y)
+		public static void SetScrollYWindowPtr(ImGuiWindowPtr window, float scroll_y)
 		{
 			SetScrollYWindowPtr_ptr(window, scroll_y);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float, float, void> SetScrollFromPosXWindowPtr_ptr;
-		public static void SetScrollFromPosXWindowPtr(ImGuiWindow* window, float local_x, float center_x_ratio)
+		public static void SetScrollFromPosXWindowPtr(ImGuiWindowPtr window, float local_x, float center_x_ratio)
 		{
 			SetScrollFromPosXWindowPtr_ptr(window, local_x, center_x_ratio);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, float, float, void> SetScrollFromPosYWindowPtr_ptr;
-		public static void SetScrollFromPosYWindowPtr(ImGuiWindow* window, float local_y, float center_y_ratio)
+		public static void SetScrollFromPosYWindowPtr(ImGuiWindowPtr window, float local_y, float center_y_ratio)
 		{
 			SetScrollFromPosYWindowPtr_ptr(window, local_y, center_y_ratio);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiWindow*, ImRect, void> ScrollToBringRectIntoView_ptr;
-		public static void ScrollToBringRectIntoView(out ImVec2 @out, ImGuiWindow* window, ImRect item_rect)
+		public static void ScrollToBringRectIntoView(out ImVec2 @out, ImGuiWindowPtr window, ImRect item_rect)
 		{
 			fixed(ImVec2* p_out = &@out)
 			{
@@ -5830,13 +5830,13 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindow*, void> SetActiveID_ptr;
-		public static void SetActiveID(ImGuiID id, ImGuiWindow* window)
+		public static void SetActiveID(ImGuiID id, ImGuiWindowPtr window)
 		{
 			SetActiveID_ptr(id, window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiID, ImGuiWindow*, void> SetFocusID_ptr;
-		public static void SetFocusID(ImGuiID id, ImGuiWindow* window)
+		public static void SetFocusID(ImGuiID id, ImGuiWindowPtr window)
 		{
 			SetFocusID_ptr(id, window);
 		}
@@ -5916,19 +5916,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiID, ImGuiItemStatusFlags, ImRect, void> SetLastItemData_ptr;
-		public static void SetLastItemData(ImGuiWindow* window, ImGuiID item_id, ImGuiItemStatusFlags status_flags, ImRect item_rect)
+		public static void SetLastItemData(ImGuiWindowPtr window, ImGuiID item_id, ImGuiItemStatusFlags status_flags, ImRect item_rect)
 		{
 			SetLastItemData_ptr(window, item_id, status_flags, item_rect);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiID, bool> FocusableItemRegister_ptr;
-		public static bool FocusableItemRegister(ImGuiWindow* window, ImGuiID id)
+		public static bool FocusableItemRegister(ImGuiWindowPtr window, ImGuiID id)
 		{
 			return FocusableItemRegister_ptr(window, id);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> FocusableItemUnregister_ptr;
-		public static void FocusableItemUnregister(ImGuiWindow* window)
+		public static void FocusableItemUnregister(ImGuiWindowPtr window)
 		{
 			FocusableItemUnregister_ptr(window);
 		}
@@ -6035,7 +6035,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, bool, void> ClosePopupsOverWindow_ptr;
-		public static void ClosePopupsOverWindow(ImGuiWindow* ref_window, bool restore_focus_to_window_under_popup)
+		public static void ClosePopupsOverWindow(ImGuiWindowPtr ref_window, bool restore_focus_to_window_under_popup)
 		{
 			ClosePopupsOverWindow_ptr(ref_window, restore_focus_to_window_under_popup);
 		}
@@ -6059,13 +6059,13 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*> GetTopMostPopupModal_ptr;
-		public static ImGuiWindow* GetTopMostPopupModal()
+		public static ImGuiWindowPtr GetTopMostPopupModal()
 		{
 			return GetTopMostPopupModal_ptr();
 		}
 
 		static delegate* unmanaged[Cdecl]<ImVec2*, ImGuiWindow*, void> FindBestWindowPosForPopup_ptr;
-		public static void FindBestWindowPosForPopup(out ImVec2 @out, ImGuiWindow* window)
+		public static void FindBestWindowPosForPopup(out ImVec2 @out, ImGuiWindowPtr window)
 		{
 			fixed(ImVec2* p_out = &@out)
 			{
@@ -6084,7 +6084,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, bool, void> NavInitWindow_ptr;
-		public static void NavInitWindow(ImGuiWindow* window, bool force_reinit)
+		public static void NavInitWindow(ImGuiWindowPtr window, bool force_reinit)
 		{
 			NavInitWindow_ptr(window, force_reinit);
 		}
@@ -6108,7 +6108,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiNavMoveFlags, void> NavMoveRequestTryWrapping_ptr;
-		public static void NavMoveRequestTryWrapping(ImGuiWindow* window, ImGuiNavMoveFlags move_flags)
+		public static void NavMoveRequestTryWrapping(ImGuiWindowPtr window, ImGuiNavMoveFlags move_flags)
 		{
 			NavMoveRequestTryWrapping_ptr(window, move_flags);
 		}
@@ -6267,13 +6267,13 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiWindow*, ImGuiDockNode*, ImGuiWindow*, ImGuiDir, float, bool, void> DockContextQueueDock_ptr;
-		public static void DockContextQueueDock(ImGuiContext* ctx, ImGuiWindow* target, ImGuiDockNode* target_node, ImGuiWindow* payload, ImGuiDir split_dir, float split_ratio, bool split_outer)
+		public static void DockContextQueueDock(ImGuiContext* ctx, ImGuiWindowPtr target, ImGuiDockNode* target_node, ImGuiWindowPtr payload, ImGuiDir split_dir, float split_ratio, bool split_outer)
 		{
 			DockContextQueueDock_ptr(ctx, target, target_node, payload, split_dir, split_ratio, split_outer);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiWindow*, void> DockContextQueueUndockWindow_ptr;
-		public static void DockContextQueueUndockWindow(ImGuiContext* ctx, ImGuiWindow* window)
+		public static void DockContextQueueUndockWindow(ImGuiContext* ctx, ImGuiWindowPtr window)
 		{
 			DockContextQueueUndockWindow_ptr(ctx, window);
 		}
@@ -6285,7 +6285,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiDockNode*, ImGuiWindow*, ImGuiDir, bool, ImVec2*, bool> DockContextCalcDropPosForDocking_ptr;
-		public static bool DockContextCalcDropPosForDocking(ImGuiWindow* target, ImGuiDockNode* target_node, ImGuiWindow* payload, ImGuiDir split_dir, bool split_outer, out ImVec2 out_pos)
+		public static bool DockContextCalcDropPosForDocking(ImGuiWindowPtr target, ImGuiDockNode* target_node, ImGuiWindowPtr payload, ImGuiDir split_dir, bool split_outer, out ImVec2 out_pos)
 		{
 			fixed(ImVec2* p_out_pos = &out_pos)
 			{
@@ -6324,13 +6324,13 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, bool> GetWindowAlwaysWantOwnTabBar_ptr;
-		public static bool GetWindowAlwaysWantOwnTabBar(ImGuiWindow* window)
+		public static bool GetWindowAlwaysWantOwnTabBar(ImGuiWindowPtr window)
 		{
 			return GetWindowAlwaysWantOwnTabBar_ptr(window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, bool*, void> BeginDocked_ptr;
-		public static void BeginDocked(ImGuiWindow* window, ref bool p_open)
+		public static void BeginDocked(ImGuiWindowPtr window, ref bool p_open)
 		{
 			fixed(bool* p_p_open = &p_open)
 			{
@@ -6339,19 +6339,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> BeginDockableDragDropSource_ptr;
-		public static void BeginDockableDragDropSource(ImGuiWindow* window)
+		public static void BeginDockableDragDropSource(ImGuiWindowPtr window)
 		{
 			BeginDockableDragDropSource_ptr(window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> BeginDockableDragDropTarget_ptr;
-		public static void BeginDockableDragDropTarget(ImGuiWindow* window)
+		public static void BeginDockableDragDropTarget(ImGuiWindowPtr window)
 		{
 			BeginDockableDragDropTarget_ptr(window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiID, ImGuiCond, void> SetWindowDock_ptr;
-		public static void SetWindowDock(ImGuiWindow* window, ImGuiID dock_id, ImGuiCond cond)
+		public static void SetWindowDock(ImGuiWindowPtr window, ImGuiID dock_id, ImGuiCond cond)
 		{
 			SetWindowDock_ptr(window, dock_id, cond);
 		}
@@ -6466,7 +6466,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImRect, void> SetWindowClipRectBeforeSetChannel_ptr;
-		public static void SetWindowClipRectBeforeSetChannel(ImGuiWindow* window, ImRect clip_rect)
+		public static void SetWindowClipRectBeforeSetChannel(ImGuiWindowPtr window, ImRect clip_rect)
 		{
 			SetWindowClipRectBeforeSetChannel_ptr(window, clip_rect);
 		}
@@ -6510,7 +6510,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiID, ImGuiOldColumns*> FindOrCreateColumns_ptr;
-		public static ImGuiOldColumns* FindOrCreateColumns(ImGuiWindow* window, ImGuiID id)
+		public static ImGuiOldColumns* FindOrCreateColumns(ImGuiWindowPtr window, ImGuiID id)
 		{
 			return FindOrCreateColumns_ptr(window, id);
 		}
@@ -6817,7 +6817,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, ImGuiTabItemFlags, ImGuiWindow*, void> TabBarAddTab_ptr;
-		public static void TabBarAddTab(ImGuiTabBar* tab_bar, ImGuiTabItemFlags tab_flags, ImGuiWindow* window)
+		public static void TabBarAddTab(ImGuiTabBar* tab_bar, ImGuiTabItemFlags tab_flags, ImGuiWindowPtr window)
 		{
 			TabBarAddTab_ptr(tab_bar, tab_flags, window);
 		}
@@ -6847,7 +6847,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiTabBar*, byte*, bool*, ImGuiTabItemFlags, ImGuiWindow*, bool> TabItemEx_ptr;
-		public static bool TabItemEx(ImGuiTabBar* tab_bar, string label, ref bool p_open, ImGuiTabItemFlags flags, ImGuiWindow* docked_window)
+		public static bool TabItemEx(ImGuiTabBar* tab_bar, string label, ref bool p_open, ImGuiTabItemFlags flags, ImGuiWindowPtr docked_window)
 		{
 			fixed(bool* p_p_open = &p_open)
 			{
@@ -7059,19 +7059,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect*, ImGuiWindow*, ImGuiAxis, void> GetWindowScrollbarRect_ptr;
-		public static void GetWindowScrollbarRect(ImRect* @out, ImGuiWindow* window, ImGuiAxis axis)
+		public static void GetWindowScrollbarRect(ImRect* @out, ImGuiWindowPtr window, ImGuiAxis axis)
 		{
 			GetWindowScrollbarRect_ptr(@out, window, axis);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiAxis, ImGuiID> GetWindowScrollbarID_ptr;
-		public static ImGuiID GetWindowScrollbarID(ImGuiWindow* window, ImGuiAxis axis)
+		public static ImGuiID GetWindowScrollbarID(ImGuiWindowPtr window, ImGuiAxis axis)
 		{
 			return GetWindowScrollbarID_ptr(window, axis);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, int, ImGuiID> GetWindowResizeID_ptr;
-		public static ImGuiID GetWindowResizeID(ImGuiWindow* window, int n)
+		public static ImGuiID GetWindowResizeID(ImGuiWindowPtr window, int n)
 		{
 			return GetWindowResizeID_ptr(window, n);
 		}
@@ -7277,13 +7277,13 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> GcCompactTransientWindowBuffers_ptr;
-		public static void GcCompactTransientWindowBuffers(ImGuiWindow* window)
+		public static void GcCompactTransientWindowBuffers(ImGuiWindowPtr window)
 		{
 			GcCompactTransientWindowBuffers_ptr(window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, void> GcAwakeTransientWindowBuffers_ptr;
-		public static void GcAwakeTransientWindowBuffers(ImGuiWindow* window)
+		public static void GcAwakeTransientWindowBuffers(ImGuiWindowPtr window)
 		{
 			GcAwakeTransientWindowBuffers_ptr(window);
 		}
@@ -7320,7 +7320,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, ImGuiViewportP*, ImDrawList*, byte*, void> DebugNodeDrawList_ptr;
-		public static void DebugNodeDrawList(ImGuiWindow* window, ImGuiViewportP* viewport, ImDrawListPtr draw_list, string label)
+		public static void DebugNodeDrawList(ImGuiWindowPtr window, ImGuiViewportP* viewport, ImDrawListPtr draw_list, string label)
 		{
 			using var p_label = new StringHelper(label);
 			DebugNodeDrawList_ptr(window, viewport, draw_list, p_label);
@@ -7359,7 +7359,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiWindow*, byte*, void> DebugNodeWindow_ptr;
-		public static void DebugNodeWindow(ImGuiWindow* window, string label)
+		public static void DebugNodeWindow(ImGuiWindowPtr window, string label)
 		{
 			using var p_label = new StringHelper(label);
 			DebugNodeWindow_ptr(window, p_label);

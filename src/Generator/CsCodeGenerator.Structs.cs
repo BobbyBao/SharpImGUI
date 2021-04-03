@@ -31,7 +31,8 @@ namespace Generator
             { "ImDrawList*", "ImDrawListPtr"},
             { "ImFont*", "ImFontPtr"},
             { "ImFontConfig*", "ImFontConfigPtr" },
-            { "ImGuiViewport*", "ImGuiViewportPtr" }
+            { "ImGuiViewport*", "ImGuiViewportPtr" },
+            { "ImGuiWindow*", "ImGuiWindowPtr" }
         };
 
         private static void GenerateStructAndUnions(CppCompilation compilation, string outputPath)
@@ -300,10 +301,12 @@ namespace Generator
                             }
 
                             var elementTypeName = GetCsTypeName(arrayType.ElementType, false);
+
+                            string wrap = "RangeAccessor";                         
                             if(canUseFixed)
-                                writer.WriteLine($"public RangeAccessor<{elementTypeName}> {csFieldName} => ({elementTypeName}*)Unsafe.AsPointer(ref self->{csFieldName}[0]);");
+                                writer.WriteLine($"public {wrap}<{elementTypeName}> {csFieldName} => ({elementTypeName}*)Unsafe.AsPointer(ref self->{csFieldName}[0]);");
                             else
-                                writer.WriteLine($"public RangeAccessor<{elementTypeName}> {csFieldName} => ({elementTypeName}*)Unsafe.AsPointer(ref self->{csFieldName}_0);");
+                                writer.WriteLine($"public {wrap}<{elementTypeName}> {csFieldName} => ({elementTypeName}*)Unsafe.AsPointer(ref self->{csFieldName}_0);");
 
                             continue;
                         }

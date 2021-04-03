@@ -12,6 +12,32 @@ using System.Runtime.CompilerServices;
 
 namespace SharpImGUI
 {
+    public unsafe partial struct ImRect
+    {
+        public float GetWidth() => Max.X - Min.X;
+        public float GetHeight() => Max.Y - Min.Y;
+    }
+
+       
+    public unsafe partial struct ImGuiWindowPtr
+    {
+        ImGuiWindow* self;
+
+        public ImGuiWindowPtr(ImGuiWindow* native)
+        {
+            self = (ImGuiWindow*)native;
+        }
+
+        public static implicit operator ImGuiWindowPtr(ImGuiWindow* native) => new ImGuiWindowPtr(native);
+        public static implicit operator ImGuiWindow*(ImGuiWindowPtr handle) => handle.self;
+
+        public ref ImGuiWindowTempData DC => ref self->DC;
+
+        public ImGuiID GetID(string str, string str_end = null) => ImGui.ImGuiWindow_GetIDStr(self, str, str_end);
+        public ImGuiID GetID(nint ptr) => ImGui.ImGuiWindow_GetIDPtr(self, ptr); 
+        public ImGuiID GetID(int n) => ImGui.ImGuiWindow_GetIDInt(self, n);
+    }
+        
     public unsafe partial struct ImGuiIOPtr
     {
         public void AddInputCharacter(uint c) => ImGui.ImGuiIO_AddInputCharacter(self, c);
