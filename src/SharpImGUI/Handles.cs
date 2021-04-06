@@ -81,6 +81,10 @@ namespace SharpImGUI
 
     public unsafe partial struct ImDrawListPtr
     {
+        public void AddLine(ImVec2 p1, ImVec2 p2, uint col, float thickness = 1.0f)        
+            => ImGui.ImDrawList_AddLine(self, p1, p2, col, thickness);
+        
+
         public void AddRectFilled(ImVec2 p_min, ImVec2 p_max, uint col, float rounding = 0.0f, ImDrawFlags flags = 0)
             => ImGui.ImDrawList_AddRectFilled(self, p_min, p_max, col, rounding, flags);
     }

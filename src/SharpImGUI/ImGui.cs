@@ -67,7 +67,7 @@ namespace SharpImGUI
 
         public static float WindowWidth => GetWindowWidth();
         public static float WindowHeight => GetWindowHeight();
-
+        public static void SetWindowSize(ImVec2 size, ImGuiCond cond = 0) => SetWindowSizeVec2(size, cond);
         public static ImVec2 CalcTextSize(string text, string text_end = null, bool hide_text_after_double_hash = false)
             => CalcTextSize(text, text_end, hide_text_after_double_hash, -1.0f);        
 
@@ -142,6 +142,29 @@ namespace SharpImGUI
             => VSliderInt(label, size, ref v, v_min, v_max, format, ImGuiSliderFlags.None);
         public static bool VSliderScalar(string label, ImVec2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, string format = null)
             => VSliderScalar(label, size, data_type, p_data, p_min, p_max, format, ImGuiSliderFlags.None);
+
+        static byte[] buffer = new byte[4096];
+        public static bool InputText(string label, ref string buf, ImGuiInputTextFlags flags = default, IntPtr callback = default, IntPtr user_data = default)
+        {
+            var str = (byte*)Unsafe.AsPointer(ref buffer[0]);
+            int len = Encoding.UTF8.GetMaxByteCount(buf.Length);
+            fixed (char* p_char = buf)
+            {
+                len = Encoding.UTF8.GetBytes(p_char, buf.Length, str, len);
+                str[len + 1] = 0;
+            }
+
+            var res = InputText(label, str, (IntPtr)buffer.Length, flags, callback, user_data);
+            if(res)
+            {
+                len = 0;
+                while (*str++ != 0) len++;
+
+                buf = Encoding.UTF8.GetString(buffer, 0, len);
+
+            }
+            return res;
+        }
         public static bool InputText(string label, byte[] buf, ImGuiInputTextFlags flags = default, IntPtr callback = default, IntPtr user_data = default)
             => InputText(label, (byte*)Unsafe.AsPointer(ref buf[0]), (IntPtr)buf.Length, flags, callback, user_data);
         public static bool InputTextMultiline(string label, byte[] buf, ImVec2 size, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None, IntPtr callback = default, IntPtr user_data = default)

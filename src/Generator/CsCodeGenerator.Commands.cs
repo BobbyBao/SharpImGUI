@@ -193,7 +193,12 @@ namespace Generator
                             index++;
                         }
 
-                        writer.WriteLine($");");
+                        if(returnType == "bool")
+                        {
+                            writer.WriteLine($") != 0;");
+                        }
+                        else
+                            writer.WriteLine($");");
 
                         if(outToReturn)
                         {
@@ -247,7 +252,13 @@ namespace Generator
                 index++;
             }
 
-            sb.Append(GetCsTypeName(cppFunction.ReturnType));
+            var retType = GetCsTypeName(cppFunction.ReturnType);
+            if(retType  == "bool")
+            {
+                retType = "byte";
+            }
+
+            sb.Append(retType);
             sb.Append(">");
             return sb.ToString();
         }
@@ -334,6 +345,13 @@ namespace Generator
                 if (index < cppFunction.Parameters.Count - 1)
                 {
                     argumentBuilder.Append(", ");
+                }
+                else
+                {
+                    if(paramCsTypeName.EndsWith("Flags"))
+                    {
+                        argumentBuilder.Append(" = 0");
+                    }
                 }
 
                 index++;
