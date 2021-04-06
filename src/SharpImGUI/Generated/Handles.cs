@@ -57,6 +57,10 @@ namespace SharpImGUI
 		public ref bool PlatformRequestMove => ref self->PlatformRequestMove;
 		public ref bool PlatformRequestResize => ref self->PlatformRequestResize;
 		public ref bool PlatformRequestClose => ref self->PlatformRequestClose;
+		public static ImGuiViewportPtr ImGuiViewport() => ImGui.ImGuiViewport_ImGuiViewport();
+		public void destroy() => ImGui.ImGuiViewport_destroy(self);
+		public ImVec2 GetCenter() => ImGui.ImGuiViewport_GetCenter(self);
+		public ImVec2 GetWorkCenter() => ImGui.ImGuiViewport_GetWorkCenter(self);
 	}
 
 	public unsafe partial struct ImDrawDataPtr
@@ -78,6 +82,11 @@ namespace SharpImGUI
 		public ref ImVec2 DisplaySize => ref self->DisplaySize;
 		public ref ImVec2 FramebufferScale => ref self->FramebufferScale;
 		public ImGuiViewportPtr OwnerViewport => self->OwnerViewport;
+		public static ImDrawDataPtr ImDrawData() => ImGui.ImDrawData_ImDrawData();
+		public void destroy() => ImGui.ImDrawData_destroy(self);
+		public void Clear() => ImGui.ImDrawData_Clear(self);
+		public void DeIndexAllBuffers() => ImGui.ImDrawData_DeIndexAllBuffers(self);
+		public void ScaleClipRects(ImVec2 fb_scale) => ImGui.ImDrawData_ScaleClipRects(self, fb_scale);
 	}
 
 	public unsafe partial struct ImDrawListPtr
@@ -105,6 +114,60 @@ namespace SharpImGUI
 		public ref ImDrawCmdHeader _CmdHeader => ref self->_CmdHeader;
 		public ref ImDrawListSplitter _Splitter => ref self->_Splitter;
 		public ref float _FringeScale => ref self->_FringeScale;
+		public static ImDrawListPtr ImDrawList(ImDrawListSharedData* shared_data) => ImGui.ImDrawList_ImDrawList(shared_data);
+		public void destroy() => ImGui.ImDrawList_destroy(self);
+		public void PushClipRect(ImVec2 clip_rect_min, ImVec2 clip_rect_max, bool intersect_with_current_clip_rect) => ImGui.ImDrawList_PushClipRect(self, clip_rect_min, clip_rect_max, intersect_with_current_clip_rect);
+		public void PushClipRectFullScreen() => ImGui.ImDrawList_PushClipRectFullScreen(self);
+		public void PopClipRect() => ImGui.ImDrawList_PopClipRect(self);
+		public void PushTextureID(ImTextureID texture_id) => ImGui.ImDrawList_PushTextureID(self, texture_id);
+		public void PopTextureID() => ImGui.ImDrawList_PopTextureID(self);
+		public ImVec2 GetClipRectMin() => ImGui.ImDrawList_GetClipRectMin(self);
+		public ImVec2 GetClipRectMax() => ImGui.ImDrawList_GetClipRectMax(self);
+		public void AddLine(ImVec2 p1, ImVec2 p2, uint col, float thickness) => ImGui.ImDrawList_AddLine(self, p1, p2, col, thickness);
+		public void AddRect(ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags, float thickness) => ImGui.ImDrawList_AddRect(self, p_min, p_max, col, rounding, flags, thickness);
+		public void AddRectFilled(ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags = 0) => ImGui.ImDrawList_AddRectFilled(self, p_min, p_max, col, rounding, flags);
+		public void AddRectFilledMultiColor(ImVec2 p_min, ImVec2 p_max, uint col_upr_left, uint col_upr_right, uint col_bot_right, uint col_bot_left) => ImGui.ImDrawList_AddRectFilledMultiColor(self, p_min, p_max, col_upr_left, col_upr_right, col_bot_right, col_bot_left);
+		public void AddQuad(ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness) => ImGui.ImDrawList_AddQuad(self, p1, p2, p3, p4, col, thickness);
+		public void AddQuadFilled(ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col) => ImGui.ImDrawList_AddQuadFilled(self, p1, p2, p3, p4, col);
+		public void AddTriangle(ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness) => ImGui.ImDrawList_AddTriangle(self, p1, p2, p3, col, thickness);
+		public void AddTriangleFilled(ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col) => ImGui.ImDrawList_AddTriangleFilled(self, p1, p2, p3, col);
+		public void AddCircle(ImVec2 center, float radius, uint col, int num_segments, float thickness) => ImGui.ImDrawList_AddCircle(self, center, radius, col, num_segments, thickness);
+		public void AddCircleFilled(ImVec2 center, float radius, uint col, int num_segments) => ImGui.ImDrawList_AddCircleFilled(self, center, radius, col, num_segments);
+		public void AddNgon(ImVec2 center, float radius, uint col, int num_segments, float thickness) => ImGui.ImDrawList_AddNgon(self, center, radius, col, num_segments, thickness);
+		public void AddNgonFilled(ImVec2 center, float radius, uint col, int num_segments) => ImGui.ImDrawList_AddNgonFilled(self, center, radius, col, num_segments);
+		public void AddTextVec2(ImVec2 pos, uint col, string text_begin, string text_end) => ImGui.ImDrawList_AddTextVec2(self, pos, col, text_begin, text_end);
+		public void AddTextFontPtr(ImFontPtr font, float font_size, ImVec2 pos, uint col, string text_begin, string text_end, float wrap_width, ImVec4* cpu_fine_clip_rect) => ImGui.ImDrawList_AddTextFontPtr(self, font, font_size, pos, col, text_begin, text_end, wrap_width, cpu_fine_clip_rect);
+		public void AddPolyline(ImVec2* points, int num_points, uint col, ImDrawFlags flags, float thickness) => ImGui.ImDrawList_AddPolyline(self, points, num_points, col, flags, thickness);
+		public void AddConvexPolyFilled(ImVec2* points, int num_points, uint col) => ImGui.ImDrawList_AddConvexPolyFilled(self, points, num_points, col);
+		public void AddBezierCubic(ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness, int num_segments) => ImGui.ImDrawList_AddBezierCubic(self, p1, p2, p3, p4, col, thickness, num_segments);
+		public void AddBezierQuadratic(ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness, int num_segments) => ImGui.ImDrawList_AddBezierQuadratic(self, p1, p2, p3, col, thickness, num_segments);
+		public void AddImage(ImTextureID user_texture_id, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col) => ImGui.ImDrawList_AddImage(self, user_texture_id, p_min, p_max, uv_min, uv_max, col);
+		public void AddImageQuad(ImTextureID user_texture_id, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 uv1, ImVec2 uv2, ImVec2 uv3, ImVec2 uv4, uint col) => ImGui.ImDrawList_AddImageQuad(self, user_texture_id, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
+		public void AddImageRounded(ImTextureID user_texture_id, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col, float rounding, ImDrawFlags flags = 0) => ImGui.ImDrawList_AddImageRounded(self, user_texture_id, p_min, p_max, uv_min, uv_max, col, rounding, flags);
+		public void PathClear() => ImGui.ImDrawList_PathClear(self);
+		public void PathLineTo(ImVec2 pos) => ImGui.ImDrawList_PathLineTo(self, pos);
+		public void PathLineToMergeDuplicate(ImVec2 pos) => ImGui.ImDrawList_PathLineToMergeDuplicate(self, pos);
+		public void PathFillConvex(uint col) => ImGui.ImDrawList_PathFillConvex(self, col);
+		public void PathStroke(uint col, ImDrawFlags flags, float thickness) => ImGui.ImDrawList_PathStroke(self, col, flags, thickness);
+		public void PathArcTo(ImVec2 center, float radius, float a_min, float a_max, int num_segments) => ImGui.ImDrawList_PathArcTo(self, center, radius, a_min, a_max, num_segments);
+		public void PathArcToFast(ImVec2 center, float radius, int a_min_of_12, int a_max_of_12) => ImGui.ImDrawList_PathArcToFast(self, center, radius, a_min_of_12, a_max_of_12);
+		public void PathBezierCubicCurveTo(ImVec2 p2, ImVec2 p3, ImVec2 p4, int num_segments) => ImGui.ImDrawList_PathBezierCubicCurveTo(self, p2, p3, p4, num_segments);
+		public void PathBezierQuadraticCurveTo(ImVec2 p2, ImVec2 p3, int num_segments) => ImGui.ImDrawList_PathBezierQuadraticCurveTo(self, p2, p3, num_segments);
+		public void PathRect(ImVec2 rect_min, ImVec2 rect_max, float rounding, ImDrawFlags flags = 0) => ImGui.ImDrawList_PathRect(self, rect_min, rect_max, rounding, flags);
+		public void AddCallback(IntPtr callback, IntPtr callback_data) => ImGui.ImDrawList_AddCallback(self, callback, callback_data);
+		public void AddDrawCmd() => ImGui.ImDrawList_AddDrawCmd(self);
+		public ImDrawListPtr CloneOutput() => ImGui.ImDrawList_CloneOutput(self);
+		public void ChannelsSplit(int count) => ImGui.ImDrawList_ChannelsSplit(self, count);
+		public void ChannelsMerge() => ImGui.ImDrawList_ChannelsMerge(self);
+		public void ChannelsSetCurrent(int n) => ImGui.ImDrawList_ChannelsSetCurrent(self, n);
+		public void PrimReserve(int idx_count, int vtx_count) => ImGui.ImDrawList_PrimReserve(self, idx_count, vtx_count);
+		public void PrimUnreserve(int idx_count, int vtx_count) => ImGui.ImDrawList_PrimUnreserve(self, idx_count, vtx_count);
+		public void PrimRect(ImVec2 a, ImVec2 b, uint col) => ImGui.ImDrawList_PrimRect(self, a, b, col);
+		public void PrimRectUV(ImVec2 a, ImVec2 b, ImVec2 uv_a, ImVec2 uv_b, uint col) => ImGui.ImDrawList_PrimRectUV(self, a, b, uv_a, uv_b, col);
+		public void PrimQuadUV(ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 d, ImVec2 uv_a, ImVec2 uv_b, ImVec2 uv_c, ImVec2 uv_d, uint col) => ImGui.ImDrawList_PrimQuadUV(self, a, b, c, d, uv_a, uv_b, uv_c, uv_d, col);
+		public void PrimWriteVtx(ImVec2 pos, ImVec2 uv, uint col) => ImGui.ImDrawList_PrimWriteVtx(self, pos, uv, col);
+		public void PrimWriteIdx(ImDrawIdx idx) => ImGui.ImDrawList_PrimWriteIdx(self, idx);
+		public void PrimVtx(ImVec2 pos, ImVec2 uv, uint col) => ImGui.ImDrawList_PrimVtx(self, pos, uv, col);
 	}
 
 	public unsafe partial struct ImFontPtr
@@ -134,6 +197,25 @@ namespace SharpImGUI
 		public ref float Descent => ref self->Descent;
 		public ref int MetricsTotalSurface => ref self->MetricsTotalSurface;
 		public RangeAccessor<byte> Used4kPagesMap => (byte*)Unsafe.AsPointer(ref self->Used4kPagesMap[0]);
+		public static ImFontPtr ImFont() => ImGui.ImFont_ImFont();
+		public void destroy() => ImGui.ImFont_destroy(self);
+		public ImFontGlyph* FindGlyph(char c) => ImGui.ImFont_FindGlyph(self, c);
+		public ImFontGlyph* FindGlyphNoFallback(char c) => ImGui.ImFont_FindGlyphNoFallback(self, c);
+		public float GetCharAdvance(char c) => ImGui.ImFont_GetCharAdvance(self, c);
+		public bool IsLoaded() => ImGui.ImFont_IsLoaded(self);
+		public byte* GetDebugName() => ImGui.ImFont_GetDebugName(self);
+		public ImVec2 CalcTextSizeA(float size, float max_width, float wrap_width, string text_begin, string text_end, ref byte* remaining) => ImGui.ImFont_CalcTextSizeA(self, size, max_width, wrap_width, text_begin, text_end, ref remaining);
+		public byte* CalcWordWrapPositionA(float scale, string text, string text_end, float wrap_width) => ImGui.ImFont_CalcWordWrapPositionA(self, scale, text, text_end, wrap_width);
+		public void RenderChar(ImDrawListPtr draw_list, float size, ImVec2 pos, uint col, char c) => ImGui.ImFont_RenderChar(self, draw_list, size, pos, col, c);
+		public void RenderText(ImDrawListPtr draw_list, float size, ImVec2 pos, uint col, ImVec4 clip_rect, string text_begin, string text_end, float wrap_width, bool cpu_fine_clip) => ImGui.ImFont_RenderText(self, draw_list, size, pos, col, clip_rect, text_begin, text_end, wrap_width, cpu_fine_clip);
+		public void BuildLookupTable() => ImGui.ImFont_BuildLookupTable(self);
+		public void ClearOutputData() => ImGui.ImFont_ClearOutputData(self);
+		public void GrowIndex(int new_size) => ImGui.ImFont_GrowIndex(self, new_size);
+		public void AddGlyph(ImFontConfigPtr src_cfg, char c, float x0, float y0, float x1, float y1, float u0, float v0, float u1, float v1, float advance_x) => ImGui.ImFont_AddGlyph(self, src_cfg, c, x0, y0, x1, y1, u0, v0, u1, v1, advance_x);
+		public void AddRemapChar(char dst, char src, bool overwrite_dst) => ImGui.ImFont_AddRemapChar(self, dst, src, overwrite_dst);
+		public void SetGlyphVisible(char c, bool visible) => ImGui.ImFont_SetGlyphVisible(self, c, visible);
+		public void SetFallbackChar(char c) => ImGui.ImFont_SetFallbackChar(self, c);
+		public bool IsGlyphRangeUnused(uint c_begin, uint c_last) => ImGui.ImFont_IsGlyphRangeUnused(self, c_begin, c_last);
 	}
 
 	public unsafe partial struct ImFontAtlasPtr
@@ -166,6 +248,36 @@ namespace SharpImGUI
 		public ref uint FontBuilderFlags => ref self->FontBuilderFlags;
 		public ref int PackIdMouseCursors => ref self->PackIdMouseCursors;
 		public ref int PackIdLines => ref self->PackIdLines;
+		public static ImFontAtlasPtr ImFontAtlas() => ImGui.ImFontAtlas_ImFontAtlas();
+		public void destroy() => ImGui.ImFontAtlas_destroy(self);
+		public ImFontPtr AddFont(ImFontConfigPtr font_cfg) => ImGui.ImFontAtlas_AddFont(self, font_cfg);
+		public ImFontPtr AddFontDefault(ImFontConfigPtr font_cfg) => ImGui.ImFontAtlas_AddFontDefault(self, font_cfg);
+		public ImFontPtr AddFontFromFileTTF(string filename, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges) => ImGui.ImFontAtlas_AddFontFromFileTTF(self, filename, size_pixels, font_cfg, glyph_ranges);
+		public ImFontPtr AddFontFromMemoryTTF(IntPtr font_data, int font_size, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges) => ImGui.ImFontAtlas_AddFontFromMemoryTTF(self, font_data, font_size, size_pixels, font_cfg, glyph_ranges);
+		public ImFontPtr AddFontFromMemoryCompressedTTF(IntPtr compressed_font_data, int compressed_font_size, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges) => ImGui.ImFontAtlas_AddFontFromMemoryCompressedTTF(self, compressed_font_data, compressed_font_size, size_pixels, font_cfg, glyph_ranges);
+		public ImFontPtr AddFontFromMemoryCompressedBase85TTF(string compressed_font_data_base85, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges) => ImGui.ImFontAtlas_AddFontFromMemoryCompressedBase85TTF(self, compressed_font_data_base85, size_pixels, font_cfg, glyph_ranges);
+		public void ClearInputData() => ImGui.ImFontAtlas_ClearInputData(self);
+		public void ClearTexData() => ImGui.ImFontAtlas_ClearTexData(self);
+		public void ClearFonts() => ImGui.ImFontAtlas_ClearFonts(self);
+		public void Clear() => ImGui.ImFontAtlas_Clear(self);
+		public bool Build() => ImGui.ImFontAtlas_Build(self);
+		public void GetTexDataAsAlpha8(out byte* out_pixels, out int out_width, out int out_height, out int out_bytes_per_pixel) => ImGui.ImFontAtlas_GetTexDataAsAlpha8(self, out out_pixels, out out_width, out out_height, out out_bytes_per_pixel);
+		public void GetTexDataAsRGBA32(out byte* out_pixels, out int out_width, out int out_height, out int out_bytes_per_pixel) => ImGui.ImFontAtlas_GetTexDataAsRGBA32(self, out out_pixels, out out_width, out out_height, out out_bytes_per_pixel);
+		public bool IsBuilt() => ImGui.ImFontAtlas_IsBuilt(self);
+		public void SetTexID(ImTextureID id) => ImGui.ImFontAtlas_SetTexID(self, id);
+		public char* GetGlyphRangesDefault() => ImGui.ImFontAtlas_GetGlyphRangesDefault(self);
+		public char* GetGlyphRangesKorean() => ImGui.ImFontAtlas_GetGlyphRangesKorean(self);
+		public char* GetGlyphRangesJapanese() => ImGui.ImFontAtlas_GetGlyphRangesJapanese(self);
+		public char* GetGlyphRangesChineseFull() => ImGui.ImFontAtlas_GetGlyphRangesChineseFull(self);
+		public char* GetGlyphRangesChineseSimplifiedCommon() => ImGui.ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon(self);
+		public char* GetGlyphRangesCyrillic() => ImGui.ImFontAtlas_GetGlyphRangesCyrillic(self);
+		public char* GetGlyphRangesThai() => ImGui.ImFontAtlas_GetGlyphRangesThai(self);
+		public char* GetGlyphRangesVietnamese() => ImGui.ImFontAtlas_GetGlyphRangesVietnamese(self);
+		public int AddCustomRectRegular(int width, int height) => ImGui.ImFontAtlas_AddCustomRectRegular(self, width, height);
+		public int AddCustomRectFontGlyph(ImFontPtr font, char id, int width, int height, float advance_x, ImVec2 offset) => ImGui.ImFontAtlas_AddCustomRectFontGlyph(self, font, id, width, height, advance_x, offset);
+		public ImFontAtlasCustomRect* GetCustomRectByIndex(int index) => ImGui.ImFontAtlas_GetCustomRectByIndex(self, index);
+		public void CalcCustomRectUV(ImFontAtlasCustomRect* rect, out ImVec2 out_uv_min, out ImVec2 out_uv_max) => ImGui.ImFontAtlas_CalcCustomRectUV(self, rect, out out_uv_min, out out_uv_max);
+		public bool GetMouseCursorTexData(ImGuiMouseCursor cursor, out ImVec2 out_offset, out ImVec2 out_size, ImVec2* out_uv_border, ImVec2* out_uv_fill) => ImGui.ImFontAtlas_GetMouseCursorTexData(self, cursor, out out_offset, out out_size, out_uv_border, out_uv_fill);
 	}
 
 	public unsafe partial struct ImFontConfigPtr
@@ -197,6 +309,8 @@ namespace SharpImGUI
 		public ref char EllipsisChar => ref self->EllipsisChar;
 		public RangeAccessor<byte> Name => (byte*)Unsafe.AsPointer(ref self->Name[0]);
 		public ImFontPtr DstFont => self->DstFont;
+		public static ImFontConfigPtr ImFontConfig() => ImGui.ImFontConfig_ImFontConfig();
+		public void destroy() => ImGui.ImFontConfig_destroy(self);
 	}
 
 	public unsafe partial struct ImGuiIOPtr
@@ -296,6 +410,12 @@ namespace SharpImGUI
 		public ref float PenPressure => ref self->PenPressure;
 		public ref char InputQueueSurrogate => ref self->InputQueueSurrogate;
 		public ref ImVector<char> InputQueueCharacters => ref self->InputQueueCharacters;
+		public void AddInputCharacter(uint c) => ImGui.ImGuiIO_AddInputCharacter(self, c);
+		public void AddInputCharacterUTF16(char c) => ImGui.ImGuiIO_AddInputCharacterUTF16(self, c);
+		public void AddInputCharactersUTF8(string str) => ImGui.ImGuiIO_AddInputCharactersUTF8(self, str);
+		public void ClearInputCharacters() => ImGui.ImGuiIO_ClearInputCharacters(self);
+		public static ImGuiIOPtr ImGuiIO() => ImGui.ImGuiIO_ImGuiIO();
+		public void destroy() => ImGui.ImGuiIO_destroy(self);
 	}
 
 	public unsafe partial struct ImGuiStylePtr
@@ -348,6 +468,9 @@ namespace SharpImGUI
 		public ref float CurveTessellationTol => ref self->CurveTessellationTol;
 		public ref float CircleTessellationMaxError => ref self->CircleTessellationMaxError;
 		public RangeAccessor<ImVec4> Colors => (ImVec4*)Unsafe.AsPointer(ref self->Colors_0);
+		public static ImGuiStylePtr ImGuiStyle() => ImGui.ImGuiStyle_ImGuiStyle();
+		public void destroy() => ImGui.ImGuiStyle_destroy(self);
+		public void ScaleAllSizes(float scale_factor) => ImGui.ImGuiStyle_ScaleAllSizes(self, scale_factor);
 	}
 
 }

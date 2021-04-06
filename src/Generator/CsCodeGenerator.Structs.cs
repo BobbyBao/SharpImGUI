@@ -128,7 +128,7 @@ namespace Generator
                 writer.WriteLine();
             }
 
-            GenerateHandles(handleClasses, outputPath);
+            GenerateHandles(compilation, handleClasses, outputPath);
 
             CheckSize(writer, generatedClasses);
         }
@@ -229,7 +229,7 @@ namespace Generator
             }
         }
 
-        private static void GenerateHandles(List<CppClass> handleClasses, string outputPath)
+        private static void GenerateHandles(CppCompilation compilation, List<CppClass> handleClasses, string outputPath)
         {
             using var writer = new CodeWriter(Path.Combine(outputPath, "Handles.cs"),
                "System",
@@ -302,8 +302,8 @@ namespace Generator
 
                             var elementTypeName = GetCsTypeName(arrayType.ElementType, false);
 
-                            string wrap = "RangeAccessor";                         
-                            if(canUseFixed)
+                            string wrap = "RangeAccessor";
+                            if (canUseFixed)
                                 writer.WriteLine($"public {wrap}<{elementTypeName}> {csFieldName} => ({elementTypeName}*)Unsafe.AsPointer(ref self->{csFieldName}[0]);");
                             else
                                 writer.WriteLine($"public {wrap}<{elementTypeName}> {csFieldName} => ({elementTypeName}*)Unsafe.AsPointer(ref self->{csFieldName}_0);");
@@ -323,12 +323,131 @@ namespace Generator
 
                         }
 
-
-                         
                         writer.WriteLine($"public ref {csFieldType} {csFieldName} => ref self->{csFieldName};");
-                        
+
+                    }
+
+
+                    foreach (var cppFunction in compilation.Functions)
+                    {
+                        if (!cppFunction.Name.StartsWith(csName + "_"))
+                        {
+                            continue;
+                        }
+
+                        if (cppFunction.Name.StartsWith(csName + "__"))
+                        {
+                            continue;
+                        }
+
+                        var returnType = GetCsTypeName(cppFunction.ReturnType, false);
+                        if (s_handleMappings.TryGetValue(returnType, out var p_handleName))
+                        {
+                            returnType = p_handleName;
+                        }
+
+                        var argumentsString = "";
+
+                        bool isStatic = false;
+                        if (cppFunction.Parameters.Count == 0)
+                        {
+                            isStatic = true;
+                        }
+
+                        bool voidRet = returnType == "void";
+                        bool outToReturn = false;
+                        string declStr = "";
+                        string retStr = "";
+                        if (voidRet && GetOutParameterToReturn(cppFunction, out var retType, out declStr, out retStr))
+                        {
+                            outToReturn = true;
+                            returnType = retType;
+
+                            if (cppFunction.Parameters.Count > 1)
+                            {
+                                if (cppFunction.Parameters[1].Name != "self")
+                                {
+                                    isStatic = true;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (cppFunction.Parameters.Count > 0)
+                            {
+                                if (cppFunction.Parameters[0].Name != "self")
+                                {
+                                    isStatic = true;
+                                }
+                            }
+
+                        }
+
+                        if(outToReturn)
+                        {
+                            argumentsString = GetParameterSignature(cppFunction, isStatic ? 1 : 2);
+
+                        }
+                        else
+                        {
+                            argumentsString = GetParameterSignature(cppFunction, isStatic ? 0 : 1);
+
+                        }
+
+
+                        var funName = cppFunction.Name.Substring(csName.Length + 1);
+
+                        if(isStatic)
+                        {
+                            writer.Write($"public static {returnType} {funName}({argumentsString}) => ImGui.{cppFunction.Name}(");
+                        }
+                        else
+                        {
+                            writer.Write($"public {returnType} {funName}({argumentsString}) => ImGui.{cppFunction.Name}(");
+                        }
+
+                        int index = 0;
+                        foreach (var cppParameter in cppFunction.Parameters)
+                        {
+                            if (index == 0 && outToReturn)
+                            {
+                                index++;
+                                continue;
+                            }
+
+                            var paramCsName = paramentNames[index] ?? GetParameterName(cppParameter.Name);
+
+                            var paramCsTypeName = GetCsTypeName(cppParameter.Type, false);
+                            if (paramCsTypeName.EndsWith("*"))
+                            {
+                                if (CanBeUsedAsRef(cppParameter.Type))
+                                {
+                                    if (paramCsName.StartsWith("out") || paramCsName.StartsWith("@out"))
+                                        writer.Write("out ");
+                                    else
+                                        writer.Write("ref ");
+
+                                }
+
+                            }
+
+                            writer.Write($"{paramCsName}");
+
+
+                            if (index < cppFunction.Parameters.Count - 1)
+                            {
+                                writer.Write(", ");
+                            }
+
+                            index++;
+                        }
+
+
+                        writer.WriteLine($");");
+
                     }
                 }
+
                 writer.WriteLine();
 
             }

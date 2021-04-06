@@ -69,7 +69,11 @@ namespace SharpImGUI
         public static float WindowHeight => GetWindowHeight();
         public static void SetWindowSize(ImVec2 size, ImGuiCond cond = 0) => SetWindowSizeVec2(size, cond);
         public static ImVec2 CalcTextSize(string text, string text_end = null, bool hide_text_after_double_hash = false)
-            => CalcTextSize(text, text_end, hide_text_after_double_hash, -1.0f);        
+            => CalcTextSize(text, text_end, hide_text_after_double_hash, -1.0f);
+
+        public static uint GetColorU32(ImGuiCol idx, float alpha_mul = 1.0f) => GetColorU32Col(idx, alpha_mul);        
+        public static uint GetColorU32(ImVec4 col) => GetColorU32Vec4(col);        
+        public static uint GetColorU32(uint col) => GetColorU32U32(col);
 
         public static void PushID(string str_id) => PushIDStr(str_id);
         public static void PushID(string str_id_begin, string str_id_end) => PushIDStrStr(str_id_begin, str_id_end);
