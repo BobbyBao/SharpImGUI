@@ -4500,194 +4500,6 @@ namespace SharpImGUI
 			return ImGetDirQuadrantFromDelta_ptr(dx, dy);
 		}
 
-		static delegate* unmanaged[Cdecl]<ImRect*> ImRect_ImRectNil_ptr;
-		public static ImRect* ImRect_ImRectNil()
-		{
-			return ImRect_ImRectNil_ptr();
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, void> ImRect_destroy_ptr;
-		public static void ImRect_destroy(ImRect* self)
-		{
-			ImRect_destroy_ptr(self);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImRect*> ImRect_ImRectVec2_ptr;
-		public static ImRect* ImRect_ImRectVec2(ImVec2 min, ImVec2 max)
-		{
-			return ImRect_ImRectVec2_ptr(min, max);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImVec4, ImRect*> ImRect_ImRectVec4_ptr;
-		public static ImRect* ImRect_ImRectVec4(ImVec4 v)
-		{
-			return ImRect_ImRectVec4_ptr(v);
-		}
-
-		static delegate* unmanaged[Cdecl]<float, float, float, float, ImRect*> ImRect_ImRectFloat_ptr;
-		public static ImRect* ImRect_ImRectFloat(float x1, float y1, float x2, float y2)
-		{
-			return ImRect_ImRectFloat_ptr(x1, y1, x2, y2);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetCenter_ptr;
-		public static ImVec2 ImRect_GetCenter(ImRect* self)
-		{
-			ImVec2 @out = default;
-			ImRect_GetCenter_ptr(&@out, self);
-			return @out;
-		}
-
-		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetSize_ptr;
-		public static ImVec2 ImRect_GetSize(ImRect* self)
-		{
-			ImVec2 @out = default;
-			ImRect_GetSize_ptr(&@out, self);
-			return @out;
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, float> ImRect_GetWidth_ptr;
-		public static float ImRect_GetWidth(ImRect* self)
-		{
-			return ImRect_GetWidth_ptr(self);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, float> ImRect_GetHeight_ptr;
-		public static float ImRect_GetHeight(ImRect* self)
-		{
-			return ImRect_GetHeight_ptr(self);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, float> ImRect_GetArea_ptr;
-		public static float ImRect_GetArea(ImRect* self)
-		{
-			return ImRect_GetArea_ptr(self);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetTL_ptr;
-		public static ImVec2 ImRect_GetTL(ImRect* self)
-		{
-			ImVec2 @out = default;
-			ImRect_GetTL_ptr(&@out, self);
-			return @out;
-		}
-
-		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetTR_ptr;
-		public static ImVec2 ImRect_GetTR(ImRect* self)
-		{
-			ImVec2 @out = default;
-			ImRect_GetTR_ptr(&@out, self);
-			return @out;
-		}
-
-		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetBL_ptr;
-		public static ImVec2 ImRect_GetBL(ImRect* self)
-		{
-			ImVec2 @out = default;
-			ImRect_GetBL_ptr(&@out, self);
-			return @out;
-		}
-
-		static delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void> ImRect_GetBR_ptr;
-		public static ImVec2 ImRect_GetBR(ImRect* self)
-		{
-			ImVec2 @out = default;
-			ImRect_GetBR_ptr(&@out, self);
-			return @out;
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, ImVec2, byte> ImRect_ContainsVec2_ptr;
-		public static bool ImRect_ContainsVec2(ImRect* self, ImVec2 p)
-		{
-			return ImRect_ContainsVec2_ptr(self, p) != 0;
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, ImRect, byte> ImRect_ContainsRect_ptr;
-		public static bool ImRect_ContainsRect(ImRect* self, ImRect r)
-		{
-			return ImRect_ContainsRect_ptr(self, r) != 0;
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, ImRect, byte> ImRect_Overlaps_ptr;
-		public static bool ImRect_Overlaps(ImRect* self, ImRect r)
-		{
-			return ImRect_Overlaps_ptr(self, r) != 0;
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, ImVec2, void> ImRect_AddVec2_ptr;
-		public static void ImRect_AddVec2(ImRect* self, ImVec2 p)
-		{
-			ImRect_AddVec2_ptr(self, p);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, ImRect, void> ImRect_AddRect_ptr;
-		public static void ImRect_AddRect(ImRect* self, ImRect r)
-		{
-			ImRect_AddRect_ptr(self, r);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, float, void> ImRect_ExpandFloat_ptr;
-		public static void ImRect_ExpandFloat(ImRect* self, float amount)
-		{
-			ImRect_ExpandFloat_ptr(self, amount);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, ImVec2, void> ImRect_ExpandVec2_ptr;
-		public static void ImRect_ExpandVec2(ImRect* self, ImVec2 amount)
-		{
-			ImRect_ExpandVec2_ptr(self, amount);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, ImVec2, void> ImRect_Translate_ptr;
-		public static void ImRect_Translate(ImRect* self, ImVec2 d)
-		{
-			ImRect_Translate_ptr(self, d);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, float, void> ImRect_TranslateX_ptr;
-		public static void ImRect_TranslateX(ImRect* self, float dx)
-		{
-			ImRect_TranslateX_ptr(self, dx);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, float, void> ImRect_TranslateY_ptr;
-		public static void ImRect_TranslateY(ImRect* self, float dy)
-		{
-			ImRect_TranslateY_ptr(self, dy);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, ImRect, void> ImRect_ClipWith_ptr;
-		public static void ImRect_ClipWith(ImRect* self, ImRect r)
-		{
-			ImRect_ClipWith_ptr(self, r);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, ImRect, void> ImRect_ClipWithFull_ptr;
-		public static void ImRect_ClipWithFull(ImRect* self, ImRect r)
-		{
-			ImRect_ClipWithFull_ptr(self, r);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, void> ImRect_Floor_ptr;
-		public static void ImRect_Floor(ImRect* self)
-		{
-			ImRect_Floor_ptr(self);
-		}
-
-		static delegate* unmanaged[Cdecl]<ImRect*, byte> ImRect_IsInverted_ptr;
-		public static bool ImRect_IsInverted(ImRect* self)
-		{
-			return ImRect_IsInverted_ptr(self) != 0;
-		}
-
-		static delegate* unmanaged[Cdecl]<ImVec4*, ImRect*, void> ImRect_ToVec4_ptr;
-		public static ImVec4 ImRect_ToVec4(ImRect* self)
-		{
-			ImVec4 @out = default;
-			ImRect_ToVec4_ptr(&@out, self);
-			return @out;
-		}
-
 		static delegate* unmanaged[Cdecl]<uint*, int, byte> ImBitArrayTestBit_ptr;
 		public static bool ImBitArrayTestBit(uint* arr, int n)
 		{
@@ -7089,10 +6901,13 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, ImGuiDataType, IntPtr, IntPtr, IntPtr, byte*, ImGuiSliderFlags, ImRect*, byte> SliderBehavior_ptr;
-		public static bool SliderBehavior(ImRect bb, ImGuiID id, ImGuiDataType data_type, IntPtr p_v, IntPtr p_min, IntPtr p_max, string format, ImGuiSliderFlags flags, ImRect* out_grab_bb)
+		public static bool SliderBehavior(ImRect bb, ImGuiID id, ImGuiDataType data_type, IntPtr p_v, IntPtr p_min, IntPtr p_max, string format, ImGuiSliderFlags flags, out ImRect out_grab_bb)
 		{
-			using var p_format = new StringHelper(format);
-			return SliderBehavior_ptr(bb, id, data_type, p_v, p_min, p_max, p_format, flags, out_grab_bb) != 0;
+			fixed(ImRect* p_out_grab_bb = &out_grab_bb)
+			{
+				using var p_format = new StringHelper(format);
+				return SliderBehavior_ptr(bb, id, data_type, p_v, p_min, p_max, p_format, flags, p_out_grab_bb) != 0;
+			}
 		}
 
 		static delegate* unmanaged[Cdecl]<ImRect, ImGuiID, ImGuiAxis, float*, float*, float, float, float, float, byte> SplitterBehavior_ptr;
@@ -8118,35 +7933,6 @@ namespace SharpImGUI
 			ImTriangleBarycentricCoords_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImVec2, ImVec2, float*, float*, float*, void>)load(context, "igImTriangleBarycentricCoords");
 			ImTriangleArea_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImVec2, float>)load(context, "igImTriangleArea");
 			ImGetDirQuadrantFromDelta_ptr = (delegate* unmanaged[Cdecl]<float, float, ImGuiDir>)load(context, "igImGetDirQuadrantFromDelta");
-			ImRect_ImRectNil_ptr = (delegate* unmanaged[Cdecl]<ImRect*>)load(context, "ImRect_ImRectNil");
-			ImRect_destroy_ptr = (delegate* unmanaged[Cdecl]<ImRect*, void>)load(context, "ImRect_destroy");
-			ImRect_ImRectVec2_ptr = (delegate* unmanaged[Cdecl]<ImVec2, ImVec2, ImRect*>)load(context, "ImRect_ImRectVec2");
-			ImRect_ImRectVec4_ptr = (delegate* unmanaged[Cdecl]<ImVec4, ImRect*>)load(context, "ImRect_ImRectVec4");
-			ImRect_ImRectFloat_ptr = (delegate* unmanaged[Cdecl]<float, float, float, float, ImRect*>)load(context, "ImRect_ImRectFloat");
-			ImRect_GetCenter_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetCenter");
-			ImRect_GetSize_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetSize");
-			ImRect_GetWidth_ptr = (delegate* unmanaged[Cdecl]<ImRect*, float>)load(context, "ImRect_GetWidth");
-			ImRect_GetHeight_ptr = (delegate* unmanaged[Cdecl]<ImRect*, float>)load(context, "ImRect_GetHeight");
-			ImRect_GetArea_ptr = (delegate* unmanaged[Cdecl]<ImRect*, float>)load(context, "ImRect_GetArea");
-			ImRect_GetTL_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetTL");
-			ImRect_GetTR_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetTR");
-			ImRect_GetBL_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetBL");
-			ImRect_GetBR_ptr = (delegate* unmanaged[Cdecl]<ImVec2*, ImRect*, void>)load(context, "ImRect_GetBR");
-			ImRect_ContainsVec2_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImVec2, byte>)load(context, "ImRect_ContainsVec2");
-			ImRect_ContainsRect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImRect, byte>)load(context, "ImRect_ContainsRect");
-			ImRect_Overlaps_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImRect, byte>)load(context, "ImRect_Overlaps");
-			ImRect_AddVec2_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImVec2, void>)load(context, "ImRect_AddVec2");
-			ImRect_AddRect_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImRect, void>)load(context, "ImRect_AddRect");
-			ImRect_ExpandFloat_ptr = (delegate* unmanaged[Cdecl]<ImRect*, float, void>)load(context, "ImRect_ExpandFloat");
-			ImRect_ExpandVec2_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImVec2, void>)load(context, "ImRect_ExpandVec2");
-			ImRect_Translate_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImVec2, void>)load(context, "ImRect_Translate");
-			ImRect_TranslateX_ptr = (delegate* unmanaged[Cdecl]<ImRect*, float, void>)load(context, "ImRect_TranslateX");
-			ImRect_TranslateY_ptr = (delegate* unmanaged[Cdecl]<ImRect*, float, void>)load(context, "ImRect_TranslateY");
-			ImRect_ClipWith_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImRect, void>)load(context, "ImRect_ClipWith");
-			ImRect_ClipWithFull_ptr = (delegate* unmanaged[Cdecl]<ImRect*, ImRect, void>)load(context, "ImRect_ClipWithFull");
-			ImRect_Floor_ptr = (delegate* unmanaged[Cdecl]<ImRect*, void>)load(context, "ImRect_Floor");
-			ImRect_IsInverted_ptr = (delegate* unmanaged[Cdecl]<ImRect*, byte>)load(context, "ImRect_IsInverted");
-			ImRect_ToVec4_ptr = (delegate* unmanaged[Cdecl]<ImVec4*, ImRect*, void>)load(context, "ImRect_ToVec4");
 			ImBitArrayTestBit_ptr = (delegate* unmanaged[Cdecl]<uint*, int, byte>)load(context, "igImBitArrayTestBit");
 			ImBitArrayClearBit_ptr = (delegate* unmanaged[Cdecl]<uint*, int, void>)load(context, "igImBitArrayClearBit");
 			ImBitArraySetBit_ptr = (delegate* unmanaged[Cdecl]<uint*, int, void>)load(context, "igImBitArraySetBit");

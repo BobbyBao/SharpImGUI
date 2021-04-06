@@ -480,13 +480,6 @@ namespace SharpImGUI
 	}
 
 	[StructLayout(LayoutKind.Sequential)]
-	public partial struct ImRect
-	{
-		public ImVec2 Min;
-		public ImVec2 Max;
-	}
-
-	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ImGuiMenuColumns
 	{
 		public float Spacing;
@@ -2850,7 +2843,6 @@ namespace SharpImGUI
 			 System.Diagnostics.Debug.Assert(32 == sizeof(ImGuiWindowClass));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImGuiID));
 			 System.Diagnostics.Debug.Assert(304 == sizeof(ImGuiWindowTempData));
-			 System.Diagnostics.Debug.Assert(16 == sizeof(ImRect));
 			 System.Diagnostics.Debug.Assert(36 == sizeof(ImGuiMenuColumns));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImVector_ImGuiWindowPtr));
 			 System.Diagnostics.Debug.Assert(16 == sizeof(ImGuiStorage));

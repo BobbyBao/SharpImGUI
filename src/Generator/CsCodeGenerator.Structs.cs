@@ -19,7 +19,8 @@ namespace Generator
             "ImVec2",
             "ImVec3",
             "ImVec4",
-            "ImColor"
+            "ImColor",
+            "ImRect"
         };
 
         private static Dictionary<string, string> s_handleMappings = new Dictionary<string, string>

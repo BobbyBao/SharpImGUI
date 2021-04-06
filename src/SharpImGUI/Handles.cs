@@ -14,6 +14,8 @@ namespace SharpImGUI
 {
     public unsafe partial struct ImRect
     {
+        public ImVec2 Min;
+        public ImVec2 Max;
         public float GetWidth() => Max.X - Min.X;
         public float GetHeight() => Max.Y - Min.Y;
 
