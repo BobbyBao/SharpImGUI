@@ -25,8 +25,9 @@ namespace SharpImGUI
         }
 
         public static implicit operator RangeAccessor<T>(T* native) => new RangeAccessor<T>(native);
-        public ref T this[int index] => ref Data[index]; 
+        public ref T this[int index] => ref Data[index];
         public ref T this[ImGuiCol index] => ref Data[(int)index];
+        public ref T this[ImGuiKey index] => ref Data[(int)index]; 
     }
 
     public unsafe ref struct StringHelper
