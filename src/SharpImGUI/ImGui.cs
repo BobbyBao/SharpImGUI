@@ -148,33 +148,81 @@ namespace SharpImGUI
             => VSliderScalar(label, size, data_type, p_data, p_min, p_max, format, ImGuiSliderFlags.None);
 
         static byte[] buffer = new byte[4096];
-        public static bool InputText(string label, ref string buf, ImGuiInputTextFlags flags = default, IntPtr callback = default, IntPtr user_data = default)
+
+        public static bool InputText(string label, ref string str, ImGuiInputTextFlags flags = default, IntPtr callback = default, IntPtr user_data = default)
         {
-            var str = (byte*)Unsafe.AsPointer(ref buffer[0]);
-            int len = Encoding.UTF8.GetMaxByteCount(buf.Length);
-            fixed (char* p_char = buf)
+            var buff = (byte*)Unsafe.AsPointer(ref buffer[0]);
+            int len = Encoding.UTF8.GetMaxByteCount(str.Length);
+            fixed (char* p_char = str)
             {
-                len = Encoding.UTF8.GetBytes(p_char, buf.Length, str, len);
-                str[len + 1] = 0;
+                len = Encoding.UTF8.GetBytes(p_char, str.Length, buff, len);
+                buff[len] = 0;
             }
 
-            var res = InputText(label, str, (IntPtr)buffer.Length, flags, callback, user_data);
+            var res = InputText(label, buff, (IntPtr)buffer.Length, flags, callback, user_data);
             if(res)
             {
                 len = 0;
-                while (*str++ != 0) len++;
+                while (*buff++ != 0) len++;
 
-                buf = Encoding.UTF8.GetString(buffer, 0, len);
+                str = Encoding.UTF8.GetString(buffer, 0, len);
 
             }
             return res;
         }
+
         public static bool InputText(string label, byte[] buf, ImGuiInputTextFlags flags = default, IntPtr callback = default, IntPtr user_data = default)
             => InputText(label, (byte*)Unsafe.AsPointer(ref buf[0]), (IntPtr)buf.Length, flags, callback, user_data);
+
+        public static bool InputTextMultiline(string label, ref string str, ImVec2 size, ImGuiInputTextFlags flags = default, IntPtr callback = default, IntPtr user_data = default)
+        {
+            var buff = (byte*)Unsafe.AsPointer(ref buffer[0]);
+            int len = Encoding.UTF8.GetMaxByteCount(str.Length);
+            fixed (char* p_char = str)
+            {
+                len = Encoding.UTF8.GetBytes(p_char, str.Length, buff, len);
+                buff[len] = 0;
+            }
+
+            var res = InputTextMultiline(label, buff, (IntPtr)buffer.Length, size, flags, callback, user_data);
+            if (res)
+            {
+                len = 0;
+                while (*buff++ != 0) len++;
+
+                str = Encoding.UTF8.GetString(buffer, 0, len);
+            }
+
+            return res;
+        }
+
         public static bool InputTextMultiline(string label, byte[] buf, ImVec2 size, ImGuiInputTextFlags flags = ImGuiInputTextFlags.None, IntPtr callback = default, IntPtr user_data = default)
             => InputTextMultiline(label, (byte*)Unsafe.AsPointer(ref buf[0]), (IntPtr)buf.Length, size, flags, callback, user_data);
+      
+        public static bool InputTextWithHint(string label, string hint, ref string str, ImGuiInputTextFlags flags = default, IntPtr callback = default, IntPtr user_data = default)
+        {
+            var buff = (byte*)Unsafe.AsPointer(ref buffer[0]);
+            int len = Encoding.UTF8.GetMaxByteCount(str.Length);
+            fixed (char* p_char = str)
+            {
+                len = Encoding.UTF8.GetBytes(p_char, str.Length, buff, len);
+                buff[len] = 0;
+            }
+
+            var res = InputTextWithHint(label, hint, buff, (IntPtr)buffer.Length, flags, callback, user_data);
+            if (res)
+            {
+                len = 0;
+                while (*buff++ != 0) len++;
+
+                str = Encoding.UTF8.GetString(buffer, 0, len);
+
+            }
+            return res;
+        }
         public static bool InputTextWithHint(string label, string hint, byte[] buf, ImGuiInputTextFlags flags, IntPtr callback, IntPtr user_data)
             => InputTextWithHint(label, hint, (byte*)Unsafe.AsPointer(ref buf[0]), (IntPtr)buf.Length, flags, callback, user_data);
+       
         public static bool InputFloat(string label, ref float v, float step = 0.0f, float step_fast = 0.0f, string format = "%.3f") => InputFloat(label, ref v, step, step_fast, format, ImGuiInputTextFlags.None);
         public static bool InputFloat2(string label, ref float v, string format = "%.3f") => InputFloat2(label, (float*)Unsafe.AsPointer(ref v), format, ImGuiInputTextFlags.None);
         public static bool InputFloat3(string label, ref float v, string format = "%.3f") => InputFloat3(label, (float*)Unsafe.AsPointer(ref v), format, ImGuiInputTextFlags.None);
@@ -246,5 +294,19 @@ namespace SharpImGUI
         }
 
         public static ImGuiTableColumnFlags TableGetColumnFlags() => TableGetColumnFlags(-1);
+
+        public unsafe static bool SetDragDropPayload(string type, IntPtr data, ImGuiCond cond = ImGuiCond.None)
+        {
+            using var p_type = new StringHelper(type);            
+            return SetDragDropPayload_ptr(p_type, (nint)(&data), sizeof(IntPtr), cond) != 0;
+        }
+
+        public unsafe static bool SetDragDropPayload(string type, object obj, ImGuiCond cond = ImGuiCond.None)
+        {
+            using var p_type = new StringHelper(type); 
+            IntPtr data = GCHandle.ToIntPtr(GCHandle.Alloc(obj));
+            return SetDragDropPayload_ptr(p_type, (nint)(&data), sizeof(IntPtr), cond) != 0;
+        }
+
     }
 }

@@ -9,6 +9,7 @@ using ImTextureID = System.IntPtr;
 using ImGuiID = System.UInt32;
 using ImDrawIdx = System.UInt16;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 namespace SharpImGUI
 {
@@ -30,17 +31,12 @@ namespace SharpImGUI
     public unsafe partial struct ImGuiWindowPtr
     {
         ImGuiWindow* self;
-
-        public ImGuiWindowPtr(ImGuiWindow* native)
-        {
-            self = (ImGuiWindow*)native;
-        }
+        public ImGuiWindowPtr(ImGuiWindow* native) => self = native;       
 
         public static implicit operator ImGuiWindowPtr(ImGuiWindow* native) => new ImGuiWindowPtr(native);
         public static implicit operator ImGuiWindow*(ImGuiWindowPtr handle) => handle.self;
 
         public ref ImGuiWindowTempData DC => ref self->DC;
-
 
         public ImDrawListPtr DrawList => self->DrawList;
 
@@ -84,5 +80,13 @@ namespace SharpImGUI
     {
         public void AddLine(ImVec2 p1, ImVec2 p2, uint col) => AddLine(p1, p2, col, 1.0f);
         public void AddRectFilled(ImVec2 p_min, ImVec2 p_max, uint col, float rounding = 0.0f) => AddRectFilled(p_min, p_max, col, rounding, 0);
+    }
+
+    public unsafe partial struct ImGuiPayloadPtr
+    {
+        public unsafe GCHandle GetGCHandle()
+        {
+            return GCHandle.FromIntPtr(*(nint*)Data);
+        }
     }
 }

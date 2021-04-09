@@ -34,11 +34,8 @@ namespace SharpImGUI
 	public unsafe partial struct ImGuiViewportPtr
 	{
 		private unsafe ImGuiViewport* self;
-		public ImGuiViewportPtr(ImGuiViewport* native)
-		{
-			self = (ImGuiViewport*)native;
-		}
-
+		public ImGuiViewportPtr(ImGuiViewport* native) => self = native;
+		public static implicit operator bool(ImGuiViewportPtr handle) => handle.self != null;
 		public static implicit operator ImGuiViewportPtr(ImGuiViewport* native) => new ImGuiViewportPtr(native);
 		public static implicit operator ImGuiViewport*(ImGuiViewportPtr handle) => handle.self;
 		public ref ImGuiID ID => ref self->ID;
@@ -50,10 +47,10 @@ namespace SharpImGUI
 		public ref float DpiScale => ref self->DpiScale;
 		public ref ImGuiID ParentViewportId => ref self->ParentViewportId;
 		public ImDrawDataPtr DrawData => self->DrawData;
-		public ref IntPtr RendererUserData => ref self->RendererUserData;
-		public ref IntPtr PlatformUserData => ref self->PlatformUserData;
-		public ref IntPtr PlatformHandle => ref self->PlatformHandle;
-		public ref IntPtr PlatformHandleRaw => ref self->PlatformHandleRaw;
+		public ref nint RendererUserData => ref self->RendererUserData;
+		public ref nint PlatformUserData => ref self->PlatformUserData;
+		public ref nint PlatformHandle => ref self->PlatformHandle;
+		public ref nint PlatformHandleRaw => ref self->PlatformHandleRaw;
 		public ref bool PlatformRequestMove => ref self->PlatformRequestMove;
 		public ref bool PlatformRequestResize => ref self->PlatformRequestResize;
 		public ref bool PlatformRequestClose => ref self->PlatformRequestClose;
@@ -66,11 +63,8 @@ namespace SharpImGUI
 	public unsafe partial struct ImDrawDataPtr
 	{
 		private unsafe ImDrawData* self;
-		public ImDrawDataPtr(ImDrawData* native)
-		{
-			self = (ImDrawData*)native;
-		}
-
+		public ImDrawDataPtr(ImDrawData* native) => self = native;
+		public static implicit operator bool(ImDrawDataPtr handle) => handle.self != null;
 		public static implicit operator ImDrawDataPtr(ImDrawData* native) => new ImDrawDataPtr(native);
 		public static implicit operator ImDrawData*(ImDrawDataPtr handle) => handle.self;
 		public ref bool Valid => ref self->Valid;
@@ -92,11 +86,8 @@ namespace SharpImGUI
 	public unsafe partial struct ImDrawListPtr
 	{
 		private unsafe ImDrawList* self;
-		public ImDrawListPtr(ImDrawList* native)
-		{
-			self = (ImDrawList*)native;
-		}
-
+		public ImDrawListPtr(ImDrawList* native) => self = native;
+		public static implicit operator bool(ImDrawListPtr handle) => handle.self != null;
 		public static implicit operator ImDrawListPtr(ImDrawList* native) => new ImDrawListPtr(native);
 		public static implicit operator ImDrawList*(ImDrawListPtr handle) => handle.self;
 		public ref ImVector<ImDrawCmd> CmdBuffer => ref self->CmdBuffer;
@@ -154,7 +145,7 @@ namespace SharpImGUI
 		public void PathBezierCubicCurveTo(ImVec2 p2, ImVec2 p3, ImVec2 p4, int num_segments) => ImGui.ImDrawList_PathBezierCubicCurveTo(self, p2, p3, p4, num_segments);
 		public void PathBezierQuadraticCurveTo(ImVec2 p2, ImVec2 p3, int num_segments) => ImGui.ImDrawList_PathBezierQuadraticCurveTo(self, p2, p3, num_segments);
 		public void PathRect(ImVec2 rect_min, ImVec2 rect_max, float rounding, ImDrawFlags flags = 0) => ImGui.ImDrawList_PathRect(self, rect_min, rect_max, rounding, flags);
-		public void AddCallback(IntPtr callback, IntPtr callback_data) => ImGui.ImDrawList_AddCallback(self, callback, callback_data);
+		public void AddCallback(IntPtr callback, nint callback_data) => ImGui.ImDrawList_AddCallback(self, callback, callback_data);
 		public void AddDrawCmd() => ImGui.ImDrawList_AddDrawCmd(self);
 		public ImDrawListPtr CloneOutput() => ImGui.ImDrawList_CloneOutput(self);
 		public void ChannelsSplit(int count) => ImGui.ImDrawList_ChannelsSplit(self, count);
@@ -173,11 +164,8 @@ namespace SharpImGUI
 	public unsafe partial struct ImFontPtr
 	{
 		private unsafe ImFont* self;
-		public ImFontPtr(ImFont* native)
-		{
-			self = (ImFont*)native;
-		}
-
+		public ImFontPtr(ImFont* native) => self = native;
+		public static implicit operator bool(ImFontPtr handle) => handle.self != null;
 		public static implicit operator ImFontPtr(ImFont* native) => new ImFontPtr(native);
 		public static implicit operator ImFont*(ImFontPtr handle) => handle.self;
 		public ref ImVector<float> IndexAdvanceX => ref self->IndexAdvanceX;
@@ -221,11 +209,8 @@ namespace SharpImGUI
 	public unsafe partial struct ImFontAtlasPtr
 	{
 		private unsafe ImFontAtlas* self;
-		public ImFontAtlasPtr(ImFontAtlas* native)
-		{
-			self = (ImFontAtlas*)native;
-		}
-
+		public ImFontAtlasPtr(ImFontAtlas* native) => self = native;
+		public static implicit operator bool(ImFontAtlasPtr handle) => handle.self != null;
 		public static implicit operator ImFontAtlasPtr(ImFontAtlas* native) => new ImFontAtlasPtr(native);
 		public static implicit operator ImFontAtlas*(ImFontAtlasPtr handle) => handle.self;
 		public ref ImFontAtlasFlags Flags => ref self->Flags;
@@ -253,8 +238,8 @@ namespace SharpImGUI
 		public ImFontPtr AddFont(ImFontConfigPtr font_cfg) => ImGui.ImFontAtlas_AddFont(self, font_cfg);
 		public ImFontPtr AddFontDefault(ImFontConfigPtr font_cfg) => ImGui.ImFontAtlas_AddFontDefault(self, font_cfg);
 		public ImFontPtr AddFontFromFileTTF(string filename, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges) => ImGui.ImFontAtlas_AddFontFromFileTTF(self, filename, size_pixels, font_cfg, glyph_ranges);
-		public ImFontPtr AddFontFromMemoryTTF(IntPtr font_data, int font_size, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges) => ImGui.ImFontAtlas_AddFontFromMemoryTTF(self, font_data, font_size, size_pixels, font_cfg, glyph_ranges);
-		public ImFontPtr AddFontFromMemoryCompressedTTF(IntPtr compressed_font_data, int compressed_font_size, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges) => ImGui.ImFontAtlas_AddFontFromMemoryCompressedTTF(self, compressed_font_data, compressed_font_size, size_pixels, font_cfg, glyph_ranges);
+		public ImFontPtr AddFontFromMemoryTTF(nint font_data, int font_size, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges) => ImGui.ImFontAtlas_AddFontFromMemoryTTF(self, font_data, font_size, size_pixels, font_cfg, glyph_ranges);
+		public ImFontPtr AddFontFromMemoryCompressedTTF(nint compressed_font_data, int compressed_font_size, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges) => ImGui.ImFontAtlas_AddFontFromMemoryCompressedTTF(self, compressed_font_data, compressed_font_size, size_pixels, font_cfg, glyph_ranges);
 		public ImFontPtr AddFontFromMemoryCompressedBase85TTF(string compressed_font_data_base85, float size_pixels, ImFontConfigPtr font_cfg, char* glyph_ranges) => ImGui.ImFontAtlas_AddFontFromMemoryCompressedBase85TTF(self, compressed_font_data_base85, size_pixels, font_cfg, glyph_ranges);
 		public void ClearInputData() => ImGui.ImFontAtlas_ClearInputData(self);
 		public void ClearTexData() => ImGui.ImFontAtlas_ClearTexData(self);
@@ -283,14 +268,11 @@ namespace SharpImGUI
 	public unsafe partial struct ImFontConfigPtr
 	{
 		private unsafe ImFontConfig* self;
-		public ImFontConfigPtr(ImFontConfig* native)
-		{
-			self = (ImFontConfig*)native;
-		}
-
+		public ImFontConfigPtr(ImFontConfig* native) => self = native;
+		public static implicit operator bool(ImFontConfigPtr handle) => handle.self != null;
 		public static implicit operator ImFontConfigPtr(ImFontConfig* native) => new ImFontConfigPtr(native);
 		public static implicit operator ImFontConfig*(ImFontConfigPtr handle) => handle.self;
-		public ref IntPtr FontData => ref self->FontData;
+		public ref nint FontData => ref self->FontData;
 		public ref int FontDataSize => ref self->FontDataSize;
 		public ref bool FontDataOwnedByAtlas => ref self->FontDataOwnedByAtlas;
 		public ref int FontNo => ref self->FontNo;
@@ -316,11 +298,8 @@ namespace SharpImGUI
 	public unsafe partial struct ImGuiIOPtr
 	{
 		private unsafe ImGuiIO* self;
-		public ImGuiIOPtr(ImGuiIO* native)
-		{
-			self = (ImGuiIO*)native;
-		}
-
+		public ImGuiIOPtr(ImGuiIO* native) => self = native;
+		public static implicit operator bool(ImGuiIOPtr handle) => handle.self != null;
 		public static implicit operator ImGuiIOPtr(ImGuiIO* native) => new ImGuiIOPtr(native);
 		public static implicit operator ImGuiIO*(ImGuiIOPtr handle) => handle.self;
 		public ref ImGuiConfigFlags ConfigFlags => ref self->ConfigFlags;
@@ -336,7 +315,7 @@ namespace SharpImGUI
 		public RangeAccessor<int> KeyMap => (int*)Unsafe.AsPointer(ref self->KeyMap[0]);
 		public ref float KeyRepeatDelay => ref self->KeyRepeatDelay;
 		public ref float KeyRepeatRate => ref self->KeyRepeatRate;
-		public ref IntPtr UserData => ref self->UserData;
+		public ref nint UserData => ref self->UserData;
 		public ImFontAtlasPtr Fonts => self->Fonts;
 		public ref float FontGlobalScale => ref self->FontGlobalScale;
 		public ref bool FontAllowUserScaling => ref self->FontAllowUserScaling;
@@ -359,12 +338,12 @@ namespace SharpImGUI
 		public ref float ConfigMemoryCompactTimer => ref self->ConfigMemoryCompactTimer;
 		public ref byte* BackendPlatformName => ref self->BackendPlatformName;
 		public ref byte* BackendRendererName => ref self->BackendRendererName;
-		public ref IntPtr BackendPlatformUserData => ref self->BackendPlatformUserData;
-		public ref IntPtr BackendRendererUserData => ref self->BackendRendererUserData;
-		public ref IntPtr BackendLanguageUserData => ref self->BackendLanguageUserData;
+		public ref nint BackendPlatformUserData => ref self->BackendPlatformUserData;
+		public ref nint BackendRendererUserData => ref self->BackendRendererUserData;
+		public ref nint BackendLanguageUserData => ref self->BackendLanguageUserData;
 		public ref IntPtr GetClipboardTextFn => ref self->GetClipboardTextFn;
 		public ref IntPtr SetClipboardTextFn => ref self->SetClipboardTextFn;
-		public ref IntPtr ClipboardUserData => ref self->ClipboardUserData;
+		public ref nint ClipboardUserData => ref self->ClipboardUserData;
 		public ref ImVec2 MousePos => ref self->MousePos;
 		public RangeAccessor<bool> MouseDown => (bool*)Unsafe.AsPointer(ref self->MouseDown[0]);
 		public ref float MouseWheel => ref self->MouseWheel;
@@ -421,11 +400,8 @@ namespace SharpImGUI
 	public unsafe partial struct ImGuiStylePtr
 	{
 		private unsafe ImGuiStyle* self;
-		public ImGuiStylePtr(ImGuiStyle* native)
-		{
-			self = (ImGuiStyle*)native;
-		}
-
+		public ImGuiStylePtr(ImGuiStyle* native) => self = native;
+		public static implicit operator bool(ImGuiStylePtr handle) => handle.self != null;
 		public static implicit operator ImGuiStylePtr(ImGuiStyle* native) => new ImGuiStylePtr(native);
 		public static implicit operator ImGuiStyle*(ImGuiStylePtr handle) => handle.self;
 		public ref float Alpha => ref self->Alpha;
@@ -471,6 +447,29 @@ namespace SharpImGUI
 		public static ImGuiStylePtr ImGuiStyle() => ImGui.ImGuiStyle_ImGuiStyle();
 		public void destroy() => ImGui.ImGuiStyle_destroy(self);
 		public void ScaleAllSizes(float scale_factor) => ImGui.ImGuiStyle_ScaleAllSizes(self, scale_factor);
+	}
+
+	public unsafe partial struct ImGuiPayloadPtr
+	{
+		private unsafe ImGuiPayload* self;
+		public ImGuiPayloadPtr(ImGuiPayload* native) => self = native;
+		public static implicit operator bool(ImGuiPayloadPtr handle) => handle.self != null;
+		public static implicit operator ImGuiPayloadPtr(ImGuiPayload* native) => new ImGuiPayloadPtr(native);
+		public static implicit operator ImGuiPayload*(ImGuiPayloadPtr handle) => handle.self;
+		public ref nint Data => ref self->Data;
+		public ref int DataSize => ref self->DataSize;
+		public ref ImGuiID SourceId => ref self->SourceId;
+		public ref ImGuiID SourceParentId => ref self->SourceParentId;
+		public ref int DataFrameCount => ref self->DataFrameCount;
+		public RangeAccessor<byte> DataType => (byte*)Unsafe.AsPointer(ref self->DataType[0]);
+		public ref bool Preview => ref self->Preview;
+		public ref bool Delivery => ref self->Delivery;
+		public static ImGuiPayloadPtr ImGuiPayload() => ImGui.ImGuiPayload_ImGuiPayload();
+		public void destroy() => ImGui.ImGuiPayload_destroy(self);
+		public void Clear() => ImGui.ImGuiPayload_Clear(self);
+		public bool IsDataType(string type) => ImGui.ImGuiPayload_IsDataType(self, type);
+		public bool IsPreview() => ImGui.ImGuiPayload_IsPreview(self);
+		public bool IsDelivery() => ImGui.ImGuiPayload_IsDelivery(self);
 	}
 
 }

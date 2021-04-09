@@ -30,7 +30,7 @@ namespace Generator
             { "int64_t*", "long*" },
 
             { "char", "byte" },
-            { "size_t", "IntPtr" },
+            { "size_t", "nint" },
             { "DWORD", "uint" },
 
 
@@ -169,7 +169,7 @@ namespace Generator
             switch (primitiveType.Kind)
             {
                 case CppPrimitiveKind.Void:
-                    return isPointer ? "IntPtr" : "void";
+                    return isPointer ? "nint" : "void";
 
                 case CppPrimitiveKind.Char:
                     return isPointer ? "byte*" : "byte";
@@ -190,18 +190,22 @@ namespace Generator
                     
                 case CppPrimitiveKind.UnsignedChar:
                     return isPointer ? "byte*" : "byte";
+
                 case CppPrimitiveKind.UnsignedShort:
                     return isPointer ? "ushort*" : "ushort";
+
                 case CppPrimitiveKind.UnsignedInt:
                     return isPointer ? "uint*" : "uint";
 
                 case CppPrimitiveKind.UnsignedLongLong:
-
                     return isPointer ? "ulong*" : "ulong";
+
                 case CppPrimitiveKind.Float:
                     return isPointer ? "float*" : "float";
+
                 case CppPrimitiveKind.Double:
                     return isPointer ? "double*" : "double";
+
                 case CppPrimitiveKind.LongDouble:
                     break;
                 default:

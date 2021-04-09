@@ -120,13 +120,6 @@ namespace Generator
             // Map missing flags with typedefs to VkFlags
             foreach (var typedef in compilation.Typedefs)
             {
-                if (typedef.Name.StartsWith("PFN_")
-                    || typedef.Name.Equals("VkBool32", StringComparison.OrdinalIgnoreCase)
-                    || typedef.Name.Equals("VkFlags", StringComparison.OrdinalIgnoreCase))
-                {
-                    continue;
-                }
-
                 if (typedef.ElementType is CppPointerType)
                 {
                     continue;

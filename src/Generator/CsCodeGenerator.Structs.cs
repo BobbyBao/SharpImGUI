@@ -33,7 +33,8 @@ namespace Generator
             { "ImFont*", "ImFontPtr"},
             { "ImFontConfig*", "ImFontConfigPtr" },
             { "ImGuiViewport*", "ImGuiViewportPtr" },
-            { "ImGuiWindow*", "ImGuiWindowPtr" }
+            { "ImGuiWindow*", "ImGuiWindowPtr" },
+            { "ImGuiPayload*", "ImGuiPayloadPtr" }
         };
 
         private static void GenerateStructAndUnions(CppCompilation compilation, string outputPath)
@@ -269,13 +270,8 @@ namespace Generator
                 using (writer.PushBlock($"public unsafe partial struct {handleName}"))
                 {
                     writer.WriteLine($"private unsafe {csName}* self;");
-
-                    using (writer.PushBlock($"public {handleName}({csName}* native)"))
-                    {
-                        writer.WriteLine($"self = ({csName}*)native;");
-                    }
-
-                    writer.WriteLine();
+                    writer.WriteLine($"public {handleName}({csName}* native) => self = native;");
+                    writer.WriteLine($"public static implicit operator bool({handleName} handle) => handle.self != null;");
                     writer.WriteLine($"public static implicit operator {handleName}({csName}* native) => new {handleName}(native);");
                     writer.WriteLine($"public static implicit operator {csName}*({handleName} handle) => handle.self;");
 
