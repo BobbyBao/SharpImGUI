@@ -92,9 +92,9 @@ namespace SharpImGUI
             return obj;
         }
 
-        public unsafe GCHandle GetGCHandle()
+        public unsafe object PickObject()
         {
-            return GCHandle.FromIntPtr(*(nint*)Data);
+            return GCHandle.FromIntPtr(*(nint*)Data).Target;
         }
     }
 }
