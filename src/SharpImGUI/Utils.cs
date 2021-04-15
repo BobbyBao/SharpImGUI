@@ -36,17 +36,18 @@ namespace SharpImGUI
 
         private readonly nint utf8Str;
         private fixed byte bytes[MAX_STACK_SIZE];
-        //private bool isNull;
+        private bool isNull;
         public StringHelper(string str)
         {
             if(str == null)
             {
                 utf8Str = 0;
                 bytes[0] = 0;
-                //isNull = true;
+                isNull = true;
                 return;
             }
-            //isNull = false;
+           
+            isNull = false;
             int count = Encoding.UTF8.GetByteCount(str);
             if (count < MAX_STACK_SIZE)
             {
@@ -83,7 +84,7 @@ namespace SharpImGUI
         }
 
         public unsafe static implicit operator byte*(StringHelper self) => self.utf8Str == 0 ?
-            /*self.isNull ? null :*/ (byte*)Unsafe.AsPointer(ref self.bytes[0]) : (byte*)self.utf8Str;
+            self.isNull ? null : (byte*)Unsafe.AsPointer(ref self.bytes[0]) : (byte*)self.utf8Str;
 
         public void Dispose()
         {
