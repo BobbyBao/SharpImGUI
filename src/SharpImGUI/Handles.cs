@@ -84,6 +84,14 @@ namespace SharpImGUI
 
     public unsafe partial struct ImGuiPayloadPtr
     {
+        public unsafe object GetObject()
+        {
+            var handle = GCHandle.FromIntPtr(*(nint*)Data);
+            var obj = handle.Target;
+            handle.Free();
+            return obj;
+        }
+
         public unsafe GCHandle GetGCHandle()
         {
             return GCHandle.FromIntPtr(*(nint*)Data);
