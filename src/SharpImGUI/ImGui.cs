@@ -68,6 +68,7 @@ namespace SharpImGUI
         public static float WindowWidth => GetWindowWidth();
         public static float WindowHeight => GetWindowHeight();
         public static void SetWindowSize(ImVec2 size, ImGuiCond cond = 0) => SetWindowSizeVec2(size, cond);
+        public static void SetNextWindowSize(ImVec2 size) => SetNextWindowSize(size, ImGuiCond.None);
         public static ImVec2 CalcTextSize(string text, string text_end = null, bool hide_text_after_double_hash = false)
             => CalcTextSize(text, text_end, hide_text_after_double_hash, -1.0f);
 
@@ -84,7 +85,13 @@ namespace SharpImGUI
         public static void PushStyleVar(ImGuiStyleVar idx, float val) => PushStyleVarFloat(idx, val);
         public static void PushStyleVar(ImGuiStyleVar idx, ImVec2 val) => PushStyleVarVec2(idx, val);
         public static void PopStyleColor() => PopStyleColor(1);
-        public static void PopStyleVar() => PopStyleVar(1);
+        public static void PopStyleVar() => PopStyleVar(1); 
+        
+        public static bool Begin(string name, ImGuiWindowFlags flags = 0)
+        {
+            using var p_name = new StringHelper(name);
+            return Begin_ptr(p_name, null, flags) != 0;            
+        }
         public static bool Begin(string name, ref bool p_open) => Begin(name, ref p_open, default);
         public static bool BeginChild(string str_id, ImVec2 size = default, bool border = false, ImGuiWindowFlags flags = 0)
             => BeginChildStr(str_id, size, border, flags);
@@ -93,7 +100,19 @@ namespace SharpImGUI
         public static bool Button(string label) => Button(label, default);
         public static bool InvisibleButton(string str_id, ImVec2 size) => InvisibleButton(str_id, size, ImGuiButtonFlags.None);
         public static void SameLine(float offset_from_start_x = 0.0f) => SameLine(offset_from_start_x, -1.0f);
+        public static void TextUnformatted(string text) => TextUnformatted(text, null);
         public static bool BeginCombo(string label, string preview_value) => BeginCombo(label, preview_value, default);
+
+        public static bool Combo(string label, ref int current_item, string[] items, int items_count, int popup_max_height_in_items = -1)
+        {
+            using CStringArray strArr = stackalloc IntPtr[items.Length];
+            for (int i = 0; i < items.Length; i++)
+            {
+                strArr[i] = StringHelper.ToPtr(items[i]);
+            }
+            return ComboStr_arr(label, ref current_item, (byte**)strArr.Ptr, items_count, popup_max_height_in_items);
+        }
+
         public static bool DragFloat(string label, ref float v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")
             => DragFloat(label, ref v, v_speed, v_min, v_max, format, default);
         public static bool DragFloat2(string label, ref float v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")
