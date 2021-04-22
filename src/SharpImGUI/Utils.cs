@@ -53,17 +53,19 @@ namespace SharpImGUI
             {
                 fixed (byte* b = bytes)
                 {
-                    Encoding.UTF8.GetBytes(str.AsSpan(), new Span<byte>(b, count));
+                    int sz = Encoding.UTF8.GetBytes(str.AsSpan(), new Span<byte>(b, count));
+                    bytes[sz] = 0;
                 }
-                bytes[count] = 0;
                 utf8Str = default;
             }
             else
             {
                 utf8Str = Marshal.AllocHGlobal(count + 1);
                 fixed (char* pChars = str)
-                    Encoding.UTF8.GetBytes(pChars, str.Length, (byte*)utf8Str, count);
-                ((byte*)utf8Str)[count] = 0;
+                {
+                    int sz = Encoding.UTF8.GetBytes(pChars, str.Length, (byte*)utf8Str, count);
+                    ((byte*)utf8Str)[sz + 1] = 0;
+                }
             }
            
         }
