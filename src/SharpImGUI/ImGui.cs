@@ -101,6 +101,12 @@ namespace SharpImGUI
         public static bool InvisibleButton(string str_id, ImVec2 size) => InvisibleButton(str_id, size, ImGuiButtonFlags.None);
         public static void SameLine(float offset_from_start_x = 0.0f) => SameLine(offset_from_start_x, -1.0f);
         public static void TextUnformatted(string text) => TextUnformatted(text, null);
+        public static void TextUnformatted(ReadOnlySpan<byte> text)
+        {
+            var  p_text =  (byte*)Unsafe.AsPointer(ref Unsafe.AsRef(in text[0]));
+
+            TextUnformatted_ptr(p_text, p_text + text.Length);
+        }
         public static bool BeginCombo(string label, string preview_value) => BeginCombo(label, preview_value, default);
 
         public static bool Combo(string label, ref int current_item, string[] items, int popup_max_height_in_items = -1)

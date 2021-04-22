@@ -97,4 +97,65 @@ namespace SharpImGUI
             return GCHandle.FromIntPtr(*(nint*)Data).Target;
         }
     }
+
+
+    public unsafe partial struct ImGuiTextFilter
+    {
+        public ImGuiTextFilter(string default_filter = "")
+        {
+            CountGrep = 0;
+            Filters = default;
+            int count = Encoding.UTF8.GetByteCount(default_filter);
+            fixed (byte* b = InputBuf)
+            {
+                int sz = Encoding.UTF8.GetBytes(default_filter.AsSpan(), new Span<byte>(b, count));
+                InputBuf[sz] = 0;
+            }
+            Build();
+        }
+
+        public bool Draw(string label = "Filter (inc,-exc)", float width = 0.0f)
+        {
+            return ImGui.ImGuiTextFilter_Draw((ImGuiTextFilter*)Unsafe.AsPointer(ref this), label, width);
+        }
+
+        public bool PassFilter(string text)
+        {
+            return ImGui.ImGuiTextFilter_PassFilter((ImGuiTextFilter*)Unsafe.AsPointer(ref this), text, null);
+        }
+
+        public void Build()
+        {
+            ImGui.ImGuiTextFilter_Build((ImGuiTextFilter*)Unsafe.AsPointer(ref this));
+        }
+
+        public void Clear()
+        {
+            ImGui.ImGuiTextFilter_Clear((ImGuiTextFilter*)Unsafe.AsPointer(ref this));
+        }
+
+        public bool IsActive()
+        {
+            return ImGui.ImGuiTextFilter_IsActive((ImGuiTextFilter*)Unsafe.AsPointer(ref this));
+        }
+
+    }
+
+    public unsafe partial struct ImGuiListClipper
+    {
+        public void Begin(int items_count, float items_height)
+        {            
+            ImGui.ImGuiListClipper_Begin((ImGuiListClipper*)Unsafe.AsPointer(ref this), items_count, items_height);
+        }
+
+        public void End()
+        {
+            ImGui.ImGuiListClipper_End((ImGuiListClipper*)Unsafe.AsPointer(ref this));
+        }
+
+        public bool Step()
+        {
+            return ImGui.ImGuiListClipper_Step((ImGuiListClipper*)Unsafe.AsPointer(ref this));
+        }
+    }
 }
