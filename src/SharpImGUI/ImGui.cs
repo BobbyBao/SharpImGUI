@@ -103,14 +103,14 @@ namespace SharpImGUI
         public static void TextUnformatted(string text) => TextUnformatted(text, null);
         public static bool BeginCombo(string label, string preview_value) => BeginCombo(label, preview_value, default);
 
-        public static bool Combo(string label, ref int current_item, string[] items, int items_count, int popup_max_height_in_items = -1)
+        public static bool Combo(string label, ref int current_item, string[] items, int popup_max_height_in_items = -1)
         {
             using CStringArray strArr = stackalloc IntPtr[items.Length];
             for (int i = 0; i < items.Length; i++)
             {
                 strArr[i] = StringHelper.ToPtr(items[i]);
             }
-            return ComboStr_arr(label, ref current_item, (byte**)strArr.Ptr, items_count, popup_max_height_in_items);
+            return ComboStr_arr(label, ref current_item, (byte**)strArr.Ptr, items.Length, popup_max_height_in_items);
         }
 
         public static bool DragFloat(string label, ref float v, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, string format = "%.3f")
