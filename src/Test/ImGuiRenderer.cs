@@ -185,7 +185,7 @@ namespace ImGuiNET.SampleProgram.XNA
             //};
             ///////////////////////////////////////////
 
-            ImGui.IO.Fonts.AddFontDefault();
+            ImGui.IO.Fonts.AddFontDefault(default);
         }
 
         /// <summary>

@@ -187,8 +187,18 @@ namespace SharpImGUI
 
         public static bool InputText(string label, ref string str, ImGuiInputTextFlags flags = default, IntPtr callback = default, IntPtr user_data = default)
         {
+            if (str == null)
+            {
+                str = "";
+            }
+
+            int len = Encoding.UTF8.GetByteCount(str);
+            while (len >= buffer.Length)
+            {
+                Array.Resize(ref buffer, buffer.Length * 2);
+            }
+
             var buff = (byte*)Unsafe.AsPointer(ref buffer[0]);
-            int len = Encoding.UTF8.GetMaxByteCount(str.Length);
             fixed (char* p_char = str)
             {
                 len = Encoding.UTF8.GetBytes(p_char, str.Length, buff, len);
@@ -212,8 +222,18 @@ namespace SharpImGUI
 
         public static bool InputTextMultiline(string label, ref string str, ImVec2 size, ImGuiInputTextFlags flags = default, IntPtr callback = default, IntPtr user_data = default)
         {
-            var buff = (byte*)Unsafe.AsPointer(ref buffer[0]);
-            int len = Encoding.UTF8.GetMaxByteCount(str.Length);
+            if (str == null)
+            {
+                str = "";
+            }
+
+            int len = Encoding.UTF8.GetByteCount(str);
+            while (len >= buffer.Length)
+            {
+                Array.Resize(ref buffer, buffer.Length * 2);
+            }
+
+            var buff = (byte*)Unsafe.AsPointer(ref buffer[0]);         
             fixed (char* p_char = str)
             {
                 len = Encoding.UTF8.GetBytes(p_char, str.Length, buff, len);
