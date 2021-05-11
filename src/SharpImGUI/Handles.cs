@@ -80,6 +80,7 @@ namespace SharpImGUI
     {
         public void AddLine(ImVec2 p1, ImVec2 p2, uint col) => AddLine(p1, p2, col, 1.0f);
         public void AddRectFilled(ImVec2 p_min, ImVec2 p_max, uint col, float rounding = 0.0f) => AddRectFilled(p_min, p_max, col, rounding, 0);
+        public void AddText(ImVec2 pos, uint col, Span<byte> text) => ImGui.AddTextVec2(this, pos, col, text);
     }
 
     public unsafe partial struct ImGuiPayloadPtr

@@ -14,7 +14,7 @@ using ImGuiID = System.UInt32;
 namespace SharpImGUI
 {
 
-    public unsafe partial class ImGui
+    public unsafe static partial class ImGui
     {
         private delegate IntPtr LoadFunction(IntPtr context, string name);
 
@@ -69,8 +69,19 @@ namespace SharpImGUI
         public static float WindowHeight => GetWindowHeight();
         public static void SetWindowSize(ImVec2 size, ImGuiCond cond = 0) => SetWindowSizeVec2(size, cond);
         public static void SetNextWindowSize(ImVec2 size) => SetNextWindowSize(size, ImGuiCond.None);
-        public static ImVec2 CalcTextSize(string text, string text_end = null, bool hide_text_after_double_hash = false)
-            => CalcTextSize(text, text_end, hide_text_after_double_hash, -1.0f);
+        public static ImVec2 CalcTextSize(string text, bool hide_text_after_double_hash = false)
+            => CalcTextSize(text, null, hide_text_after_double_hash, -1.0f);
+
+        public static ImVec2 CalcTextSize(Span<byte> text, bool hide_text_after_double_hash = false, float wrap_width = -1.0f)
+        {
+            ImVec2 @out = default;
+            fixed (byte* p_text = text)
+            {
+                byte* p_text_end = p_text + text.Length;
+                CalcTextSize_ptr(&@out, p_text, p_text_end, hide_text_after_double_hash, wrap_width);
+                return @out;
+            }
+        }
 
         public static uint GetColorU32(ImGuiCol idx, float alpha_mul = 1.0f) => GetColorU32Col(idx, alpha_mul);        
         public static uint GetColorU32(ImVec4 col) => GetColorU32Vec4(col);        
@@ -333,5 +344,13 @@ namespace SharpImGUI
             return SetDragDropPayload_ptr(p_type, (nint)(&data), sizeof(IntPtr), cond) != 0;
         }
 
+        public static void AddTextVec2(this ImDrawListPtr self, ImVec2 pos, uint col, Span<byte> text)
+        {
+            fixed (byte* p_text_begin = text)
+            {
+                byte* p_text_end = p_text_begin + text.Length;
+                ImDrawList_AddTextVec2_ptr(self, pos, col, p_text_begin, p_text_end);
+            }
+        }
     }
 }
