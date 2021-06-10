@@ -41,22 +41,19 @@ namespace SharpImGUI
 
         private static IntPtr LoadCImGUI()
         {
-            string libName;
+            string libName = "native/win-x64/cimgui.dll";
+            string archit = RuntimeInformation.OSArchitecture == Architecture.X64 ? "x64" : "x86";
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                libName = "cimgui.dll";
+                libName = $"native/win-{archit}/cimgui.dll";               
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                libName = "cimgui.so";
+                libName = $"native/linux-{archit}/cimgui.so";
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
-                libName = "cimgui.dylib";
-            }
-            else
-            {
-                libName = "cimgui.dll";
+                libName = $"native/osx-{archit}/cimgui.dylib";
             }
 
             return NativeLibrary.Load(libName);
