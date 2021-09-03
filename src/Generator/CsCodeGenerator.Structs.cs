@@ -34,7 +34,9 @@ namespace Generator
             { "ImFontConfig*", "ImFontConfigPtr" },
             { "ImGuiViewport*", "ImGuiViewportPtr" },
             { "ImGuiWindow*", "ImGuiWindowPtr" },
-            { "ImGuiPayload*", "ImGuiPayloadPtr" }
+            { "ImGuiPayload*", "ImGuiPayloadPtr" },
+            { "ImGuiStorage*", "ImGuiStoragePtr" },
+            { "ImGuiContext*", "ImGuiContextPtr" }
         };
 
         private static void GenerateStructAndUnions(CppCompilation compilation, string outputPath)

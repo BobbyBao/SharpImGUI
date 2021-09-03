@@ -21,25 +21,25 @@ namespace SharpImGUI
 	unsafe partial class ImGui
 	{
 		static delegate* unmanaged[Cdecl]<ImFontAtlas*, ImGuiContext*> CreateContext_ptr;
-		public static ImGuiContext* CreateContext(ImFontAtlasPtr shared_font_atlas)
+		public static ImGuiContextPtr CreateContext(ImFontAtlasPtr shared_font_atlas)
 		{
 			return CreateContext_ptr(shared_font_atlas);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> DestroyContext_ptr;
-		public static void DestroyContext(ImGuiContext* ctx)
+		public static void DestroyContext(ImGuiContextPtr ctx)
 		{
 			DestroyContext_ptr(ctx);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*> GetCurrentContext_ptr;
-		public static ImGuiContext* GetCurrentContext()
+		public static ImGuiContextPtr GetCurrentContext()
 		{
 			return GetCurrentContext_ptr();
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> SetCurrentContext_ptr;
-		public static void SetCurrentContext(ImGuiContext* ctx)
+		public static void SetCurrentContext(ImGuiContextPtr ctx)
 		{
 			SetCurrentContext_ptr(ctx);
 		}
@@ -2257,13 +2257,13 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, void> SetStateStorage_ptr;
-		public static void SetStateStorage(ImGuiStorage* storage)
+		public static void SetStateStorage(ImGuiStoragePtr storage)
 		{
 			SetStateStorage_ptr(storage);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*> GetStateStorage_ptr;
-		public static ImGuiStorage* GetStateStorage()
+		public static ImGuiStoragePtr GetStateStorage()
 		{
 			return GetStateStorage_ptr();
 		}
@@ -2932,91 +2932,91 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, void> ImGuiStorage_Clear_ptr;
-		public static void ImGuiStorage_Clear(ImGuiStorage* self)
+		public static void ImGuiStorage_Clear(ImGuiStoragePtr self)
 		{
 			ImGuiStorage_Clear_ptr(self);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, int, int> ImGuiStorage_GetInt_ptr;
-		public static int ImGuiStorage_GetInt(ImGuiStorage* self, ImGuiID key, int default_val)
+		public static int ImGuiStorage_GetInt(ImGuiStoragePtr self, ImGuiID key, int default_val)
 		{
 			return ImGuiStorage_GetInt_ptr(self, key, default_val);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, int, void> ImGuiStorage_SetInt_ptr;
-		public static void ImGuiStorage_SetInt(ImGuiStorage* self, ImGuiID key, int val)
+		public static void ImGuiStorage_SetInt(ImGuiStoragePtr self, ImGuiID key, int val)
 		{
 			ImGuiStorage_SetInt_ptr(self, key, val);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, bool, byte> ImGuiStorage_GetBool_ptr;
-		public static bool ImGuiStorage_GetBool(ImGuiStorage* self, ImGuiID key, bool default_val)
+		public static bool ImGuiStorage_GetBool(ImGuiStoragePtr self, ImGuiID key, bool default_val)
 		{
 			return ImGuiStorage_GetBool_ptr(self, key, default_val) != 0;
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, bool, void> ImGuiStorage_SetBool_ptr;
-		public static void ImGuiStorage_SetBool(ImGuiStorage* self, ImGuiID key, bool val)
+		public static void ImGuiStorage_SetBool(ImGuiStoragePtr self, ImGuiID key, bool val)
 		{
 			ImGuiStorage_SetBool_ptr(self, key, val);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, float, float> ImGuiStorage_GetFloat_ptr;
-		public static float ImGuiStorage_GetFloat(ImGuiStorage* self, ImGuiID key, float default_val)
+		public static float ImGuiStorage_GetFloat(ImGuiStoragePtr self, ImGuiID key, float default_val)
 		{
 			return ImGuiStorage_GetFloat_ptr(self, key, default_val);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, float, void> ImGuiStorage_SetFloat_ptr;
-		public static void ImGuiStorage_SetFloat(ImGuiStorage* self, ImGuiID key, float val)
+		public static void ImGuiStorage_SetFloat(ImGuiStoragePtr self, ImGuiID key, float val)
 		{
 			ImGuiStorage_SetFloat_ptr(self, key, val);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, nint> ImGuiStorage_GetVoidPtr_ptr;
-		public static nint ImGuiStorage_GetVoidPtr(ImGuiStorage* self, ImGuiID key)
+		public static nint ImGuiStorage_GetVoidPtr(ImGuiStoragePtr self, ImGuiID key)
 		{
 			return ImGuiStorage_GetVoidPtr_ptr(self, key);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, nint, void> ImGuiStorage_SetVoidPtr_ptr;
-		public static void ImGuiStorage_SetVoidPtr(ImGuiStorage* self, ImGuiID key, nint val)
+		public static void ImGuiStorage_SetVoidPtr(ImGuiStoragePtr self, ImGuiID key, nint val)
 		{
 			ImGuiStorage_SetVoidPtr_ptr(self, key, val);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, int, int*> ImGuiStorage_GetIntRef_ptr;
-		public static int* ImGuiStorage_GetIntRef(ImGuiStorage* self, ImGuiID key, int default_val)
+		public static int* ImGuiStorage_GetIntRef(ImGuiStoragePtr self, ImGuiID key, int default_val)
 		{
 			return ImGuiStorage_GetIntRef_ptr(self, key, default_val);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, bool, bool*> ImGuiStorage_GetBoolRef_ptr;
-		public static bool* ImGuiStorage_GetBoolRef(ImGuiStorage* self, ImGuiID key, bool default_val)
+		public static bool* ImGuiStorage_GetBoolRef(ImGuiStoragePtr self, ImGuiID key, bool default_val)
 		{
 			return ImGuiStorage_GetBoolRef_ptr(self, key, default_val);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, float, float*> ImGuiStorage_GetFloatRef_ptr;
-		public static float* ImGuiStorage_GetFloatRef(ImGuiStorage* self, ImGuiID key, float default_val)
+		public static float* ImGuiStorage_GetFloatRef(ImGuiStoragePtr self, ImGuiID key, float default_val)
 		{
 			return ImGuiStorage_GetFloatRef_ptr(self, key, default_val);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, ImGuiID, nint, nint*> ImGuiStorage_GetVoidPtrRef_ptr;
-		public static nint* ImGuiStorage_GetVoidPtrRef(ImGuiStorage* self, ImGuiID key, nint default_val)
+		public static nint* ImGuiStorage_GetVoidPtrRef(ImGuiStoragePtr self, ImGuiID key, nint default_val)
 		{
 			return ImGuiStorage_GetVoidPtrRef_ptr(self, key, default_val);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, int, void> ImGuiStorage_SetAllInt_ptr;
-		public static void ImGuiStorage_SetAllInt(ImGuiStorage* self, int val)
+		public static void ImGuiStorage_SetAllInt(ImGuiStoragePtr self, int val)
 		{
 			ImGuiStorage_SetAllInt_ptr(self, val);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, void> ImGuiStorage_BuildSortByKey_ptr;
-		public static void ImGuiStorage_BuildSortByKey(ImGuiStorage* self)
+		public static void ImGuiStorage_BuildSortByKey(ImGuiStoragePtr self)
 		{
 			ImGuiStorage_BuildSortByKey_ptr(self);
 		}
@@ -5050,19 +5050,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImFontAtlas*, ImGuiContext*> ImGuiContext_ImGuiContext_ptr;
-		public static ImGuiContext* ImGuiContext_ImGuiContext(ImFontAtlasPtr shared_font_atlas)
+		public static ImGuiContextPtr ImGuiContext_ImGuiContext(ImFontAtlasPtr shared_font_atlas)
 		{
 			return ImGuiContext_ImGuiContext_ptr(shared_font_atlas);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> ImGuiContext_destroy_ptr;
-		public static void ImGuiContext_destroy(ImGuiContext* self)
+		public static void ImGuiContext_destroy(ImGuiContextPtr self)
 		{
 			ImGuiContext_destroy_ptr(self);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, byte*, ImGuiWindow*> ImGuiWindow_ImGuiWindow_ptr;
-		public static ImGuiWindowPtr ImGuiWindow_ImGuiWindow(ImGuiContext* context, string name)
+		public static ImGuiWindowPtr ImGuiWindow_ImGuiWindow(ImGuiContextPtr context, string name)
 		{
 			using var p_name = new StringHelper(name);
 			return ImGuiWindow_ImGuiWindow_ptr(context, p_name);
@@ -5414,13 +5414,13 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> Initialize_ptr;
-		public static void Initialize(ImGuiContext* context)
+		public static void Initialize(ImGuiContextPtr context)
 		{
 			Initialize_ptr(context);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> Shutdown_ptr;
-		public static void Shutdown(ImGuiContext* context)
+		public static void Shutdown(ImGuiContextPtr context)
 		{
 			Shutdown_ptr(context);
 		}
@@ -5456,19 +5456,19 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiContextHook*, ImGuiID> AddContextHook_ptr;
-		public static ImGuiID AddContextHook(ImGuiContext* context, ImGuiContextHook* hook)
+		public static ImGuiID AddContextHook(ImGuiContextPtr context, ImGuiContextHook* hook)
 		{
 			return AddContextHook_ptr(context, hook);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiID, void> RemoveContextHook_ptr;
-		public static void RemoveContextHook(ImGuiContext* context, ImGuiID hook_to_remove)
+		public static void RemoveContextHook(ImGuiContextPtr context, ImGuiID hook_to_remove)
 		{
 			RemoveContextHook_ptr(context, hook_to_remove);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiContextHookType, void> CallContextHooks_ptr;
-		public static void CallContextHooks(ImGuiContext* context, ImGuiContextHookType type)
+		public static void CallContextHooks(ImGuiContextPtr context, ImGuiContextHookType type)
 		{
 			CallContextHooks_ptr(context, type);
 		}
@@ -6003,61 +6003,61 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> DockContextInitialize_ptr;
-		public static void DockContextInitialize(ImGuiContext* ctx)
+		public static void DockContextInitialize(ImGuiContextPtr ctx)
 		{
 			DockContextInitialize_ptr(ctx);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> DockContextShutdown_ptr;
-		public static void DockContextShutdown(ImGuiContext* ctx)
+		public static void DockContextShutdown(ImGuiContextPtr ctx)
 		{
 			DockContextShutdown_ptr(ctx);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiID, bool, void> DockContextClearNodes_ptr;
-		public static void DockContextClearNodes(ImGuiContext* ctx, ImGuiID root_id, bool clear_settings_refs)
+		public static void DockContextClearNodes(ImGuiContextPtr ctx, ImGuiID root_id, bool clear_settings_refs)
 		{
 			DockContextClearNodes_ptr(ctx, root_id, clear_settings_refs);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> DockContextRebuildNodes_ptr;
-		public static void DockContextRebuildNodes(ImGuiContext* ctx)
+		public static void DockContextRebuildNodes(ImGuiContextPtr ctx)
 		{
 			DockContextRebuildNodes_ptr(ctx);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> DockContextNewFrameUpdateUndocking_ptr;
-		public static void DockContextNewFrameUpdateUndocking(ImGuiContext* ctx)
+		public static void DockContextNewFrameUpdateUndocking(ImGuiContextPtr ctx)
 		{
 			DockContextNewFrameUpdateUndocking_ptr(ctx);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> DockContextNewFrameUpdateDocking_ptr;
-		public static void DockContextNewFrameUpdateDocking(ImGuiContext* ctx)
+		public static void DockContextNewFrameUpdateDocking(ImGuiContextPtr ctx)
 		{
 			DockContextNewFrameUpdateDocking_ptr(ctx);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiID> DockContextGenNodeID_ptr;
-		public static ImGuiID DockContextGenNodeID(ImGuiContext* ctx)
+		public static ImGuiID DockContextGenNodeID(ImGuiContextPtr ctx)
 		{
 			return DockContextGenNodeID_ptr(ctx);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiWindow*, ImGuiDockNode*, ImGuiWindow*, ImGuiDir, float, bool, void> DockContextQueueDock_ptr;
-		public static void DockContextQueueDock(ImGuiContext* ctx, ImGuiWindowPtr target, ImGuiDockNode* target_node, ImGuiWindowPtr payload, ImGuiDir split_dir, float split_ratio, bool split_outer)
+		public static void DockContextQueueDock(ImGuiContextPtr ctx, ImGuiWindowPtr target, ImGuiDockNode* target_node, ImGuiWindowPtr payload, ImGuiDir split_dir, float split_ratio, bool split_outer)
 		{
 			DockContextQueueDock_ptr(ctx, target, target_node, payload, split_dir, split_ratio, split_outer);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiWindow*, void> DockContextQueueUndockWindow_ptr;
-		public static void DockContextQueueUndockWindow(ImGuiContext* ctx, ImGuiWindowPtr window)
+		public static void DockContextQueueUndockWindow(ImGuiContextPtr ctx, ImGuiWindowPtr window)
 		{
 			DockContextQueueUndockWindow_ptr(ctx, window);
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, ImGuiDockNode*, void> DockContextQueueUndockNode_ptr;
-		public static void DockContextQueueUndockNode(ImGuiContext* ctx, ImGuiDockNode* node)
+		public static void DockContextQueueUndockNode(ImGuiContextPtr ctx, ImGuiDockNode* node)
 		{
 			DockContextQueueUndockNode_ptr(ctx, node);
 		}
@@ -6561,7 +6561,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiContext*, void> TableSettingsInstallHandler_ptr;
-		public static void TableSettingsInstallHandler(ImGuiContext* context)
+		public static void TableSettingsInstallHandler(ImGuiContextPtr context)
 		{
 			TableSettingsInstallHandler_ptr(context);
 		}
@@ -7119,7 +7119,7 @@ namespace SharpImGUI
 		}
 
 		static delegate* unmanaged[Cdecl]<ImGuiStorage*, byte*, void> DebugNodeStorage_ptr;
-		public static void DebugNodeStorage(ImGuiStorage* storage, string label)
+		public static void DebugNodeStorage(ImGuiStoragePtr storage, string label)
 		{
 			using var p_label = new StringHelper(label);
 			DebugNodeStorage_ptr(storage, p_label);

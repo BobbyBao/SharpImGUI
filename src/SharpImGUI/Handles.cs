@@ -17,8 +17,8 @@ namespace SharpImGUI
     {
         public ImVec2 Min;
         public ImVec2 Max;
-        public float GetWidth() => Max.X - Min.X;
-        public float GetHeight() => Max.Y - Min.Y;
+        public float GetWidth() => Max.x - Min.x;
+        public float GetHeight() => Max.y - Min.y;
 
         public ImRect(in ImVec2 min, in ImVec2 max)
         {
@@ -36,6 +36,7 @@ namespace SharpImGUI
         public static implicit operator ImGuiWindowPtr(ImGuiWindow* native) => new ImGuiWindowPtr(native);
         public static implicit operator ImGuiWindow*(ImGuiWindowPtr handle) => handle.self;
 
+        public ref ImGuiWindow Value => ref Unsafe.AsRef<ImGuiWindow>(self);
         public ref ImGuiWindowTempData DC => ref self->DC;
 
         public ImDrawListPtr DrawList => self->DrawList;
@@ -81,6 +82,10 @@ namespace SharpImGUI
         public void AddLine(ImVec2 p1, ImVec2 p2, uint col) => AddLine(p1, p2, col, 1.0f);
         public void AddRectFilled(ImVec2 p_min, ImVec2 p_max, uint col, float rounding = 0.0f) => AddRectFilled(p_min, p_max, col, rounding, 0);
         public void AddText(ImVec2 pos, uint col, Span<byte> text) => ImGui.AddTextVec2(this, pos, col, text);
+        public void AddText(ImFontPtr font, float font_size, ImVec2 pos, uint col, string text_begin, string text_end, float wrap_width, ImVec4* cpu_fine_clip_rect = null)
+            => ImGui.ImDrawList_AddTextFontPtr(this, font, font_size, pos, col, text_begin, text_end, wrap_width, cpu_fine_clip_rect);
+        public void AddImage(ImTextureID user_texture_id, ImVec2 p_min, ImVec2 p_max) => ImGui.ImDrawList_AddImage(self, user_texture_id, p_min, p_max, ImVec2.Zero, ImVec2.One, 0xffffffff);
+        public void AddImage(ImTextureID user_texture_id, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max) => ImGui.ImDrawList_AddImage(self, user_texture_id, p_min, p_max, uv_min, uv_max, 0xffffffff);
     }
 
     public unsafe partial struct ImGuiPayloadPtr

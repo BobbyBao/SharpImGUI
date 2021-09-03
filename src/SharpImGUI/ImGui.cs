@@ -288,9 +288,9 @@ namespace SharpImGUI
         public static bool InputScalar(string label, ImGuiDataType data_type, IntPtr p_data, IntPtr p_step = default, IntPtr p_step_fast = default, string format = null) => InputScalar(label, data_type, p_data, p_step, p_step_fast, format, ImGuiInputTextFlags.None);
         public static bool InputScalarN(string label, ImGuiDataType data_type, IntPtr p_data, int components, IntPtr p_step = default, IntPtr p_step_fast = default, string format = null) => InputScalarN(label, data_type, p_data, components, p_step, p_step_fast, format, ImGuiInputTextFlags.None);
         public static bool ColorEdit3(string label, ref ImVec3 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit3(label, (float*)Unsafe.AsPointer(ref col.X), flags);
-        public static bool ColorEdit4(string label, ref ImVec4 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit4(label, (float*)Unsafe.AsPointer(ref col.X), flags);
+        public static bool ColorEdit4(string label, ref ImVec4 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit4(label, (float*)Unsafe.AsPointer(ref col.x), flags);
         public static bool ColorPicker3(string label, ref ImVec3 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit3(label, (float*)Unsafe.AsPointer(ref col.X), flags);
-        public static bool ColorPicker4(string label, ref ImVec4 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit4(label, (float*)Unsafe.AsPointer(ref col.X), flags);
+        public static bool ColorPicker4(string label, ref ImVec4 col, ImGuiColorEditFlags flags = ImGuiColorEditFlags.NoOptions) => ColorEdit4(label, (float*)Unsafe.AsPointer(ref col.x), flags);
         public static bool ColorButton(string desc_id, in ImVec4 col, ImGuiColorEditFlags flags = default) => ColorButton(desc_id, col, flags, default);
 
         public static bool TreeNode(string label) => TreeNodeStr(label);
@@ -369,5 +369,11 @@ namespace SharpImGUI
                 ImDrawList_AddTextVec2_ptr(self, pos, col, p_text_begin, p_text_end);
             }
         }
+
+        public static void RenderArrow(ImDrawListPtr draw_list, ImVec2 pos, uint col, ImGuiDir dir)
+            => RenderArrow(draw_list, pos, col, dir, 1.0f);
+
+        public static void RenderText(ImVec2 pos, string text, string text_end = null)
+            => RenderText(pos, text, text_end, true);
     }
 }
