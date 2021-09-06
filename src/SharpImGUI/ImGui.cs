@@ -108,11 +108,16 @@ namespace SharpImGUI
         public static bool Button(string label) => Button(label, default);
         public static bool InvisibleButton(string str_id, ImVec2 size) => InvisibleButton(str_id, size, ImGuiButtonFlags.None);
         public static void SameLine(float offset_from_start_x = 0.0f) => SameLine(offset_from_start_x, -1.0f);
+        public static void Image(nint user_texture_id, ImVec2 size)
+            => ImGui.Image(user_texture_id, size, ImVec2.Zero, ImVec2.One, ImVec4.One, ImVec4.Zero);
+        public static void Image(nint user_texture_id, ImVec2 size, ImVec2 uv0, ImVec2 uv1)
+            => ImGui.Image(user_texture_id, size, uv0, uv1, ImVec4.One, ImVec4.Zero);
+        public static void Image(nint user_texture_id, ImVec2 size, ImVec2 uv0, ImVec2 uv1, ImVec4 tint_col)
+            => ImGui.Image(user_texture_id, size, uv0, uv1, tint_col, ImVec4.Zero);
         public static void TextUnformatted(string text) => TextUnformatted(text, null);
         public static void TextUnformatted(ReadOnlySpan<byte> text)
         {
             var  p_text =  (byte*)Unsafe.AsPointer(ref Unsafe.AsRef(in text[0]));
-
             TextUnformatted_ptr(p_text, p_text + text.Length);
         }
         public static bool BeginCombo(string label, string preview_value) => BeginCombo(label, preview_value, default);
